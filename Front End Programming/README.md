@@ -1,3 +1,4 @@
+```txt
 <---------- Tags ---------->
 
 HTML specifies a set of tags that identify structure of the document and the content type.
@@ -184,5 +185,4 @@ multiple | Attribute of <select> ... </select>. It can allow multiple selection 
 value    | Attribute of <option>. It can set the actual data will be sent to the system when a certain option is selected.
          | It is different with the text displayed. The text displayed will put after the <option> tag.
 selected | Attribute of <option>. It can set the initial selection will be chosen. Put before value="".
-
-
+```
