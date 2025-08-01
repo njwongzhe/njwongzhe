@@ -1,21 +1,25 @@
 # HTML
+
+## Tags 
+
 ```html
-
-<---------- Tags ---------->
-
 HTML specifies a set of tags that identify structure of the document and the content type.
 Most tags come in pairs, marking a beginning and ending of a content.
 Example : <table> ... </table>.
+```
 
-<------- Attributes ------->
+## Attributes
 
+```html
 Add styles to an element (tag). 
 Example : face="Arial" / color="#FF0000" / size="+3" in <font face="Arial" color="#FF0000" size="+3"> ... </font>.
 The Attribute Name (border) is not case sensitive but the Attribute Data ("1") is case sensitive.
 The Attribute Data should place inside a "" and put a = between Attribute Name and Attribute Data.
+```
 
-<---------- Basic Structure ---------->
+## Basic Structure
 
+```html
 <!DOCTYPE html> 
 <html lang="en"> 
 
@@ -27,10 +31,12 @@ The Attribute Data should place inside a "" and put a = between Attribute Name a
     <!--Content-->
 </body> 
 
-</html> 
+</html>
+```
 
-<----- List of Tags & Attributes ----->
+## List of Tags & Attributes
 
+```html
 <html> ... </html>   | HTML document put between it.
 
 <head> ... </head>   | Head section of the HTML document.
