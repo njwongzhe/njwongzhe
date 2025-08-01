@@ -1,0 +1,135 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>Attributes</title> 
+</head> 
+
+<body>
+    <!--Topic--><h1><u>Paragraph Alignment</u></h1>
+    <p align="justify">Align the text to left and right..............................................................................................................................................................................................................................................................................................................................................................................................................</p>
+    <p align="center">Align the text to the center.</p>
+    <p align="right">Align the text to the right.</p>
+    <hr>
+
+    <h1><u>Text Font</u></h1>
+    <p>
+        <font face="Arial" color="#FF0000" size="+3">This is a text with font = Arial, size = +3, color = Red.</font><br>
+        <font face="Arial" color="#00FF00" size="4">This is a text with font = Arial, size = 4, color = Green.</font><br>
+        <font face="Arial" color="#00FF00" size="">This is a text with font = Arial, size = ?, color = Green.</font><br>
+        <font face="Arial" color="#0000FF" size="-3">This is a text with font = Arial, size = -3, color = Blue.</font>
+    </p>
+    <hr>
+
+    <!--Topic--><h1><u>Bullet Style (Unordered List)</u></h1>
+    <ul type="">
+        <li>List Item 1 (Default)</li>
+        <li>List Item 2 (Default)</li>
+        <li>List Item 3 (Default)</li>
+    </ul>
+    <ul type="disc">
+        <li>List Item 1 (Disc)</li>
+        <li>List Item 2 (Disc)</li>
+        <li>List Item 3 (Disc)</li>
+    </ul> 
+    <ul type="circle">
+        <li>List Item 1 (Circle)</li>
+        <li>List Item 2 (Circle)</li>
+        <li>List Item 3 (Circle)</li>
+    </ul>
+    <ul type="square">
+        <li>List Item 1 (Square)</li>
+        <li>List Item 2 (Square)</li>
+        <li>List Item 3 (Square)</li>
+    </ul>
+    <hr>
+
+    <!--Topic--><h1><u>Number Style (Ordered List)</u></h1>
+    <ol type="">
+        <li>Ordered Item 1 (Default)</li>
+        <li>Ordered Item 2 (Default)</li>
+    </ol>
+    <ol type="1" start="3">
+        <li>Ordered Item 3 (Normal Numbers)</li>
+        <li>Ordered Item 4 (Normal Numbers)</li>
+    </ol>
+    <ol type="A" start="5">
+        <li>Ordered Item 5 (Capital Letters)</li>
+        <li>Ordered Item 6 (Capital Letters)</li>
+    </ol>
+    <ol type="a" start="7">
+        <li>Ordered Item 7 (Small Letters)</li>
+        <li>Ordered Item 8 (Small Letters)</li>
+    </ol>
+    <ol type="I" start="9">
+        <li>Ordered Item 9 (Capital Roman Numbers)</li>
+        <li>Ordered Item 10 (Capital Roman Numbers)</li>
+    </ol>
+    <ol type="i" start="11">
+        <li>Ordered Item 11 (Small Roman Numbers)</li>
+        <li>Ordered Item 12 (Small Roman Numbers)</li>
+    </ol>
+    <hr>
+
+    <!--Topic--><h1><u>Table Structure (With Box)</u></h1>
+    <table border="1">
+        <tr>
+            <th>Table Header 1</th>
+            <th colspan="2">Table Header 2</th>
+        </tr> 
+        <tr>
+            <td rowspan="2">Table Data 1,1</td>
+            <td>Table Data 1,2</td>
+            <td>Table Data 1,2</td>
+        </tr>
+        <tr>
+            <td>Table Data 2,1</td>
+            <td>Table Data 2,2</td>
+        </tr>
+    </table>
+    <hr>
+
+    <!--Topic--><h1><u>Hyberlink</u></h1>
+    <p>
+        <a href="01-BasicStructure&Tag.html" target="_blank">Hyberlink(Blank) to 01-BasicStructure&Tag.html</a><br>   <!--target="_blank" opens the link in a new tab.-->
+        <a href="01-BasicStructure&Tag.html" target="_parent">Hyberlink(Parent) to 01-BasicStructure&Tag.html</a><br> <!--target="_parent" opens the link in the parent frame.-->
+        <a href="01-BasicStructure&Tag.html" target="_self">Hyberlink(Self) to 01-BasicStructure&Tag.html</a><br>     <!--target="_self" opens the link in the same frame.-->
+        <a href="01-BasicStructure&Tag.html" target="_top">Hyberlink(Top) to 01-BasicStructure&Tag.html</a><br>       <!--target="_top" opens the link in the full body of the window.-->
+
+        <a href="https://www.youtube.com/">Hyberlink to Youtube (http)</a><br>        <!--http is used for external website.-->
+        <a href="mailto:ngjaawei@graduate.utm.my">Hyberlink to Email (mailto)</a><br> <!--mailto is used for email.-->
+        <a href="file:Demo_Image.jpg">Hyberlink to Document (file)</a><br>            <!--file is used for document.-->
+    </p>
+    <hr>
+
+    <!--Topic--><h1><u>Image</u></h1>
+    <p>
+        <!--Topic--><h2>1. Image with Difference Width and Height</h2>
+        <img src="Demo_Image.jpg" alt="Demo Image" width="" height="">
+        <img src="Demo_Image.jpg" alt="Demo Image" width="200" height=""> 
+        <img src="Demo_Image.jpg" alt="Demo Image" width="" height="200">
+        <img src="Demo_Image.jpg" alt="Demo Image" width="200" height="200"><br> 
+        <hr>
+
+        <!--Topic--><h2>2. Image Cannot Display</h2>
+        <img src="OK.jpg" alt="Picture Not Exist"><br>
+        <hr>
+
+        <!--Topic--><h2>3. Image with Border, Title, Vspace and Hspace</h2>
+        <img src="Demo_Image.jpg" alt="Demo Image" vspace="100" hspace="100" border="10" title="Cat"><br>
+        <hr>
+
+        <!--Topic--><h2>4. Image with Vertical Align</h2>
+        Top Text<img src="Demo_Image.jpg" width="200" height="200" valign="top">Top Text<br>
+        Middle Text<img src="Demo_Image.jpg" width="200" height="200" valign="middle">Middle Text<br>
+        Bottom Text<img src="Demo_Image.jpg" width="200" height="200" valign="bottom">Bottom Text<br>
+        <hr>
+
+        <!--Topic--><h2>5. Image with Align</h2>
+        <p>Right Text<img src="Demo_Image.jpg" width="200" height="200" align="left">Right Text</p>
+        <p><br>Left Text<img src="Demo_Image.jpg" width="200" height="200" align="right">Left Text</p>
+        <hr>
+    </p>
+</body> 
+
+</html> 
