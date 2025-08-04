@@ -272,20 +272,25 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 
 ## Style
 
+```txt
 - Style is a definition of fonts, colors and etc.
 - Each style has a unique name : Selector (HTML Tag).
 - The selectors and their styles are defined in one place.
 - In your HTML contents you simply refer to the selectors whenever you want to activate a certain style.
+```
 
 ## Selector
 
+```txt
 - A selector is an HTML tag at which style will be applied.
 - This could be any tag like <h1> or <table> etc.
 - In the style definition you define how each selector should work (font and color etc.)
+```
 
 ## Declaration
-
+```txt
 - 
+```
 
 ## Basic Structure
 
