@@ -1,6 +1,6 @@
-# HTML
+# 1.0 HTML (.html)
 
-## Tags 
+## 1.1 Tags 
 
 ```html
 - HTML specifies a set of tags that identify structure of the document and the content type.
@@ -8,7 +8,7 @@
 - Example : <table> ... </table>.
 ```
 
-## Attributes
+## 1.2 Attributes
 
 ```html
 - Attributes provide additional information or styles to HTML elements (tag).
@@ -18,7 +18,7 @@
 - Use an equals sign (=) between the Attribute Name and its Attribute Value.
 ```
 
-## Basic Structure
+## 1.3 Basic Structure
 
 ```html
 <!DOCTYPE html> 
@@ -35,15 +35,15 @@
 </html>
 ```
 
-## Comments
+## 1.4 Comments
 
 ```html
 <!--I am a Comment-->
 ```
 
-## Tags & Attributes Reference
+## 1.5 Tags & Attributes Reference
 
-### Document Structure
+### 1.5.1 Document Structure
 
 ```html
 <html> ... </html>   | HTML document put between it.
@@ -55,7 +55,7 @@
                      | Put all the content such as Paragraphs, Tables, Lists, Images, JavaScripts Code...
 ```
 
-### Common Attribute
+### 1.5.2 Common Attribute
 
 ```html
 class | Common Attribute for most of the Tags. (Used to define CSS styles.)
@@ -63,9 +63,9 @@ id    | Common Attribute for most of the Tags. (Unique identifier for an element
 style | Common Attribute for most of the Tags. (Inline CSS styling for an element.)
 ```
 
-### Text & Formating
+### 1.5.3 Text & Formating
 
-#### Basic Text Tags
+#### 1.5.3.1 Basic Text Tags
 
 ```html
 <p> ... </p> | Paragraph block. All content in this tag will be in same line if not use <br>.
@@ -86,7 +86,7 @@ align | Attribute of <p> ... </p>. It can set the text alignment.
 <h6> ... </h6> | Heading Tag 6. (Smallest Size)
 ```
 
-#### Inline Text Formatting 
+#### 1.5.3.2 Inline Text Formatting 
 
 ```html
 Block-Level Element : 
@@ -117,14 +117,14 @@ Inline Element :
                  | Extra spaces, tabs and line breaks will not be display if not use <pre> ... </pre>.
 ```
 
-### Grouping & Layout
+### 1.5.4 Grouping & Layout
 
 ```html
 <div> ... </div>   | Block-level container.
 <span> ... </span> | Inline container.
 ```
 
-### List
+### 1.5.5 List
 
 ```html
 <ul> ... </ul> | Unordered List.
@@ -149,7 +149,7 @@ type  | Attribute of <ol> ... </ol>. Change the style of marker.
 <dd> ... </dd> | Description List Item. Put inside <dl> ... </dl>.
 ```
 
-### Font Style
+### 1.5.6 Font Style
 
 ```html
 <font> ... </font> | Set the style of the text.
@@ -161,7 +161,7 @@ size  | Attribute of <font> ... </font>. It can set the size of the text.
       | ="3"  : Set to size 3.
 ```
 
-### Table
+### 1.5.7 Table
 
 ```html
 <table> ... </table> | Table Structure.
@@ -173,7 +173,7 @@ colspan | Attribute of <table> ... </table>. It can make a cell span more than o
 rowspan | Attribute of <table> ... </table>. It can make a cell span more than one row such as ="2".
 ```
 
-### Hyperlink
+### 1.5.8 Hyperlink
 
 ```html
 <a> ... </a> | Hyperlink.
@@ -188,7 +188,7 @@ target | Attribute of <a> ... </a>. It can set how to open the Hyperlink.
        | ="_top"    : Opens the link in the full body of the window.
 ```
 
-### Image
+### 1.5.9 Image
 
 ```html
 <img> | Image.
@@ -209,7 +209,7 @@ align  | Attribute of <img>. It can set how the text surrounding the image will 
        | ="right" : All text will display at the left side of the image. (Picture at right side of the text.)
 ```
 
-### Form (Input)
+### 1.5.10 Form (Input)
 
 ```html
 <form> ... </form> | Contain input elements.
@@ -259,9 +259,58 @@ value    | Attribute of <option>. It can set the actual data will be sent to the
 selected | Attribute of <option>. It can set the initial selection will be chosen. Put before value="".
 ```
 
-# CSS (Cascading Style Sheets)
-- Define how to display HTML elements
+# CSS (Cascading Style Sheets / .css)
+- When tags like <font> and color attributes were added to the HTML 3.2 specification, it started a nightmare for web developers.
+- Development of large web sites where fonts and color information were added to every single page became a long and expensive process.
+- Thus, the CSS can apply to multiple sites were added to HTML 4.0.
+- In HTML 4.0, all formatting could (and should) be removed from the HTML document and stored in a separate CSS file.
+- CSS Styles define Define how to display HTML elements and normally stored in Style Sheets.
+- External Style Sheets can save developer a lot of work since you can change the look of an entire Website by changing just one file.
+- CSS separated content (HTML) and presentation (CSS).
+- By using CSS, the same content can be presented in different appearances.
+- You can write CSS once and then reuse same sheet in multiple HTML pages. 
 
-```html
+## Style
 
+```css
+- Style is a definition of fonts, colors and etc.
+- Each style has a unique name : Selector (HTML Tag).
+- The selectors and their styles are defined in one place.
+- In your HTML contents you simply refer to the selectors whenever you want to activate a certain style.
+```
+
+## Selector
+
+```css
+- A selector is an HTML tag at which style will be applied.
+- This could be any tag like <h1> or <table> etc.
+- In the style definition you define how each selector should work (font and color etc.)
+```
+
+## Declaration
+
+```css
+- 
+```
+
+## Basic Structure
+
+```css
+/* Selector */ {
+       /* Declaration_1; */
+       /* Declaration_2; */
+       /* ...           */
+}
+
+/* Selector */ {
+       /* Property_1: Value_1; */
+       /* Property_2: Value_2; */
+       /* ...                  */
+}
+
+/* Example */
+h1 {
+       color: blue;
+       font-size: 12 px;
+}
 ```
