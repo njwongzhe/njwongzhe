@@ -3,18 +3,19 @@
 ## Tags 
 
 ```html
-HTML specifies a set of tags that identify structure of the document and the content type.
-Most tags come in pairs, marking a beginning and ending of a content.
-Example : <table> ... </table>.
+- HTML specifies a set of tags that identify structure of the document and the content type.
+- Most tags come in pairs, marking a beginning and ending of a content.
+- Example : <table> ... </table>.
 ```
 
 ## Attributes
 
 ```html
-Add styles to an element (tag). 
-Example : face="Arial" / color="#FF0000" / size="+3" in <font face="Arial" color="#FF0000" size="+3"> ... </font>.
-The Attribute Name (border) is not case sensitive but the Attribute Data ("1") is case sensitive.
-The Attribute Data should place inside a "" and put a = between Attribute Name and Attribute Data.
+- Attributes provide additional information or styles to HTML elements (tag).
+- Example : face="Arial" / color="#FF0000" / size="+3" in <font face="Arial" color="#FF0000" size="+3"> ... </font>.
+- Attribute Names (e.g face) are not case-sensitive but the Attribute Values (e.g "Arial") are case-sensitive.
+- Attribute Values must be enclosed in double quotes (""). 
+- Use an equals sign (=) between the Attribute Name and its Attribute Value.
 ```
 
 ## Basic Structure
@@ -24,17 +25,25 @@ The Attribute Data should place inside a "" and put a = between Attribute Name a
 <html lang="en"> 
 
 <head> 
-    <title><!--Title--></title> 
+    <title><!--Page Title--></title> 
 </head> 
 
 <body>
-    <!--Content-->
+    <!--Page Content-->
 </body> 
 
 </html>
 ```
 
-## List of Tags & Attributes
+## Comments
+
+```html
+<!--I am a Comment-->
+```
+
+## Tags & Attributes Reference
+
+### Document Structure
 
 ```html
 <html> ... </html>   | HTML document put between it.
@@ -42,20 +51,24 @@ The Attribute Data should place inside a "" and put a = between Attribute Name a
 <head> ... </head>   | Head section of the HTML document.
 <title> ... </title> | Webpage Name (Title).
 
-<body> ... </body>   | Body section of the HTML document. (Put all the content such as Paragraphs, Tables, Lists, Images, JavaScripts Code...)
+<body> ... </body>   | Body section of the HTML document. 
+                     | Put all the content such as Paragraphs, Tables, Lists, Images, JavaScripts Code...
+```
 
-<h1> ... </h1> | Heading Tag 1. (Largest Size)
-<h2> ... </h2> | Heading Tag 2.
-<h3> ... </h3> | Heading Tag 3.
-<h4> ... </h4> | Heading Tag 4.
-<h5> ... </h5> | Heading Tag 5.
-<h6> ... </h6> | Heading Tag 6. (Smallest Size)
+### Common Attribute
 
-class | Common Attribute for most of the Tags.
-id    | Common Attribute for most of the Tags.
-style | Common Attribute for most of the Tags.
+```html
+class | Common Attribute for most of the Tags. (Used to define CSS styles.)
+id    | Common Attribute for most of the Tags. (Unique identifier for an element.)
+style | Common Attribute for most of the Tags. (Inline CSS styling for an element.)
+```
 
-<p> ... </p> | Paragraph. All text in this tag will be in same line if not use <br>.
+### Text & Formating
+
+#### Basic Text Tags
+
+```html
+<p> ... </p> | Paragraph block. All content in this tag will be in same line if not use <br>.
 align | Attribute of <p> ... </p>. It can set the text alignment.
       | ="justify" : Justify the text alignment to left and right.
       | ="center"  : Justify the text alignment to center.
@@ -64,6 +77,25 @@ align | Attribute of <p> ... </p>. It can set the text alignment.
 <br>   | Break Line.
 <hr>   | Horizontal Rule. (Line)
 &nbsp; | Non-Breaking Space (Whitespace).
+
+<h1> ... </h1> | Heading Tag 1. (Largest Size)
+<h2> ... </h2> | Heading Tag 2.
+<h3> ... </h3> | Heading Tag 3.
+<h4> ... </h4> | Heading Tag 4.
+<h5> ... </h5> | Heading Tag 5.
+<h6> ... </h6> | Heading Tag 6. (Smallest Size)
+```
+
+#### Inline Text Formatting 
+
+```html
+Block-Level Element : 
+- A block-level element always starts on a newline.
+- Example : <p> ... </p> and <div> ... </div>.
+
+Inline Element :
+- An inline element does not start on a newline.
+- Example : <b> ... </b> and <span> ... </span>.
 
 <b> ... </b>   | Bold Text.
 <i> ... </i>   | Italic Text. 
@@ -83,15 +115,18 @@ align | Attribute of <p> ... </p>. It can set the text alignment.
 <sup> ... </sup> | Superscript. 
 <pre> ... </pre> | Displays text exactly as it is typed—including spaces, line breaks and indentation.
                  | Extra spaces, tabs and line breaks will not be display if not use <pre> ... </pre>.
+```
 
-<font> ... </font> | Set the style of the text.
-face  | Attribute of <font> ... </font>. It can set the face of the text such as ="Arial". 
-color | Attribute of <font> ... </font>. It can set the color of the text such as ="#FF0000".
-size  | Attribute of <font> ... </font>. It can set the size of the text.
-      | ="+3" : Increase the size by 3.
-      | ="-3" : Decrease the size by 3.
-      | ="3"  : Set to size 3.
+### Grouping & Layout
 
+```html
+<div> ... </div>   | Block-level container.
+<span> ... </span> | Inline container.
+```
+
+### List
+
+```html
 <ul> ... </ul> | Unordered List.
 type | Attribute of <ul> ... </ul>. Change the style of bullet.
      | ="disc"   : Discs bullet style.
@@ -112,7 +147,23 @@ type  | Attribute of <ol> ... </ol>. Change the style of marker.
 <dl> ... </dl> | Description List.
 <dt> ... </dt> | List Item. Put inside <dl> ... </dl>.
 <dd> ... </dd> | Description List Item. Put inside <dl> ... </dl>.
+```
 
+### Font Style
+
+```html
+<font> ... </font> | Set the style of the text.
+face  | Attribute of <font> ... </font>. It can set the face of the text such as ="Arial". 
+color | Attribute of <font> ... </font>. It can set the color of the text such as ="#FF0000".
+size  | Attribute of <font> ... </font>. It can set the size of the text.
+      | ="+3" : Increase the size by 3.
+      | ="-3" : Decrease the size by 3.
+      | ="3"  : Set to size 3.
+```
+
+### Table
+
+```html
 <table> ... </table> | Table Structure.
 <tr> ... </tr>       | Table Row.    Put inside <table> ... </table>.
 <th> ... </th>       | Table Header. Put inside <table> ... </table>.
@@ -120,7 +171,11 @@ type  | Attribute of <ol> ... </ol>. Change the style of marker.
 border  | Attribute of <table> ... </table>. It can add box (border) to the table and set its width such as ="1".
 colspan | Attribute of <table> ... </table>. It can make a cell span more than one column such as ="2".
 rowspan | Attribute of <table> ... </table>. It can make a cell span more than one row such as ="2".
+```
 
+### Hyperlink
+
+```html
 <a> ... </a> | Hyperlink.
 href   | Attribute of <a> ... </a>. It can set the URL, phone number, email address and others of the hyperlink such as href="01-BasicStructure&Tag.html".
        | http   ：It can set the link to external website such as href="https://www.youtube.com/".
@@ -128,10 +183,14 @@ href   | Attribute of <a> ... </a>. It can set the URL, phone number, email addr
        | file   ：It can set the link to document such as href="file:Demo_Image.jpg".
 target | Attribute of <a> ... </a>. It can set how to open the Hyperlink. 
        | ="_blank"  : Opens the link in a new tab.
-       | ="_parent" ：Opens the link in the parent frame.
+       | ="_parent" : Opens the link in the parent frame.
        | ="_self"   : Opens the link in the same frame.
        | ="_top"    : Opens the link in the full body of the window.
+```
 
+### Image
+
+```html
 <img> | Image.
 src    | Attribute of <img>. It can set the URL and file name (prefer in same path) of the image. 
 alt    | Attribute of <img>. It can set the replace text if the image set in src cannot display.
@@ -148,7 +207,11 @@ valign | Attribute of <img>. It can set how the text surrounding the image will 
 align  | Attribute of <img>. It can set how the text surrounding the image will be displayed.
        | ="left"  : All text will display at the right side of the image. (Picture at left side of the text.)
        | ="right" : All text will display at the left side of the image. (Picture at right side of the text.)
+```
 
+### Form (Input)
+
+```html
 <form> ... </form> | Contain input elements.
 name   | Attribute of <form> ... </form>. It can give an identify to the form.
 method | Attribute of <form> ... </form>. It can set the HTTP Method.
@@ -158,26 +221,27 @@ method | Attribute of <form> ... </form>. It can set the HTTP Method.
 action | Attribute of <form> ... </form>. It can set the address or the URL to send data to such as ="comments.php". (Usually point to CGI program.)
 
 <input> ... </input> | Collect user input.
-type      | Attribute of <input> ... </input>. It can set the types of input.
-          | ="text"     : Text Box. (Single Line) 
-          | ="radio"    : Radio Button.
-          | ="checkbox" : Checkbox.
-          | ="password" : Each character with an asterisk (*) instead of displaying the entered text.
-          | ="hidden"   : Nothing appears on the screen.
-          | ="button"   : Standard Button.
-          | ="Submit"   : Submit Button. It will submit the input you provide. (Only submit the input field in its <form> ... </form>).
-          | ="Reset"    : Reset Button. It will reset all the input field to the initial situation. (Only reset the input field in its <form> ... </form>).
-          | ="number"   : Input Number.
-          | ="file"     :
-          | ="image"    : 
-name      | Attribute of <input> ... </input>. It can gives an identifier to the input data such as ="Text Box.
-size      | Attribute of <input> ... </input>. It can set the size of the box (Text Field) such as ="10". (Default text field is 20.)
-value     | Attribute of <input> ... </input>. It can specifies an initial value for the text or actual data will be sent to the system when a certain option is selected.
-maxlength | Attribute of <input> ... </input>. It can set the maximum text can be accepted.
-checked   | Attribute of <input> ... </input>. It can set the initial selection will be chosen by Radio Button or Checkbox (type="radio" / type="checkbox").
-onclick   | Attribute of <input> ... </input>. It can set the pop up message when a certain button is clicked such as ="alert('Message')".
-min       | Attribute of <input> ... </input>. It can set the smallest number can be input by type="number".
-max       | Attribute of <input> ... </input>. It can set the largest number can be input by type="number".
+type        | Attribute of <input> ... </input>. It can set the types of input.
+            | ="text"     : Text Box. (Single Line) 
+            | ="radio"    : Radio Button.
+            | ="checkbox" : Checkbox.
+            | ="password" : Each character with an asterisk (*) instead of displaying the entered text.
+            | ="hidden"   : Nothing appears on the screen.
+            | ="button"   : Standard Button.
+            | ="Submit"   : Submit Button. It will submit the input you provide. (Only submit the input field in its <form> ... </form>).
+            | ="Reset"    : Reset Button. It will reset all the input field to the initial situation. (Only reset the input field in its <form> ... </form>).
+            | ="number"   : Input Number.
+            | ="file"     :
+            | ="image"    : 
+name        | Attribute of <input> ... </input>. It can gives an identifier to the input data such as ="Text Box.
+size        | Attribute of <input> ... </input>. It can set the size of the box (Text Field) such as ="10". (Default text field is 20.)
+value       | Attribute of <input> ... </input>. It can set an initial value for the text or actual data will be sent to the system when a certain option is selected.
+placeholder | Attribute of <input> ... </input>. It can set a short hint that describes the expected value of an input field. 
+maxlength   | Attribute of <input> ... </input>. It can set the maximum text can be accepted.
+checked     | Attribute of <input> ... </input>. It can set the initial selection will be chosen by Radio Button or Checkbox (type="radio" / type="checkbox").
+onclick     | Attribute of <input> ... </input>. It can set the pop up message when a certain button is clicked such as ="alert('Message')".
+min         | Attribute of <input> ... </input>. It can set the smallest number can be input by type="number".
+max         | Attribute of <input> ... </input>. It can set the largest number can be input by type="number".
 
 <textarea> ... </textarea> | Text Box. (Multiple Line) Initial value can put between <textarea> ... </textarea>.
 name      | Attribute of <textarea> ... </textarea>. It can gives an identifier to the input data such as ="Text Box.
