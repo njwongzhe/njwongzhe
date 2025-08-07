@@ -260,6 +260,7 @@ value    | Attribute of <option>. It can set the actual data will be sent to the
 selected | Attribute of <option>. It can set the initial selection will be chosen. Put before value="".
 ```
 
+
 # 2.0 CSS (Cascading Style Sheets / .css)
 - When tags like <font> and color attributes were added to the HTML 3.2 specification, it started a nightmare for web developers.
 - Development of large web sites where fonts and color information were added to every single page became a long and expensive process.
