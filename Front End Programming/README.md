@@ -49,7 +49,8 @@
 <html> ... </html>   | HTML document put between it.
 
 <head> ... </head>   | Head section of the HTML document.
-<title> ... </title> | Webpage Name (Title).
+<title> ... </title> | Put inside <head> ... </head>. Webpage Name (Title).
+<style> ... </style> | Put inside <head> ... </head>. For CSS.
 
 <body> ... </body>   | Body section of the HTML document. 
                      | Put all the content such as Paragraphs, Tables, Lists, Images, JavaScripts Code...
@@ -145,8 +146,8 @@ type  | Attribute of <ol> ... </ol>. Change the style of marker.
 <li> ... </li> | List Item. Put inside <ul> ... </ul> or <ol> ... </ol>.
 
 <dl> ... </dl> | Description List.
-<dt> ... </dt> | List Item. Put inside <dl> ... </dl>.
-<dd> ... </dd> | Description List Item. Put inside <dl> ... </dl>.
+<dt> ... </dt> | Put inside <dl> ... </dl>. List Item.
+<dd> ... </dd> | Put inside <dl> ... </dl>. Description List Item. 
 ```
 
 ### 1.5.6 Font Style
@@ -165,9 +166,9 @@ size  | Attribute of <font> ... </font>. It can set the size of the text.
 
 ```html
 <table> ... </table> | Table Structure.
-<tr> ... </tr>       | Table Row.    Put inside <table> ... </table>.
-<th> ... </th>       | Table Header. Put inside <table> ... </table>.
-<td> ... </td>       | Table Data.   Put inside <table> ... </table>.
+<tr> ... </tr>       | Put inside <table> ... </table>. Table Row.
+<th> ... </th>       | Put inside <table> ... </table>. Table Header.
+<td> ... </td>       | Put inside <table> ... </table>. Table Data.
 border  | Attribute of <table> ... </table>. It can add box (border) to the table and set its width such as ="1".
 colspan | Attribute of <table> ... </table>. It can make a cell span more than one column such as ="2".
 rowspan | Attribute of <table> ... </table>. It can make a cell span more than one row such as ="2".
@@ -259,7 +260,7 @@ value    | Attribute of <option>. It can set the actual data will be sent to the
 selected | Attribute of <option>. It can set the initial selection will be chosen. Put before value="".
 ```
 
-# CSS (Cascading Style Sheets / .css)
+# 2.0 CSS (Cascading Style Sheets / .css)
 - When tags like <font> and color attributes were added to the HTML 3.2 specification, it started a nightmare for web developers.
 - Development of large web sites where fonts and color information were added to every single page became a long and expensive process.
 - Thus, the CSS can apply to multiple sites were added to HTML 4.0.
@@ -270,7 +271,7 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 - By using CSS, the same content can be presented in different appearances.
 - You can write CSS once and then reuse same sheet in multiple HTML pages. 
 
-## Style
+## 2.1 Style
 
 ```txt
 - Style is a definition of fonts, colors and etc.
@@ -279,37 +280,66 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 - In your HTML contents you simply refer to the selectors whenever you want to activate a certain style.
 ```
 
-## Selector
+## 2.2 Basic Structure
+
+```html
+<head>
+       <style>
+              /* Selector */ {
+                     /* Declaration_1; */
+                     /* Declaration_2; */
+                     /* ...           */
+              }
+       </style>
+</head>
+
+<head>
+       <style>
+              /* Selector */ {
+                     /* Property_1: Value_1; */
+                     /* Property_2: Value_2; */
+                     /* ...                  */
+              }
+       </style>
+</head>
+
+<head>
+       <style>
+              /* Example */
+              h1 {
+                     color: blue;
+                     font-size: 12 px;
+              }
+       </style>
+</head>
+```
+
+## 2.3 Comment
+
+```css
+/*Single Line Comment*/
+
+/*Multi Line 
+  Comment*/
+```
+
+## 2.4 Declaration
+```txt
+- Property : A type of attribute of HTML tag you want to change.
+- Value    : Each properties are assigned to a Values.
+- CSS declarations end with a semicolon (;) and declaration groups are surrounded by curly brackets ({}).
+```
+
+## 2.5 Selector
 
 ```txt
 - A selector is an HTML tag at which style will be applied.
 - This could be any tag like <h1> or <table> etc.
 - In the style definition you define how each selector should work (font and color etc.)
-```
+- CSS selectors are used to "find" (or select) HTML elements based on their element name, id, class, attribute and more.
 
-## Declaration
-```txt
-- 
-```
-
-## Basic Structure
-
-```css
-/* Selector */ {
-       /* Declaration_1; */
-       /* Declaration_2; */
-       /* ...           */
-}
-
-/* Selector */ {
-       /* Property_1: Value_1; */
-       /* Property_2: Value_2; */
-       /* ...                  */
-}
-
-/* Example */
-h1 {
-       color: blue;
-       font-size: 12 px;
-}
+-  HTML/Tag Selector : Used to define styles associated to HTML tags. (A way to redefine the look of tags.)
+-     Class Selector : Used to define styles that can be used without redefining plain HTML tags.
+-        ID Selector : Used to define styles relating to objects with a unique ID. (Most often layers.)
+- Universal Selector :
 ```
