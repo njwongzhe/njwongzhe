@@ -283,6 +283,10 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 
 ## 2.2 Basic Structure
 
+### 
+
+### 2.2.2 Internal Stylesheet
+
 ```html
 <head>
        <style>
@@ -314,6 +318,8 @@ selected | Attribute of <option>. It can set the initial selection will be chose
        </style>
 </head>
 ```
+
+### 
 
 ## 2.3 Comment
 
