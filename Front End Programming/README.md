@@ -52,10 +52,10 @@
 <title> ... </title> | Put inside <head> ... </head>. Webpage Name (Title).
 <style> ... </style> | Put inside <head> ... </head>. For CSS.
 
-<link> | 
-rel  | 
-     | ="stylesheet" : 
-href | 
+<link> | Defines the relationship between the current document and an external resource.
+rel  | Attribute of <link>. Specifies the relationship between the current document and the linked document.
+     | ="stylesheet" : Apply the .css document.
+href | Attribute of <link>. Specifies the location of the linked document.
 
 <body> ... </body>   | Body section of the HTML document. 
                      | Put all the content such as Paragraphs, Tables, Lists, Images, JavaScripts Code...
@@ -66,7 +66,8 @@ href |
 ```html
 class | Common Attribute for most of the Tags. (Used to define CSS styles.)
 id    | Common Attribute for most of the Tags. (Unique identifier for an element.)
-style | Common Attribute for most of the Tags. (Inline CSS styling for an element.)
+
+style | Common Attribute for most of the Tags. (CSS Inline Style)
 ```
 
 ### 1.5.3 Text & Formating
