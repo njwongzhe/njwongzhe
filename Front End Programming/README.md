@@ -285,14 +285,14 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 
 ### 2.2.1 External Stylesheet (Lowest Priority)
 
-HTML Header
+HTML Header :
 ```html
 <head>
        <link rel="stylesheet" href="">
 </head>
 ```
 
-CSS File ()
+CSS File () :
 ```css
 /* Example */
 h1 {
