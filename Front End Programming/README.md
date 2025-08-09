@@ -315,8 +315,8 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 <head>
        <style>
               /* Example */
-              h1 {
-                     color: blue;
+              h1 { 
+                     color: red;
                      font-size: 12px;
               }
        </style>
@@ -328,16 +328,16 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 HTML Header :
 ```html
 <head>
-       <link rel="stylesheet" href="">
+       <link rel="stylesheet" href="04 - CSS Basic Structure (External Stylesheet).css">
 </head>
 ```
 
-CSS File () :
+CSS File >>> "04 - CSS Basic Structure (External Stylesheet).css" :
 ```css
 /* Example */
-h1 {
-       color: blue;
-       font-size: 12px;
+h2 {
+    color: blue;
+    font-size: 14px;
 }
 ```
 
@@ -346,7 +346,7 @@ h1 {
 ```html
 <body>
        <!--Example-->
-       <h1 style="color: blue; font-size: 12px;">Heading 1</h1>
+       <h3 style="color: green; font-size: 16px;">Heading 3</h3>
 </body>
 ```
 
