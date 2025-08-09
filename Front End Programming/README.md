@@ -1,5 +1,7 @@
 # 1.0 HTML (.html)
 
+ <br />
+
 ## 1.1 Tags 
 
 ```html
@@ -7,6 +9,8 @@
 - Most tags come in pairs, marking a beginning and ending of a content.
 - Example : <table> ... </table>.
 ```
+
+ <br />
 
 ## 1.2 Attributes
 
@@ -17,6 +21,8 @@
 - Attribute Values must be enclosed in double quotes (""). 
 - Use an equals sign (=) between the Attribute Name and its Attribute Value.
 ```
+
+ <br />
 
 ## 1.3 Basic Structure
 
@@ -35,11 +41,15 @@
 </html>
 ```
 
+ <br />
+
 ## 1.4 Comments
 
 ```html
 <!--I am a Comment-->
 ```
+
+ <br />
 
 ## 1.5 Tags & Attributes Reference
 
@@ -279,6 +289,8 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 - By using CSS, the same content can be presented in different appearances.
 - You can write CSS once and then reuse same sheet in multiple HTML pages. 
 
+ <br />
+
 ## 2.1 Style
 
 ```txt
@@ -287,6 +299,8 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 - The selectors and their styles are defined in one place.
 - In your HTML contents you simply refer to the selectors whenever you want to activate a certain style.
 ```
+
+ <br />
 
 ## 2.2 Basic Structure
 
@@ -351,6 +365,8 @@ h2 {
 </body>
 ```
 
+ <br />
+
 ## 2.3 Comment
 
 ```css
@@ -360,12 +376,16 @@ h2 {
   Comment*/
 ```
 
+ <br />
+
 ## 2.4 Declaration
 ```txt
 - Property : A type of attribute of HTML tag you want to change.
 - Value    : Each properties are assigned to a Values.
 - CSS declarations end with a semicolon (;) and declaration groups are surrounded by curly brackets ({}).
 ```
+
+ <br />
 
 ## 2.5 Selector
 
