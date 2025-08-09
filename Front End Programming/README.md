@@ -52,6 +52,11 @@
 <title> ... </title> | Put inside <head> ... </head>. Webpage Name (Title).
 <style> ... </style> | Put inside <head> ... </head>. For CSS.
 
+<link> | 
+rel  | 
+     | ="stylesheet" : 
+href | 
+
 <body> ... </body>   | Body section of the HTML document. 
                      | Put all the content such as Paragraphs, Tables, Lists, Images, JavaScripts Code...
 ```
