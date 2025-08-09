@@ -1,6 +1,6 @@
 # 1.0 HTML (.html)
 
- <br />
+<br />
 
 ## 1.1 Tags 
 
@@ -10,7 +10,7 @@
 - Example : <table> ... </table>.
 ```
 
- <br />
+<br />
 
 ## 1.2 Attributes
 
@@ -22,7 +22,7 @@
 - Use an equals sign (=) between the Attribute Name and its Attribute Value.
 ```
 
- <br />
+<br />
 
 ## 1.3 Basic Structure
 
@@ -41,7 +41,7 @@
 </html>
 ```
 
- <br />
+<br />
 
 ## 1.4 Comments
 
@@ -49,7 +49,7 @@
 <!--I am a Comment-->
 ```
 
- <br />
+<br />
 
 ## 1.5 Tags & Attributes Reference
 
@@ -276,7 +276,7 @@ value    | Attribute of <option>. It can set the actual data will be sent to the
 selected | Attribute of <option>. It can set the initial selection will be chosen. Put before value="".
 ```
 
- <br /> <br />
+<br /><br />
 
 # 2.0 CSS (Cascading Style Sheets / .css)
 - When tags like <font> and color attributes were added to the HTML 3.2 specification, it started a nightmare for web developers.
@@ -289,7 +289,7 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 - By using CSS, the same content can be presented in different appearances.
 - You can write CSS once and then reuse same sheet in multiple HTML pages. 
 
- <br />
+<br />
 
 ## 2.1 Style
 
@@ -300,7 +300,7 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 - In your HTML contents you simply refer to the selectors whenever you want to activate a certain style.
 ```
 
- <br />
+<br />
 
 ## 2.2 Basic Structure
 
@@ -365,7 +365,7 @@ h2 {
 </body>
 ```
 
- <br />
+<br />
 
 ## 2.3 Comment
 
@@ -376,7 +376,7 @@ h2 {
   Comment*/
 ```
 
- <br />
+<br />
 
 ## 2.4 Declaration
 ```txt
@@ -385,7 +385,7 @@ h2 {
 - CSS declarations end with a semicolon (;) and declaration groups are surrounded by curly brackets ({}).
 ```
 
- <br />
+<br />
 
 ## 2.5 Selector
 
