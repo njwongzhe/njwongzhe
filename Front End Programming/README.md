@@ -332,7 +332,7 @@ HTML Header :
 </head>
 ```
 
-CSS File >>> "04 - CSS Basic Structure (External Stylesheet).css" :
+"04 - CSS Basic Structure (External Stylesheet).css" :
 ```css
 /* Example */
 h2 {
