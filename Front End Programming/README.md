@@ -283,7 +283,23 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 
 ## 2.2 Basic Structure
 
-### 
+### 2.2.1 External Stylesheet (Lowest Priority)
+
+HTML Header
+```html
+<head>
+       <link rel="stylesheet" href="">
+</head>
+```
+
+CSS File ()
+```css
+/* Example */
+h1 {
+       color: blue;
+       font-size: 12px;
+}
+```
 
 ### 2.2.2 Internal Stylesheet
 
@@ -313,13 +329,20 @@ selected | Attribute of <option>. It can set the initial selection will be chose
               /* Example */
               h1 {
                      color: blue;
-                     font-size: 12 px;
+                     font-size: 12px;
               }
        </style>
 </head>
 ```
 
-### 
+### 2.2.3 Inline Styles (Highest Priority)
+
+```html
+<body>
+       <!--Example-->
+       <h1 style="color: blue; font-size: 12px;">Heading 1</h1>
+</body>
+```
 
 ## 2.3 Comment
 
