@@ -400,7 +400,17 @@ h2 {
 - CSS selectors are used to "find" (or select) HTML elements based on their element name, id, class, attribute and more.
 
 -  HTML/Tag Selector : Used to define styles associated to HTML tags. (A way to redefine the look of tags.)
--     Class Selector : Used to define styles that can be used without redefining plain HTML tags.
 -        ID Selector : Used to define styles relating to objects with a unique ID. (Most often layers.)
+-     Class Selector : Used to define styles that can be used without redefining plain HTML tags.
 - Universal Selector :
+```
+
+<br />
+
+## 2.6 Property
+
+```css
+color
+background-color
+font-size
 ```
