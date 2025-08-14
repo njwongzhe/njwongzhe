@@ -303,6 +303,10 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 <br />
 
 ## 2.2 Basic Structure
+- When different types of CSS Structure is applied to a same selector (tag), only the structure with higher priority will be applied on it.
+- External Stylesheet (Lower Priority)
+- Internal Stylesheet (Middle Priority)
+- Inline Style (Higher Priority)
 
 ### 2.2.1 Internal Stylesheet (Middle Priority)
 
