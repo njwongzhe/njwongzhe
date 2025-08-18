@@ -395,14 +395,81 @@ h2 {
 
 ```txt
 - A selector is an HTML tag at which style will be applied.
-- This could be any tag like <h1> or <table> etc.
+- This could be any tag like <h1> or <table> etc. (HTML/Tag Selector)
 - In the style definition you define how each selector should work (font and color etc.)
 - CSS selectors are used to "find" (or select) HTML elements based on their element name, id, class, attribute and more.
 
--  HTML/Tag Selector : Used to define styles associated to HTML tags. (A way to redefine the look of tags.)
--        ID Selector : Used to define styles relating to objects with a unique ID. (Most often layers.)
+-  HTML/Tag Selector : Used to define styles associated to HTML tags. (Lowest Priority)
 -     Class Selector : Used to define styles that can be used without redefining plain HTML tags.
+-        ID Selector : Used to define styles relating to objects with a unique ID. (Highest Priority)
 - Universal Selector :
+```
+
+### 2.5.1 HTML/Tag Selector (Lowest Priority)
+```html
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>CSS Selector</title> 
+
+    <style> 
+        h1 { /* Tag Selector */
+            color: red;
+        }
+    </style>
+</head> 
+
+<body> 
+    <!--Tag Selector-->
+    <h1>Tag Selector</h1>
+</body> 
+
+</html>
+```
+
+### 2.5.2 Class Selector 
+```html
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>CSS Selector</title> 
+
+    <style> 
+        .class-selector { /* Class Selector */
+            color: green;
+        }
+    </style>
+</head> 
+
+<body> 
+    <!--Class Selector-->
+    <h2 class="class-selector">Class Selector</h2>
+</html>
+```
+
+### 2.5.3 ID Selector 
+```html
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>CSS Selector</title> 
+
+    <style> 
+        #id-selector { /* ID Selector */
+            color: blue;
+        }
+    </style>
+</head> 
+
+<body> 
+    <!--ID Selector-->
+    <h3 id="id-selector">ID Selector</h3>
+</body> 
+
+</html>
 ```
 
 <br />
