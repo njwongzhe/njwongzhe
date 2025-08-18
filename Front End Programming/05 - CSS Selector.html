@@ -5,12 +5,21 @@
     <title>CSS Selector</title> 
 
     <style> 
+        * { /* Universal Selector */
+            color: grey;
+        }
+
         h1 { /* Tag Selector */
             color: red;
         }
 
         .class-selector { /* Class Selector */
             color: green;
+        }
+
+        p.class-selector { /* Class Selector */
+            color: darkgreen;
+            font: italic;
         }
 
         #id-selector { /* ID Selector */
@@ -20,11 +29,17 @@
 </head> 
 
 <body> 
+    <!--Universal Selector-->
+    <h2>Universal Selector</h2>
+    <h3>Universal Selector</h3>
+    <h4>Universal Selector</h4>
+
     <!--Tag Selector-->
     <h1>Tag Selector</h1>
 
     <!--Class Selector-->
     <h2 class="class-selector">Class Selector</h2>
+    <p class="class-selector">This is a paragraph with a class selector.</p>
 
     <!--ID Selector-->
     <h3 id="id-selector">ID Selector</h3>

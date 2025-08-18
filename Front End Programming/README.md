@@ -75,7 +75,7 @@ href | Attribute of <link>. Specifies the location of the linked document.
 
 ```html
 class | Common Attribute for most of the Tags. (Used to define CSS styles.)
-id    | Common Attribute for most of the Tags. (Unique identifier for an element.)
+id    | Common Attribute for most of the Tags. (Used to define CSS styles.)
 
 style | Common Attribute for most of the Tags. (CSS Inline Style)
 ```
@@ -399,13 +399,38 @@ h2 {
 - In the style definition you define how each selector should work (font and color etc.)
 - CSS selectors are used to "find" (or select) HTML elements based on their element name, id, class, attribute and more.
 
--  HTML/Tag Selector : Used to define styles associated to HTML tags. (Lowest Priority)
--     Class Selector : Used to define styles that can be used without redefining plain HTML tags.
--        ID Selector : Used to define styles relating to objects with a unique ID. (Highest Priority)
-- Universal Selector :
+- Universal Selector (*) : Used to define styles for all tags. (Lowest Priority)
+-  HTML/Tag Selector     : Used to define styles associated to HTML tags. 
+-     Class Selector (.) : Used to define styles that can be used without redefining plain HTML tags.
+-        ID Selector (#) : Used to define styles relating to objects with a unique ID. (Highest Priority)
 ```
 
-### 2.5.1 HTML/Tag Selector (Lowest Priority)
+### 2.5.1 Universal Selector (Lowest Priority)
+```html
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>CSS Selector</title> 
+
+    <style> 
+        * { /* Universal Selector */
+            color: grey;
+        }
+    </style>
+</head> 
+
+<body> 
+    <!--Universal Selector-->
+    <h2>Universal Selector</h2>
+    <h3>Universal Selector</h3>
+    <h4>Universal Selector</h4>
+</body> 
+
+</html>
+```
+
+### 2.5.2 HTML/Tag Selector
 ```html
 <!DOCTYPE html> 
 <html lang="en"> 
@@ -428,7 +453,7 @@ h2 {
 </html>
 ```
 
-### 2.5.2 Class Selector 
+### 2.5.3 Class Selector 
 ```html
 <!DOCTYPE html> 
 <html lang="en"> 
@@ -449,7 +474,7 @@ h2 {
 </html>
 ```
 
-### 2.5.3 ID Selector 
+### 2.5.4 ID Selector (Highest Priority)
 ```html
 <!DOCTYPE html> 
 <html lang="en"> 
