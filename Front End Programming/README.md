@@ -544,7 +544,8 @@ h4 ~ h3 { color: grey; } /* Selects all <h3> element that is placed immediately 
 
 #### 2.5.3.5 : Pseudo-class Selector (:)
 - Sequence of Pseudo-class Selector is important.
-- Pseudo-class Selector put in front will show on top when visualize.
+- Pseudo-class Selector put in front will be shown on top when active.
+- Example : The color of Pseudo-class Selector put in front will block the colour of Pseudo-class Selector put behind.
 
 ```css
 a:link { ... }    /* Apply on unvisited link <a>. */ 
