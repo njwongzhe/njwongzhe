@@ -82,7 +82,7 @@ style | Common Attribute for most of the Tags. (CSS Inline Style)
 
 ### 1.5.3 - Text & Formating
 
-#### 1.5.3.1 - Basic Text Tags
+#### 1.5.3.1 : Basic Text Tags
 
 ```html
 <p> ... </p> | Paragraph block. All content in this tag will be in same line if not use <br>.
@@ -103,7 +103,7 @@ align | Attribute of <p> ... </p>. It can set the text alignment.
 <h6> ... </h6> | Heading Tag 6. (Smallest Size)
 ```
 
-#### 1.5.3.2 - Inline Text Formatting 
+#### 1.5.3.2 : Inline Text Formatting 
 
 ```html
 Block-Level Element : 
