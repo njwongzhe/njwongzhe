@@ -53,6 +53,8 @@
 
 ## 1.5 - Tags & Attributes Reference
 
+<br />
+
 ### 1.5.1 - Document Structure
 
 ```html
@@ -71,6 +73,8 @@ href | Attribute of <link>. Specifies the location of the linked document.
                      | Put all the content such as Paragraphs, Tables, Lists, Images, JavaScripts Code...
 ```
 
+<br />
+
 ### 1.5.2 - Common Attribute
 
 ```html
@@ -80,7 +84,11 @@ id    | Common Attribute for most of the Tags. (Used to define CSS styles.)
 style | Common Attribute for most of the Tags. (CSS Inline Style)
 ```
 
+<br />
+
 ### 1.5.3 - Text & Formating
+
+<br />
 
 #### 1.5.3.1 : Basic Text Tags
 
@@ -102,6 +110,8 @@ align | Attribute of <p> ... </p>. It can set the text alignment.
 <h5> ... </h5> | Heading Tag 5.
 <h6> ... </h6> | Heading Tag 6. (Smallest Size)
 ```
+
+<br />
 
 #### 1.5.3.2 : Inline Text Formatting 
 
@@ -134,12 +144,16 @@ Inline Element :
                  | Extra spaces, tabs and line breaks will not be display if not use <pre> ... </pre>.
 ```
 
+<br />
+
 ### 1.5.4 - Grouping & Layout
 
 ```html
 <div> ... </div>   | Block-level container.
 <span> ... </span> | Inline container.
 ```
+
+<br />
 
 ### 1.5.5 - List
 
@@ -166,6 +180,8 @@ type  | Attribute of <ol> ... </ol>. Change the style of marker.
 <dd> ... </dd> | Put inside <dl> ... </dl>. Description List Item. 
 ```
 
+<br />
+
 ### 1.5.6 - Font Style
 
 ```html
@@ -178,6 +194,8 @@ size  | Attribute of <font> ... </font>. It can set the size of the text.
       | ="3"  : Set to size 3.
 ```
 
+<br />
+
 ### 1.5.7 - Table
 
 ```html
@@ -189,6 +207,8 @@ border  | Attribute of <table> ... </table>. It can add box (border) to the tabl
 colspan | Attribute of <table> ... </table>. It can make a cell span more than one column such as ="2".
 rowspan | Attribute of <table> ... </table>. It can make a cell span more than one row such as ="2".
 ```
+
+<br />
 
 ### 1.5.8 - Hyperlink
 
@@ -204,6 +224,8 @@ target | Attribute of <a> ... </a>. It can set how to open the Hyperlink.
        | ="_self"   : Opens the link in the same frame.
        | ="_top"    : Opens the link in the full body of the window.
 ```
+
+<br />
 
 ### 1.5.9 - Image
 
@@ -225,6 +247,8 @@ align  | Attribute of <img>. It can set how the text surrounding the image will 
        | ="left"  : All text will display at the right side of the image. (Picture at left side of the text.)
        | ="right" : All text will display at the left side of the image. (Picture at right side of the text.)
 ```
+
+<br />
 
 ### 1.5.10 - Form (Input)
 
@@ -431,7 +455,8 @@ h1#id-name { color: red; } /* Apply to all tag called "h1" with id name called "
 #id-name { color: red; }   /* Apply to all tag with id name called "id-name". */
 ```
 
-### 2.5.2 : Grouping Selector (,)
+### 2.5.2 - Grouping Selector (,)
+
 ```css
 h1, h2, h3 { color: red; } /* Apply to all tag called "h1", "h2" and "h3". */
 .class1, .class2 { color: red; } /* Apply to all tag with class name called "class1" and "class2". */
