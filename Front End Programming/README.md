@@ -493,14 +493,16 @@ h1, h2, h3 { color: red; }       /* Apply to all tag called "h1", "h2" and "h3".
 
 #### 2.5.3.1 : Child Combinator (>)
 
-```css
+```html
 <div> 
-    /* Include */
+    <!--Include-->
     <div> 
-        /* Not Include */
+        <!--Not Include-->
     </div>
 </div>
+```
 
+```css
 .father1 > .son1 { color: red; } /* Selects every "son1" element that are direct children of a "father1" element。 */
 .father2 > h1 { color: green; }  /* Selects every <h1> element that are direct children of a "father2" element。 */
 ```
@@ -509,14 +511,16 @@ h1, h2, h3 { color: red; }       /* Apply to all tag called "h1", "h2" and "h3".
 
 #### 2.5.3.2 : Context Dependent Selector (Descendant Combinator)
 
-```css
+```html
 <div> 
-    /* Include */
+    <!--Include-->
     <div> 
-        /* Include */
+        <!--Include-->
     </div>
 </div>
+```
 
+```css
 .father3 h1 { color: blue; } /* Selects all <h1> elements inside "father3" elements. */
 ```
 
