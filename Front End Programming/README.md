@@ -1,4 +1,4 @@
-#$${\color{red}1.0 HTML (.html)}$$
+# 1.0 HTML (.html)
 
 <br />
 
