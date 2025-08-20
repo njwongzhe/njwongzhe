@@ -278,7 +278,7 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 
 <br /><br />
 
-# 2.0 CSS (Cascading Style Sheets / .css)
+# 2.0 - CSS (Cascading Style Sheets / .css)
 - When tags like <font> and color attributes were added to the HTML 3.2 specification, it started a nightmare for web developers.
 - Development of large web sites where fonts and color information were added to every single page became a long and expensive process.
 - Thus, the CSS can apply to multiple sites were added to HTML 4.0.
@@ -291,7 +291,7 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 
 <br />
 
-## 2.1 Style
+## 2.1 - Style
 
 ```txt
 - Style is a definition of fonts, colors and etc.
@@ -302,13 +302,13 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 
 <br />
 
-## 2.2 Basic Structure
+## 2.2 - Basic Structure
 - When different types of CSS Structure is applied to a same selector (tag), only the structure with higher priority will be applied on it.
 - External Stylesheet (Lower Priority)
 - Internal Stylesheet (Middle Priority)
 - Inline Style (Higher Priority)
 
-### 2.2.1 Internal Stylesheet (Middle Priority)
+### 2.2.1 - Internal Stylesheet (Middle Priority)
 
 ```html
 <head>
@@ -342,7 +342,7 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 </head>
 ```
 
-### 2.2.2 External Stylesheet (Lowest Priority)
+### 2.2.2 - External Stylesheet (Lowest Priority)
 
 HTML Header :
 ```html
@@ -360,7 +360,7 @@ h2 {
 }
 ```
 
-### 2.2.3 Inline Styles (Highest Priority)
+### 2.2.3 - Inline Styles (Highest Priority)
 
 ```html
 <body>
@@ -371,7 +371,7 @@ h2 {
 
 <br />
 
-## 2.3 Comment
+## 2.3 - Comment
 
 ```css
 /*Single Line Comment*/
@@ -382,7 +382,7 @@ h2 {
 
 <br />
 
-## 2.4 Declaration
+## 2.4 - Declaration
 
 ```txt
 - Property : A type of attribute of HTML tag you want to change.
@@ -392,7 +392,7 @@ h2 {
 
 <br />
 
-## 2.5 Selector
+## 2.5 - Selector
 
 ```txt
 - A selector is an HTML tag at which style will be applied.
@@ -401,21 +401,21 @@ h2 {
 - CSS selectors are used to "find" (or select) HTML elements based on their element name, id, class, attribute and more.
 ```
 
-### 2.5.1 Generic Selector
+### 2.5.1 - Generic Selector
 
-#### 2.5.1.1 Universal Selector (*) (Lowest Priority)
+#### 2.5.1.1 : Universal Selector (*) (Lowest Priority)
 - Used to define styles for all tags. 
 ```css
 * { color: red; } /* Apply to all tag. */
 ```
 
-#### 2.5.1.2 HTML/Tag Selector
+#### 2.5.1.2 : HTML/Tag Selector
 - Used to define styles associated to HTML tags. 
 ```css
 h1 { color: red; } /* Apply to all tag called "h1". */
 ```
 
-#### 2.5.1.3 Class Selector (.)
+#### 2.5.1.3 : Class Selector (.)
 - Used to define styles that can be used without redefining plain HTML tags. (Class name cannot start with number.)
 ```css
 h1.class-name { color: red; } /* Apply to all tag called "h1" with class name called "class-name". */
@@ -423,7 +423,7 @@ h1.class-name { color: red; } /* Apply to all tag called "h1" with class name ca
 .class-name { color: red; }   /* Apply to all tag with class name called "class-name". */
 ```
 
-#### 2.5.1.4 ID Selector (#) (Highest Priority) 
+#### 2.5.1.4 : ID Selector (#) (Highest Priority) 
 - Used to define styles relating to objects with a unique ID. 
 ```css
 h1#id-name { color: red; } /* Apply to all tag called "h1" with id name called "id-name". */
@@ -431,7 +431,7 @@ h1#id-name { color: red; } /* Apply to all tag called "h1" with id name called "
 #id-name { color: red; }   /* Apply to all tag with id name called "id-name". */
 ```
 
-### 2.5.2 Grouping Selector (,)
+### 2.5.2 : Grouping Selector (,)
 ```css
 h1, h2, h3 { color: red; } /* Apply to all tag called "h1", "h2" and "h3". */
 .class1, .class2 { color: red; } /* Apply to all tag with class name called "class1" and "class2". */
