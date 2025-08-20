@@ -402,24 +402,21 @@ h2 {
 ```
 
 ### 2.5.1 Generic Selector
-<pre>
-- Universal Selector (*) (Lowest Priority)  : Used to define styles for all tags. 
--  HTML/Tag Selector                        : Used to define styles associated to HTML tags. 
--     Class Selector (.)                    : Used to define styles that can be used without redefining plain HTML tags. (Class name cannot start with number.)
--        ID Selector (#) (Highest Priority) : Used to define styles relating to objects with a unique ID. 
-</pre>
 
 #### 2.5.1.1 Universal Selector (*) (Lowest Priority)
+- Used to define styles for all tags. 
 ```css
 * { color: red; } /* Apply to all tag. */
 ```
 
 #### 2.5.1.2 HTML/Tag Selector
+- Used to define styles associated to HTML tags. 
 ```css
 h1 { color: red; } /* Apply to all tag called "h1". */
 ```
 
 #### 2.5.1.3 Class Selector (.)
+- Used to define styles that can be used without redefining plain HTML tags. (Class name cannot start with number.)
 ```css
 h1.class-name { color: red; } /* Apply to all tag called "h1" with class name called "class-name". */
 /* or */ 
@@ -427,6 +424,7 @@ h1.class-name { color: red; } /* Apply to all tag called "h1" with class name ca
 ```
 
 #### 2.5.1.4 ID Selector (#) (Highest Priority) 
+- Used to define styles relating to objects with a unique ID. 
 ```css
 h1#id-name { color: red; } /* Apply to all tag called "h1" with id name called "id-name". */
 /* or */ 
@@ -444,78 +442,6 @@ h1, h2, h3 { color: red; } /* Apply to all tag called "h1", "h2" and "h3". */
 -
 -
 -
-```
-
-### 2.5.1 Universal Selector (Lowest Priority)
-```html
-
-```
-
-### 2.5.2 HTML/Tag Selector
-```html
-<!DOCTYPE html> 
-<html lang="en"> 
-
-<head> 
-    <title>CSS Selector</title> 
-
-    <style> 
-        h1 { /* Tag Selector */
-            color: red;
-        }
-    </style>
-</head> 
-
-<body> 
-    <!--Tag Selector-->
-    <h1>Tag Selector</h1>
-</body> 
-
-</html>
-```
-
-### 2.5.3 Class Selector 
-```html
-<!DOCTYPE html> 
-<html lang="en"> 
-
-<head> 
-    <title>CSS Selector</title> 
-
-    <style> 
-        .class-selector { /* Class Selector */
-            color: green;
-        }
-    </style>
-</head> 
-
-<body> 
-    <!--Class Selector-->
-    <h2 class="class-selector">Class Selector</h2>
-</html>
-```
-
-### 2.5.4 ID Selector (Highest Priority)
-```html
-<!DOCTYPE html> 
-<html lang="en"> 
-
-<head> 
-    <title>CSS Selector</title> 
-
-    <style> 
-        #id-selector { /* ID Selector */
-            color: blue;
-        }
-    </style>
-</head> 
-
-<body> 
-    <!--ID Selector-->
-    <h3 id="id-selector">ID Selector</h3>
-</body> 
-
-</html>
 ```
 
 <br />
