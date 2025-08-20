@@ -1,4 +1,4 @@
-<h1 style="color:red">1.0 HTML (.html)</h1>
+#$${\color{red}1.0 HTML (.html)}$$
 
 <br />
 
