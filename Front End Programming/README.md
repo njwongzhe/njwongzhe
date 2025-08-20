@@ -1,8 +1,8 @@
-# 1.0 HTML (.html)
+# 1.0 - HTML (.html)
 
 <br />
 
-## 1.1 Tags 
+## 1.1 - Tags 
 
 ```html
 - HTML specifies a set of tags that identify structure of the document and the content type.
@@ -12,7 +12,7 @@
 
 <br />
 
-## 1.2 Attributes
+## 1.2 - Attributes
 
 ```html
 - Attributes provide additional information or styles to HTML elements (tag).
@@ -24,7 +24,7 @@
 
 <br />
 
-## 1.3 Basic Structure
+## 1.3 - Basic Structure
 
 ```html
 <!DOCTYPE html> 
@@ -43,7 +43,7 @@
 
 <br />
 
-## 1.4 Comments
+## 1.4 - Comments
 
 ```html
 <!--I am a Comment-->
@@ -51,9 +51,9 @@
 
 <br />
 
-## 1.5 Tags & Attributes Reference
+## 1.5 - Tags & Attributes Reference
 
-### 1.5.1 Document Structure
+### 1.5.1 - Document Structure
 
 ```html
 <html> ... </html>   | HTML document put between it.
@@ -71,7 +71,7 @@ href | Attribute of <link>. Specifies the location of the linked document.
                      | Put all the content such as Paragraphs, Tables, Lists, Images, JavaScripts Code...
 ```
 
-### 1.5.2 Common Attribute
+### 1.5.2 - Common Attribute
 
 ```html
 class | Common Attribute for most of the Tags. (Used to define CSS styles.)
@@ -80,9 +80,9 @@ id    | Common Attribute for most of the Tags. (Used to define CSS styles.)
 style | Common Attribute for most of the Tags. (CSS Inline Style)
 ```
 
-### 1.5.3 Text & Formating
+### 1.5.3 - Text & Formating
 
-#### 1.5.3.1 Basic Text Tags
+#### 1.5.3.1 - Basic Text Tags
 
 ```html
 <p> ... </p> | Paragraph block. All content in this tag will be in same line if not use <br>.
@@ -103,7 +103,7 @@ align | Attribute of <p> ... </p>. It can set the text alignment.
 <h6> ... </h6> | Heading Tag 6. (Smallest Size)
 ```
 
-#### 1.5.3.2 Inline Text Formatting 
+#### 1.5.3.2 - Inline Text Formatting 
 
 ```html
 Block-Level Element : 
@@ -134,14 +134,14 @@ Inline Element :
                  | Extra spaces, tabs and line breaks will not be display if not use <pre> ... </pre>.
 ```
 
-### 1.5.4 Grouping & Layout
+### 1.5.4 - Grouping & Layout
 
 ```html
 <div> ... </div>   | Block-level container.
 <span> ... </span> | Inline container.
 ```
 
-### 1.5.5 List
+### 1.5.5 - List
 
 ```html
 <ul> ... </ul> | Unordered List.
@@ -166,7 +166,7 @@ type  | Attribute of <ol> ... </ol>. Change the style of marker.
 <dd> ... </dd> | Put inside <dl> ... </dl>. Description List Item. 
 ```
 
-### 1.5.6 Font Style
+### 1.5.6 - Font Style
 
 ```html
 <font> ... </font> | Set the style of the text.
@@ -178,7 +178,7 @@ size  | Attribute of <font> ... </font>. It can set the size of the text.
       | ="3"  : Set to size 3.
 ```
 
-### 1.5.7 Table
+### 1.5.7 - Table
 
 ```html
 <table> ... </table> | Table Structure.
@@ -190,7 +190,7 @@ colspan | Attribute of <table> ... </table>. It can make a cell span more than o
 rowspan | Attribute of <table> ... </table>. It can make a cell span more than one row such as ="2".
 ```
 
-### 1.5.8 Hyperlink
+### 1.5.8 - Hyperlink
 
 ```html
 <a> ... </a> | Hyperlink.
@@ -205,7 +205,7 @@ target | Attribute of <a> ... </a>. It can set how to open the Hyperlink.
        | ="_top"    : Opens the link in the full body of the window.
 ```
 
-### 1.5.9 Image
+### 1.5.9 - Image
 
 ```html
 <img> | Image.
@@ -226,7 +226,7 @@ align  | Attribute of <img>. It can set how the text surrounding the image will 
        | ="right" : All text will display at the left side of the image. (Picture at right side of the text.)
 ```
 
-### 1.5.10 Form (Input)
+### 1.5.10 - Form (Input)
 
 ```html
 <form> ... </form> | Contain input elements.
