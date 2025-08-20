@@ -332,6 +332,8 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 - Internal Stylesheet (Middle Priority)
 - Inline Style (Higher Priority)
 
+<br />
+
 ### 2.2.1 - Internal Stylesheet (Middle Priority)
 
 ```html
@@ -366,6 +368,8 @@ selected | Attribute of <option>. It can set the initial selection will be chose
 </head>
 ```
 
+<br />
+
 ### 2.2.2 - External Stylesheet (Lowest Priority)
 
 HTML Header :
@@ -383,6 +387,8 @@ h2 {
     font-size: 14px;
 }
 ```
+
+<br />
 
 ### 2.2.3 - Inline Styles (Highest Priority)
 
@@ -425,7 +431,11 @@ h2 {
 - CSS selectors are used to "find" (or select) HTML elements based on their element name, id, class, attribute and more.
 ```
 
+<br />
+
 ### 2.5.1 - Generic Selector
+
+<br />
 
 #### 2.5.1.1 : Universal Selector (*) (Lowest Priority)
 - Used to define styles for all tags. 
@@ -433,11 +443,15 @@ h2 {
 * { color: red; } /* Apply to all tag. */
 ```
 
+<br />
+
 #### 2.5.1.2 : HTML/Tag Selector
 - Used to define styles associated to HTML tags. 
 ```css
 h1 { color: red; } /* Apply to all tag called "h1". */
 ```
+
+<br />
 
 #### 2.5.1.3 : Class Selector (.)
 - Used to define styles that can be used without redefining plain HTML tags. (Class name cannot start with number.)
@@ -447,6 +461,8 @@ h1.class-name { color: red; } /* Apply to all tag called "h1" with class name ca
 .class-name { color: red; }   /* Apply to all tag with class name called "class-name". */
 ```
 
+<br />
+
 #### 2.5.1.4 : ID Selector (#) (Highest Priority) 
 - Used to define styles relating to objects with a unique ID. 
 ```css
@@ -455,15 +471,17 @@ h1#id-name { color: red; } /* Apply to all tag called "h1" with id name called "
 #id-name { color: red; }   /* Apply to all tag with id name called "id-name". */
 ```
 
+<br />
+
 ### 2.5.2 - Grouping Selector (,)
 
 ```css
-h1, h2, h3 { color: red; } /* Apply to all tag called "h1", "h2" and "h3". */
+h1, h2, h3 { color: red; }       /* Apply to all tag called "h1", "h2" and "h3". */
 .class1, .class2 { color: red; } /* Apply to all tag with class name called "class1" and "class2". */
-#id1, #id2 { color: red; } /* Apply to all tag with id name called "id1" and "id2". */
+#id1, #id2 { color: red; }       /* Apply to all tag with id name called "id1" and "id2". */
 ```
 
-3. Other Selector (Combinator)
+### 2.5.3 - Other Selector (Combinator)
 -
 -
 -
