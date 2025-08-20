@@ -402,10 +402,12 @@ h2 {
 ```
 
 ### 2.5.1 Generic Selector
+<pre>
 - Universal Selector (*) (Lowest Priority)  : Used to define styles for all tags. 
 -  HTML/Tag Selector                        : Used to define styles associated to HTML tags. 
 -     Class Selector (.)                    : Used to define styles that can be used without redefining plain HTML tags. (Class name cannot start with number.)
 -        ID Selector (#) (Highest Priority) : Used to define styles relating to objects with a unique ID. 
+</pre>
 
 #### 2.5.1.1 Universal Selector (*) (Lowest Priority)
 ```css
