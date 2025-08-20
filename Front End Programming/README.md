@@ -401,7 +401,7 @@ h2 {
 
 - Universal Selector (*) : Used to define styles for all tags. (Lowest Priority)
 -  HTML/Tag Selector     : Used to define styles associated to HTML tags. 
--     Class Selector (.) : Used to define styles that can be used without redefining plain HTML tags.
+-     Class Selector (.) : Used to define styles that can be used without redefining plain HTML tags. (Class name cannot start with number)
 -        ID Selector (#) : Used to define styles relating to objects with a unique ID. (Highest Priority)
 ```
 

@@ -2,7 +2,7 @@
 <html lang="en"> 
 
 <head> 
-    <title>CSS Selector</title> 
+    <title>CSS Generic Selector</title> 
 
     <style> 
         * { /* Universal Selector */
@@ -18,12 +18,17 @@
         }
 
         p.class-selector { /* Class Selector */
-            color: darkgreen;
-            font: italic;
+            color: green;
+            font-style: italic;
         }
 
         #id-selector { /* ID Selector */
             color: blue;
+        }
+
+        p#id-selector { /* ID Selector */
+            color: blue;
+            font-style: italic;
         }
     </style>
 </head> 
@@ -38,11 +43,14 @@
     <h1>Tag Selector</h1>
 
     <!--Class Selector-->
-    <h2 class="class-selector">Class Selector</h2>
-    <p class="class-selector">This is a paragraph with a class selector.</p>
+    <h1 class="class-selector">class-selector</h1>
+    <h2 class="class-selector">class-selector</h2>
+    <p class="class-selector">tag.class-selector</p>
 
     <!--ID Selector-->
-    <h3 id="id-selector">ID Selector</h3>
+    <h1 id="id-selector">id-selector</h1>
+    <h2 id="id-selector">id-selector</h2>
+    <p id="id-selector">tag#id-selector</p>
 </body> 
 
 </html>
