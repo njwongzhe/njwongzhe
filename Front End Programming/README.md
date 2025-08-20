@@ -1,4 +1,4 @@
-# 1.0 HTML (.html)
+<span style="color:red"># 1.0 HTML (.html)</span>
 
 <br />
 
@@ -383,6 +383,7 @@ h2 {
 <br />
 
 ## 2.4 Declaration
+
 ```txt
 - Property : A type of attribute of HTML tag you want to change.
 - Value    : Each properties are assigned to a Values.
@@ -398,36 +399,54 @@ h2 {
 - This could be any tag like <h1> or <table> etc. (HTML/Tag Selector)
 - In the style definition you define how each selector should work (font and color etc.)
 - CSS selectors are used to "find" (or select) HTML elements based on their element name, id, class, attribute and more.
+```
 
-- Universal Selector (*) : Used to define styles for all tags. (Lowest Priority)
--  HTML/Tag Selector     : Used to define styles associated to HTML tags. 
--     Class Selector (.) : Used to define styles that can be used without redefining plain HTML tags. (Class name cannot start with number)
--        ID Selector (#) : Used to define styles relating to objects with a unique ID. (Highest Priority)
+### 2.5.1 Generic Selector
+- Universal Selector (*) (Lowest Priority)  : Used to define styles for all tags. 
+-  HTML/Tag Selector                        : Used to define styles associated to HTML tags. 
+-     Class Selector (.)                    : Used to define styles that can be used without redefining plain HTML tags. (Class name cannot start with number.)
+-        ID Selector (#) (Highest Priority) : Used to define styles relating to objects with a unique ID. 
+
+#### 2.5.1.1 Universal Selector (*) (Lowest Priority)
+```css
+* { color: red; } /* Apply to all tag. */
+```
+
+#### 2.5.1.2 HTML/Tag Selector
+```css
+h1 { color: red; } /* Apply to all tag called "h1". */
+```
+
+#### 2.5.1.3 Class Selector (.)
+```css
+h1.class-name { color: red; } /* Apply to all tag called "h1" with class name called "class-name". */
+/* or */ 
+.class-name { color: red; }   /* Apply to all tag with class name called "class-name". */
+```
+
+#### 2.5.1.4 ID Selector (#) (Highest Priority) 
+```css
+h1#id-name { color: red; } /* Apply to all tag called "h1" with id name called "id-name". */
+/* or */ 
+#id-name { color: red; }   /* Apply to all tag with id name called "id-name". */
+```
+
+### 2.5.2 Grouping Selector (,)
+```css
+h1, h2, h3 { color: red; } /* Apply to all tag called "h1", "h2" and "h3". */
+.class1, .class2 { color: red; } /* Apply to all tag with class name called "class1" and "class2". */
+#id1, #id2 { color: red; } /* Apply to all tag with id name called "id1" and "id2". */
+```
+
+3. Other Selector (Combinator)
+-
+-
+-
 ```
 
 ### 2.5.1 Universal Selector (Lowest Priority)
 ```html
-<!DOCTYPE html> 
-<html lang="en"> 
 
-<head> 
-    <title>CSS Selector</title> 
-
-    <style> 
-        * { /* Universal Selector */
-            color: grey;
-        }
-    </style>
-</head> 
-
-<body> 
-    <!--Universal Selector-->
-    <h2>Universal Selector</h2>
-    <h3>Universal Selector</h3>
-    <h4>Universal Selector</h4>
-</body> 
-
-</html>
 ```
 
 ### 2.5.2 HTML/Tag Selector
