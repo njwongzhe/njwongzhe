@@ -2,7 +2,7 @@
 <html lang="en"> 
 
 <head> 
-    <title>CSS Generic Selector</title> 
+    <title>CSS Other Selector (Combinator)</title> 
 
     <style>
         /* Child Combinator */
@@ -29,13 +29,6 @@
         h4 ~ h3 {
             color: grey;
         }
-
-        /* Pseudo-class Selector */
-        a:link {color: blue;}              /* Unvisited Link. */ 
-        a:active {color: red;}             /* Clicked Link. */
-        a:hover { background-color: aqua;} /* Touched Link. */
-        a:visited {color: green;}          /* Visited Link.*/
-
     </style>
 </head> 
 
@@ -86,11 +79,6 @@
     <h3>Brother 4</h3> <!--Effected-->
     <h5>Brother 5</h5> <!--Not Effected-->
     <h3>Brother 6</h3> <!--Effected-->
-
-    <hr>
-
-    <!--Pseudo-class Selector-->
-    <a href="https://www.youtube.com/" target="_blank">Click Here To Youtube</a>
 </body> 
 
 </html>

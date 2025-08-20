@@ -439,6 +439,7 @@ h2 {
 
 #### 2.5.1.1 : Universal Selector (*) (Lowest Priority)
 - Used to define styles for all tags. 
+
 ```css
 * { color: red; } /* Apply to all tag. */
 ```
@@ -447,6 +448,7 @@ h2 {
 
 #### 2.5.1.2 : HTML/Tag Selector
 - Used to define styles associated to HTML tags. 
+
 ```css
 h1 { color: red; } /* Apply to all tag called "h1". */
 ```
@@ -455,6 +457,7 @@ h1 { color: red; } /* Apply to all tag called "h1". */
 
 #### 2.5.1.3 : Class Selector (.)
 - Used to define styles that can be used without redefining plain HTML tags. (Class name cannot start with number.)
+
 ```css
 h1.class-name { color: red; } /* Apply to all tag called "h1" with class name called "class-name". */
 /* or */ 
@@ -465,6 +468,7 @@ h1.class-name { color: red; } /* Apply to all tag called "h1" with class name ca
 
 #### 2.5.1.4 : ID Selector (#) (Highest Priority) 
 - Used to define styles relating to objects with a unique ID. 
+
 ```css
 h1#id-name { color: red; } /* Apply to all tag called "h1" with id name called "id-name". */
 /* or */ 
@@ -481,10 +485,66 @@ h1, h2, h3 { color: red; }       /* Apply to all tag called "h1", "h2" and "h3".
 #id1, #id2 { color: red; }       /* Apply to all tag with id name called "id1" and "id2". */
 ```
 
+<br />
+
 ### 2.5.3 - Other Selector (Combinator)
--
--
--
+
+<br />
+
+#### 2.5.3.1 : Child Combinator (>)
+
+```css
+<div> 
+    /* Include */
+    <div> 
+        /* Not Include */
+    </div>
+</div>
+
+.father1 > .son1 { color: red; } /* Selects every "son1" element that are direct children of a "father1" element。 */
+.father2 > h1 { color: green; }  /* Selects every <h1> element that are direct children of a "father2" element。 */
+```
+
+<br />
+
+#### 2.5.3.2 : Context Dependent Selector (Descendant Combinator)
+
+```css
+<div> 
+    /* Include */
+    <div> 
+        /* Include */
+    </div>
+</div>
+
+.father3 h1 { color: blue; } /* Selects all <h1> elements inside "father3" elements. */
+```
+
+<br />
+
+#### 2.5.3.3 : Next Sibling Combinator (+)
+
+```css
+h2 + h1 { color: grey; } /* Selects the first <h1> element that is placed immediately after <h2> elements. */
+```
+
+<br />
+
+#### 2.5.3.4 : Subsequent-sibling Combinator (~)
+
+```css
+h4 ~ h3 { color: grey; } /* Selects all <h3> element that is placed immediately after <h4> elements. */
+```
+
+<br />
+
+#### 2.5.3.5 : Pseudo-class Selector (:)
+
+```css
+a:link { ... }    /* Apply on unvisited link <a>. */ 
+a:active { ... }  /* Apply on clicked link <a>. */
+a:hover { ... }   /* Apply on touched element <a>. */
+a:visited { ... } /* Apply on visited link <a>.*/
 ```
 
 <br />
