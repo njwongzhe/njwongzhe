@@ -117,12 +117,20 @@ align | Attribute of <p> ... </p>. It can set the text alignment.
 
 ```html
 Block-Level Element : 
-- A block-level element always starts on a newline.
+- Block-Level Element always starts on a newline.
+- It can include a Inline Element.
+- Size (Height & Width) of Block-Level Element's container can be defined through CSS.
 - Example : <p> ... </p> and <div> ... </div>.
 
 Inline Element :
-- An inline element does not start on a newline.
+- Inline Element does not start on a newline.
+- It cannot include a Block-Level Element.
+- Size (Height & Width) of Inline Element's container cannot be defined through CSS.
 - Example : <b> ... </b> and <span> ... </span>.
+
+Inline-Block Element :
+- Inline Element that can define the size of its container through CSS.
+- It require CSS property "display: inline-block" to create.
 
 <b> ... </b>   | Bold Text.
 <i> ... </i>   | Italic Text. 
@@ -557,9 +565,18 @@ a:visited { ... } /* Apply on visited link <a>.*/
 <br />
 
 ## 2.6 Property
+- https://www.w3schools.com/CSSref/index.php
 
 ```css
 color
-background-color
-font-size
+font
+
+height
+width
+
+display | It specifies the display behavior (the type of rendering box) of an element.
+        | : none         - Not display.
+        | : block        - Block-Level Element.
+        | : inline       - Inline Element.
+        | : inline-block - Inline-Block Element.
 ```
