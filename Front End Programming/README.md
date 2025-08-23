@@ -449,7 +449,7 @@ h2 {
 - Used to define styles for all tags. 
 
 ```css
-* { color: red; } /* Apply to all tag. */
+* {color: red;} /* Apply to all tag. */
 ```
 
 <br />
@@ -458,7 +458,7 @@ h2 {
 - Used to define styles associated to HTML tags. 
 
 ```css
-h1 { color: red; } /* Apply to all tag called "h1". */
+h1 {color: red;} /* Apply to all tag called "h1". */
 ```
 
 <br />
@@ -467,9 +467,9 @@ h1 { color: red; } /* Apply to all tag called "h1". */
 - Used to define styles that can be used without redefining plain HTML tags. (Class name cannot start with number.)
 
 ```css
-h1.class-name { color: red; } /* Apply to all tag called "h1" with class name called "class-name". */
+h1.class-name {color: red;} /* Apply to all tag called "h1" with class name called "class-name". */
 /* or */ 
-.class-name { color: red; }   /* Apply to all tag with class name called "class-name". */
+.class-name {color: red;}   /* Apply to all tag with class name called "class-name". */
 ```
 
 <br />
@@ -478,9 +478,9 @@ h1.class-name { color: red; } /* Apply to all tag called "h1" with class name ca
 - Used to define styles relating to objects with a unique ID. 
 
 ```css
-h1#id-name { color: red; } /* Apply to all tag called "h1" with id name called "id-name". */
+h1#id-name {color: red;} /* Apply to all tag called "h1" with id name called "id-name". */
 /* or */ 
-#id-name { color: red; }   /* Apply to all tag with id name called "id-name". */
+#id-name {color: red;}   /* Apply to all tag with id name called "id-name". */
 ```
 
 <br />
@@ -488,9 +488,9 @@ h1#id-name { color: red; } /* Apply to all tag called "h1" with id name called "
 ### 2.5.2 - Grouping Selector (,)
 
 ```css
-h1, h2, h3 { color: red; }       /* Apply to all tag called "h1", "h2" and "h3". */
-.class1, .class2 { color: red; } /* Apply to all tag with class name called "class1" and "class2". */
-#id1, #id2 { color: red; }       /* Apply to all tag with id name called "id1" and "id2". */
+h1, h2, h3 {color: red;}       /* Apply to all tag called "h1", "h2" and "h3". */
+.class1, .class2 {color: red;} /* Apply to all tag with class name called "class1" and "class2". */
+#id1, #id2 {color: red;}       /* Apply to all tag with id name called "id1" and "id2". */
 ```
 
 <br />
@@ -511,8 +511,8 @@ h1, h2, h3 { color: red; }       /* Apply to all tag called "h1", "h2" and "h3".
 ```
 
 ```css
-.father1 > .son1 { color: red; } /* Selects every "son1" element that are direct children of a "father1" element。 */
-.father2 > h1 { color: green; }  /* Selects every <h1> element that are direct children of a "father2" element。 */
+.father1 > .son1 {color: red;} /* Selects every "son1" element that are direct children of a "father1" element。 */
+.father2 > h1 {color: green;}  /* Selects every <h1> element that are direct children of a "father2" element。 */
 ```
 
 <br />
@@ -529,7 +529,7 @@ h1, h2, h3 { color: red; }       /* Apply to all tag called "h1", "h2" and "h3".
 ```
 
 ```css
-.father3 h1 { color: blue; } /* Selects all <h1> elements inside "father3" elements. */
+.father3 h1 {color: blue;} /* Selects all <h1> elements inside "father3" elements. */
 ```
 
 <br />
@@ -537,7 +537,7 @@ h1, h2, h3 { color: red; }       /* Apply to all tag called "h1", "h2" and "h3".
 #### 2.5.3.3 : Next Sibling Combinator (+)
 
 ```css
-h2 + h1 { color: grey; } /* Selects the first <h1> element that is placed immediately after <h2> elements. */
+h2 + h1 {color: grey;} /* Selects the first <h1> element that is placed immediately after <h2> elements. */
 ```
 
 <br />
@@ -545,7 +545,7 @@ h2 + h1 { color: grey; } /* Selects the first <h1> element that is placed immedi
 #### 2.5.3.4 : Subsequent-sibling Combinator (~)
 
 ```css
-h4 ~ h3 { color: grey; } /* Selects all <h3> element that is placed immediately after <h4> elements. */
+h4 ~ h3 {color: grey;} /* Selects all <h3> element that is placed immediately after <h4> elements. */
 ```
 
 <br />
@@ -553,7 +553,7 @@ h4 ~ h3 { color: grey; } /* Selects all <h3> element that is placed immediately 
 #### 2.5.3.5 : Pseudo-class Selector (:)
 - Sequence of Pseudo-class Selector is important.
 - Pseudo-class Selector put in front will be shown on top when active.
-- Example : The color of Pseudo-class Selector put in front will block the colour of Pseudo-class Selector put behind.
+- Example : The color of Pseudo-class Selector put in front will block the color of Pseudo-class Selector put behind.
 
 ```css
 a:link { ... }    /* Apply on unvisited link <a>. */ 
