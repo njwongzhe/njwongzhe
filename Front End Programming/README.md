@@ -565,6 +565,8 @@ a:visited { ... } /* Apply on visited link <a>.*/
 <br />
 
 ## 2.6 Property
+
+```txt
 - Shorthand Properties : Shorthand properties allow us to write multiple properties in a single line. (Example : color)
 - Longhand Properties  : Individual properties that can be included in a shorthand property. (Example : color-background, color-font)
 - Example : We can assign a value for "border-width", "border-style" and "border-color" using the "border" property alone.
@@ -572,6 +574,7 @@ a:visited { ... } /* Apply on visited link <a>.*/
 - Both Shorthand Properties and Longhand Properties can be equivalent.
 - Shorthand is more concise and easier to read and write. (But must take care the format and sequence of value assigned.)
 - Longhand is more flexible when we only want to change a specific side or property.
+```
 
 ```html
 <!--Example-->
