@@ -568,11 +568,11 @@ a:visited { ... } /* Apply on visited link <a>.*/
 - https://www.w3schools.com/CSSref/index.php
 
 ```css
-color
-font
+color | It can sets the color of text such as ": red".
+font  | It can sets the font of text.
 
-height
-width
+height | It can sets the height of an element such as ": 10px".
+width  | It can sets the width of an element such as ": 10px".
 
 display | It specifies the display behavior (the type of rendering box) of an element.
         | : none         - Not display.
@@ -580,3 +580,6 @@ display | It specifies the display behavior (the type of rendering box) of an el
         | : inline       - Inline Element.
         | : inline-block - Inline-Block Element.
 ```
+
+## 2.7 Box Model
+![alt text](/"11 - CSS Box Model")
