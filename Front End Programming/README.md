@@ -565,7 +565,6 @@ a:visited { ... } /* Apply on visited link <a>.*/
 <br />
 
 ## 2.6 Property
-- More Property : https://www.w3schools.com/CSSref/index.php
 
 ```css
 - Shorthand Properties : Shorthand properties allow us to write multiple properties in a single line. (Example : color)
@@ -593,6 +592,9 @@ a:visited { ... } /* Apply on visited link <a>.*/
 
 <br />
 
+### 2.6.1 Property Reference
+- More Property : https://www.w3schools.com/CSSref/index.php
+
 ```css
 color | It can sets the color of text such as ": red".
 font  | It can sets the font of text.
@@ -610,6 +612,8 @@ padding | A shorthand property for all the padding-* properties.
 border  | A shorthand property for all the border-* properties.
 margin  | A shorthand property for all the margin-* properties.
 ```
+
+<br />
 
 ## 2.7 Box Model
 
