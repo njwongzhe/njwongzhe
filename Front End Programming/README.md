@@ -565,7 +565,33 @@ a:visited { ... } /* Apply on visited link <a>.*/
 <br />
 
 ## 2.6 Property
-- https://www.w3schools.com/CSSref/index.php
+- More Property : https://www.w3schools.com/CSSref/index.php
+
+```css
+- Shorthand Properties : Shorthand properties allow us to write multiple properties in a single line. (Example : color)
+- Longhand Properties  : Individual properties that can be included in a shorthand property. (Example : color-background, color-font)
+- Example : We can assign a value for "border-width", "border-style" and "border-color" using the "border" property alone.
+
+- Both Shorthand Properties and Longhand Properties can be equivalent.
+- Shorthand is more concise and easier to read and write. (But must take care the format and sequence of value assigned.)
+- Longhand is more flexible when we only want to change a specific side or property.
+```
+
+```html
+<!--Example-->
+<style>
+       /* Sequence Problem */
+       .box1 {margin: 20px 10px 30px 5px;}
+       .box2 {margin: 20px 30px 10px 5px;} /* Both result are different. */
+
+       /* Format and Sequence Problem */
+       .text1 {font: italic 16px Arial;} /* Correct Order */
+       .text2 {font: italic Arial;}      /* Wrong Order (Invalid) - The size is missing. */
+       .text3 {font: Arial italic 16px;} /* Wrong Order (Invalid) - The size is not in the third position. */
+</style>
+```
+
+<br />
 
 ```css
 color | It can sets the color of text such as ": red".
@@ -579,7 +605,12 @@ display | It specifies the display behavior (the type of rendering box) of an el
         | : block        - Block-Level Element.
         | : inline       - Inline Element.
         | : inline-block - Inline-Block Element.
+
+padding | A shorthand property for all the padding-* properties.
+border  | A shorthand property for all the border-* properties.
+margin  | A shorthand property for all the margin-* properties.
 ```
 
 ## 2.7 Box Model
-![alt Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/11%20-%20CSS%20Box%20Model.png)
+
+![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/11%20-%20CSS%20Box%20Model.png)
