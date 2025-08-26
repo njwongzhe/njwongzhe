@@ -582,4 +582,4 @@ display | It specifies the display behavior (the type of rendering box) of an el
 ```
 
 ## 2.7 Box Model
-![alt text](/"11 - CSS Box Model")
+![alt text](/"11 - CSS Box Model.png")
