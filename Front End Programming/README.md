@@ -619,4 +619,6 @@ margin  | A shorthand property for all the margin-* properties.
 
 ![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/11%20-%20CSS%20Box%20Model.png)
 
+<br />
+
 ## 2.8 Flexbox
