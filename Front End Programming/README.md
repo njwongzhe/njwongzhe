@@ -567,8 +567,8 @@ a:visited { ... } /* Apply on visited link <a>.*/
 ## 2.6 Property
 
 ```txt
-- Shorthand Properties : Shorthand properties allow us to write multiple properties in a single line. (Example : color)
-- Longhand Properties  : Individual properties that can be included in a shorthand property. (Example : color-background, color-font)
+- Shorthand Properties : Shorthand properties allow us to write multiple properties in a single line. (Example : font)
+- Longhand Properties  : Individual properties that can be included in a shorthand property. (Example : font-style, font-size)
 - Example : We can assign a value for "border-width", "border-style" and "border-color" using the "border" property alone.
 
 - Both Shorthand Properties and Longhand Properties can be equivalent.
@@ -618,3 +618,5 @@ margin  | A shorthand property for all the margin-* properties.
 ## 2.7 Box Model
 
 ![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/11%20-%20CSS%20Box%20Model.png)
+
+## 2.8 Flexbox
