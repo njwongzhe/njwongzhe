@@ -611,6 +611,23 @@ display | It specifies the display behavior (the type of rendering box) of an el
 padding | A shorthand property for all the padding-* properties.
 border  | A shorthand property for all the border-* properties.
 margin  | A shorthand property for all the margin-* properties.
+
+float | It specifies how an element should float within its container. (Floated elements are taken out of the normal document flow.)
+      | : none    - Default. The element does not float and is displayed just where it occurs in the text.
+      | : left    - The element floats to the left of its container.
+      | : right   - The element floats to the right of its container.
+      | : inherit -
+
+position | It specifies the positioning type for an element and override the normal document flow.
+         | : static   - Default. The element always positioned according to the normal flow of the page.
+         | : relative - The element is positioned relative to its normal position in the document flow.
+         | : absolute - The element is positioned relative to the nearest positioned ancestor.
+         | : fixed    - The element is positioned relative to the viewport which means it always stays in the same place even if the page is scrolled.
+         | : sticky   - 
+top    | The distance from the top edge of the containing element. (Used with position: relative, absolute, fixed, or sticky.)
+right  | The distance from the right edge of the containing element. (Used with position: relative, absolute, fixed, or sticky.)
+bottom | The distance from the bottom edge of the containing element. (Used with position: relative, absolute, fixed, or sticky.)
+left   | The distance from the left edge of the containing element. (Used with position: relative, absolute, fixed, or sticky.)
 ```
 
 <br />
