@@ -564,7 +564,7 @@ a:visited { ... } /* Apply on visited link <a>.*/
 
 <br />
 
-## 2.6 Property
+## 2.6 - Property
 
 ```txt
 - Shorthand Properties : Shorthand properties allow us to write multiple properties in a single line. (Example : font)
@@ -592,7 +592,7 @@ a:visited { ... } /* Apply on visited link <a>.*/
 
 <br />
 
-### 2.6.1 Property Reference
+### 2.6.1 - Property Reference
 - More Property : https://www.w3schools.com/CSSref/index.php
 
 ```css
@@ -632,10 +632,14 @@ left   | The distance from the left edge of the containing element. (Used with p
 
 <br />
 
-## 2.7 Box Model
+## 2.7 - Box Model
 
 ![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/11%20-%20CSS%20Box%20Model.png)
 
 <br />
 
-## 2.8 Flexbox
+## 2.8 - Flexbox
+
+<br />
+
+# 3.0 - JavaScript (.js)
