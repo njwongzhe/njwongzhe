@@ -650,6 +650,11 @@ left   | The distance from the left edge of the containing element. (Used with p
 <br />
 
 ## 3.1 - Basic Structure
+```html
+- The <script> ... </script> can put at anywhere inside the .html file.
+- The JavaScript Code inside <script> ... </script> on the top of the .html file will be executed first.
+- More prefer to put the <script> ... </script> inside <body> ... </body>.
+```
 
 Internal JavaScript (.html) :
 ```html
@@ -658,7 +663,12 @@ Internal JavaScript (.html) :
 </script>
 ```
 
-External JavaScript (.js) :
+External JavaScript (.html) :
+```html
+<script src="13 - JS Basic Structure.js"></script>
+```
+
+"13 - JS Basic Structure.js" :
 ```js
 /* JavaScript Code */
 ```
