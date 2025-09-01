@@ -651,9 +651,14 @@ left   | The distance from the left edge of the containing element. (Used with p
 
 ## 3.1 - Basic Structure
 ```html
-- The <script> ... </script> can put at anywhere inside the .html file.
-- The JavaScript Code inside <script> ... </script> on the top of the .html file will be executed first.
-- More prefer to put the <script> ... </script> inside <body> ... </body>.
+- The <script> ... </script> tag can be placed anywhere inside an .html file.
+- If multiple <script> ... </script> tags exist in an .html file, the JavaScript inside the ones at the top will be executed first.
+
+- It is generally preferred to place <script> ... </script> at the end of the <body> ... </body> section since HTML is executed from top to bottom.
+- When the browser encounters a <script> ... </script> tag during parsing, it will pause and execute the JavaScript code inside it first.
+- This causes the HTML content below that <script> ... </script> to stop rendering until the script has finished executing.
+- As a result, the page may not load completely while the script is running.
+- During this process, users might see a blank (white) screen in long time until the script has finished.
 ```
 
 <br />
