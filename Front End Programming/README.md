@@ -656,12 +656,19 @@ left   | The distance from the left edge of the containing element. (Used with p
 - More prefer to put the <script> ... </script> inside <body> ... </body>.
 ```
 
-Internal JavaScript (.html) :
+<br />
+
+### 3.1.1 - Internal JavaScript
+
 ```html
 <script>
        /* JavaScript Code */
 </script>
 ```
+
+<br />
+
+### 3.1.2 - External JavaScript
 
 External JavaScript (.html) :
 ```html
