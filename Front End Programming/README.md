@@ -69,8 +69,11 @@ rel  | Attribute of <link>. Specifies the relationship between the current docum
      | ="stylesheet" : Apply the .css document.
 href | Attribute of <link>. Specifies the location of the linked document.
 
-<body> ... </body>   | Body section of the HTML document. 
-                     | Put all the content such as Paragraphs, Tables, Lists, Images, JavaScripts Code...
+<body> ... </body> | Body section of the HTML document. 
+                   | Put all the content such as Paragraphs, Tables, Lists, Images, JavaScript Code...
+
+<script> ... </script> | Can put at anywhere. It contain JavaScript Code.
+src | Attribute of <script> ... </script>. Specifies the location of the linked document (External JavaScript).
 ```
 
 <br />
@@ -643,3 +646,23 @@ left   | The distance from the left edge of the containing element. (Used with p
 <br />
 
 # 3.0 - JavaScript (.js)
+
+<br />
+
+## 3.1 - Basic Structure
+
+<br />
+
+Internal JavaScript (.html) :
+```html
+<script>
+       /* JavaScript Code */
+</script>
+```
+
+<br />
+
+External JavaScript (.js) :
+```js
+/* JavaScript Code */
+```
