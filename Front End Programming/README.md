@@ -418,7 +418,7 @@ h2 {
 /*Single Line Comment*/
 
 /*Multi Line 
-  Comment*/
+Comment*/
 ```
 
 <br />
@@ -683,4 +683,15 @@ External JavaScript (.html) :
 "13 - JS Basic Structure.js" :
 ```js
 /* JavaScript Code */
+```
+
+<br />
+
+## 3.2 - Comments
+
+```js
+//Single Line Comment
+
+/*Multi Line 
+Comment*/
 ```
