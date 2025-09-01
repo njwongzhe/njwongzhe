@@ -651,16 +651,12 @@ left   | The distance from the left edge of the containing element. (Used with p
 
 ## 3.1 - Basic Structure
 
-<br />
-
 Internal JavaScript (.html) :
 ```html
 <script>
        /* JavaScript Code */
 </script>
 ```
-
-<br />
 
 External JavaScript (.js) :
 ```js
