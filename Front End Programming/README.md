@@ -695,3 +695,30 @@ External JavaScript (.html) :
 /*Multi Line 
 Comment*/
 ```
+
+## 3.3 - Output
+
+```js
+document.write(); | Writing into the HTML output.
+alert();          | Writing into an alert box.
+console.log();    | Writing into the browser console.
+
+innerHTML | Writing into an HTML element.
+innerText | Writing into an HTML element.
+```
+
+## 3.4 - Data Types
+```js
+String | 
+
+Number    |
+Bigint    |
+
+Boolean   |
+
+undefined |
+null      |
+
+Symbol
+Object
+```
