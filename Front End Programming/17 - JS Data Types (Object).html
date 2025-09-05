@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Data Types (Object)</title> 
+</head> 
+
+<body> 
+    <script> /* Object Declaration and Access */
+        var person = {
+            name: "John", 
+            age: 30, 
+            address: {
+                city: "New York", 
+                state: "NY"
+            }
+        };
+        // An object is a collection of properties.
+
+        console.log(person, typeof person);             // Data Type = Object
+        console.log(person.name, typeof person.name);   // Output: John string
+        console.log(person.hobby, typeof person.hobby); // Output: undefined 'undefined'
+     // console.log(people.age);                        // Error since "people" is not defined in the current scope.
+
+        var a = 1;
+        console.log(a.name, typeof a.name); // Output: undefined 'undefined'
+        // In JavaScript, primitive values (like numbers) can have properties accessed on them, but they do not actually have those properties.
+        // Accessing a property that doesn't exist on a primitive value will return undefined.
+    </script>
+
+    <script> /* Object Modification */
+        person.age = 31;          // Modifying an existing property of the object.
+        person.hobby = "Reading"; // Adding a new property to the object.
+        console.log(person);
+
+        delete person.hobby; // Deleting a property from the object.
+        console.log(person);
+    </script>
+
+    <script> /* Bracket Notation */
+        var person2 = {
+            name: "Alice", 
+            age: 25, 
+            "My Address": {
+                city: "Los Angeles", 
+                state: "CA"
+            }
+        };
+
+     // console.log(person2."My Address");  // Error
+        console.log(person2["My Address"]); // Accessing property with space or special characters using bracket notation.
+
+        console.log(person2["name"]); // Accessing property using bracket notation also works for regular property names.
+    </script>
+</body> 
+
+</html>
