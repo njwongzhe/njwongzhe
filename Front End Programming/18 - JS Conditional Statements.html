@@ -8,10 +8,50 @@
 <body> 
     <script> /* if, elseif, else Statement */
         var age = 20;
-        if (age >= 18) {
+
+        if (age >= 18) { /* First condition used if statement. */
             console.log("You are an adult.");
         }
+        else if (age >= 13) { /* Multiple else if is allowed. */
+            console.log("You are a teenager.");
+        }
+        else { /* Last condition may used else statement. */
+            console.log("You are a child.");
+        }
+    </script>
 
+    <script> /* switch Statement */
+        var day = 3;
+        var dayName;
+
+        switch (day) { /* The switch expression is evaluated once. */
+            case 1: /* The value of the expression is compared with the values of each case. */
+                dayName = "Monday";
+                break; /* break keyword is used to terminate a case in the switch statement. */
+                       /* If break is not used, the next case will be executed even if the case does not match until meet the break. */
+            case 2:
+                dayName = "Tuesday";
+                break;
+            case 3:
+                dayName = "Wednesday";
+                break;
+            case 4:
+                dayName = "Thursday";
+                break;
+            case 5:
+                dayName = "Friday";
+                break;
+            case 6:
+                dayName = "Saturday";
+                break;
+            case 7:
+                dayName = "Sunday";
+                break;
+            default: /* The default keyword specifies the code to run if there is no case match. */
+                dayName = "Invalid day";
+        }
+
+        console.log(dayName);
     </script>
 </body> 
 

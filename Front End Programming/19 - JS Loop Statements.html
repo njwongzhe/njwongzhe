@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Loop Statements</title> 
+</head> 
+
+<body> 
+    <script> /* while Loop (Pre-test Loop) */
+        var i = 0;
+
+        while (i < 5) {
+            document.write("The number is " + i + "<br>");
+            i++;
+        }
+    </script>
+
+    <br>
+
+    <script> /* do...while Loop (Post-test Loop) */
+        var j = 0;
+
+        do {
+            document.write("The number is " + j + "<br>");
+            j++;
+        } while (j < 5);
+    </script>
+
+    <br>
+
+    <script> /* for Loop (Pre-test Loop) */
+        var k;
+
+        for (k = 0; k < 5; k++) {
+            document.write("The number is " + k + "<br>");
+        }
+    </script>
+
+    <br>
+
+    <script> /* Loop Control */
+        var l;
+
+        for (l = 0; l < 10; l++) {
+            if (l === 5) { 
+                break; /* Exit the loop when l is 3 */
+                       /* break can exit a loop or a switch statement. */
+            } 
+            else if (l === 2) { 
+                continue; /* Skip the rest of the loop when l is 1 */
+                          /* continue can skip the current iteration of a loop. */
+            }
+            
+            document.write("The number is " + l + "<br>");
+        }
+    </script>
+</body> 
+
+</html>
