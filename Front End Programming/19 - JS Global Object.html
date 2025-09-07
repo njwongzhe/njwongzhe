@@ -1,0 +1,24 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Global Object</title> 
+</head> 
+
+<body> 
+    <script> /* Global Object */
+        console.log(window); // In browsers, the global object is "window".
+
+        /* Example of Global Variable (name) */
+        
+        console.log(typeof name); // Output: string
+        // The variable "name" is a property of the global object (window in browsers).
+        // Thus, you should avoid using global variables as much as possible.
+
+        name = 1;
+        console.log(typeof name); // Output: string
+        // Even if you assign a number to "name", it is still a string because the global variable "name" is a property of the global object (window in browsers).
+    </script>
+</body> 
+
+</html>

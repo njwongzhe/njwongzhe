@@ -706,19 +706,3 @@ console.log();    | Writing into the browser console.
 innerHTML | Writing into an HTML element.
 innerText | Writing into an HTML element.
 ```
-
-## 3.4 - Data Types
-```js
-String | 
-
-Number    |
-Bigint    |
-
-Boolean   |
-
-undefined |
-null      |
-
-Symbol
-Object
-```
