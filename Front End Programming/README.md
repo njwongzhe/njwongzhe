@@ -696,6 +696,19 @@ External JavaScript (.html) :
 Comment*/
 ```
 
+<br />
+
+## 3.3 - REPL Environment (Read-Eval-Print Loop)
+- Read: You type some JavaScript code into the terminal, and REPL reads what you typed.
+- Eval: REPL runs (evaluates) your code.
+- Print: REPL shows you the result of your code.
+- Loop: REPL goes back to step 1, waiting for you to type more code.This loop continues until you quit REPL.
+
+![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/11%20-%20CSS%20Box%20Model.png)
+
+<br />
+
+
 ## 3.3 - Output
 
 ```js
