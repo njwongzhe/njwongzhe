@@ -707,8 +707,10 @@ Comment*/
 Chrome REPL Environment :
 ![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/24%20-%20JS%20REPL%20Environment.png)
 
-<br />
+- The REPL allows developers to quickly test small code snippets, experiment with JavaScript, CSS, and HTML, and see the immediate results.
+- You can inspect variables, execute functions and pinpoint issues in your code directly within the context of the running application.
 
+<br />
 
 ## 3.3 - Output
 
