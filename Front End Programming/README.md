@@ -704,6 +704,7 @@ Comment*/
 - Print: REPL shows you the result of your code.
 - Loop: REPL goes back to step 1, waiting for you to type more code.This loop continues until you quit REPL.
 
+Chrome REPL Environment :
 ![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/24%20-%20JS%20REPL%20Environment.png)
 
 <br />
