@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Array</title> 
+</head> 
+
+<body> 
+    <script> /* Basic Array Creation and Access */
+        let arr = [1, 2, 3, 4, 5]; // Creates an array with specified elements.
+        console.log(arr);    // Output: [1, 2, 3, 4, 5]
+        console.log(arr[0]); // Output: 1
+        console.log(arr[1]); // Output: 2
+        console.log(arr[2]); // Output: 3
+        console.log(arr[3]); // Output: 4
+        console.log(arr[4]); // Output: 5
+
+        arr = [10, 'Hello', true, null, undefined]; // Creates an array with mixed data types.
+        console.log(arr); // Output: [10, "Hello", true, null, undefined]
+    </script>
+
+    <script> /* Array Constructor */
+        let arr2 = new Array(6, 7, 8, 9, 10); // Creates an array with specified elements.
+        console.log(arr2);    // Output: [6, 7, 8, 9, 10]
+        console.log(arr2[0]); // Output: 6
+        console.log(arr2[1]); // Output: 7
+        console.log(arr2[2]); // Output: 8
+        console.log(arr2[3]); // Output: 9
+        console.log(arr2[4]); // Output: 10
+    </script>
+
+    <script> /* Array Constructor with Single Numeric Argument */
+        let arr3 = new Array(5); // Creates an array with 5 empty slots.
+        console.log(arr3);    // Output: [empty × 5]
+        console.log(arr3[0]); // Output: undefined
+
+        arr3[0] = 11;
+        console.log(arr3);    // Output: [11, empty × 4]
+        console.log(arr3[0]); // Output: 11
+    </script>
+
+    <script> /* Array Properties */
+        console.log(typeof arr); // Data Type = Object
+        // Since arrays are objects, they can have properties and methods.
+
+        console.log(arr.length);  // Output: 5
+        console.log(arr2.length); // Output: 5
+        console.log(arr3.length); // Output: 5
+        console.log(arr["length"]);  // Output: 5
+        console.log(arr2["length"]); // Output: 5
+        console.log(arr3["length"]); // Output: 5
+        // Array properties can be accessed using dot notation or bracket notation.
+    </script>
+</body> 
+
+</html>
