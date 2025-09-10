@@ -7,6 +7,8 @@
 
 <body> 
     <script> /* Object Declaration and Access */
+        console.log("------------------>>> Object Declaration and Access");
+
         let person = {
             name: "John", 
             age: 30, 
@@ -29,6 +31,8 @@
     </script>
 
     <script> /* Object Modification */
+        console.log("------------------>>> Object Modification");
+
         person.age = 31;          // Modifying an existing property of the object.
         person.hobby = "Reading"; // Adding a new property to the object.
         console.log(person);
@@ -38,6 +42,8 @@
     </script>
 
     <script> /* Bracket Notation */
+        console.log("------------------>>> Bracket Notation");
+
         let person2 = {
             name: "Alice", 
             age: 25, 
@@ -51,6 +57,18 @@
         console.log(person2["My Address"]); // Accessing property with space or special characters using bracket notation.
 
         console.log(person2["name"]); // Accessing property using bracket notation also works for regular property names.
+    </script>
+
+    <script> /* Object Elements Existence Check (in) */
+        console.log("------------------>>> Object Elements Existence Check (in)");
+
+        let person3 = {
+            name: "Bob", 
+            age: 28, 
+        };
+
+        console.log("name" in person3);  // Output: true
+        console.log("hobby" in person3); // Output: false
     </script>
 </body> 
 
