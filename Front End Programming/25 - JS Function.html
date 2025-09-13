@@ -7,19 +7,58 @@
 
 <body> 
     <script> /* Function with Return Value */
+        console.log("------------------>>> Function with Return Value");
+
         function myFunction(p1, p2) { 
-            return p1 * p2;
+            return p1 * p2; // Function End
         }
 
-        console.log(myFunction(4, 3));
+        console.log(myFunction(4, 3)); // Output the value return by myFunction.
     </script>
 
     <script> /* Function without Return Value */
+        console.log("------------------>>> Function without Return Value");
+
         function myFunction2() { 
             console.log("Hello World!");
         }
 
-        myFunction2();
+        myFunction2(); // Execute myFunction2.
+    </script>
+
+    <script>
+     // myFunction2(); // Error since out of scope.
+    </script>
+
+    <script> /* Function & Variables */
+        console.log("------------------>>> Function & Variables");
+
+        var a = 20;
+        
+        function myFunction3() {
+            console.log(a); // Output: undefined
+            // "var a" is moved to the top of myFunction3 and initialized as undefined until the assignment is reached.
+
+            var a = 10; // Now "a" is assigned with a value of 10.
+            console.log(a); // Output: 10
+        }
+
+        myFunction3(); // Execute myFunction3.
+
+        console.log(a); // Output: 20
+        // The variable inside a function only can be accessed inside the function.
+        // The variable outside a function only can be accessed outside the function.
+    </script>
+
+    <script> /* Global Function */
+        console.log("------------------>>> Global Function");
+
+        function myFunction4() {
+            console.log("Global Function");
+        }
+
+        window.myFunction4(); // A method to call a function in global scope.
+        console.log(window);  // myFunction(), myFunction2(), myFunction3() and myFunction4() are inside the global scope.
     </script>
 </body> 
 

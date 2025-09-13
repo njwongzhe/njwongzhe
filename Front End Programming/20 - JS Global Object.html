@@ -7,6 +7,8 @@
 
 <body> 
     <script> /* Global Object */
+        console.log("------------------>>> Global Object");
+
         console.log(window); // In browsers, the global object is "window".
 
         /* Example of Global Variable (name) */
@@ -18,6 +20,13 @@
         name = 1;
         console.log(typeof name); // Output: string
         // Even if you assign a number to "name", it is still a string because the global variable "name" is a property of the global object (window in browsers).
+    </script>
+
+    <script> /* Global Object (Auto Convert) */
+        console.log("------------------>>> Global Object (Auto Convert)");
+
+        a = 1; // If we not use var to a variable, it will automatically become a global variable.
+        console.log(window);
     </script>
 </body> 
 

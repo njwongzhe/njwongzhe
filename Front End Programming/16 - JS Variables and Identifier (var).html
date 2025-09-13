@@ -21,6 +21,8 @@
     </script>
         
     <script> /* Variables (var) */
+        console.log("------------------>>> Variables (var)");
+
         var a; // Variable Declaration & Undefined Variable
         console.log(a, typeof a); // Output: undefined 'undefined'
 
@@ -45,6 +47,19 @@
 
         var test4; // Variable Declaration + Undefined Variable
         test4 = 30; // Variable Assignment
+    </script>
+
+    <script> /* Hoisting */
+        console.log("------------------>>> Hoisting");
+
+        console.log(value1);
+        var value1 = 1;
+
+        /* Equal to */
+
+     // var value1;          // Move to the top of the script. (Part of Script of Rule of Identifier)
+     // console.log(value1);
+     // value1 = 1;
     </script>
 </body> 
 
