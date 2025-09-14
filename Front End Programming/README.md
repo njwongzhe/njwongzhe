@@ -694,6 +694,8 @@ External JavaScript (.html) :
 
 /*Multi Line 
 Comment*/
+
+/**Documentation Comment*/
 ```
 
 <br />
