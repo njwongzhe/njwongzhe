@@ -695,8 +695,13 @@ External JavaScript (.html) :
 /*Multi Line 
 Comment*/
 
-/**Documentation Comment*/
+/**
+ * Documentation Comment
+ */
 ```
+
+Documentation Comment :
+![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/26%20-%20JS%20Documentation%20Comment.png)
 
 <br />
 
