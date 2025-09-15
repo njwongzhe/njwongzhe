@@ -9,7 +9,7 @@
     <script> /* Object Declaration and Access */
         console.log("------------------>>> Object Declaration and Access");
 
-        let person = {
+        var person = {
             name: "John", 
             age: 30, 
             address: {
@@ -24,7 +24,7 @@
         console.log(person.hobby, typeof person.hobby); // Output: undefined 'undefined'
      // console.log(people.age);                        // Error since "people" is not defined in the current scope.
 
-        let a = 1;
+        var a = 1;
         console.log(a.name, typeof a.name); // Output: undefined 'undefined'
         // In JavaScript, primitive values (like numbers) can have properties accessed on them, but they do not actually have those properties.
         // Accessing a property that doesn't exist on a primitive value will return undefined.
@@ -44,7 +44,7 @@
     <script> /* Bracket Notation */
         console.log("------------------>>> Bracket Notation");
 
-        let person2 = {
+        var person2 = {
             name: "Alice", 
             age: 25, 
             "My Address": {
@@ -62,7 +62,7 @@
     <script> /* Object Elements Existence Check (in) */
         console.log("------------------>>> Object Elements Existence Check (in)");
 
-        let person3 = {
+        var person3 = {
             name: "Bob", 
             age: 28, 
         };

@@ -25,8 +25,14 @@
     <script> /* Global Object (Auto Convert) */
         console.log("------------------>>> Global Object (Auto Convert)");
 
-        a = 1; // If we not use var to a variable, it will automatically become a global variable.
-        console.log(window);
+        a = 1;     // If we not use var to a variable, it will automatically become a global variable.
+        var b = 2; // If we use var to create a variable, it will become a global variable.
+    </script>
+
+    <script> /* Check Global Namespace */
+        console.log("------------------>>> Check Global Namespace");
+
+        console.log(window); // "a" and "b" exist in global namespace since they become a global variable.
     </script>
 </body> 
 

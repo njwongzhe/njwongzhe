@@ -6,8 +6,17 @@
 </head> 
 
 <body> 
-    <script>
+    <script> /* Problem of "var" */
         // "var" is function-scoped or globally-scoped, while "let" and "const" are block-scoped.
+        // "var" creates a property on the global object (window) which will pollute the global namespace.
+        // "let" and "const" are declared in the global scope do not attach to the global object, keeping the global namespace clean.
+    </script>
+
+    <script> /* Replace the "var" */
+        // Always use const if the value and type (Arrays and Objects) should not be changed.
+        // Only use let if you cannot use const.
+        // Never use var if you can use let or const.
+
         // Variables declared with "let" and "const" are not hoisted to the top of their Block Scope.
         // Variables declared with "let" and "const" have Block Scope.
         // Variables declared with "let" and "const" must be Declared before use.
