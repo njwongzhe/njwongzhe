@@ -14,7 +14,7 @@
         /* Example of Global Variable (name) */
         
         console.log(typeof name); // Output: string
-        // The variable "name" is a property of the global object (window in browsers).
+        // The variable "name" is one of the default property in the global object (window).
         // Thus, you should avoid using global variables as much as possible.
 
         name = 1;
@@ -25,8 +25,11 @@
     <script> /* Global Object (Auto Convert) */
         console.log("------------------>>> Global Object (Auto Convert)");
 
-        a = 1;     // If we not use var to a variable, it will automatically become a global variable.
-        var b = 2; // If we use var to create a variable, it will become a global variable.
+        a = 1; // Equal to "window.a = 1;"
+        // If we not use "var" to a variable, it will automatically become a global variable.
+
+        var b = 2; 
+        // If we use "var" to create a variable, it will become a global variable inside "window".
     </script>
 
     <script> /* Check Global Namespace */

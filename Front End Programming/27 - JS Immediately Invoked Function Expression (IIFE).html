@@ -25,7 +25,7 @@
 
         (function () {
             console.log("Function");
-            b = 10; // Local Variable // 有问题 检查
+            var b = 10; // "b" still is local variable although it is declared by "var".
         })();
         // IIFE can be created without function name if not call itself inside its function.
         // The variable "b" will not pollute the global scope (window).
