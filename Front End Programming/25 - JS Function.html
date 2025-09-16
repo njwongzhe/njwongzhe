@@ -26,8 +26,10 @@
         myFunction2(); // Execute "myFunction2".
     </script>
 
-    <script>
-     // myFunction2(); // Error since out of scope.
+    <script> /* Function & Scope */
+        console.log("------------------>>> Function & Scope");
+
+        
     </script>
 
     <script> /* Function & Variables */
@@ -50,14 +52,30 @@
         // The variable outside a function only can be accessed outside the function.
     </script>
 
+    <script> /* Function & Hoisting */
+        console.log("------------------>>> Function & Hoisting");
+
+        myFunction4(); // No error.
+        
+        function myFunction4() {
+            console.log("Function & Hoisting");
+        }
+
+        myFunction2(); // Success.
+     // myFunction4(); // Error since out of scope.
+
+        // Function is same as "var". The hoisting will happen on them.
+        // However, a function declaration is hoisted to the top of its enclosing scope (function body, block or script).
+    </script>
+
     <script> /* Global Function */
         console.log("------------------>>> Global Function");
 
-        function myFunction4() {
+        function myFunction5() {
             console.log("Global Function");
         }
 
-        window.myFunction4(); // A method to call a function in global scope.
+        window.myFunction5(); // A method to call a function in global scope.
         console.log(window);  // "myFunction()", "myFunction2()", "myFunction3()" and "myFunction4()" are inside the global scope.
     </script>
 </body> 

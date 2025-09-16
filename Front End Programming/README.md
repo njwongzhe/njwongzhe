@@ -701,7 +701,7 @@ Comment*/
 ```
 
 Documentation Comment :
-![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/26%20-%20JS%20Documentation%20Comment.png)
+![Documentation Comment](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/27%20-%20JS%20Documentation%20Comment.png)
 
 <br />
 
@@ -712,7 +712,7 @@ Documentation Comment :
 - Loop: REPL goes back to step 1, waiting for you to type more code.This loop continues until you quit REPL.
 
 Chrome REPL Environment ("24 - JS REPL Environment.html") :
-![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/24%20-%20JS%20REPL%20Environment.png)
+![Chrome REPL Environment](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/24%20-%20JS%20REPL%20Environment.png)
 
 - The REPL allows developers to quickly test small code snippets, experiment with JavaScript, CSS, and HTML, and see the immediate results.
 - You can inspect variables, execute functions and pinpoint issues in your code directly within the context of the running application.

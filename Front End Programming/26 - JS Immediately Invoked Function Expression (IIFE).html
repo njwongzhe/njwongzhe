@@ -9,26 +9,27 @@
     <script> /* Global Variable Pollution */
         console.log("------------------>>> Local & Global Variable");
 
-        function myFunction() {
-            a = 10; // A global variable is declared.
+        function myFunction() { // Global Function
+            var a = 10;
         }
 
-        myFunction(); // The variable "a" pollute the global scope (window) after been called.
+        myFunction();
+        // Although the "var a" in "myFunction()" is not pollute the global namespace (window) but the function "myFunction()" will.
+        // Thus, there is another method to declare a function can be used which is Immediately Invoked Function Expressions (IIFE).
     </script>
 
-    <script> /* IIFE */
+    <script> /* Immediately Invoked Function Expressions (IIFE) */
         console.log("------------------>>> IIFE");
         
         // Immediately Invoked Function Expressions (IIFE) are JavaScript functions that are executed immediately after they are defined. 
-        // They are typically used to create a local scope for variables to prevent them from polluting the global scope.
+        // They are typically used to create a local scope for function to prevent them from polluting the global scope.
         // IIFEs are commonly used to create private scope in JavaScript, allowing variables and functions to be encapsulated and inaccessible from outside the function.
 
         (function () {
             console.log("Function");
-            var b = 10; // "b" still is local variable although it is declared by "var".
+            var b = 10;
         })();
         // IIFE can be created without function name if not call itself inside its function.
-        // The variable "b" will not pollute the global scope (window).
 
         (function myFunction1() {
             console.log("Function 1");
@@ -52,20 +53,12 @@
         // IIFE are not available in the global scope.
     </script>
 
-    <script>
-        var sumNumber = (function (x, y) {
-            console.log(x + y);
-        });
-
-        sumNumber(1, 2);
-    </script>
-
     <script> /* Check Global Namespace */
         console.log("------------------>>> Check Global Namespace");
 
         console.log(window); 
-        // "a" exist in global namespace since it become a global variable.
-        // "b" will not exist in global namespace.
+        // "myFunction()" exist in global namespace (window).
+        // "myFunction1()", "myFunction2()" and "myFunction3()" not exist in global namespace (window).
     </script>
 </body> 
 
