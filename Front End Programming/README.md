@@ -701,7 +701,7 @@ Comment*/
 ```
 
 Documentation Comment :
-![Documentation Comment](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/27%20-%20JS%20Documentation%20Comment.png)
+![Documentation Comment](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/28%20-%20JS%20Documentation%20Comment.png)
 
 <br />
 
@@ -716,16 +716,3 @@ Chrome REPL Environment ("24 - JS REPL Environment.html") :
 
 - The REPL allows developers to quickly test small code snippets, experiment with JavaScript, CSS, and HTML, and see the immediate results.
 - You can inspect variables, execute functions and pinpoint issues in your code directly within the context of the running application.
-
-<br />
-
-## 3.3 - Output
-
-```js
-document.write(); | Writing into the HTML output.
-alert();          | Writing into an alert box.
-console.log();    | Writing into the browser console.
-
-innerHTML | Writing into an HTML element.
-innerText | Writing into an HTML element.
-```
