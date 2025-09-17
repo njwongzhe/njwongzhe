@@ -28,7 +28,15 @@
     </script>
 
     <script> /* Anonymous Functions (Callback) */
-        
+        console.log("------------------>>> Anonymous Functions (Callback)");
+
+        let run = function (callback) {
+            callback();
+        }
+
+        run(function() {
+            console.log("callback");
+        });
     </script>
 
     <script> /* Check Global Namespace */
