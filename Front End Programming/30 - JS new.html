@@ -18,8 +18,8 @@
             };
         }
 
-        let person1 = new Character("Ali", 12, "Reading");
-        let person2 = new Character("Siti", 15, "Biking");
+        let person1 = new Character("Ali", 12, "Reading"); // Create new object by using template "Character".
+        let person2 = new Character("Siti", 15, "Biking"); // Create new object by using template "Character".
 
         person1.display(); // Output: My name is Ali. I am 12 years old and I like Reading.
         person2.display(); // Output: My name is Siti. I am 15 years old and I like Biking.
@@ -40,8 +40,6 @@
         // If no, it will return "undefined".
 
         function Character2(name, age, hobby) {
-            console.log("new.target = " + new.target);
-
             if(new.target) { 
                 this.name = name;
                 this.age = age;
@@ -55,14 +53,12 @@
                 return new Character2("undefined", "undefined", "undefined");
         }
 
-        let person4 = Character2("Steve", 17, "Writing"); // Output: new.target = undefined
-        person4.display(); // Output: new.target = function Character2(name, age, hobby) { ... }
-                           //         My name is undefined. I am undefined years old and I like undefined.
+        let person4 = Character2("Steve", 17, "Writing");
+        person4.display(); // Output: My name is undefined. I am undefined years old and I like undefined.
         // It execute the else statement.
 
-        let person5 = new Character2("Tom", 18, "Fishing"); // No Output
-        person5.display(); // Output: new.target = function Character2(name, age, hobby) { ... }
-                           //         My name is Tom. I am 18 years old and I like Fishing.
+        let person5 = new Character2("Tom", 18, "Fishing");
+        person5.display(); // Output: My name is Tom. I am 18 years old and I like Fishing.
         // It execute the if statement.
     </script>
 </body> 
