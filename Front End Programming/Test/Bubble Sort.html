@@ -7,12 +7,16 @@
 
 <body> 
     <script>
-        let arr = [{name: "Ali", age: 15},
-                   {name: "Ahmad", age: 13},
-                   {name: "Siti", age: 14}
-        ];
+        let arrDisplay = function(arr) {
+            for(i = 0; i < arr.length; i++) {
+                if(typeof arr[i] === 'object') 
+                    document.write(Object.values(arr[i]) + "<br>");
+                else
+                    document.write(arr[i] + "<br>");
+            }
+            document.write("<br>");
+        };
 
-        
         const bubbleSort = 
         /**Bubblesort Function
          * @param {object} arr Array
@@ -31,8 +35,29 @@
             }
         };
 
+        const sortNumber = 
+        /**Sort with each number inside array.
+         * @param {object} compare1 Number 1
+         * @param {object} compare2 Number 2
+         * @param {number} sortType 1 as Ascending, -1 as Descending
+         */
+        function(compare1, compare2, sortType) {
+            if(sortType === 1) 
+                return compare1 > compare2;
+            else if(sortType === -1) 
+                return compare1 < compare2;
+            else
+                return 0;
+        }
+
+        let arr = [10, 5, 8, 3, 2, 7, 8];
+        bubbleSort(arr, sortNumber, 1);  
+        arrDisplay(arr);
+        bubbleSort(arr, sortNumber, -1); 
+        arrDisplay(arr);
+        
         const sortAge = 
-        /**Bubblesort Function
+        /**Sort with age in each object inside array.
          * @param {object} compare1 Object Age 1
          * @param {object} compare2 Object Age 2
          * @param {number} sortType 1 as Ascending, -1 as Descending
@@ -45,11 +70,16 @@
             else
                 return 0;
         }
-        
-        bubbleSort(arr, sortAge, 1);
-        console.log(arr);
-        bubbleSort(arr, sortAge, -1);
-        console.log(arr);
+
+        let arr2 = [{name: "Ali", age: 15},
+                   {name: "Ahmad", age: 13},
+                   {name: "Siti", age: 14}
+        ];
+
+        bubbleSort(arr2, sortAge, 1);  
+        arrDisplay(arr2);
+        bubbleSort(arr2, sortAge, -1); 
+        arrDisplay(arr2);
     </script>
 </body> 
 
