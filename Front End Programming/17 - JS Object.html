@@ -64,11 +64,23 @@
 
         var person3 = {
             name: "Bob", 
-            age: 28, 
+            age: 28
         };
 
         console.log("name" in person3);  // Output: true
         console.log("hobby" in person3); // Output: false
+    </script>
+
+    <script> /* Object Returns in Array (Object.values()) */
+        console.log("------------------>>> Object Returns in Array (Object.values())");
+
+        var person4 = {
+            name: "Bob", 
+            age: 28
+        };
+
+        console.log(Object.values(person4));    // Output: (2) ['Bob', 28]
+        document.write(Object.values(person4)); // Output: Bob,28
     </script>
 </body> 
 
