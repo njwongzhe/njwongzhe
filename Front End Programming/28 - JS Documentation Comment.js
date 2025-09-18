@@ -16,4 +16,4 @@ function myFunction2(any) {
     console.log(any);
 }
 
-myFunction
+my

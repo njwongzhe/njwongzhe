@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>Bubble Sort</title> 
+</head> 
+
+<body> 
+    <script>
+        let arr = [{name: "Ali", age: 15},
+                   {name: "Ahmad", age: 13},
+                   {name: "Siti", age: 14}
+        ];
+
+        
+        const bubbleSort = 
+        /**Bubblesort Function
+         * @param {object} arr Array
+         * @param {function} compareFunction Function for Comparison
+         * @param {number} sortType 1 as Ascending, -1 as Descending
+         */
+        function(arr, compareFunction, sortType) {
+            for(i = 0; i < arr.length; i++) {
+                for(j = 0; j < (arr.length - i - 1); j++) {
+                    if(compareFunction(arr[j], arr[j + 1], sortType)) {
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+        };
+
+        const sortAge = 
+        /**Bubblesort Function
+         * @param {object} compare1 Object Age 1
+         * @param {object} compare2 Object Age 2
+         * @param {number} sortType 1 as Ascending, -1 as Descending
+         */
+        function(compare1, compare2, sortType) {
+            if(sortType === 1) 
+                return compare1.age > compare2.age;
+            else if(sortType === -1) 
+                return compare1.age < compare2.age;
+            else
+                return 0;
+        }
+        
+        bubbleSort(arr, sortAge, 1);
+        console.log(arr);
+        bubbleSort(arr, sortAge, -1);
+        console.log(arr);
+    </script>
+</body> 
+
+</html>
