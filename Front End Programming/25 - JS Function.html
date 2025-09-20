@@ -26,10 +26,14 @@
         myFunction2(); // Execute "myFunction2".
     </script>
 
-    <script> /* Function & Scope */
-        console.log("------------------>>> Function & Scope");
+    <script> /* Function Constructor */
+        console.log("------------------>>> Function Constructor");
 
-        
+        // Syntax: var functionName = new Function("arg1", "arg2", ..., "Function Body as String");
+
+        var myFunction3 = new Function("x", "y", "console.log(x + y);");
+
+        myFunction3(1, 2); // Output: 3
     </script>
 
     <script> /* Function & Variables */
@@ -37,15 +41,15 @@
 
         var a = 20;
         
-        function myFunction3() {
+        function myFunction4() {
             console.log(a); // Output: undefined
-            // "var a" is moved to the top of myFunction3 and initialized as undefined until the assignment is reached.
+            // "var a" is moved to the top of "myFunction4" and initialized as undefined until the assignment is reached.
 
             var a = 10; // Now "a" is assigned with a value of 10.
             console.log(a); // Output: 10
         }
 
-        myFunction3(); // Execute "myFunction3".
+        myFunction4(); // Execute "myFunction4".
 
         console.log(a); // Output: 20
         // The variable inside a function only can be accessed inside the function.
@@ -55,14 +59,14 @@
     <script> /* Function & Hoisting */
         console.log("------------------>>> Function & Hoisting");
 
-        myFunction4(); // No error.
+        myFunction5(); // No error.
         
-        function myFunction4() {
+        function myFunction5() {
             console.log("Function & Hoisting");
         }
 
         myFunction2(); // Success.
-     // myFunction4(); // Error since out of scope.
+     // myFunction6(); // Error since out of scope.
 
         // Function is same as "var". The hoisting will happen on them.
         // However, a function declaration is hoisted to the top of its enclosing scope (function body, block or script).
@@ -71,13 +75,13 @@
     <script> /* Global Function */
         console.log("------------------>>> Global Function");
 
-        function myFunction5() {
+        function myFunction6() {
             console.log("Global Function");
         }
 
-        myFunction5();        // Equal to "window.myFunction5()".
-        window.myFunction5(); // A method to call a function in global scope.
-        console.log(window);  // "myFunction()", "myFunction2()", "myFunction3()" and "myFunction4()" are inside the global scope.
+        myFunction6();        // Equal to "window.myFunction6()".
+        window.myFunction6(); // A method to call a function in global scope.
+        console.log(window);  // "myFunction()", "myFunction2()", "myFunction3()", "myFunction4()", "myFunction5()" and "myFunction6()" are inside the global scope.
     </script>
 </body> 
 
