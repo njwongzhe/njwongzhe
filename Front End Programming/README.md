@@ -701,7 +701,7 @@ Comment*/
 ```
 
 Documentation Comment :
-![Documentation Comment](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/29%20-%20JS%20Documentation%20Comment.png)
+![Documentation Comment](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/28%20-%20JS%20Documentation%20Comment.png)
 
 <br />
 
