@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Static Method and Instance Method</title> 
+</head> 
+
+<body> 
+    <script> /* Static Method */
+        console.log("------------------>>> Static Method");
+
+        // A static method belongs to the class itself, not to objects created from it.
+        // Syntax: ClassName.Method(); 
+
+        let obj = {
+            a: "String",
+            b: "Number"
+        };
+
+        // Example:
+        console.log(Object.keys(obj));   // Output: (2) ['a', 'b']
+        console.log(Object.values(obj)); // Output: (2) ['String', 'Number']
+    </script>
+
+    <script> /* Instance Method */
+        console.log("------------------>>> Instance Method");
+
+        // These method you can only call it on an object created from the class.
+        // Syntax: ObjectName.Method();
+
+        let obj2 = {
+            a: "String",
+            b: "Number"
+        };
+
+        // Example:
+        console.log(obj2.toString()); // Output: [object Object]
+        console.log(obj2.valueOf());  // Output: {a: 'String', b: 'Number'}
+    </script>
+</body> 
+
+</html>

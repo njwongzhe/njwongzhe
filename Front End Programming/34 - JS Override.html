@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Override</title> 
+</head> 
+
+<body> 
+    <script> 
+        let obj = {
+            a: "String",
+            b: "Number",
+        };
+
+        // Before Override:
+        console.log(obj.toString()); // Output: [object Object]
+        console.log(obj.valueOf());  // Output: {a: 'String', b: 'Number'}
+
+        obj.toString = function() {
+            return this.a;
+        };
+
+        obj.valueOf = function() {
+            return this.b;
+        };
+
+        // After Override:
+        console.log(obj.toString()); // Output: String
+        console.log(obj.valueOf());  // Output: Number
+        // You can override any built-in function by just re-declaring it.
+    </script>
+</body> 
+
+</html>
