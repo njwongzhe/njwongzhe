@@ -716,3 +716,13 @@ Chrome REPL Environment ("24 - JS REPL Environment.html") :
 
 - The REPL allows developers to quickly test small code snippets, experiment with JavaScript, CSS, and HTML, and see the immediate results.
 - You can inspect variables, execute functions and pinpoint issues in your code directly within the context of the running application.
+
+<br />
+
+## 3.4 - Global Object, Method and Properties
+- In JavaScript, there’s a special “top-level” object called the global object.
+- It holds all built-in global properties and methods (things you can use anywhere without importing).
+- Example: "window" in browsers / "global" in Node.js
+
+Browsers - "window" :
+![Global Object, Method and Properties](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/32%20-%20JS%20Global%20Methods%20and%20Properties.png)
