@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Wrapper Class</title> 
+</head> 
+
+<body> 
+    <script> /* Wrapper Class */
+        let s = new String("String");
+        let n = new Number(123);
+        let b = new Boolean(true);
+
+        console.log(s, typeof s); // Data Type = Object
+        console.log(n, typeof n); // Data Type = Object
+        console.log(b, typeof b); // Data Type = Object
+
+        console.log(s.length);
+        console.log(n.toFixed(2));
+        // Wrapper class allow primitives to use methods/properties by wrapping them in objects.  
+
+        let s2 = "String";
+        console.log(s2.length); // Equal to "console.log((new String("String")).length);".
+        // If we use primitives directly, JavaScript handles wrapping automatically when you access methods.
+    </script>
+</body> 
+
+</html>
