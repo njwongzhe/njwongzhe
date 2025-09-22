@@ -12,10 +12,11 @@
             b: "Number",
         };
 
-        // Before Override:
+        // Example Before Override:
         console.log(obj.toString()); // Output: [object Object]
         console.log(obj.valueOf());  // Output: {a: 'String', b: 'Number'}
 
+        // Override:
         obj.toString = function() {
             return this.a;
         };
@@ -24,7 +25,7 @@
             return this.b;
         };
 
-        // After Override:
+        // Example After Override:
         console.log(obj.toString()); // Output: String
         console.log(obj.valueOf());  // Output: Number
         // You can override any built-in function by just re-declaring it.
