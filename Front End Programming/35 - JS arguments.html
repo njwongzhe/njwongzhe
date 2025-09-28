@@ -7,6 +7,8 @@
 
 <body> 
     <script> /* "arguments" */
+        console.log("------------------>>> \"arguments\"");
+
         function myFunction(a, b) {
             console.log(arguments); // Equal to "console.log(myFunction.arguments);" but this method is already outdated. 
             // Prefer only use the "arguments" inside function.
@@ -20,6 +22,8 @@
     </script>
 
     <script> /* Reflection of Arguments */
+        console.log("------------------>>> Reflection of Arguments");
+
         function myFunction2(a, b) {
             a = 123
             arguments[1] = 456
