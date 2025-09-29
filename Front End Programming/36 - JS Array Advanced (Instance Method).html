@@ -6,6 +6,29 @@
 </head> 
 
 <body> 
+    <script> /* Each Data in Array (forEach) */
+        console.log("------------------>>> Each Data in Array (forEach)");
+
+        let arrEach = [1, 2, 3, 4, 5];
+
+        // Syntax: array.forEach(function)
+
+        arrEach.forEach(function (data, index, array) {
+            console.log(data, index, array); // Output: 1 0 (5) [1, 2, 3, 4, 5]
+        });                                  //         2 1 (5) [1, 2, 3, 4, 5]
+                                             //         3 2 (5) [1, 2, 3, 4, 5]
+                                             //         4 3 (5) [1, 2, 3, 4, 5]
+                                             //         5 4 (5) [1, 2, 3, 4, 5]
+
+        // The function inside "forEach" can accept three types of parameters.
+        // The 1st parameter is each data in array.
+        // The 2nd parameter is each index corresponding to each data in 1st parameter.
+        // The 3rd parameter is the array where all the data are located.
+
+        // This pattern of function can be applied to "almost all" the array methods that need to do the travesal on each data in an array.
+        // For example every, some, filter, find, findIndex, findLast, findLastIndex and etc.
+    </script>
+
     <script> /* Array Test (every) */
         console.log("------------------>>> Array Test (every)");
 
@@ -95,7 +118,7 @@
         // "findLast" returns the last element in an array that satisfy a given condition. 
         // Syntax: array.findLast(condition)
 
-        runLast = arrLast.findLast(function (data) {
+        let runLast = arrLast.findLast(function (data) {
             return data < 4;
         });
 
@@ -109,6 +132,25 @@
         });
 
         console.log(runLast); // Output: 4
+    </script>
+
+    <script> /* Array Map (map) */
+        console.log("------------------>>> Array Map (map)");
+
+        let arrMap = [1, 2, 3, 4, 5];
+
+        // "map" creates a new array by applying a function to each element of the original array.
+        // Syntax: array.map(function)
+
+        let arrMapNew = arrMap.map(function (data) {
+            return data * 2; // Double up all the data in "arrMap".
+        });
+
+        console.log(arrMapNew); // Output: (5) [2, 4, 6, 8, 10]
+    </script>
+
+    <script> /* Array 
+
     </script>
 </body> 
 

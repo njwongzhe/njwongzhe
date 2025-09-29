@@ -277,6 +277,18 @@
         console.log(arr2D[2][1]);   // Output: 8
         console.log(arr2D[2][2]);   // Output: 9
     </script>
+
+    <script> /* Reduce Dimension (flat) */
+        console.log("------------------>>> Reduce Dimension (flat)");
+
+        let arrFlat = [1, [2, 3], [4, [5, 6, [7, 8]]]];
+
+        // Syntax: array.flat(depth)
+
+        console.log(arrFlat.flat());         // Reduce 1 dimension.   // arrFlat.flat() = [1, 2, 3, 4, [5, 6, [7, 8]]]
+        console.log(arrFlat.flat(2));        // Reduce 2 dimension.   // arrFlat.flat() = [1, 2, 3, 4, 5, 6, [7, 8]]
+        console.log(arrFlat.flat(Infinity)); // Reduce all dimension. // arrFlat.flat() = [1, 2, 3, 4, 5, 6, 7, 8]
+    </script>
 </body> 
 
 </html>
