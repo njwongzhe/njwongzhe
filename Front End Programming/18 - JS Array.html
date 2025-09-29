@@ -26,25 +26,25 @@
     <script> /* Array Constructor */
         console.log("------------------>>> Array Constructor");
 
-        let arr2 = new Array(6, 7, 8, 9, 10); // Creates an array with specified elements.
-        console.log(arr2);    // Output: (5) [6, 7, 8, 9, 10]
-        console.log(arr2[0]); // Output: 6
-        console.log(arr2[1]); // Output: 7
-        console.log(arr2[2]); // Output: 8
-        console.log(arr2[3]); // Output: 9
-        console.log(arr2[4]); // Output: 10
+        let arrCon = new Array(6, 7, 8, 9, 10); // Creates an array with specified elements.
+        console.log(arrCon);    // Output: (5) [6, 7, 8, 9, 10]
+        console.log(arrCon[0]); // Output: 6
+        console.log(arrCon[1]); // Output: 7
+        console.log(arrCon[2]); // Output: 8
+        console.log(arrCon[3]); // Output: 9
+        console.log(arrCon[4]); // Output: 10
     </script>
 
     <script> /* Array Constructor with Single Numeric Argument */
         console.log("------------------>>> Array Constructor with Single Numeric Argument");
         
-        let arr3 = new Array(5); // Creates an array with 5 empty slots.
-        console.log(arr3);    // Output: (5) [empty × 5]
-        console.log(arr3[0]); // Output: undefined
+        let arrConS = new Array(5); // Creates an array with 5 empty slots.
+        console.log(arrConS);    // Output: (5) [empty × 5]
+        console.log(arrConS[0]); // Output: undefined
 
-        arr3[0] = 11;
-        console.log(arr3);    // Output: (5) [11, empty × 4]
-        console.log(arr3[0]); // Output: 11
+        arrConS[0] = 11;
+        console.log(arrConS);    // Output: (5) [11, empty × 4]
+        console.log(arrConS[0]); // Output: 11
     </script>
 
     <script> /* Array Properties */
@@ -53,191 +53,230 @@
         console.log(typeof arr); // Data Type = Object
         // Since arrays are objects, they can have properties and methods.
 
-        console.log(arr.length);  // Output: 5
-        console.log(arr2.length); // Output: 5
-        console.log(arr3.length); // Output: 5
-        console.log(arr["length"]);  // Output: 5
-        console.log(arr2["length"]); // Output: 5
-        console.log(arr3["length"]); // Output: 5
+        console.log(arr.length);        // Output: 5
+        console.log(arrCon.length);     // Output: 5
+        console.log(arrConS.length);    // Output: 5
+        console.log(arr["length"]);     // Output: 5
+        console.log(arrCon["length"]);  // Output: 5
+        console.log(arrConS["length"]); // Output: 5
         // Array properties can be accessed using dot notation or bracket notation.
     </script>
 
     <script> /* Array Length */
         console.log("------------------>>> Array Length");
 
-        let arr4 = [1, 2, 3, 4, 5];
+        let arrLength = [1, 2, 3, 4, 5];
 
-        arr4.length = 10; // Changes the length property of the array.
-        console.log(arr4); // Output: (10) [1, 2, 3, 4, 5, empty × 5]
+        arrLength.length = 10;  // Changes the length property of the array.
+        console.log(arrLength); // Output: (10) [1, 2, 3, 4, 5, empty × 5]
         // The array now has 10 slots, with the last 5 being empty.
 
-        arr4.x = 100; // Adds a new property 'x' to the array object.
-        console.log(arr4);        // Output: (10) [1, 2, 3, 4, 5, empty × 5, x: 100]
-        console.log(arr4.length); // Output: 10
+        arrLength.x = 100;             // Adds a new property 'x' to the array object.
+        console.log(arrLength);        // Output: (10) [1, 2, 3, 4, 5, empty × 5, x: 100]
+        console.log(arrLength.length); // Output: 10
         // The length property only counts numeric indices, not custom properties.
 
-        arr4[20] = 300; // Adds an element at index 20.
-        console.log(arr4);        // Output: (21) [1, 2, 3, 4, 5, empty × 15, 300, x: 100]
-        console.log(arr4.length); // Output: 21
+        arrLength[20] = 300;           // Adds an element at index 20.
+        console.log(arrLength);        // Output: (21) [1, 2, 3, 4, 5, empty × 15, 300, x: 100]
+        console.log(arrLength.length); // Output: 21
         // The length of the array is the highest index + 1 since the first index is 0.
 
-        arr4.length = 0; // Reduces the length of the array to 0.
+        arrLength.length = 0; // Reduces the length of the array to 0.
         // This effectively clears the array.
     </script>
 
     <script> /* Array Element Addition (push & unshift) */
         console.log("------------------>>> Array Element Addition (push & unshift)");
 
-        let arr5 = [1, 2, 3, 4, 5];
+        let arrAdd = [1, 2, 3, 4, 5];
 
-        arr5[arr5.length] = 400; // Adds an element at the end of the array.
-        console.log(arr5);        // Output: (6) [1, 2, 3, 4, 5, 400]
-        console.log(arr5.length); // Output: 6
+        arrAdd[arrAdd.length] = 400; // Adds an element at the end of the array.
+        console.log(arrAdd);         // Output: (6) [1, 2, 3, 4, 5, 400]
+        console.log(arrAdd.length);  // Output: 6
 
-        arr5.push(500, 600, 700); // Adds an element at the end of the array using push method.
-        console.log(arr5);        // Output: (9) [1, 2, 3, 4, 5, 400, 500, 600, 700]
-        console.log(arr5.length); // Output: 9
+        arrAdd.push(500, 600, 700); // Adds an element at the end of the array using push method.
+        console.log(arrAdd);        // Output: (9) [1, 2, 3, 4, 5, 400, 500, 600, 700]
+        console.log(arrAdd.length); // Output: 9
 
-        arr5.unshift(-2, -1, 0); // Adds elements at the beginning of the array using unshift method.
-        console.log(arr5);        // Output: (12) [-2, -1, 0, 1, 2, 3, 4, 5, 400, 500, 600, 700]
-        console.log(arr5.length); // Output: 12
+        arrAdd.unshift(-2, -1, 0);  // Adds elements at the beginning of the array using unshift method.
+        console.log(arrAdd);        // Output: (12) [-2, -1, 0, 1, 2, 3, 4, 5, 400, 500, 600, 700]
+        console.log(arrAdd.length); // Output: 12
     </script>
 
     <script> /* Array Element Remove (pop & shift) */
         console.log("------------------>>> Array Element Remove (pop & shift)");
 
-        let arr6 = [1, 2, 3, 4, 5];
+        let arrRemove = [1, 2, 3, 4, 5];
 
-        delete arr6[0]; // Deletes the element at index 0.
-        console.log(arr6);        // Output: (5) [empty, 2, 3, 4, 5]
-        console.log(arr6.length); // Output: 5
+        delete arrRemove[0];           // Deletes the element at index 0.
+        console.log(arrRemove);        // Output: (5) [empty, 2, 3, 4, 5]
+        console.log(arrRemove.length); // Output: 5
         // The length of the array remains unchanged after deletion.
         // Avoid using delete to remove elements from an array since it will leave empty slots.
 
-        arr6.pop(); // Removes the last element of the array.
-        console.log(arr6);        // Output: (4) [undefined, 2, 3, 4]
-        console.log(arr6.length); // Output: 4
+        arrRemove.pop();               // Removes the last element of the array.
+        console.log(arrRemove);        // Output: (4) [undefined, 2, 3, 4]
+        console.log(arrRemove.length); // Output: 4
         // The length of the array decreases by 1 after pop.
 
-        arr6.shift(); // Removes the first element of the array.
-        console.log(arr6);        // Output: (3) [2, 3, 4]
-        console.log(arr6.length); // Output: 3  
+        arrRemove.shift();             // Removes the first element of the array.
+        console.log(arrRemove);        // Output: (3) [2, 3, 4]
+        console.log(arrRemove.length); // Output: 3  
         // The length of the array decreases by 1 after shift.
     </script>
 
     <script> /* Array Element Addition and Remove (splice) */
         console.log("------------------>>> Array Element Addition and Remove (splice)");
 
-        let arr7 = [1, 2, 3, 4, 5];
+        let arrAddRemove = [1, 2, 3, 4, 5];
 
         // Syntax: array.splice(start, deleteCount, item1, item2, ...)
 
-        arr7.splice(1, 0, 'a', 'b', 'c'); // Adds elements 'a', 'b' and 'c' at index 1 and does not remove any element.
-        console.log(arr7);        // Output: (8) [1, "a", "b", "c", 2, 3, 4, 5]
-        console.log(arr7.length); // Output: 8
+        arrAddRemove.splice(1, 0, 'a', 'b', 'c'); // Adds elements 'a', 'b' and 'c' at index 1 and does not remove any element.
+        console.log(arrAddRemove);                // Output: (8) [1, "a", "b", "c", 2, 3, 4, 5]
+        console.log(arrAddRemove.length);         // Output: 8
 
-        arr7.splice(1, 3, 'd'); // Adds element 'd' at index 1 and removes 3 elements starting from index 1.
-        console.log(arr7);        // Output: (6) [1, "d", 2, 3, 4, 5]
-        console.log(arr7.length); // Output: 6
+        arrAddRemove.splice(1, 3, 'd');   // Adds element 'd' at index 1 and removes 3 elements starting from index 1.
+        console.log(arrAddRemove);        // Output: (6) [1, "d", 2, 3, 4, 5]
+        console.log(arrAddRemove.length); // Output: 6
     </script>
 
     <script> /* Array Fill (fill) */
         console.log("------------------>>> Array Fill (fill)");
 
-        let arr8 = [1, 2, 3, 4, 5];
+        let arrFill = [1, 2, 3, 4, 5];
 
         // Syntax: array.fill(value, start, end)
 
-        arr8.fill(0, 1, 4); // Fills elements from index 1 to index 3 with 0 (end index is not included).
-        console.log(arr8);        // Output: (5) [1, 0, 0, 4, 5]
-        console.log(arr8.length); // Output: 5
+        arrFill.fill(0, 1, 4);       // Fills elements from index 1 to index 3 with 0 (end index is not included).
+        console.log(arrFill);        // Output: (5) [1, 0, 0, 4, 5]
+        console.log(arrFill.length); // Output: 5
 
         // Syntax: array.fill(value, start)
 
-        arr8.fill(2, 2); // Fills elements from index 2 to the end of the array with 2.
-        console.log(arr8);        // Output: (5) [1, 0, 2, 2, 2]
-        console.log(arr8.length); // Output: 5
+        arrFill.fill(2, 2);          // Fills elements from index 2 to the end of the array with 2.
+        console.log(arrFill);        // Output: (5) [1, 0, 2, 2, 2]
+        console.log(arrFill.length); // Output: 5
 
         // Syntax: array.fill(value)
 
-        arr8.fill(1); // Fills all elements of the array with 1.
-        console.log(arr8);        // Output: (5) [1, 1, 1, 1, 1]
-        console.log(arr8.length); // Output: 5
+        arrFill.fill(1);             // Fills all elements of the array with 1.
+        console.log(arrFill);        // Output: (5) [1, 1, 1, 1, 1]
+        console.log(arrFill.length); // Output: 5
     </script>
     
     <script> /* Array Copy (slice) */
         console.log("------------------>>> Array Copy (slice)");
 
-        let arr9 = [1, 2, 3, 4, 5];
+        let arrCopy = [1, 2, 3, 4, 5];
 
         // Syntax: array.slice(start, end)
 
-        let arr10 = arr9.slice(1, 4); // Creates a new array from arr9 with elements from index 1 to index 3 (end index is not included).
-        console.log(arr10);           // Output: (3) [2, 3, 4]
-        console.log(arr10.length);    // Output: 3
+        let arrCopyNew = arrCopy.slice(1, 4); // Creates a new array from arrCopy with elements from index 1 to index 3 (end index is not included).
+        console.log(arrCopyNew);              // Output: (3) [2, 3, 4]
+        console.log(arrCopyNew.length);       // Output: 3
 
         // Syntax: array.slice(start)
 
-        let arr11 = arr9.slice(2); // Creates a new array from arr9 with elements from index 2 to the end of the array.
-        console.log(arr11);        // Output: (3) [3, 4, 5]
-        console.log(arr11.length); // Output: 3
+        let arrCopyNew2 = arrCopy.slice(2); // Creates a new array from arrCopy with elements from index 2 to the end of the array.
+        console.log(arrCopyNew2);           // Output: (3) [3, 4, 5]
+        console.log(arrCopyNew2.length);    // Output: 3
+    </script>
+
+    <script> /* Array Copy Within Array (copyWithin) */
+        console.log("------------------>>> Array Copy Within Array (copyWithin)");
+
+        let arrCopyWithin = ["a", "b", "c", "d", "e"];
+
+        // Syntax: array.copyWithin(targetReplace, start, end)
+
+        arrCopyWithin.copyWithin(1, 2, 5); // Copy start from index 2 and end at index 4 (end index is not included). Replace it from index 1.
+        console.log(arrCopyWithin);        // Output: (5) ['a', 'c', 'd', 'e', 'e']
+        
+        arrCopyWithin = ["a", "b", "c", "d", "e"]; // Reset since this method will effect to original array.
+
+        // Syntax: array.copyWithin(targetReplace, start)
+
+        arrCopyWithin.copyWithin(0, 2) // Copy start from index 2 and end at last index. Replace it from index 0.
+        console.log(arrCopyWithin);    // Output: (5) ['c', 'd', 'e', 'd', 'e']
     </script>
 
     <script> /* Array Combine (concat) */
         console.log("------------------>>> Array Concatenation (concat)");
 
-        let arr12 = [1, 2, 3];
-        let arr13 = [4, 5, 6];
+        let arrCombine1 = [1, 2, 3];
+        let arrCombine2 = [4, 5, 6];
 
-        console.log(arr12.concat(arr13)); // Combines arr12 and arr13 into a new array. // Output: (6) [1, 2, 3, 4, 5, 6]
-        console.log(arr13.concat(arr12)); // Combines arr13 and arr12 into a new array. // Output: (6) [4, 5, 6, 1, 2, 3]
+        console.log(arrCombine1.concat(arrCombine2)); // Combines arrCombine1 and arrCombine2 into a new array. // Output: (6) [1, 2, 3, 4, 5, 6]
+        console.log(arrCombine2.concat(arrCombine1)); // Combines arrCombine2 and arrCombine1 into a new array. // Output: (6) [4, 5, 6, 1, 2, 3]
     </script>
 
     <script> /* Array to String (join) */
         console.log("------------------>>> Array to String (join)");
 
-        let arr14 = [1, 2, 3];
+        let arrString = [1, 2, 3];
 
-        console.log(arr14.join());      // Default separator is comma (,). // Output: 1,2,3
-        console.log(arr14.join(' - ')); // Custom separator ' - '.         // Output: 1 - 2 - 3
+        console.log(arrString.join());      // Default separator is comma (,). // Output: 1,2,3
+        console.log(arrString.join(' - ')); // Custom separator ' - '.         // Output: 1 - 2 - 3
     </script>
 
     <script> /* Array Index Check (indexOf & lastIndexOf) */
         console.log("------------------>>> Array Index Check (indexOf & lastIndexOf)");
 
-        let arr15 = [1, 2, 3, 4, 5, 5, 5];
+        let arrIndex = [1, 2, 3, 4, 5, 5, 5];
 
-        console.log(arr15.indexOf(3));     // Index of first occurrence of 3. // Output: 2
-        console.log(arr15.lastIndexOf(3)); // Index of last occurrence of 3.  // Output: 2
+        // Syntax: array.indexOf(data)
+        // Syntax: array.lastIndexOf(data)
 
-        console.log(arr15.indexOf(5));     // Index of first occurrence of 5. // Output: 4
-        console.log(arr15.lastIndexOf(5)); // Index of last occurrence of 5.  // Output: 6
+        console.log(arrIndex.indexOf(3));     // Index of first occurrence of 3. // Output: 2
+        console.log(arrIndex.lastIndexOf(3)); // Index of last occurrence of 3.  // Output: 2
 
-        console.log(arr15.indexOf(6));     // 6 is not found in the array. // Output: -1
-        console.log(arr15.lastIndexOf(6)); // 6 is not found in the array. // Output: -1
+        console.log(arrIndex.indexOf(5));     // Index of first occurrence of 5. // Output: 4
+        console.log(arrIndex.lastIndexOf(5)); // Index of last occurrence of 5.  // Output: 6
+
+        console.log(arrIndex.indexOf(6));     // 6 is not found in the array. // Output: -1
+        console.log(arrIndex.lastIndexOf(6)); // 6 is not found in the array. // Output: -1
+    </script>
+
+    <script> /* Array Data Check (at) */
+        console.log("------------------>>> Array Data Check (at)");
+
+        let arrAt = [1, 2, 3, 4, 5];
+
+        // Syntax: array.at(index)
+
+        console.log(arrAt.at(0));  // Equal to "console.log(arrAt[0]);" // Output: 1
+        console.log(arrAt.at(1));  // Equal to "console.log(arrAt[1]);" // Output: 2
+        console.log(arrAt.at(2));  // Equal to "console.log(arrAt[2]);" // Output: 3
+        console.log(arrAt.at(3));  // Equal to "console.log(arrAt[3]);" // Output: 4
+        console.log(arrAt.at(4));  // Equal to "console.log(arrAt[4]);" // Output: 5
+        // It is same as the common way we access the data in specific location of an array but we are not allow to enter a negative index by using common way.
+
+        console.log(arrAt.at(-1)); // Output: 5
+        // This method allow us to enter a negative index to search the data in an array.
     </script>
 
     <script> /* 2 Dimension Array */
         console.log("------------------>>> 2 Dimension Array");
 
-        let arr16 = [
+        let arr2D = [
             [1, 2, 3], 
             [4, 5, 6], 
             [7, 8, 9]
         ];
 
-        console.log(arr16);         // Output: (3) [Array(3), Array(3), Array(3)]
-        console.log(arr16[0]);      // Output: (3) [1, 2, 3]
-        console.log(arr16[0][0]);   // Output: 1
-        console.log(arr16[0][1]);   // Output: 2
-        console.log(arr16[0][2]);   // Output: 3
-        console.log(arr16[1][0]);   // Output: 4
-        console.log(arr16[1][1]);   // Output: 5
-        console.log(arr16[1][2]);   // Output: 6
-        console.log(arr16[2][0]);   // Output: 7
-        console.log(arr16[2][1]);   // Output: 8
-        console.log(arr16[2][2]);   // Output: 9
+        console.log(arr2D);         // Output: (3) [Array(3), Array(3), Array(3)]
+        console.log(arr2D[0]);      // Output: (3) [1, 2, 3]
+        console.log(arr2D[0][0]);   // Output: 1
+        console.log(arr2D[0][1]);   // Output: 2
+        console.log(arr2D[0][2]);   // Output: 3
+        console.log(arr2D[1][0]);   // Output: 4
+        console.log(arr2D[1][1]);   // Output: 5
+        console.log(arr2D[1][2]);   // Output: 6
+        console.log(arr2D[2][0]);   // Output: 7
+        console.log(arr2D[2][1]);   // Output: 8
+        console.log(arr2D[2][2]);   // Output: 9
     </script>
-    </body> 
+</body> 
 
 </html>

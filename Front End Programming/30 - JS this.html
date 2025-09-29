@@ -72,7 +72,11 @@
 
         obj4.run("obj4", "obj4");                 // "this" of "run()" in "obj4" point to "obj4". // Output: Tom 13 obj4 obj4
         obj4.run.call(obj3, "call", "call");      // "this" of "run()" in "obj4" point to "obj3". // Output: Rick 12 call call
-        obj4.run.apply(obj3, ["apply", "apply"]); // "this" of "run()" in "obj4" point to "obj3". // Output: Rick 12 apply apply
+        obj4.run.apply(obj3, ["apply", "apply"]); // "this" of "run()" in "obj4" point to "obj3". // Output: Rick 12 apply apply  
+    </script>
+
+    <script> /* Change Target of "this" (Array-like Objects to Array) */
+        console.log("------------------>>> Change Target of \"this\" (Array-like Objects to Array)");
         
         function argumentsToArray(x, y) {
          // let newArray = arguments.slice(); // Error since "arguments" not a real array which can use "slice()".

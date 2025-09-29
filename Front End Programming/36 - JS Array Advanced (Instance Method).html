@@ -1,0 +1,115 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Array Advanced (Instance Method)</title> 
+</head> 
+
+<body> 
+    <script> /* Array Test (every) */
+        console.log("------------------>>> Array Test (every)");
+
+        let arrTest = [1, 2, 3, 4, 5];
+
+        // It checks if all elements in the array satisfy a given condition. 
+        // It returns true if all elements pass the test and false otherwise.
+        // Syntax: array.some(condition)
+
+        let runEvery = arrTest.every(function (data) {
+            return data === 5;
+        });
+
+        let runEvery2 = arrTest.every(function (data) {
+            return data <= 5;
+        });
+
+        console.log(runEvery);  // Not every data in "arrTest" equal to 5.        // Output: false
+        console.log(runEvery2); // Every data in "arrTest" smaller or equal to 5. // Output: true
+    </script>
+
+    <script> /* Array Test (some) */
+        console.log("------------------>>> Array Test (some)");
+
+        let arrTest2 = [1, 2, 3, 4, 5];
+
+        // It checks if at least one element in the array satisfies a given condition. 
+        // It returns true if any element passes the test and false otherwise. 
+        // Syntax: array.some(condition)
+
+        let runSome = arrTest2.some(function (data) {
+            return data === 6;
+        });
+
+        let runSome2 = arrTest2.some(function (data) {
+            return data === 5;
+        });
+
+        console.log(runSome);  // Not some data in "arrTest2" equal to 6. // Output: false
+        console.log(runSome2); // some data in "arrTest2" equal to 5.     // Output: true
+    </script>
+
+    <script> /* Array Filter (filter) */
+        console.log("------------------>>> Array Filter (filter)");
+
+        let arrFilter = [1, 2, 1, 2, 1];
+
+        // It creates a new array containing all elements from the original array that satisfy a given condition. 
+        // Syntax: array.filter(condition)
+
+        let runFilter = arrFilter.filter(function (data) {
+            return data === 1;
+        });
+
+        console.log(runFilter); // Output: (3) [1, 1, 1]
+    </script>
+
+    <script> /* Array Filter First (find & findIndex) */
+        console.log("------------------>>> Array Filter First (find & findIndex)");
+
+        let arrFirst = [5, 4, 1, 2, 3];
+
+        // "find" returns the first element in an array that satisfy a given condition. 
+        // Syntax: array.find(condition)
+
+        let runFirst = arrFirst.find(function (data) {
+            return data < 4;
+        });
+
+        console.log(runFirst); // Output: 1
+
+        // "findIndex" returns the index of first element in an array that satisfy a given condition. 
+        // Syntax: array.findIndex(condition)
+
+        runFirst = arrFirst.findIndex(function (data) {
+            return data < 4;
+        });
+
+        console.log(runFirst); // Output: 2
+    </script>
+
+    <script> /* Array Filter First (findLast & findLastIndex) */
+        console.log("------------------>>> Array Filter First (findLast & findLastIndex)");
+
+        let arrLast = [5, 4, 1, 2, 3];
+
+        // "findLast" returns the last element in an array that satisfy a given condition. 
+        // Syntax: array.findLast(condition)
+
+        runLast = arrLast.findLast(function (data) {
+            return data < 4;
+        });
+
+        console.log(runLast); // Output: 3
+
+        // "findLastIndex" returns the index of last element in an array that satisfy a given condition. 
+        // Syntax: array.findLastIndex(condition)
+
+        runLast = arrLast.findLastIndex(function (data) {
+            return data < 4;
+        });
+
+        console.log(runLast); // Output: 4
+    </script>
+</body> 
+
+</html>
