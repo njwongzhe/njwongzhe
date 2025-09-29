@@ -1,0 +1,108 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS this</title> 
+</head> 
+
+<body> 
+    <script> /* "this" Stay Alone */
+        console.log("------------------>>> \"this\" Stay Alone");
+
+        console.log(this); // "this" will output the global object (window).
+    </script>
+
+    <script> /* "this" in Function & Object */
+        console.log("------------------>>> \"this\" in Function & Object");
+
+        function run() {
+            console.log(this); 
+        }
+
+        run(); // Equal to "window.run()".
+               // "this" will output the global object (window).
+
+        let obj = {
+            name: "Bob", 
+            age: 28,
+            run: run
+        };
+
+        obj.run(); // "this" will output the "obj".
+
+        let obj2 = {
+            name: "Bob", 
+            age: 28,
+            obj3: {
+                name: "Steve", 
+                age: 30,
+                run: run
+            }
+        };
+
+        obj2.obj3.run() // "this" will output the "obj3".
+    </script>
+
+    <script> /* Change Target of "this" (apply & call) */
+        console.log("------------------>>> Change Target of \"this\" (apply & call)");
+        function run(x, y) {
+            console.log(this.name, this.age, x, y);
+        }
+
+        let obj3 = {
+            name: "Rick",
+            age: 12
+        };
+
+        // Both "call()" and "apply()" are used to invoke a function with a specified "this" context and arguments.
+        // "call()" accepts arguments individually. // Syntax: call(objectPointTo, "arg1", "arg2", ...)
+        // "apply()" accepts arguments as an array. // Syntax: apply(objectPointTo, [arrayOfArg])
+        
+        run("window", "window");             // "this" in "run()" point to "window". // Output: undefined window window
+        run.call(obj3, "call", "call");      // "this" in "run()" point to "obj3".   // Output: Rick 12 call call
+        run.apply(obj3, ["apply", "apply"]); // "this" in "run()" point to "obj3".   // Output: Rick 12 apply apply
+
+        let obj4 = {
+            name: "Tom",
+            age: 13,
+            run: function (x, y) {
+                console.log(this.name, this.age, x, y);
+            }
+        }
+
+        obj4.run("obj4", "obj4");                 // "this" of "run()" in "obj4" point to "obj4". // Output: Tom 13 obj4 obj4
+        obj4.run.call(obj3, "call", "call");      // "this" of "run()" in "obj4" point to "obj3". // Output: Rick 12 call call
+        obj4.run.apply(obj3, ["apply", "apply"]); // "this" of "run()" in "obj4" point to "obj3". // Output: Rick 12 apply apply
+        
+        function argumentsToArray(x, y) {
+         // let newArray = arguments.slice(); // Error since "arguments" not a real array which can use "slice()".
+            let newArray = [].slice.call(arguments); 
+            // We put the arguments inside "call()" to let the "this" inside "slice()" point to object "arguments" since "arguments" not a real array that can use "slice()".
+            
+            console.log(newArray);
+        }
+
+        argumentsToArray(1, 2); // Output: (2) [1, 2]
+    </script>
+
+    <script> /* Change Target of "this" (bind) */
+        console.log("------------------>>> Change Target of \"this\" (bind)");
+
+        // bind() can returns a new function with a specified "this" value and optionally.
+        // "call()" will invokes a function immediately.
+        // "bind()" allow bound function can be invoked later.
+        // Syntax: bind(objectPointTo, "arg1", "arg2", ...)
+
+        let runObj = run.bind(obj3, "bind", "bind"); // Nothing Output
+        runObj(); // Output: Rick 12 bind bind
+        runObj(); // Output: Rick 12 bind bind
+        runObj(); // Output: Rick 12 bind bind
+
+        runObj = run.call(obj3, "call", "call"); // Output: Rick 12 call call
+        // "call()" will invokes a function immediately.
+
+     // runObj(); // Error since "runObj" not contain a function now.
+    </script>
+</body> 
+
+</html>
