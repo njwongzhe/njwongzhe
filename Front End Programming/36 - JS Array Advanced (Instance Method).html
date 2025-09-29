@@ -149,8 +149,67 @@
         console.log(arrMapNew); // Output: (5) [2, 4, 6, 8, 10]
     </script>
 
-    <script> /* reduce */
+    <script> /* Array Higher-Order Function (reduce) */
+        console.log("------------------>>> Array Higher-Order Function (reduce) Syntax 1");
 
+        let arrReduce = [1, 2, 3, 4, 5];
+
+        // Syntax: reduce(function)
+
+        let runReduce = function () {
+            let temp = arrReduce.reduce(function (sum, data) { 
+                // Function 1st Parameter (sum)  = Return Data (Initial is 1st data.)
+                // Function 2nd Parameter (data) = Next Data (Initial is 2nd data.)
+                console.log(sum, data);              
+                return sum + data;                  
+            });
+
+            return temp;
+        };
+
+        let resultReduce = runReduce(); // sum = 1st Data, data = 2nd Data // Output: 1 2
+                                        // sum = 1 + 2   , data = 3rd Data //         3 3
+                                        // sum = 3 + 3   , data = 4rd Data //         6 4
+                                        // sum = 6 + 4   , data = 5rd Data //         10 5
+        console.log(resultReduce); // sum = 10 + 5 // Output: 15 
+
+        arrReduce = [1];
+        resultReduce = runReduce(); // No Output
+        console.log(resultReduce);  // Output: 1
+        // Directly return the only data inside array if there is only one data inside array.
+
+        arrReduce = [];
+     // resultReduce = runReduce(); // Error since there is no data inside array.
+
+        console.log("------------------>>> Array Higher-Order Function (reduce) Syntax 2");
+
+        // Syntax: reduce(function, initialValue)
+
+        runReduce = function () {
+            let temp = arrReduce.reduce(function (sum, data) { 
+                console.log(sum, data);              
+                return sum + data;                  
+            }, 0); // Set the initial value as 0. Thus sum = 0;
+
+            return temp;
+        };
+    
+        arrReduce = [1, 2, 3, 4, 5];
+        resultReduce = runReduce(); // sum = Initial Value, data = 1st Data // Output: 0 1
+                                    // sum = 0 + 1        , data = 2nd Data //         1 2
+                                    // sum = 1 + 2        , data = 3rd Data //         3 3
+                                    // sum = 3 + 3        , data = 4rd Data //         6 4
+                                    // sum = 6 + 4        , data = 5rd Data //         10 5
+        console.log(resultReduce); // sum = 10 + 5 // Output: 15 
+
+        arrReduce = [1];
+        resultReduce = runReduce(); // sum = Initial Value, data = 1st Data // Output: 0 1
+        console.log(resultReduce); // sum = 0 + 1 // Output: 1
+
+        arrReduce = []; 
+        resultReduce = runReduce(); // No Output
+        console.log(resultReduce); // Output: 0
+        // Since we had set the initial value to 0, thus it will return the initial value if there is no data in array.
     </script>
 </body> 
 
