@@ -149,7 +149,7 @@
         console.log(arrMapNew); // Output: (5) [2, 4, 6, 8, 10]
     </script>
 
-    <script> /* Array Higher-Order Function (reduce) */
+    <script> /* Array Higher-Order Function (reduce & reduceRight) */
         console.log("------------------>>> Array Higher-Order Function (reduce) Syntax 1");
 
         let arrReduce = [1, 2, 3, 4, 5];
@@ -210,6 +210,9 @@
         resultReduce = runReduce(); // No Output
         console.log(resultReduce); // Output: 0
         // Since we had set the initial value to 0, thus it will return the initial value if there is no data in array.
+
+        // Syntax: reduceRight(function, initialValue)
+        // "reduceRight" same as "reduce" but it will start from right to left.
     </script>
 </body> 
 
