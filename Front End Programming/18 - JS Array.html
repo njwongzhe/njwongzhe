@@ -256,13 +256,15 @@
         console.log(arrCombine2.concat(arrCombine1)); // Combines arrCombine2 and arrCombine1 into a new array. // Output: (6) [4, 5, 6, 1, 2, 3]
     </script>
 
-    <script> /* Array to String (join) */
+    <script> /* Array to String (join & toLocateString) */
         console.log("------------------>>> Array to String (join)");
 
         let arrString = [1, 2, 3];
 
         console.log(arrString.join());      // Default separator is comma (,). // Output: 1,2,3
         console.log(arrString.join(' - ')); // Custom separator ' - '.         // Output: 1 - 2 - 3
+
+        console.log(arrString.toLocaleString()); // Output: 1,2,3
     </script>
 
     <script> /* Array Index Check (indexOf & lastIndexOf) */
