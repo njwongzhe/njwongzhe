@@ -303,6 +303,21 @@
         // This method allow us to enter a negative index to search the data in an array.
     </script>
 
+    <script> /* Array Data Have (includes) */
+        console.log("------------------>>> Array Data Have (includes)");
+
+        let arrInclude = [1, 2, 3, 4, 5];
+
+        // Syntax: array.includes(element, startIndex)
+
+        console.log(arrInclude.includes(1, 1)); // "1" is at index 0. Thus, we can't find "1" after index 0. // Output: false
+        
+        // Syntax: array.includes(element)
+
+        console.log(arrInclude.includes(1)); // Output: true
+        console.log(arrInclude.includes(6)); // Output: false
+    </script>
+
     <script> /* 2 Dimension Array */
         console.log("------------------>>> 2 Dimension Array");
 

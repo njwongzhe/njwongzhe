@@ -6,8 +6,141 @@
 </head> 
 
 <body> 
-    <script>
+    <script> /* Static Methods */
+        console.log("------------------>>> Static Methods");
+
+        console.log("------------------>>> String.fromCharCode() & String.fromCodePoint()");
+
+        console.log(String.fromCharCode(83, 116, 114, 105, 110, 103));  // Output: String
+        console.log(String.fromCodePoint(83, 116, 114, 105, 110, 103)); // Output: String
+        // "String.fromCharCode()" and "String.fromCodePoint()" can convert the Unicode values to string.
+        // Both have same functionalities but different capabilities.
+        // "String.fromCharCode()" is old code which only support simple BMP characters. (Unicode Range: U+0000 to U+FFFF)
+        // "String.fromCodePoint()" is new code which support full Unicode range including the supplementary characters. (Unicode Range: U+0000 to U+10FFFF)
+
+        console.log("------------------>>> String.raw``");
+
+        console.log("a\nb"); // Output: a
+                             //         b
+        console.log(String.raw`a\nb`); // Output: a\nb
+    </script>
+
+    <script> /* Instance Properties */
+        console.log("------------------>>> Instance Properties");
+
+        console.log("------------------>>> length");
+
+        let stringLen = "String";
+        console.log(stringLen.length); // Output: 6
+    </script>
+
+    <script> /* Instance Methods */
+        console.log("------------------>>> Instance Methods");
+
+        console.log("------------------>>> String Index Check (indexOf & lastIndexOf)");
+
+        // Syntax: string.indexOf(data)
+        // "indexOf()" returns the position of the first occurrence of a value in a string.
+
+        // Syntax: string.lastIndexOf(data)
+        // "lastIndexOf()" returns the position of the last occurrence of a value in a string.
+
+        let stringIndex = "aabce";
+        console.log(stringIndex.indexOf("a"));     // Index of first occurrence of "a".  // Output: 0
+        console.log(stringIndex.lastIndexOf("a")); // Index of last occurrence of "a".   // Output: 1
+
+        console.log(stringIndex.indexOf("ab"));    // Index of first occurrence of "ab". // Output: 1
+        console.log(stringIndex.indexOf("bc"));    // Index of first occurrence of "bc". // Output: 2
+
+        console.log(stringIndex.indexOf("z"));     // "z" is not found in the string.    // Output: -1
+        console.log(stringIndex.lastIndexOf("z")); // "z" is not found in the string.    // Output: -1
+
+        console.log("------------------>>> String Data Check (at & charAt)");
+
+        // Syntax: string.at(index)
+        // Syntax: string.charAr(index)
+        // "at()" and "charAt" returns the character at a specified index (position) in a string.
+        // "at()" supports negative index but "charAt" not supports.
+
+        let stringData = "String";
+        console.log(stringData.at(0));  // Output: S
+        console.log(stringData.at(-1)); // Output: g
+        console.log(stringData.charAt(0)); // Output: S
+        console.log(stringData.charAt(5)); // Output: g
+
+        console.log("------------------>>> String Unicode (charCodeAt & codePointAt)");
+
+        // Syntax: string.charCodeAt(index)
+        // Syntax: string.codePointAt(index)
+        // "charCodeAt()" and "codePointAt()" returns the Unicode of the character at a specified index (position) in a string.
+        // Different between both "charCodeAt()" and "codePointAt()" are same as static methods "String.fromCharCode()" (Smaller Range) and "String.fromCodePoint()" (Larger Range).
+
+        let stringUnicode = "Abc";
+        console.log(stringUnicode.charCodeAt(0)); // Output: 65
+        console.log(stringUnicode.codePointAt(0)); // Output: 65
         
+        console.log("------------------>>> String Start or End With (startsWith & endsWith)");
+
+        // Syntax: string.startsWith(value)
+        // "startWith()" returns true if a string starts with a specified value.
+
+        // Syntax: string.endsWith(value)
+        // "endsWith()" returns true if a string ends with a specified value.
+
+        let stringSE = "String";
+        console.log(stringSE.startsWith("St")); // Output: true
+        console.log(stringSE.startsWith("t"));  // Output: false
+        console.log(stringSE.endsWith("ng"));   // Output: true
+        console.log(stringSE.endsWith("n"));    // Output: false
+
+        console.log("------------------>>> String Have (includes)");
+
+        // Syntax: string.includes(value, startIndex)
+        // "includes()" returns true if contains a specified value.
+
+        let stringInclude = "String";
+        console.log(stringInclude.includes("St"));    // Output: true
+        console.log(stringInclude.includes("tri"));   // Output: true
+        console.log(stringInclude.includes("tn"));    // Output: false
+        console.log(stringInclude.includes("St", 1)); // Output: false
+
+        console.log("------------------>>> String Fill Fix Length (padStart & padEnd)");
+
+        // Syntax: string.padStart(length, string) 
+        // "padStart()" pads (fill) a string from the start if not satisfy length set and returns in a new string.
+
+        // Syntax: string.padEnd(length, string) 
+        // "padEnd()" pads (fill) a string from the end if not satisfy length set and returns in a new string.
+
+        let stringPad = "String";
+        console.log(stringPad.padStart(10, "String")); // Output: StriString
+        console.log(stringPad.padEnd(10, "String"));   // Output: StringStri
+
+        console.log("------------------>>> String Combine (concat)");
+
+        // Syntax: string.concat(string1, string2, ..., stringX)
+        // "concat()" combine two or more strings and returns in a new string.
+
+        let stringCombine1 = "Hello ";
+        let stringCombine2 = "World ";
+        let stringCombine3 = "!";
+        console.log(stringCombine1.concat(stringCombine2, stringCombine3)); // Output: Hello World !
+
+        console.log("------------------>>> String Replace (replace & replaceAll)")
+
+        // Syntax: string.replace(searchValue, newValue)
+        // Syntax: string.replaceAll(searchValue, newValue)
+
+        let stringReplace = "Hello World ! World ! World !"; 
+        console.log(stringReplace.replace("World", "Code"));    // Output: Hello Code ! World ! World !
+        console.log(stringReplace.replaceAll("World", "Code")); // Output: Hello Code ! Code ! Code !
+
+        console.log("------------------>>> String Repeat (repeat)");
+
+        // Syntax: string.repeat(count)
+        
+        let stringRepeat = "String";
+        console.log(stringRepeat.repeat(3)); // Output: StringStringString
     </script>
 </body> 
 
