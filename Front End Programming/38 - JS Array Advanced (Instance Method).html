@@ -149,6 +149,36 @@
         console.log(arrMapNew); // Output: (5) [2, 4, 6, 8, 10]
     </script>
 
+    <script> /* Array Sort (sort) */
+        console.log("------------------>>> Array Sort (sort)");
+
+        let arrSort = [100, 2, 1, 42, 4];
+
+        // Syntax: array.sort()
+
+        arrSort.sort(); // It will sort the original array based on Unicode (UTF-16) code.
+        console.log(arrSort); // Output: (5) [1, 100, 2, 4, 42]
+
+        // Syntax: array.sort(compareFunction)
+
+        // Ascending Sort 
+        arrSort.sort(function (a, b) { return a - b; });
+        console.log(arrSort); // Output: (5) [1, 2, 4, 42, 100]
+
+        // Descending Sort
+        arrSort.sort(function (a, b) { return b - a; });
+        console.log(arrSort); // Output: (5) [100, 42, 4, 2, 1]
+
+        // Random Sort
+        arrSort.sort(function () { return Math.random() - 0.5; });
+        console.log(arrSort); // Random Output
+
+        // When the sort() function compares two values, it sends the values to the compare function and sorts the values according to the returned (negative, zero, positive) value.
+        // If the result is negative, a is sorted before b.
+        // If the result is positive, b is sorted before a.
+        // If the result is 0, no changes are done with the sort order of the two values.
+    </script>
+
     <script> /* Array Higher-Order Function (reduce & reduceRight) */
         console.log("------------------>>> Array Higher-Order Function (reduce) Syntax 1");
 
