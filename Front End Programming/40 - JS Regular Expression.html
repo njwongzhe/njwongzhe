@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Regular Expression</title> 
+</head> 
+
+<body> 
+    <script>
+        // A Regular Expression is a sequence of characters that forms a search pattern.
+        // Regex is a common shorthand for a regular expression.
+        // "RexExp" is an object for handling regular expressions.
+        // RegExp are be used for text searching, text replacing and text validation.
+
+        let text1 = "Hello !";
+        let text2 = "Hello World world World !";
+        console.log(text1.match(/World/)); // Output: null
+        console.log(text2.match(/World/)); // Output: ['World']
+
+        // "/g" performs a global match (find all).
+        console.log(text2.match(/World/g)); // Output: (2) ['World', 'World']
+
+        // "/i" performs case-insensitive matching.
+        console.log(text2.match(/World/i));
+    </script>
+</body> 
+
+</html>

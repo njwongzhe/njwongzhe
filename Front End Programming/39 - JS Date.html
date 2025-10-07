@@ -1,0 +1,153 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Date</title> 
+</head> 
+
+<body> 
+    <script> /* Date Constructor */
+        console.log("------------------>>> Date Constructor");
+
+        // Syntax: new Date()
+        // It creates a date object with the current date and time.
+
+        let dateCon = new Date();
+        console.log(dateCon); // It will output the current date and time.
+
+        // Syntax: new Date(milliseconds)
+        // It creates a new date object as milliseconds plus zero time.
+        // JavaScript stores dates as number of milliseconds since January 01, 1970.
+        // Thus, zero time is January 01, 1970 00:00:00 UTC.
+
+        dateCon = new Date(0);
+        console.log(dateCon); // Output: Thu Jan 01 1970 07:30:00 GMT+0730 (Malaysia Time)
+        
+        // Syntax: new Date(dateString)
+        // It creates a date object from a date string.
+        // However, we are not prefer to use this constructor since different browser has different way to analysis the string.
+
+        dateCon = new Date("Thu Jan 01 1970 07:30:00 GMT+0730 (Malaysia Time)");
+        console.log(dateCon); // Output: Thu Jan 01 1970 07:30:00 GMT+0730 (Malaysia Time)
+        dateCon = new Date("2025-01-01");
+        console.log(dateCon); // Output: Wed Jan 01 2025 00:00:00 GMT+0800 (Malaysia Time)
+        dateCon = new Date("Jan 02 2025");
+        console.log(dateCon); // Output: Thu Jan 02 2025 00:00:00 GMT+0800 (Malaysia Time)
+
+        // Syntax: new Date(year, month)
+        // Syntax: new Date(year, month, day)
+        // Syntax: new Date(year, month, day, hours)
+        // Syntax: new Date(year, month, day, hours, minutes)
+        // Syntax: new Date(year, month, day, hours, minutes, seconds)
+        // Syntax: new Date(year, month, day, hours, minutes, seconds, ms)
+
+        dateCon = new Date(2025, 0, 1, 1, 1, 1, 1);
+        console.log(dateCon); // Output: Wed Jan 01 2025 01:01:01 GMT+0800 (Malaysia Time)
+        // JavaScript counts months from 0 to 11. Thus, January = 0 and December = 11.
+    </script>
+
+    <script> /* Static Methods */
+        console.log("------------------>>> Static Methods");
+
+        console.log(Date.now()); 
+        // Returns the number of milliseconds since midnight Jan 1, 1970.
+
+        console.log(Date.parse("Jan 02 2025")); // Output: 1735747200000
+        // Parses a date string and returns the number of milliseconds since January 1, 1970.
+        // Similar with "new Date(dateString)".
+
+        console.log(Date.UTC(2025, 0, 1, 1, 1, 1, 1)); // Output: 1735693261001
+        // Syntax: Date.UTC(year, month, day, hours, minutes, seconds, millisec)
+        // Returns the number of milliseconds in a date since midnight of January 1, 1970, according to UTC time
+    </script>
+
+    <script> /* Instance Methods */
+        console.log("------------------>>> Instance Methods");
+
+        let dateInstance = new Date(0);
+
+        console.log("------------------>>> Year");
+
+        // Syntax: date.setFullYear(year, month, day) // Sets the year of a date object.
+        // Syntax: date.getFullYear()                 // Returns the year.
+        dateInstance.setFullYear(2000, 0, 1); 
+        console.log(dateInstance.getFullYear());
+        
+        // Syntax: date.setUTCFullYear(year, month, day) // Sets the year of a date object, according to universal time.
+        // Syntax: date.getUTCFullYear()                 // Returns the year, according to universal time.
+        dateInstance.setUTCFullYear(2025, 0, 1);
+        console.log(dateInstance.getUTCFullYear());
+
+        console.log("------------------>>> Month");
+
+        // Syntax: date.setMonth(month, day) // Sets the month of a date object.
+        // Syntax: date.getMonth()           // Returns the month (0 to 11).
+
+        // Syntax: date.setUTCMonth(month, day) // Sets the month of a date object, according to universal time.
+        // Syntax: date.getUTCMonth()           // Returns the month, according to universal time (0 to 11).
+
+        console.log("------------------>>> Day");
+
+        // Syntax: date.setDate(day) // Sets the day of the month of a date object.
+        // Syntax: date.getDate()    // Returns the day of the month (1 to 31).
+
+        // Syntax: date.setUTCDate(day) // Sets the day of the month of a date object, according to universal time.
+        // Syntax: date.getUTCDate()    // Returns the day of the month, according to universal time (1 to 31).
+
+        // Syntax: date.getDay()    // Returns the day of the week (0 to 6).
+        // Syntax: date.getUTCDay() // Returns the day of the week, according to universal time (0 to 6).
+        console.log(dateInstance.getDay());    // Output: 4
+        console.log(dateInstance.getUTCDay()); // Output: 3
+        // Returns the day of the week (0 to 6) of a date. Thus, Sunday = 0 and Monday = 1.
+
+        console.log("------------------>>> Hour");
+
+        // Syntax: date.setHours(hour, min, sec, millisec) // Sets the hour of a date object.
+        // Syntax: date.getHours()                         // Returns the hour (0 to 23).
+        
+        // Syntax: date.setUTCHours(hour, min, sec, millisec) // Sets the hour of a date object, according to universal time.
+        // Syntax: date.getUTCHours()                         // Returns the hour, according to universal time (0 to 23).
+
+        console.log("------------------>>> Minute");
+
+        // Syntax: date.setMinutes(min, sec, millisec) // Set the minutes of a date object.
+        // Syntax: date.getMinutes()                   // Returns the minutes (0 to 59).
+        
+        // Syntax: date.setUTCMinutes(min, sec, millisec) // Set the minutes of a date object, according to universal time.
+        // Syntax: date.getUTCMinutes()                   // Returns the minutes, according to universal time (0 to 59).
+
+        console.log("------------------>>> Second");
+
+        // Syntax: date.setSeconds(sec, millisec) // Sets the seconds of a date object.
+        // Syntax: date.getSeconds()              // Returns the seconds (0 to 59).
+        
+        // Syntax: date.setUTCSeconds(sec, millisec) // Set the seconds of a date object, according to universal time.
+        // Syntax: date.getUTCSeconds()              // Returns the seconds, according to universal time (0 to 59).
+
+        console.log("------------------>>> Milisecond");
+
+        // Syntax: date.setMiliSeconds(millisec) // Sets the milliseconds of a date object.
+        // Syntax: date.getMiliSeconds()         // Returns the milliseconds (0 to 999).
+        
+        // Syntax: date.setUTCMiliSeconds(millisec) // Sets the milliseconds of a date object, according to universal time.
+        // Syntax: date.getUTCMiliSeconds()         // Returns the milliseconds, according to universal time (0 to 999).
+
+        console.log("------------------>>> Time");
+
+        // Syntax: date.getTime()         // Returns the number of milliseconds since midnight Jan 1 1970 and a specified date.
+        // Syntax: date.setTime(millisec) // Sets a date to a specified number of milliseconds after/before January 1, 1970.
+
+        console.log("------------------>>> Output");
+
+        // Syntax: date.toISOString() // Returns the date as a string, using the ISO standard.
+        console.log(dateInstance.toISOString()); // Output: 2025-01-01T23:30:00.000Z
+
+        // Syntax: date.toUTCString() // Converts a Date object to a string, according to universal time.
+        console.log(dateInstance.toUTCString()); // Output: Wed, 01 Jan 2025 23:30:00 GMT
+
+        // Syntax: date.toTimeString() // Converts the time portion of a Date object to a string.
+        console.log(dateInstance.toTimeString()); // Output: 07:30:00 GMT+0800 (Malaysia Time)
+    </script>
+</body> 
+
+</html>
