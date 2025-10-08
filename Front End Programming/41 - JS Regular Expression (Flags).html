@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Regular Expression (Flags)</title> 
+</head> 
+
+<body> 
+    <script> /* Flags */
+        console.log("------------------>>> Flags");
+
+        console.log("------------------>>> Global (g)");
+
+        let textG = "Hello World world World !";
+
+        // "g" performs a global match (find all).
+        console.log(/World/g.test(textG));               // Output: true
+        console.log(textG.match(/World/g));              // Output: (2) ['World', 'World']
+        console.log(textG.replace(/World/g, "Replace")); // Output: Hello Replace world Replace !
+        console.log(textG.search(/World/g));             // Output: 6
+
+        console.log("------------------>>> Case Insensitive (i)");
+
+        let textI = "Hello World world World !";
+
+        // "i" performs case-insensitive matching. 
+        console.log(/hello/i.test(textI));               // Output: true
+        console.log(textI.match(/World/i));              // Output: ['World']
+        console.log(textI.replace(/World/i, "Replace")); // Output: Hello Replace world World !
+        // However, it only will return the result based on first occurrence pattern.
+        // Thus, we can use flag "g" together with flag "i" to find all match pattern. 
+
+        console.log(textI.match(/World/gi));              // Output: (3) ['World', 'world', 'World']
+        console.log(textI.replace(/World/gi, "Replace")); // Output: Hello Replace Replace Replace !
+
+        console.log("------------------>>> Substring (d)");
+
+        let textD = "Hello World world World !";
+
+        // "d" performs substring matches.
+        console.log(/World/d.test(textD));                // Output: true
+        console.log(textD.match(/World/gd));              // Output: (2) ['World', 'World']
+        console.log(textD.replace(/World/gd, "Replace")); // Output: Hello Replace world Replace !
+    </script>
+</body> 
+
+</html>
