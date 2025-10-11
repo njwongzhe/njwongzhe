@@ -1,0 +1,77 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Object Regular Expression (RegExp)</title> 
+</head> 
+
+<body> 
+    <script> /* Constructor */
+        console.log("------------------>>> Constructor");
+
+        // Syntax: new RegExp(pattern, flags)
+
+        let reg = new RegExp(/World/, "gi");
+        let text = "Hello World world World!";
+
+        console.log(text.match(reg)); // Output: (3) ['World', 'world', 'World']
+    </script>
+
+    <script> /* Instance Properties */
+        console.log("------------------>>> Instance Properties");
+
+        console.log("------------------>>> Flags Set (flags)");
+
+        // Syntax: regExp.flags
+        // Returns the flags set in the expression.
+        console.log(reg.flags); // Output: gi
+
+        console.log("------------------>>> \"g\" Flag Set (global)");
+
+        // Syntax: regExp.global
+        // Returns true if the "g" flag is set in the expression.
+        console.log(reg.global); // Output: true
+
+        console.log("------------------>>> \"i\" Flag Set (ignoreCase)");
+
+        // Syntax: regExp.ignoreCase
+        // Returns true if the "i" flag is set in the expression.
+        console.log(reg.ignoreCase); // Output: true
+
+        console.log("------------------>>> \"d\" Flag Set (hasIndices)");
+
+        // Syntax: regExp.hasIndices
+        // Returns true if the "d" flag is set in the expression.
+        console.log(reg.hasIndices); // Output: false
+
+        console.log("------------------>>> \"m\" Flag Set (multiline)");
+
+        // Syntax: regExp.multiline
+        // Returns true if the "m" flag is set in the expression.
+        console.log(reg.multiline); // Output: false
+
+        console.log("------------------>>> \"s\" Flag Set (dotAll)");
+
+        // Syntax: regExp.dotAll
+        // Returns true if the "s" flag is set in the expression.
+        console.log(reg.dotAll); // Output: false
+
+        console.log("------------------>>> Pattern Regular Expression (source)");
+
+        // Syntax: regExp.source
+        // Returns the text of the RegExp pattern.
+        console.log(reg.source); // Output: World
+    </script>
+
+    <script> /* Instance Methods */
+        console.log("------------------>>> Instance Methods");
+
+        console.log("------------------>>> toString()");
+
+        // Syntax: regExp.toString()
+        // Returns the string value of the regular expression.
+        console.log(reg.toString()); // Output: /World/gi
+    </script>
+</body> 
+
+</html>
