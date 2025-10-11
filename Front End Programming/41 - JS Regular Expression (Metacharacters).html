@@ -12,6 +12,7 @@
         console.log("------------------>>> Any One (.)");
 
         // "." matches any character except line terminators. Each "." is one of any character.
+        // "s" flag can be used to matches any character include line terminators (\n).
         console.log(text.match(/H../));   // Output: ['Hel']
         console.log(text.match(/H..../)); // Output: ['Hello']
         console.log(/!.../.test(text));   // Output: false

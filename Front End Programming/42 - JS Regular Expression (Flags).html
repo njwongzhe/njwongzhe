@@ -6,9 +6,7 @@
 </head> 
 
 <body> 
-    <script> /* Flags */
-        console.log("------------------>>> Flags");
-
+    <script>
         console.log("------------------>>> Global (g)");
 
         let textG = "Hello World world World !";
@@ -41,6 +39,31 @@
         console.log(/World/d.test(textD));                // Output: true
         console.log(textD.match(/World/gd));              // Output: (2) ['World', 'World']
         console.log(textD.replace(/World/gd, "Replace")); // Output: Hello Replace world Replace !
+
+        console.log("------------------>>> Multiline (m)");
+
+        let textM = `Hello World
+world 
+World !`;
+
+        // "m" performs multiline matches.
+        // The "m" flag affects the behavior of "^" and "$". 
+        // "^" and "$" will match the start and end of each line in a multiline string.
+        console.log(/World/m.test(textM));                 // Output: true
+        console.log(textM.match(/World/gmi));              // Output: (3) ['World', 'world', 'World']
+        console.log(textM.replace(/World/gmi, "Replace")); // Output: Hello Replace 
+                                                           //         Replace
+                                                           //         Replace !
+
+        console.log(textM.match(/^World/gmi)); // Output: (3) ['world', 'World']
+
+        console.log("------------------>>> Any Character of \".\" (s)");
+
+        let textS = "Hello\n";
+
+        // "s" allows "." to match line terminators (\n).
+        console.log(/H...../.test(textS));  // Output: false
+        console.log(/H...../s.test(textS)); // Output: true
     </script>
 </body> 
 

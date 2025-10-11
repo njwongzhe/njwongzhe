@@ -9,42 +9,110 @@
     <script>
         let text = "Hello World Hello"
 
-        console.log("------------------>>> Start (^)");
+        console.log("------------------>>> Start From String (^)");
 
         // "^" matches the beginning of a string.
-        console.log(/^Hello/.test(text));   // Output: true
-        console.log(text.match(/^Hello/));  // Output: ['Hello']
-        console.log(text.match(/^Hello/g)); // Output: ['Hello']
+        console.log(/^Hello/.test(text));   // "Hello" is the beginning string. // Output: true
+        console.log(text.match(/^Hello/));                                      // Output: ['Hello']
+        console.log(text.match(/^Hello/g));                                     // Output: ['Hello']
 
-        console.log("------------------>>> End ($)");
+        console.log("------------------>>> End From String ($)");
 
         // "$" matches the end of a string.
-        console.log(/Hello$/.test(text)); // Output: true
-        console.log(text.match(/Hello$/));  // Output: ['Hello']
-        console.log(text.match(/Hello$/g)); // Output: ['Hello']
+        console.log(/Hello$/.test(text));   // "Hello" is the ending string. // Output: true
+        console.log(text.match(/Hello$/));                                   // Output: ['Hello']
+        console.log(text.match(/Hello$/g));                                  // Output: ['Hello']
     </script>
 
     <script>
-        console.log("------------------>>> Start & End (\b)");
+        let textB = "Hello World Hello !"
 
-        let textB = "Hello World Hello"
+        console.log("------------------>>> Start & End From Word (\\b)");
 
-        // "\b" matches from the beginning or end of a word.
-        console.log(/\bHello/.test(text));   // Output: true
-        console.log(text.match(/\bHello/));  // Output: ['Hello']
-        console.log(text.match(/\bHello/g)); // Output: (2) ['Hello', 'Hello']
+        // Syntax: \bx 
+        // "\b" matches "x" from the beginning of a word.
 
-        // "\b" matches from the beginning or end of a word.
-        console.log(/\bHello/.test(text));   // Output: true
-        console.log(text.match(/\bHello/));  // Output: ['Hello']
-        console.log(text.match(/\bHello/g)); // Output: (2) ['Hello', 'Hello']
+        console.log(/\bHe/.test(textB));   // "He" is at the beginning of both word "Hello". // Output: true
+        console.log(textB.match(/\bHe/));                                                    // Output: ['He']
+        console.log(textB.match(/\bHe/g));                                                   // Output: (2) ['He', 'He']
 
-        console.log("------------------>>> Not Start & End (\B)");
+        // Syntax: x\b 
+        // "\b" matches "x" from the end of a word.
 
-        // "\B" matches NOT from the beginning or end of a word
-        console.log(/\BWorld/.test(text));   // Output: true
-        console.log(text.match(/\BWorld/));  // Output: ['Hello']
-        console.log(text.match(/\BWorld/g)); // Output: (2) ['Hello', 'Hello']
+        console.log(/llo\b/.test(textB));   // "llo" is at the ending of both word "Hello". // Output: true
+        console.log(textB.match(/llo\b/));                                                  // Output: ['llo']
+        console.log(textB.match(/llo\b/g));                                                 // Output: (2) ['llo', 'llo']
+
+        console.log("------------------>>> Not Start & End From Word (\\B)");
+
+        // Syntax: \Bx 
+        // "\B" match the pattern "x", not at the beginning of a word.
+
+        console.log(/\Bllo/.test(textB));   // "llo" is not at the beginning of both word "Hello". // Output: true
+        console.log(textB.match(/\Bllo/));                                                         // Output: ['llo']
+        console.log(textB.match(/\Bllo/g));                                                        // Output: (2) ['llo', 'llo']
+
+        // Syntax: x\B 
+        // // "\B" match the pattern "x", not at the ending of a word.
+
+        console.log(/He\B/.test(textB));   // "He" is not at the ending of both word "Hello". // Output: true
+        console.log(textB.match(/He\B/));                                                     // Output: ['He']
+        console.log(textB.match(/He\B/g));                                                    // Output: (2) ['He', 'He']
+    </script>
+
+    <script>
+        let textS1 = "Hello World !";
+        let textS2 = "Test World !";
+
+        console.log("------------------>>> Subsequent String (?=)");
+
+        // Syntax: x(?=y) 
+        // Matches "x" only if "x" is followed by "y".
+
+        console.log(/Hello(?= World)/.test(textS1)); // Test there exist "Hello" follow by " World" in string "textS1"? // Output: true
+        console.log(/Hello(?= World)/.test(textS2)); // Test there exist "Hello" follow by " World" in string "textS2"? // Output: false
+
+        console.log(textS1.match(/Hello(?= World)/));  // Find the first "Hello" follow by " World" in string "textS1". // Output: ['Hello']
+        console.log(textS1.match(/Hello(?= World)/g)); // Find all the "Hello" follow by " World" in string "textS1".   // Output: ['Hello']
+
+        console.log(textS2.match(/Test(?= World)/));  // Find the first "Test" follow by " World" in string "textS2"?. // Output: ['Test']
+        console.log(textS2.match(/Test(?= World)/g)); // Find all the "Test" follow by " World" in string "textS2"?.   // Output: ['Test']
+
+        console.log("------------------>>> Not Subsequent String (?!)");
+
+        // Syntax: x(?!y) 
+        // Matches "x" if "x" is not followed by "y".
+
+        console.log(/Hello(?! World)/.test(textS1)); // Test there exist "Hello" not follow by " World" in string "textS1"? // Output: false
+        console.log(/Hello(?! Test)/.test(textS1));  // Test there exist "Hello" not follow by " Test" in string "textS1"?  // Output: true
+        
+        console.log(textS1.match(/Hello(?! Test)/));  // Find the first "Hello" not follow by " Test" in string "textS1"?. // Output: ['Hello']
+        console.log(textS1.match(/Hello(?! Test)/g)); // Find all the "Hello" not follow by " Test" in string "textS1"?.   // Output: ['Hello']
+
+        console.log("------------------>>> Previous String (?<=)");
+
+        // Syntax: (?<=y)x
+        // Matches "x" only if "x" is behind the "y".
+
+        console.log(/(?<=Hello )World/.test(textS1)); // Test there exist "World" behind the "Hello " in string "textS1"? // Output: true
+        console.log(/(?<=Test )World/.test(textS2));  // Test there exist "World" behind the "Test " in string "textS1"?  // Output: true
+
+        console.log(textS1.match(/(?<=Hello )World/));  // Find the first "World" behind the "Hello " in string "textS1"?. // Output: ['World']
+        console.log(textS1.match(/(?<=Hello )World/g)); // Find all the "World" behind the "Hello " in string "textS1"?.   // Output: ['World']
+
+        console.log(textS2.match(/(?<=Test )World/));  // Find the first "World" behind the "Test " in string "textS2"?. // Output: ['World']
+        console.log(textS2.match(/(?<=Test )World/g)); // Find all the "World" behind the "Test " in string "textS2"?.   // Output: ['World']
+
+        console.log("------------------>>> Not Previous String (?<!)");
+
+        // Syntax: (?<!y)x 
+        // Matches "x" only if "x" is not behind the "y".
+
+        console.log(/(?<!Hello )World/.test(textS1)); // Test there exist "World" not behind the "Hello " in string "textS1"? // Output: false
+        console.log(/(?<!Test )World/.test(textS1));  // Test there exist "World" not behind the "Test " in string "textS1"?  // Output: true
+
+        console.log(textS1.match(/(?<!Test )World/));  // Find the first "World" not behind the "Test " in string "textS1"?. // Output: ['World']
+        console.log(textS1.match(/(?<!Test )World/g)); // Find all the "World" not behind the "Test " in string "textS1"?.   // Output: ['World']
     </script>
 </body> 
 

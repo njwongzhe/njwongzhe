@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Regular Expression (Character Class)</title> 
+</head> 
+
+<body> 
+    <script>
+        let text = "Hello World !";
+        let num = "12345";
+
+        console.log("------------------>>> Character Between The Brackets [a] & [abc]");
+
+        // Syntax: [a]
+        // Matches the character "a".  
+        console.log(text.match(/[l]/));   // Output: ['l']
+        console.log(text.match(/[l]/g));  // Output: (3) ['l', 'l', 'l']
+
+        // Syntax: [abc]
+        // Matches all the character "a", "b" and "c". 
+        console.log(text.match(/[lo]/g)); // Output: (5) ['l', 'l', 'o', 'o', 'l']
+
+        console.log("------------------>>> Character Not Between The Brackets [^a] & [^abc]");
+
+        // Syntax: [^a]
+        // Matches all the character not "a".  
+        console.log(text.match(/[^l]/));   // Output: ['H']
+        console.log(text.match(/[^l]/g));  // Output: (10) ['H', 'e', 'o', ' ', 'W', 'o', 'r', 'd', ' ', '!']
+
+        // Syntax: [abc]
+        // Matches all the character not "a", "b" and "c". 
+        console.log(text.match(/[^lo]/g)); // Output: (8) ['H', 'e', ' ', 'W', 'r', 'd', ' ', '!']\
+
+        console.log("------------------>>> Alphabet & Number Range [a-z] & [0-9]");
+
+        // Syntax: [a-z]
+        // Matches all the character in the range of "a" to "z".  
+        console.log(text.match(/[a-g]/));   // Output: ['e']
+        console.log(text.match(/[a-g]/g));  // Output: (2) ['e', 'd']
+
+        // Syntax: [0-9]
+        // Matches all the character in the range of "0" to "9". (Maximum is "9".)
+        console.log(num.match(/[0-3]/g)); // Output: (3) ['1', '2', '3']
+
+        console.log("------------------>>> Alphabet & Number Not in Range [^a-z] & [^0-9]");
+
+        // Syntax: [^a-z]
+        // Matches all the character not in the range of "a" to "z".  
+        console.log(text.match(/[^a-g]/));   // Output: ['H']
+        console.log(text.match(/[^a-g]/g));  // Output: (11) ['H', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', ' ', '!']
+
+        // Syntax: [^0-9]
+        // Matches all the character not in the range of "0" to "9". (Maximum is "9".)
+        console.log(num.match(/[^0-3]/g)); // Output: (2) ['4', '5']
+    </script>
+</body> 
+
+</html>
