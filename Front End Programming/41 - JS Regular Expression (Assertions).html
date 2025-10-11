@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Regular Expression (Assertions)</title> 
+</head> 
+
+<body> 
+    <script>
+        let text = "Hello World Hello"
+
+        console.log("------------------>>> Start (^)");
+
+        // "^" matches the beginning of a string.
+        console.log(/^Hello/.test(text));   // Output: true
+        console.log(text.match(/^Hello/));  // Output: ['Hello']
+        console.log(text.match(/^Hello/g)); // Output: ['Hello']
+
+        console.log("------------------>>> End ($)");
+
+        // "$" matches the end of a string.
+        console.log(/Hello$/.test(text)); // Output: true
+        console.log(text.match(/Hello$/));  // Output: ['Hello']
+        console.log(text.match(/Hello$/g)); // Output: ['Hello']
+    </script>
+
+    <script>
+        console.log("------------------>>> Start & End (\b)");
+
+        let textB = "Hello World Hello"
+
+        // "\b" matches from the beginning or end of a word.
+        console.log(/\bHello/.test(text));   // Output: true
+        console.log(text.match(/\bHello/));  // Output: ['Hello']
+        console.log(text.match(/\bHello/g)); // Output: (2) ['Hello', 'Hello']
+
+        // "\b" matches from the beginning or end of a word.
+        console.log(/\bHello/.test(text));   // Output: true
+        console.log(text.match(/\bHello/));  // Output: ['Hello']
+        console.log(text.match(/\bHello/g)); // Output: (2) ['Hello', 'Hello']
+
+        console.log("------------------>>> Not Start & End (\B)");
+
+        // "\B" matches NOT from the beginning or end of a word
+        console.log(/\BWorld/.test(text));   // Output: true
+        console.log(text.match(/\BWorld/));  // Output: ['Hello']
+        console.log(text.match(/\BWorld/g)); // Output: (2) ['Hello', 'Hello']
+    </script>
+</body> 
+
+</html>
