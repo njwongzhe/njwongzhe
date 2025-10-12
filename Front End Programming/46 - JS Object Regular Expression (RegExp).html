@@ -94,6 +94,12 @@
         console.log(regLast1.test("abcabc")); regLast1.lastIndex = 0; // Output: true
         console.log(regLast1.test("abcabc")); regLast1.lastIndex = 0; // Output: true
         // However, we can edit the "lastIndex" each times after "test" or "exec".
+
+        let regLast3 = new RegExp(/(?=abc)/, "g");
+        console.log(regLast1.lastIndex, regLast3.test("abcabc"), regLast1.lastIndex); // Output: 0 true 0
+        console.log(regLast1.lastIndex, regLast3.test("abcabc"), regLast1.lastIndex); // Output: 0 true 0
+        // Assertions will not change the "lastIndex". 
+        // It will just check if the pattern exists at the current position.
     </script>
 
     <script> /* Instance Methods */

@@ -6,6 +6,12 @@
 </head> 
 
 <body> 
+
+    <script>
+        // In the context of JavaScript regular expressions, "assertions" are special patterns that do not consume characters but instead assert something about the position within the string or the characters around the current position.
+        // Assertions don’t actually match characters, they only check conditions about where you are in the string. (lastIndex will not change.)
+    </script>
+
     <script>
         let text = "Hello World Hello"
 
@@ -64,7 +70,7 @@
         let textS1 = "Hello World !";
         let textS2 = "Test World !";
 
-        console.log("------------------>>> Subsequent String (?=)");
+        console.log("------------------>>> Lookahead - Subsequent String (?=)");
 
         // Syntax: x(?=y) 
         // Matches "x" only if "x" is followed by "y".
@@ -78,7 +84,7 @@
         console.log(textS2.match(/Test(?= World)/));  // Find the first "Test" follow by " World" in string "textS2"?. // Output: ['Test']
         console.log(textS2.match(/Test(?= World)/g)); // Find all the "Test" follow by " World" in string "textS2"?.   // Output: ['Test']
 
-        console.log("------------------>>> Not Subsequent String (?!)");
+        console.log("------------------>>> Negative Lookahead - Not Subsequent String (?!)");
 
         // Syntax: x(?!y) 
         // Matches "x" if "x" is not followed by "y".
@@ -89,7 +95,7 @@
         console.log(textS1.match(/Hello(?! Test)/));  // Find the first "Hello" not follow by " Test" in string "textS1"?. // Output: ['Hello']
         console.log(textS1.match(/Hello(?! Test)/g)); // Find all the "Hello" not follow by " Test" in string "textS1"?.   // Output: ['Hello']
 
-        console.log("------------------>>> Previous String (?<=)");
+        console.log("------------------>>> Lookbehind - Previous String (?<=)");
 
         // Syntax: (?<=y)x
         // Matches "x" only if "x" is behind the "y".
@@ -103,7 +109,7 @@
         console.log(textS2.match(/(?<=Test )World/));  // Find the first "World" behind the "Test " in string "textS2"?. // Output: ['World']
         console.log(textS2.match(/(?<=Test )World/g)); // Find all the "World" behind the "Test " in string "textS2"?.   // Output: ['World']
 
-        console.log("------------------>>> Not Previous String (?<!)");
+        console.log("------------------>>> Negative Lookbehind - Not Previous String (?<!)");
 
         // Syntax: (?<!y)x 
         // Matches "x" only if "x" is not behind the "y".

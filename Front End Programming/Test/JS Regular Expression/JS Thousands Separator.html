@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Thousands Separator</title> 
+</head> 
+
+<body> 
+    <script>
+        let reg = new RegExp(/\B(?=(?:\d{3})+$)/, "g");
+
+        // If "123456789" is used to test.
+
+        console.log("123456789".match(/\d{3}/g));             // Output: (3) ['123', '456', '789']
+        //  /\d{3}/              // Matches any sequence of exactly 3 digits.
+
+        console.log("123456789".match(/(?:\d{3})/g));         // Output: (3) ['123', '456', '789']
+        //  /(?:\d{3})/          // (?:) groups the pattern but does not create a capturing group.
+
+        console.log("123456789".match(/(?:\d{3})+/g));        // Output: ['123456789']
+        console.log(  "1234567".match(/(?:\d{3})+/g));        // Output: ['123456']
+        //  /(?:\d{3})+/         // Matches one or more groups of 3 digits.
+
+        console.log("123456789".match(/(?:\d{3})+$/g));       // Output: ['123456789']
+        console.log(  "1234567".match(/(?:\d{3})+$/g));       // Output: ['234567'] 
+        //  /(?:\d{3})+$/        // Matches one or more groups of 3 digits at the end of the string.
+
+        console.log("123456789".match(/(?=(?:\d{3})+$)/g));   // Output: (3) ['', '', '']
+        //  /(?=(?:\d{3})+$)/    // Positive lookahead asserts that at the current position, there are groups of 3 digits until the end of the string. (Match Position before "1", "4" and "7".)
+        
+        console.log("123456789".match(/\B(?=(?:\d{3})+$)/g)); // Output: (2) ['', '']
+        //  /\B(?=(?:\d{3})+$)/  // Remove the start one. (Match Position before "4" and "7".)
+
+        let seperator = function (num, reg) {
+            return num.replace(reg, ",");
+        };
+
+        console.log(seperator("RM 10000", reg));
+        console.log(seperator("RM 100000", reg));
+        console.log(seperator("RM 1000000", reg));
+    </script>
+</body> 
+
+</html>
