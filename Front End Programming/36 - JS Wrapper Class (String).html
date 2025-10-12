@@ -212,10 +212,15 @@
 
         // Syntax: string.replace(searchValue, newValue)
         // Syntax: string.replaceAll(searchValue, newValue)
+        // The "newValue" can be a function which has three parameters (matchValue, index, input).
 
         let stringReplace = "Hello World ! World ! World !"; 
         console.log(stringReplace.replace("World", "Code"));    // Output: Hello Code ! World ! World !
         console.log(stringReplace.replaceAll("World", "Code")); // Output: Hello Code ! Code ! Code !
+
+        console.log(stringReplace.replaceAll("World", function (matchValue, index, input) {
+            return `${matchValue}s`;
+        })); // Output: Hello Worlds ! Worlds ! Worlds !
 
         console.log("------------------>>> String Repeat (repeat)");
 

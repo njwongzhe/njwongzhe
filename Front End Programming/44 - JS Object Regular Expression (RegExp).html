@@ -15,6 +15,14 @@
         let text = "Hello World world World!";
 
         console.log(text.match(reg)); // Output: (3) ['World', 'world', 'World']
+
+        let pattern = /World/;
+        let reg2 = new RegExp(pattern, "gi");
+        let text2 = "Hello World world World!";
+        // We store the pattern in another variable and pass it to the "RegExp".
+        // This method allow us to change the pattern easily in future.
+
+        console.log(text2.match(reg2)); // Output: (3) ['World', 'world', 'World']
     </script>
 
     <script> /* Instance Properties */
@@ -24,53 +32,97 @@
 
         // Syntax: regExp.flags
         // Returns the flags set in the expression.
-        console.log(reg.flags); // Output: gi
+        console.log(/World/gi.flags); // Output: gi
 
         console.log("------------------>>> \"g\" Flag Set (global)");
 
         // Syntax: regExp.global
         // Returns true if the "g" flag is set in the expression.
-        console.log(reg.global); // Output: true
+        console.log(/World/gi.global); // Output: true
 
         console.log("------------------>>> \"i\" Flag Set (ignoreCase)");
 
         // Syntax: regExp.ignoreCase
         // Returns true if the "i" flag is set in the expression.
-        console.log(reg.ignoreCase); // Output: true
+        console.log(/World/gi.ignoreCase); // Output: true
 
         console.log("------------------>>> \"d\" Flag Set (hasIndices)");
 
         // Syntax: regExp.hasIndices
         // Returns true if the "d" flag is set in the expression.
-        console.log(reg.hasIndices); // Output: false
+        console.log(/World/gi.hasIndices); // Output: false
 
         console.log("------------------>>> \"m\" Flag Set (multiline)");
 
         // Syntax: regExp.multiline
         // Returns true if the "m" flag is set in the expression.
-        console.log(reg.multiline); // Output: false
+        console.log(/World/gi.multiline); // Output: false
 
         console.log("------------------>>> \"s\" Flag Set (dotAll)");
 
         // Syntax: regExp.dotAll
         // Returns true if the "s" flag is set in the expression.
-        console.log(reg.dotAll); // Output: false
+        console.log(/World/gi.dotAll); // Output: false
 
         console.log("------------------>>> Pattern Regular Expression (source)");
 
         // Syntax: regExp.source
         // Returns the text of the RegExp pattern.
-        console.log(reg.source); // Output: World
+        console.log(/World/gi.source); // Output: World
+
+        console.log("------------------>>> Index Start Next Match (lastIndex)");
+
+        // Syntax: regExp.lastIndex
+        // Specifies the index at which to start the next match.
+
+        let regLast1 = new RegExp(/abc/, "g");
+        let regLast2 = new RegExp(/World/, "gi");
+
+        console.log(regLast1.lastIndex, regLast1.test("abcabc"), regLast1.lastIndex); // 1st Test: abc_bc  // Output: 0 true 3
+        console.log(regLast1.lastIndex, regLast1.test("abcabc"), regLast1.lastIndex); // 2nd Test: abcabc_ // Output: 3 true 6
+        console.log(regLast1.lastIndex, regLast1.test("abcabc"), regLast1.lastIndex); // 3rd Test: _bcabc  // Output: 6 false 0
+
+        console.log(regLast2.lastIndex, regLast2.exec("Hello World world !"), regLast2.lastIndex); // Output: 0 ['World'] 11
+        console.log(regLast2.lastIndex, regLast2.exec("Hello World world !"), regLast2.lastIndex); // Output: 11 ['world'] 17
+        console.log(regLast2.lastIndex, regLast2.exec("Hello World world !"), regLast2.lastIndex); // Output: 17 null 0
+
+        // When you use "test" or "exec" with a "g" flag, it starts searching from "lastIndex".
+        // If it finds a match, lastIndex is updated to the index after the match.
+        // If no match is found, lastIndex is reset to 0.
+
+        console.log(regLast1.test("abcabc")); regLast1.lastIndex = 0; // Output: true
+        console.log(regLast1.test("abcabc")); regLast1.lastIndex = 0; // Output: true
+        console.log(regLast1.test("abcabc")); regLast1.lastIndex = 0; // Output: true
+        // However, we can edit the "lastIndex" each times after "test" or "exec".
     </script>
 
     <script> /* Instance Methods */
         console.log("------------------>>> Instance Methods");
 
+        console.log("------------------>>> test()");
+
+        // Syntax: regExp.test(string)
+        // Tests for a match in a string. Returns true or false.
+
+        console.log("------------------>>> exec()");
+
+        // Syntax: regExp.exec(string)
+        // Returns a result array for a matches in a string.
+
+        let regExec = new RegExp(/World/, "gi");
+        console.log(regExec.exec("Hello World world !")); // Output: ['World'] 
+        console.log(regExec.exec("Hello World world !")); // Output: ['world'] 
+        console.log(regExec.exec("Hello World world !")); // Output: null
+        // "exec" will return one match at a time for each call, starting from the current "lastIndex" (If the "g" flag is set.).
+        // Without the "g" flag, "exec" always returns the first match.
+
+        // We may use "match" for simple matching and getting all results at once (If the "g" flag is set.).
+
         console.log("------------------>>> toString()");
 
         // Syntax: regExp.toString()
         // Returns the string value of the regular expression.
-        console.log(reg.toString()); // Output: /World/gi 
+        console.log(/World/gi.toString()); // Output: /World/gi 
     </script>
 </body> 
 
