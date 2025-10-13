@@ -734,4 +734,5 @@ Browsers - "window" :
 ### 3.5.1 - HTML DOM
 
 HTML DOM :
+<br />
 ![HTML DOM](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/51%20-%20JS%20HTML%20DOM.png)
