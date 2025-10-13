@@ -12,27 +12,44 @@
 
     <form name="form1"></form>
 
-    <script>
+    <script> /* Find Element "id" */
         console.log("------------------>>> Find Element \"id\"");
 
         // Finding HTML elements by id.
         console.log(document.getElementById("divID1")); 
 
+        // Extra Notes:
+        // "id" will automatically store in global scope (window).
+        // Thus, we can call certain element through its "id" at global scope.
+        console.log(divID1);
+        console.log(divID2);
+        console.log(divID3);
+        // However, this characteristic is not good since we might accidently declare a global variable has same identifier name with certain "id".
+        // This will cause the original "id" cannot be used since it has been overwrite by another value or data.
+    </script>
+
+    <script> /* Find Element "class" */
         console.log("------------------>>> Find Element \"class\"");
 
         // Finding HTML elements by class name.
         console.log(document.getElementsByClassName("class1"));
+    </script>
 
-        console.log("------------------>>> Find Element \"name\"");
+    <script> /* Find Element "name" */
+         console.log("------------------>>> Find Element \"name\"");
 
         // Finding HTML elements by name.
         console.log(document.getElementsByName("form1"));
+    </script>
 
+    <script> /* Find Element Tag */
         console.log("------------------>>> Find Element Tag");
 
         // Finding HTML elements by tag name.
         console.log(document.getElementsByTagName("div"));
+    </script>
 
+    <script> /* Find Element Based CSS Selectors */
         console.log("------------------>>> Find Element Based CSS Selectors");
 
         // Finding HTML elements by CSS selectors.
