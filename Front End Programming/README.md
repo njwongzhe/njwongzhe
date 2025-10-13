@@ -739,8 +739,8 @@ Browsers - "window" :
 - The DOM defines a standard for accessing documents.
 - The W3C DOM standard is separated into 3 different parts:
   a) Core DOM - Standard model for all document types.
-  b) XML DOM  - standard model for XML documents
-  c) HTML DOM - standard model for HTML documents
+  b) XML DOM  - standard model for XML documents.
+  c) HTML DOM - standard model for HTML documents.
 ```
 
 <br />
