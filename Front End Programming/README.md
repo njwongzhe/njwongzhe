@@ -745,7 +745,15 @@ Browsers - "window" :
 
 <br />
 
-#### 3.5.1.1 - HTML DOM
+#### 3.5.1.1 - Core DOM
+
+<br />
+
+#### 3.5.1.2 - XML DOM
+
+<br />
+
+#### 3.5.1.3 - HTML DOM
 ```txt
 - HTML DOM model is constructed as a tree of Objects.
 - With the HTML DOM, JavaScript can access and change all the elements of an HTML document.
@@ -760,11 +768,3 @@ Browsers - "window" :
 HTML DOM :
 <br />
 ![HTML DOM](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/51%20-%20JS%20HTML%20DOM.png)
-
-<br />
-
-#### 3.5.1.2 - XML DOM
-
-<br />
-
-#### 3.5.1.3 - Core DOM
