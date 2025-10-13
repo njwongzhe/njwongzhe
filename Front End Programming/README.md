@@ -726,3 +726,12 @@ Chrome REPL Environment ("24 - JS REPL Environment.html") :
 
 Browsers - "window" :
 ![Global Object, Method and Properties](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/32%20-%20JS%20Global%20Methods%20and%20Properties.png)
+
+<br />
+
+## 3.5 - Web API
+
+### 3.5.1 - HTML DOM
+
+HTML DOM :
+![HTML DOM]()
