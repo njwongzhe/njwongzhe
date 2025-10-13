@@ -731,6 +731,8 @@ Browsers - "window" :
 
 ## 3.5 - Web API
 
+<br />
+
 ### 3.5.1 - HTML DOM
 
 HTML DOM :
