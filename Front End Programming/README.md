@@ -733,8 +733,38 @@ Browsers - "window" :
 
 <br />
 
-### 3.5.1 - HTML DOM
+### 3.5.1 - DOM ((Document Object Model))
+```txt
+- The DOM is a W3C (World Wide Web Consortium) standard.
+- The DOM defines a standard for accessing documents.
+- The W3C DOM standard is separated into 3 different parts:
+  a) Core DOM - Standard model for all document types.
+  b) XML DOM  - standard model for XML documents
+  c) HTML DOM - standard model for HTML documents
+```
+
+<br />
+
+#### 3.5.1.1 - HTML DOM
+```txt
+- HTML DOM model is constructed as a tree of Objects.
+- With the HTML DOM, JavaScript can access and change all the elements of an HTML document.
+- HTML DOM is a standard object model and programming interface for HTML. It defines:
+  a) The HTML elements as objects.
+  b) The properties of all HTML elements.
+  c) The methods to access all HTML elements.
+  d) The events for all HTML elements.
+- HTML DOM is a standard for how to get, change, add or delete HTML elements.
+```
 
 HTML DOM :
 <br />
 ![HTML DOM](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/51%20-%20JS%20HTML%20DOM.png)
+
+<br />
+
+#### 3.5.1.2 - XML DOM
+
+<br />
+
+#### 3.5.1.3 - Core DOM
