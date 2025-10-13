@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Error (throw)</title> 
+</head> 
+
+<body> 
+    <script> /* throw */
+        let sum = function (a, b) {
+            console.log(typeof a, typeof b);
+
+            a = parseFloat(a); // Convert input "a" by prompt from string to number.
+            b = parseFloat(b); // Convert input "b" by prompt from string to number.
+            // If not, the result such as "1" + "2" will equal to "12" since string will just connect both value.
+
+            if(isNaN(a) | isNaN(b))
+                throw new Error("The input must be a number."); 
+                // Show error if user not input a number but input a NaN such as symbol or character.
+
+            return a + b;
+        };
+
+        console.log(sum(prompt("Enter the First Number: "), prompt("Enter the Second Number: ")));
+
+        console.log("Output test after error in current script block."); // Unsuccess output if error is "throw".
+    </script>
+
+    <script>
+        console.log("Output test after error in another script block."); // Success output although error is "throw".
+        // When a error is "throw", the statement after the error in same script block will stop execute.
+    </script>
+</body> 
+
+</html>

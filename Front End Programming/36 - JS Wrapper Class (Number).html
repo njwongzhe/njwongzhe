@@ -57,6 +57,8 @@
         console.log(Number.isNaN(123));   // Output: false
         console.log(Number.isNaN("123")); // Output: false
         console.log(Number.isNaN("NaN")); // Output: false
+        console.log(Number.isNaN(NaN));   // Output: true
+        console.log(Number.isNaN(0/0));   // Output: true
         // "isNaN()" method returns true if a value is Not-a-Number.
         // "Number.isNaN()" returns true if a number is Not-a-Number.
 
