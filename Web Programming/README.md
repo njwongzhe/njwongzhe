@@ -637,7 +637,7 @@ left   | The distance from the left edge of the containing element. (Used with p
 
 ## 2.7 - Box Model
 
-![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/11%20-%20CSS%20Box%20Model.png)
+![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Web%20Programming/11%20-%20CSS%20Box%20Model.png)
 
 <br />
 
@@ -701,7 +701,7 @@ Comment*/
 ```
 
 Documentation Comment :
-![Documentation Comment](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/28%20-%20JS%20Documentation%20Comment.png)
+![Documentation Comment](https://github.com/njwongzhe/njwongzhe/blob/main/Web%20Programming/28%20-%20JS%20Documentation%20Comment.png)
 
 <br />
 
@@ -711,8 +711,8 @@ Documentation Comment :
 - Print: REPL shows you the result of your code.
 - Loop: REPL goes back to step 1, waiting for you to type more code.This loop continues until you quit REPL.
 
-Chrome REPL Environment ("24 - JS REPL Environment.html") :
-![Chrome REPL Environment](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/24%20-%20JS%20REPL%20Environment.png)
+Chrome REPL Environment ("22 - JS REPL Environment.html") :
+![Chrome REPL Environment](https://github.com/njwongzhe/njwongzhe/blob/main/Web%20Programming/22%20-%20JS%20REPL%20Environment.png)
 
 - The REPL allows developers to quickly test small code snippets, experiment with JavaScript, CSS, and HTML, and see the immediate results.
 - You can inspect variables, execute functions and pinpoint issues in your code directly within the context of the running application.
@@ -725,7 +725,7 @@ Chrome REPL Environment ("24 - JS REPL Environment.html") :
 - Example: "window" in browsers / "global" in Node.js
 
 Browsers - "window" :
-![Global Object, Method and Properties](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/32%20-%20JS%20Global%20Methods%20and%20Properties.png)
+![Global Object, Method and Properties](https://github.com/njwongzhe/njwongzhe/blob/main/Web%20Programming/32%20-%20JS%20Global%20Methods%20and%20Properties.png)
 
 <br />
 
@@ -767,4 +767,4 @@ Browsers - "window" :
 
 HTML DOM :
 <br />
-![HTML DOM](https://github.com/njwongzhe/njwongzhe/blob/main/Front%20End%20Programming/51%20-%20JS%20HTML%20DOM.png)
+![HTML DOM](https://github.com/njwongzhe/njwongzhe/blob/main/Web%20Programming/51%20-%20JS%20HTML%20DOM.png)
