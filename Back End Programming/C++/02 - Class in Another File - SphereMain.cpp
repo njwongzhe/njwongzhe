@@ -14,27 +14,27 @@ void Sphere::setRadius(double radius) {
     this->radius = radius;
 };
 
-const double Sphere::getRadius() {
+double Sphere::getRadius() const {
     return this->radius;
 };
 
-const double Sphere::getDiameter() {
+double Sphere::getDiameter() const {
     return (this->radius) * 2;
 };
 
-const double Sphere::getCircumference() {
+double Sphere::getCircumference() const {
     return 2 * (22 / 7) * (this->radius);
 }; 
 
-const double Sphere::getArea() {
+double Sphere::getArea() const {
     return 4 * (22 / 7) * (this->radius) * (this->radius);
 };
 
-const double Sphere::getVolume() {
+double Sphere::getVolume() const {
     return (4 / 3) * (22 / 7) * (this->radius) * (this->radius) * (this->radius);
 };
 
-const void Sphere::displayStatistics() {
+void Sphere::displayStatistics() const {
     cout << "Data of Sphere" << endl;
     cout << "Radius        : " << getRadius()        << endl;
     cout << "Diameter      : " << getDiameter()      << endl;

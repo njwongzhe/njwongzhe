@@ -15,27 +15,27 @@ class Sphere {
             this->radius = radius;
         };
 
-        const double getRadius() {
+        double getRadius() const { // "const" method cannot be overwrite.
             return this->radius;
         };
 
-        const double getDiameter() {
+        double getDiameter() const {
             return (this->radius) * 2;
         };
 
-        const double getCircumference() {
+        double getCircumference() const {
             return 2 * (22 / 7) * (this->radius);
         }; 
 
-        const double getArea() {
+        double getArea() const {
             return 4 * (22 / 7) * (this->radius) * (this->radius);
         };
 
-        const double getVolume() {
+        double getVolume() const {
             return (4 / 3) * (22 / 7) * (this->radius) * (this->radius) * (this->radius);
         };
 
-        const void displayStatistics() {
+        void displayStatistics() const {
             cout << "Data of Sphere" << endl;
             cout << "Radius        : " << getRadius()        << endl;
             cout << "Diameter      : " << getDiameter()      << endl;
