@@ -3,10 +3,12 @@ using namespace std;
 
 class Sphere {
     public:
+        /* Constructor 1 */
         Sphere() {
             this->radius = 0;
         };
 
+        /* Constructor 2 */
         Sphere(double radius) {
             this->radius = radius;
         };

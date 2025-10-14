@@ -2,10 +2,12 @@
 #include "02 - Class in Another File - SphereClass.h" // Import class file.
 using namespace std;
 
+/* Constructor 1 */
 Sphere::Sphere() {
     this->radius = 0;
 };
 
+/* Constructor 2 */
 Sphere::Sphere(double radius) {
     this->radius = radius;
 };

@@ -1,7 +1,7 @@
 class Sphere {
     public:
-        Sphere();
-        Sphere(double radius);
+        Sphere();              /* Constructor 1 */
+        Sphere(double radius); /* Constructor 2 */
         void setRadius(double radius);
         double getRadius() const; // "const" method cannot be overwrite.
         double getDiameter() const;
