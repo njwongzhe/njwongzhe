@@ -6,13 +6,28 @@
 </head> 
 
 <body> 
-    <div id="divID1" class="class1"></div>
-    <div id="divID2" class="class1"></div>
-    <div id="divID3" class="class2"></div>
+    <div id="Parent ul">             <!--ul.parentElement-->
+        <b>Previous Sibling ul</b>   <!--ul.previousElementSibling-->
 
-    <form name="form1"></form>
+        <ul>                         <!--ul-->
+            <li>1st Children ul</li> <!--ul.children--> <!--ul.firstElementChild-->
+            <li>2nd Children ul</li> <!--ul.children-->
+            <li>3rd Children ul</li> <!--ul.children--> <!--ul.lastElementChild-->
+        </ul>
 
-    
+        <b>Next Sibling ul</b>       <!--ul.nextElementSibling-->
+    </div>
+
+    <script>
+        let ul = document.querySelector("ul");
+
+        console.log("Parent           -", ul.parentElement);
+        console.log("Children         -", ul.children);
+        console.log("First Child      -", ul.firstElementChild);
+        console.log("Last Child       -", ul.lastElementChild);
+        console.log("Previous Sibling -", ul.previousElementSibling);
+        console.log("Next Sibling     -", ul.nextElementSibling);
+    </script>
 </body> 
 
 </html>

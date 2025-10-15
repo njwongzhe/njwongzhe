@@ -746,10 +746,12 @@ Browsers - "window" :
 <br />
 
 #### 3.5.1.1 - Core DOM
+---
 
 <br />
 
 #### 3.5.1.2 - XML DOM
+---
 
 <br />
 
