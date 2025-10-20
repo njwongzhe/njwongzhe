@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS HTML DOM Edit Element Content (textContent)</title> 
+</head> 
+
+<body>  
+    <button id="b">Click Me</button>
+
+    <script> /* Element Text Edit */
+        let count = 0;
+        let b = document.querySelector("#b")
+        console.log(b.textContent); // Output: Click Me
+
+        b.onclick = function () {
+            count++;
+
+            b.textContent = "You had click " + count + " times of button.";
+            console.log(b.textContent);
+            // "textContent" sets or returns the text content of the specified node and all its descendants. (Returns all text without HTML tag.)
+            // It returns the raw textual content of an element and all its descendants including text within "script" and "style" tags.
+        };
+
+        console.log(document.querySelector("body").textContent); // It output all the text without HTML tag inside "body" tag.
+    </script>
+</body> 
+
+</html>
