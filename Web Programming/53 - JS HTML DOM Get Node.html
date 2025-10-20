@@ -6,27 +6,95 @@
 </head> 
 
 <body> 
-    <div id="Parent ul">             <!--ul.parentElement-->
-        <b>Previous Sibling ul</b>   <!--ul.previousElementSibling-->
+    <div id="Parent_ul">                            <!--ul.parentElement-->
+        <b>Previous Sibling ul</b>                  <!--ul.previousElementSibling-->
 
-        <ul>                         <!--ul-->
-            <li>1st Children ul</li> <!--ul.children--> <!--ul.firstElementChild-->
-            <li>2nd Children ul</li> <!--ul.children-->
-            <li>3rd Children ul</li> <!--ul.children--> <!--ul.lastElementChild-->
+        <ul>                                        <!--ul-->
+            <li id="Child_ul1">1st Children ul</li> <!--ul.children--> <!--ul.firstElementChild-->
+            <li id="Child_ul2">2nd Children ul</li> <!--ul.children-->
+            <li id="Child_ul3">3rd Children ul</li> <!--ul.children--> <!--ul.lastElementChild-->
         </ul>
 
-        <b>Next Sibling ul</b>       <!--ul.nextElementSibling-->
+        <b id="NextSibling_ul">Next Sibling ul</b>  <!--ul.nextElementSibling-->
     </div>
 
     <script>
         let ul = document.querySelector("ul");
+        let li3 = document.querySelector("#Child_ul3");
+        let b = document.querySelector("#NextSibling_ul");
+    </script>
 
-        console.log("Parent           -", ul.parentElement);
-        console.log("Children         -", ul.children);
-        console.log("First Child      -", ul.firstElementChild);
-        console.log("Last Child       -", ul.lastElementChild);
-        console.log("Previous Sibling -", ul.previousElementSibling);
-        console.log("Next Sibling     -", ul.nextElementSibling);
+    <script> /* Get Node */
+        console.log("------------------>>> Get Node (Element)");
+
+        console.log("Parent           -", ul.parentElement);          // Returns the element of parent node.
+        console.log("Children         -", ul.children);               // Returns an array-like object which contains all of the child elements of certain node.
+        console.log("First Child      -", ul.firstElementChild);      // Returns the first child element of certain node.
+        console.log("Last Child       -", ul.lastElementChild);       // Returns the last child element of certain node.
+        console.log("Previous Sibling -", ul.previousElementSibling); // Returns the previous element in the same tree level.
+        console.log("Next Sibling     -", ul.nextElementSibling);     // Returns the next element in the same tree level.
+
+        console.log("------------------>>> Get Node (Node)");
+
+        // Although "Text" and "Comment" not an element but they also is a part of nodes (TEXT_NODE & COMMENT_NODE).
+        // "children", "firstElementChild", "lastElementChild", "previousElementSibling" and "nextElementSibling" will target the Element Node and ignore other node such as Text Node and Comment Node.
+        // However, "childNodes", "firstChild", "lastChild", "previousSibling" and "nextSibling" will also consider all the node such as Text Node and Comment Node during searching.
+        // Also, every single "Whitespace" we type inside the program also consider as a Text Node.
+
+        console.log("Children         -", ul.childNodes); 
+        console.log("First Child      -", ul.firstChild);
+        console.log("Last Child       -", ul.lastChild);
+        console.log("Previous Sibling -", ul.previousSibling);
+        console.log("Next Sibling     -", ul.nextSibling);
+
+        // Honestly, some of these properties are not really useful since we are not really need to get the "Whitespace" between element and comments.
+    </script>
+
+    <script> /* Other Properties */
+        console.log("------------------>>> Other Properties");
+
+        console.log("------------------>>> Tag Name (tagName)");
+
+        console.log(ul.tagName);                   // Output: UL
+        console.log(ul.firstElementChild.tagName); // Output: LI
+        // Returns the tag name of certain Element Node in uppercase.
+
+        console.log("------------------>>> Node Name (nodeName)");
+
+        console.log(ul.nodeName);             // Output: UL
+
+        console.log(li3.firstChild.tagName);  // Output: undefined
+        console.log(li3.firstChild.nodeName); // Output: #text
+        // "tagName" only can return the name of Element Node which not include other node such as Text Node and Comment Node.
+        // "nodeName" can return the name of all nodes include Text Node and Comment Node.
+
+        console.log("------------------>>> Node Value (nodeValue)");
+
+        console.log(ul.nodeValue);             // Output: null
+        console.log(li3.firstChild.nodeValue); // Output: 3rd Children ul
+        console.log(b.nodeValue);              // Output: null
+        console.log(b.firstChild.nodeValue);   // Output: Next Sibling ul
+        // Returns "null" if the node is an Element Node.
+        // Returns the value if the node is Text Node.
+
+        console.log("------------------>>> Node Type (nodeType)");
+        
+        console.log(ul.nodeType); // Output: 1
+        // Return types of node in number.
+
+        // List of Return Value: 
+        // 1  - ELEMENT_NODE
+        // 2  - ATTRIBUTE_NODE
+        // 3  - TEXT_NODE
+        // 4  - CDATA_SECTION_NODE
+        // 5  - ENTITY_REFERENCE_NODE
+        // 6  - ENTITY_NODE
+        // 7  - PROCESSING_INSTRUCTION_NODE
+        // 8  - COMMENT_NODE
+        // 9  - DOCUMENT_NODE
+        // 10 - DOCUMENT_TYPE_NODE
+        // 11 - DOCUMENT_FRAGMENT_NODE
+        // 12 - NOTATION_NODE
     </script>
 </body> 
 
