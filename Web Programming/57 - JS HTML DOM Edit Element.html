@@ -1,0 +1,144 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS HTML DOM Edit ELement</title> 
+</head> 
+
+<body> 
+    <div>
+        <input id="textInput" type="text" value="">
+        <button id="addLast">Add Text to List</button>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button id="insertBefore">Insert Before Number</button>
+        <input id="insertBeforeInput" type="text" value="">
+
+        &nbsp;&nbsp;&nbsp;
+
+        <button id="insertAfter">Insert After Number</button>
+        <input id="insertAfterInput" type="text" value="">
+
+        <br><br>
+
+        <button id="delLast">Delete Last Text</button>
+
+        <br><br>
+
+        <button id="clone">Clone Number</button>
+        <input id="cloneInput" type="text" value=""> and replace to number
+        <input id="replaceInput" type="text" value=""> .
+
+        <br><br>
+    </div>
+
+    <div>
+        <b>List Item</b>
+        <ol></ol>
+    </div>
+
+    <script> /* Add Element */
+        let itemList = document.querySelector("ol");
+
+        let testInput = document.querySelector("#textInput");
+        let addLast = document.querySelector("#addLast");
+
+        // Syntax: document.createElement(tagName)
+        // Creates an element node (element object).
+
+        // Syntax: parentElement.append(elementObject, elementObject2, ... , elementObjectN)
+        // Append (Add) one or several nodes (element) or strings after the the last child of an element.
+
+        // Syntax: parentElement.appendChild(elementObject)
+        // Append (Add) one node (element) or string after the the last child of an element.
+
+        addLast.onclick = function () {
+            let newElement = document.createElement("li"); // Create new element "li".
+            newElement.innerText = textInput.value;
+            
+            itemList.appendChild(newElement); // Append (Add) "newElement" into "ol".
+        };
+    </script>
+
+    <script> /* Insert Element */
+        let insertB = document.querySelector("#insertBefore");
+        let insertBI = document.querySelector("#insertBeforeInput");
+        let insertA = document.querySelector("#insertAfter");
+        let insertAI = document.querySelector("#insertAfterInput");
+
+        // Syntax: parentElement.insertBefore(fromElementObject, toElementObject)
+        // Inserts a child node before an existing child.
+
+        // If wanna insert after certain existing child, put a ".nextElementSibling" after "toElementObject".
+
+        insertB.onclick = function () {
+            let newElement = document.createElement("li");
+            newElement.innerText = textInput.value;
+
+            if(insertBI.value != "" && isFinite(insertBI.value))
+                itemList.insertBefore(newElement, itemList.children[insertBI.value - 1]);
+                // Insert element before certain element.
+            else 
+                alert("Please mention input before which number in list.");
+        };
+
+        insertA.onclick = function () {
+            let newElement = document.createElement("li");
+            newElement.innerText = textInput.value;
+
+            if(insertAI.value != "" && isFinite(insertAI.value))
+                itemList.insertBefore(newElement, itemList.children[insertAI.value - 1].nextElementSibling); 
+                // Insert element after certain element.
+            else 
+                alert("Please mention input after which number in list.");
+        }
+    </script>
+
+    <script> /* Delete Element */
+        let delLast = document.querySelector("#delLast");
+
+        // Syntax: element.remove()
+        // Removes an element (node) from the document.
+
+        // Syntax: parentElement.removeChild(childObject)
+        // Removes an element's child.
+
+        delLast.onclick = function () {
+            itemList.lastElementChild.remove();
+         // itemList.removeChild(itemList.lastElementChild);
+        };
+    </script>
+
+    <script> /* Clone & Replace Element */
+        let clone = document.querySelector("#clone");
+        let cloneI = document.querySelector("#cloneInput");
+        let replaceI = document.querySelector("#replaceInput")
+
+        // Syntax: element.cloneNode(bool)
+        // Creates a copy of a node and returns the clone.
+        // bool = false - Default. Clone only the node and its attributes.
+        // bool = true  - Clone the node, its attributes and its content.
+
+        // Syntax: parentElement.replaceChild(fromElementObject, toElementObject)
+        // Replaces a child node with a new node.
+
+        // Syntax: parentElement.replaceChildren(elementObject, elementObject2, ... , elementObjectN)
+        // Replaces all the child in parent with "elementObject, elementObject2, ... , elementObjectN".
+        // If not put any arguments, empty all the child in parent.
+
+        // Syntax: element.replaceWith(elementObject, elementObject2, ... , elementObjectN)
+        // Replaces an element with other elements.
+
+        clone.onclick = function () {
+            let newElement = itemList.children[cloneI.value - 1].cloneNode(true);
+
+            if(cloneI.value != "" && isFinite(cloneI.value) && replaceI.value != "" && isFinite(replaceI.value))
+                itemList.replaceChild(newElement, itemList.children[replaceI.value - 1]);
+            else 
+                alert("Please mention clone which number in list to which number.");
+        }
+    </script>
+</body> 
+
+</html>
