@@ -1,4 +1,4 @@
-# 2.0 - CSS (Cascading Style Sheets / .css)
+# 02 - CSS (Cascading Style Sheets / .css)
 - When tags like <font> and color attributes were added to the HTML 3.2 specification, it started a nightmare for web developers.
 - Development of large web sites where fonts and color information were added to every single page became a long and expensive process.
 - Thus, the CSS can apply to multiple sites were added to HTML 4.0.
@@ -11,7 +11,7 @@
 
 <br />
 
-## 2.1 - Style
+## 1.0 - Style
 
 ```txt
 - Style is a definition of fonts, colors and etc.
@@ -22,7 +22,7 @@
 
 <br />
 
-## 2.2 - Basic Structure
+## 2.0 - Basic Structure
 - When different types of CSS Structure is applied to a same selector (tag), only the structure with higher priority will be applied on it.
 - External Stylesheet (Lower Priority)
 - Internal Stylesheet (Middle Priority)
@@ -30,7 +30,7 @@
 
 <br />
 
-### 2.2.1 - Internal Stylesheet (Middle Priority)
+### 2.1 - Internal Stylesheet (Middle Priority)
 
 ```html
 <head>
@@ -66,7 +66,7 @@
 
 <br />
 
-### 2.2.2 - External Stylesheet (Lowest Priority)
+### 2.2 - External Stylesheet (Lowest Priority)
 
 HTML Header :
 ```html
@@ -86,7 +86,7 @@ h2 {
 
 <br />
 
-### 2.2.3 - Inline Styles (Highest Priority)
+### 2.3 - Inline Styles (Highest Priority)
 
 ```html
 <body>
@@ -97,7 +97,7 @@ h2 {
 
 <br />
 
-## 2.3 - Comment
+## 3.0 - Comment
 
 ```css
 /*Single Line Comment*/
@@ -108,7 +108,7 @@ Comment*/
 
 <br />
 
-## 2.4 - Declaration
+## 4.0 - Declaration
 
 ```txt
 - Property : A type of attribute of HTML tag you want to change.
@@ -118,7 +118,7 @@ Comment*/
 
 <br />
 
-## 2.5 - Selector
+## 5.0 - Selector
 
 ```txt
 - A selector is an HTML tag at which style will be applied.
@@ -129,11 +129,11 @@ Comment*/
 
 <br />
 
-### 2.5.1 - Generic Selector
+### 5.1 - Generic Selector
 
 <br />
 
-#### 2.5.1.1 : Universal Selector (*) (Lowest Priority)
+#### 5.1.1 : Universal Selector (*) (Lowest Priority)
 - Used to define styles for all tags. 
 
 ```css
@@ -142,7 +142,7 @@ Comment*/
 
 <br />
 
-#### 2.5.1.2 : HTML/Tag Selector
+#### 5.1.2 : HTML/Tag Selector
 - Used to define styles associated to HTML tags. 
 
 ```css
@@ -151,7 +151,7 @@ h1 {color: red;} /* Apply to all tag called "h1". */
 
 <br />
 
-#### 2.5.1.3 : Class Selector (.)
+#### 5.1.3 : Class Selector (.)
 - Used to define styles that can be used without redefining plain HTML tags. (Class name cannot start with number.)
 
 ```css
@@ -162,7 +162,7 @@ h1.class-name {color: red;} /* Apply to all tag called "h1" with class name call
 
 <br />
 
-#### 2.5.1.4 : ID Selector (#) (Highest Priority) 
+#### 5.1.4 : ID Selector (#) (Highest Priority) 
 - Used to define styles relating to objects with a unique ID. 
 
 ```css
@@ -173,7 +173,7 @@ h1#id-name {color: red;} /* Apply to all tag called "h1" with id name called "id
 
 <br />
 
-### 2.5.2 - Grouping Selector (,)
+### 5.2 - Grouping Selector (,)
 
 ```css
 h1, h2, h3 {color: red;}       /* Apply to all tag called "h1", "h2" and "h3". */
@@ -183,11 +183,11 @@ h1, h2, h3 {color: red;}       /* Apply to all tag called "h1", "h2" and "h3". *
 
 <br />
 
-### 2.5.3 - Other Selector (Combinator)
+### 5.3 - Other Selector (Combinator)
 
 <br />
 
-#### 2.5.3.1 : Child Combinator (>)
+#### 5.3.1 : Child Combinator (>)
 
 ```html
 <div> 
@@ -205,7 +205,7 @@ h1, h2, h3 {color: red;}       /* Apply to all tag called "h1", "h2" and "h3". *
 
 <br />
 
-#### 2.5.3.2 : Context Dependent Selector (Descendant Combinator)
+#### 5.3.2 : Context Dependent Selector (Descendant Combinator)
 
 ```html
 <div> 
@@ -222,7 +222,7 @@ h1, h2, h3 {color: red;}       /* Apply to all tag called "h1", "h2" and "h3". *
 
 <br />
 
-#### 2.5.3.3 : Next Sibling Combinator (+)
+#### 5.3.3 : Next Sibling Combinator (+)
 
 ```css
 h2 + h1 {color: grey;} /* Selects the first <h1> element that is placed immediately after <h2> elements. */
@@ -230,7 +230,7 @@ h2 + h1 {color: grey;} /* Selects the first <h1> element that is placed immediat
 
 <br />
 
-#### 2.5.3.4 : Subsequent-sibling Combinator (~)
+#### 5.3.4 : Subsequent-sibling Combinator (~)
 
 ```css
 h4 ~ h3 {color: grey;} /* Selects all <h3> element that is placed immediately after <h4> elements. */
@@ -238,7 +238,7 @@ h4 ~ h3 {color: grey;} /* Selects all <h3> element that is placed immediately af
 
 <br />
 
-#### 2.5.3.5 : Pseudo-class Selector (:)
+#### 5.3.5 : Pseudo-class Selector (:)
 - Sequence of Pseudo-class Selector is important.
 - Pseudo-class Selector put in front will be shown on top when active.
 - Example : The color of Pseudo-class Selector put in front will block the color of Pseudo-class Selector put behind.
@@ -252,7 +252,7 @@ a:visited { ... } /* Apply on visited link <a>.*/
 
 <br />
 
-## 2.6 - Property
+## 6.0 - Property
 
 ```txt
 - Shorthand Properties : Shorthand properties allow us to write multiple properties in a single line. (Example : font)
@@ -280,7 +280,7 @@ a:visited { ... } /* Apply on visited link <a>.*/
 
 <br />
 
-### 2.6.1 - Property Reference
+### 6.1 - Property Reference
 - More Property : https://www.w3schools.com/CSSref/index.php
 
 ```css
@@ -320,10 +320,10 @@ left   | The distance from the left edge of the containing element. (Used with p
 
 <br />
 
-## 2.7 - Box Model
+## 7.0 - Box Model
 
-![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Web%20Programming/11%20-%20CSS%20Box%20Model.png)
+![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Web%20Programming/02%20-%20CSS/11%20-%20CSS%20Box%20Model.png)
 
 <br />
 
-## 2.8 - Flexbox
+## 8.0 - Flexbox
