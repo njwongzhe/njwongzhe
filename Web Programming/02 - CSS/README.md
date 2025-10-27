@@ -71,11 +71,11 @@
 HTML Header :
 ```html
 <head>
-       <link rel="stylesheet" href="04 - CSS Basic Structure (External Stylesheet).css">
+       <link rel="stylesheet" href="01 - CSS Basic Structure (External Stylesheet).css">
 </head>
 ```
 
-"04 - CSS Basic Structure (External Stylesheet).css" :
+"01 - CSS Basic Structure (External Stylesheet).css" :
 ```css
 /* Example */
 h2 {
@@ -322,7 +322,7 @@ left   | The distance from the left edge of the containing element. (Used with p
 
 ## 7.0 - Box Model
 
-![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Web%20Programming/02%20-%20CSS/11%20-%20CSS%20Box%20Model.png)
+![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/Web%20Programming/02%20-%20CSS/08%20-%20CSS%20Box%20Model.png)
 
 <br />
 
