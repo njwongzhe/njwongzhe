@@ -1,8 +1,8 @@
-# 3.0 - JavaScript (.js)
+# 03 - JavaScript (.js)
 
 <br />
 
-## 3.1 - Basic Structure
+## 1.0 - Basic Structure
 ```html
 - The <script> ... </script> tag can be placed anywhere inside an .html file.
 - If multiple <script> ... </script> tags exist in an .html file, the JavaScript inside the ones at the top will be executed first.
@@ -16,7 +16,7 @@
 
 <br />
 
-### 3.1.1 - Internal JavaScript
+### 1.1 - Internal JavaScript
 
 ```html
 <script>
@@ -26,21 +26,21 @@
 
 <br />
 
-### 3.1.2 - External JavaScript
+### 1.2 - External JavaScript
 
 External JavaScript (.html) :
 ```html
-<script src="13 - JS Basic Structure.js"></script>
+<script src="01 - JS Basic Structure.js"></script>
 ```
 
-"13 - JS Basic Structure.js" :
+"01 - JS Basic Structure.js" :
 ```js
 /* JavaScript Code */
 ```
 
 <br />
 
-## 3.2 - Comments
+## 2.0 - Comments
 
 ```js
 //Single Line Comment
@@ -58,7 +58,7 @@ Documentation Comment :
 
 <br />
 
-## 3.3 - REPL Environment (Read-Eval-Print Loop)
+## 3.0 - REPL Environment (Read-Eval-Print Loop)
 - Read: You type some JavaScript code into the terminal, and REPL reads what you typed.
 - Eval: REPL runs (evaluates) your code.
 - Print: REPL shows you the result of your code.
@@ -72,7 +72,7 @@ Chrome REPL Environment ("22 - JS REPL Environment.html") :
 
 <br />
 
-## 3.4 - Global Object, Method and Properties
+## 4.0 - Global Object, Method and Properties
 - In JavaScript, there’s a special “top-level” object called the global object.
 - It holds all built-in global properties and methods (things you can use anywhere without importing).
 - Example: "window" in browsers / "global" in Node.js
@@ -82,11 +82,11 @@ Browsers - "window" :
 
 <br />
 
-## 3.5 - Web API
+## 5.0 - Web API
 
 <br />
 
-### 3.5.1 - DOM ((Document Object Model))
+### 5.1 - DOM ((Document Object Model))
 ```txt
 - The DOM is a W3C (World Wide Web Consortium) standard.
 - The DOM defines a standard for accessing documents.
@@ -98,17 +98,17 @@ Browsers - "window" :
 
 <br />
 
-#### 3.5.1.1 - Core DOM
+#### 5.1.1 - Core DOM
 ---
 
 <br />
 
-#### 3.5.1.2 - XML DOM
+#### 5.1.2 - XML DOM
 ---
 
 <br />
 
-#### 3.5.1.3 - HTML DOM
+#### 5.1.3 - HTML DOM
 ```txt
 - HTML DOM model is constructed as a tree of Objects.
 - With the HTML DOM, JavaScript can access and change all the elements of an HTML document.
