@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS HTML DOM class</title> 
+    
+    <style>
+        .box {
+            background-color: aqua;
+            text-align: center;
+            align-content: center;
+            height: 100px;
+            width: 100px;
+        }
+
+        .boxActive {
+            background-color: greenyellow;
+            text-align: center;
+            align-content: center;
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head> 
+
+<body> 
+    <div id="box1" class="box">Box</div>
+
+    <script> /* Class (className) */
+        let box1 = document.querySelector("#box1");
+
+        box1.onclick = function () {
+            box1.className = "boxActive";
+        };
+    </script>
+
+    <script>
+        
+    </script>
+</body> 
+
+</html>
