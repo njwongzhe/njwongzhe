@@ -9,7 +9,7 @@
     <script> /* Basic Array Creation and Access */
         console.log("------------------>>> Basic Array Creation and Access");
         
-        let arr = [1, 2, 3, 4, 5]; // Creates an array with specified elements.
+        var arr = [1, 2, 3, 4, 5]; // Creates an array with specified elements.
         console.log(arr);    // Output: (5) [1, 2, 3, 4, 5]
         console.log(arr[0]); // Output: 1
         console.log(arr[1]); // Output: 2
@@ -26,7 +26,7 @@
     <script> /* Array Constructor */
         console.log("------------------>>> Array Constructor");
 
-        let arrCon = new Array(6, 7, 8, 9, 10); // Creates an array with specified elements.
+        var arrCon = new Array(6, 7, 8, 9, 10); // Creates an array with specified elements.
         console.log(arrCon);    // Output: (5) [6, 7, 8, 9, 10]
         console.log(arrCon[0]); // Output: 6
         console.log(arrCon[1]); // Output: 7
@@ -38,7 +38,7 @@
     <script> /* Array Constructor with Single Numeric Argument */
         console.log("------------------>>> Array Constructor with Single Numeric Argument");
         
-        let arrConS = new Array(5); // Creates an array with 5 empty slots.
+        var arrConS = new Array(5); // Creates an array with 5 empty slots.
         console.log(arrConS);    // Output: (5) [empty × 5]
         console.log(arrConS[0]); // Output: undefined
 
@@ -65,7 +65,7 @@
     <script> /* Array Length */
         console.log("------------------>>> Array Length");
 
-        let arrLength = [1, 2, 3, 4, 5];
+        var arrLength = [1, 2, 3, 4, 5];
 
         arrLength.length = 10;  // Changes the length property of the array.
         console.log(arrLength); // Output: (10) [1, 2, 3, 4, 5, empty × 5]
@@ -88,7 +88,7 @@
     <script> /* Array Element Addition (push & unshift) */
         console.log("------------------>>> Array Element Addition (push & unshift)");
 
-        let arrAdd = [1, 2, 3, 4, 5];
+        var arrAdd = [1, 2, 3, 4, 5];
 
         // "push" and "unshift" will effect to original array.
 
@@ -108,7 +108,7 @@
     <script> /* Array Element Remove (pop & shift) */
         console.log("------------------>>> Array Element Remove (pop & shift)");
 
-        let arrRemove = [1, 2, 3, 4, 5];
+        var arrRemove = [1, 2, 3, 4, 5];
 
         // "pop" and "shift" will effect to original array.
 
@@ -132,7 +132,7 @@
     <script> /* Array Element Addition and Remove (splice & toSpliced) */
         console.log("------------------>>> Array Element Addition and Remove (splice & toSpliced)");
 
-        let arrAddRemove = [1, 2, 3, 4, 5];
+        var arrAddRemove = [1, 2, 3, 4, 5];
 
         // "splice" will effect to original array.
         // "toSpliced" will not effect to original array but returns a new array.
@@ -151,7 +151,7 @@
 
         // Syntax: array.toSpliced(start, deleteCount, item1, item2, ...)
 
-        let arrAddRemoveNew = arrAddRemove.toSpliced(1, 0, 'a', 'b', 'c'); // Adds elements 'a', 'b' and 'c' at index 1 and does not remove any element.
+        var arrAddRemoveNew = arrAddRemove.toSpliced(1, 0, 'a', 'b', 'c'); // Adds elements 'a', 'b' and 'c' at index 1 and does not remove any element.
         console.log(arrAddRemove);    // Output: (5) [1, 2, 3, 4, 5]
         console.log(arrAddRemoveNew); // Output: (8) [1, 'a', 'b', 'c', 2, 3, 4, 5]    
         // "toSpliced" will not effect to original array.
@@ -160,7 +160,7 @@
     <script> /* Array Fill (fill) */
         console.log("------------------>>> Array Fill (fill)");
 
-        let arrFill = [1, 2, 3, 4, 5];
+        var arrFill = [1, 2, 3, 4, 5];
         
         // "fill" will effect to original array.
 
@@ -186,19 +186,19 @@
     <script> /* Array Copy (slice) */
         console.log("------------------>>> Array Copy (slice)");
 
-        let arrCopy = [1, 2, 3, 4, 5];
+        var arrCopy = [1, 2, 3, 4, 5];
 
         // "slice" will not effect to original array.
 
         // Syntax: array.slice(start, end)
 
-        let arrCopyNew = arrCopy.slice(1, 4); // Creates a new array from arrCopy with elements from index 1 to index 3 (end index is not included).
+        var arrCopyNew = arrCopy.slice(1, 4); // Creates a new array from arrCopy with elements from index 1 to index 3 (end index is not included).
         console.log(arrCopyNew);              // Output: (3) [2, 3, 4]
         console.log(arrCopyNew.length);       // Output: 3
 
         // Syntax: array.slice(start)
 
-        let arrCopyNew2 = arrCopy.slice(2); // Creates a new array from arrCopy with elements from index 2 to the end of the array.
+        var arrCopyNew2 = arrCopy.slice(2); // Creates a new array from arrCopy with elements from index 2 to the end of the array.
         console.log(arrCopyNew2);           // Output: (3) [3, 4, 5]
         console.log(arrCopyNew2.length);    // Output: 3
     </script>
@@ -206,7 +206,7 @@
     <script> /* Array Copy Within Array (copyWithin) */
         console.log("------------------>>> Array Copy Within Array (copyWithin)");
 
-        let arrCopyWithin = ["a", "b", "c", "d", "e"];
+        var arrCopyWithin = ["a", "b", "c", "d", "e"];
 
         // "CopyWithin" will effect to original array.
 
@@ -226,7 +226,7 @@
     <script> /* Array Reverse (reverse & toReversed) */
         console.log("------------------>>> Array Reverse (reverse & toReversed)");
 
-        let arrReverse = [1, 2, 3, 4, 5];
+        var arrReverse = [1, 2, 3, 4, 5];
 
         // "reverse" will effect to original array.
         // "toReversed" will not effect to original array but returns a new array.
@@ -247,8 +247,8 @@
     <script> /* Array Combine (concat) */
         console.log("------------------>>> Array Combine (concat)");
 
-        let arrCombine1 = [1, 2, 3];
-        let arrCombine2 = [4, 5, 6];
+        var arrCombine1 = [1, 2, 3];
+        var arrCombine2 = [4, 5, 6];
 
         // "concat" will not effect to original array but returns a new array.
 
@@ -259,7 +259,7 @@
     <script> /* Array to String (join & toLocateString) */
         console.log("------------------>>> Array to String (join)");
 
-        let arrString = [1, 2, 3];
+        var arrString = [1, 2, 3];
 
         console.log(arrString.join());      // Default separator is comma (,). // Output: 1,2,3
         console.log(arrString.join(' - ')); // Custom separator ' - '.         // Output: 1 - 2 - 3
@@ -270,7 +270,7 @@
     <script> /* Array Index Check (indexOf & lastIndexOf) */
         console.log("------------------>>> Array Index Check (indexOf & lastIndexOf)");
 
-        let arrIndex = [1, 2, 3, 4, 5, 5, 5];
+        var arrIndex = [1, 2, 3, 4, 5, 5, 5];
 
         // Syntax: array.indexOf(data)
         // Syntax: array.lastIndexOf(data)
@@ -288,7 +288,7 @@
     <script> /* Array Data Check (at) */
         console.log("------------------>>> Array Data Check (at)");
 
-        let arrAt = [1, 2, 3, 4, 5];
+        var arrAt = [1, 2, 3, 4, 5];
 
         // Syntax: array.at(index)
 
@@ -306,7 +306,7 @@
     <script> /* Array Data Have (includes) */
         console.log("------------------>>> Array Data Have (includes)");
 
-        let arrInclude = [1, 2, 3, 4, 5];
+        var arrInclude = [1, 2, 3, 4, 5];
 
         // Syntax: array.includes(element, startIndex)
 
@@ -321,7 +321,7 @@
     <script> /* 2 Dimension Array */
         console.log("------------------>>> 2 Dimension Array");
 
-        let arr2D = [
+        var arr2D = [
             [1, 2, 3], 
             [4, 5, 6], 
             [7, 8, 9]
@@ -343,7 +343,7 @@
     <script> /* Reduce Dimension (flat) */
         console.log("------------------>>> Reduce Dimension (flat)");
 
-        let arrFlat = [1, [2, 3], [4, [5, 6, [7, 8]]]];
+        var arrFlat = [1, [2, 3], [4, [5, 6, [7, 8]]]];
 
         // "flat" will not effect to original array but returns a new array.
         

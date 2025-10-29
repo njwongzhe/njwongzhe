@@ -15,5 +15,3 @@ function myFunction(num1, num2) {
 function myFunction2(any) {
     console.log(any);
 }
-
-my
