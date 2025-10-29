@@ -23,13 +23,26 @@ pwd            | Display currect working directory.
 --------------------------------------------------------------------------------------------------------
 
 ls <directory> | Display content of current directory.
-
-If current working directory is "home/ngjaawei":
-- Check the contents in current working directory                              | ls
-- Check the contents in "Folder_A2"                                            | ls Folder_A/Folder_A2
-
 ".." (Double Dot) mean one level upper than current directory.
-- Check the contents in "home"                                                 | ls ..                
-- Check the contents in root of all directory                                  | ls ../..
-- Check the contents in root of all directory at any current working directory | ls /
+
+If current working directory (pwd) is "home/ngjaawei", show:
+
+- Contents in current working directory                                                  | ls
+- Contents in "Folder_A2"                                                                | ls Folder_A/Folder_A2
+             
+- Contents in "home"                                                                     | ls ..                
+- Contents in root of all directory                                                      | ls ../..
+- Contents in root of all directory at any current working directory                     | ls /
+
+- List of all files in "Folder_A"                                                        | ls -R Folder_A
+- List of all files in "Folder_A1"                                                       | ls -R Folder_A/Folder_A1
+
+- Contents in "Folder_A" include hidden files                                            | ls -a Folder_A
+- Contents in "Folder_A" include hidden files                                            | ls -a Folder_A/Folder_A1
+
+- Contents in "Folder_A" and their data such as file types...                            | ls -l Folder_A
+- Contents in "Folder_A" and their data such as file types... in easily readable formats | ls -lh Folder_A 
+--------------------------------------------------------------------------------------------------------
+
+
 ```
