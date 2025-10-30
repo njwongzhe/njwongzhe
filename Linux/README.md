@@ -47,6 +47,8 @@ Syntax | mkdir <directoryName>      | Create a new directory at current working 
 Syntax | rmdir <emptyDirectoryName> | Delete empty directory at current working directory.
 
 Others | ..                         | Double Dot mean one level upper than current directory. Can use in <directory>.
+Others | ~                          | User's home directory.
+Others | ~<username>                | User's home directory of other user.
 
 <Example> 
 If current working directory (pwd) is "home/ngjaawei":
@@ -81,10 +83,12 @@ If current working directory (pwd) is "home/ngjaawei":
 Syntax | touch <fileName>                     | Create an empty file in currect working directory.
 Syntax | echo <content> > <fileName>          | Write text to a file in currect working directory and overwrite the original text.
 Syntax | echo <content> >> <fileName>         | Write text to a file in currect working directory and not overwrite the original text.
-Syntax | <command> > <fileName>               | Capture command output and write into a file in currect working directory. !!!!!!!!!!!!!!!!!!!
-Syntax | <command> >> <fileName>              | Capture command output and write into a file in currect working directory. !!!!!!!!!!!!!!!!!!!
+Syntax | <command> > <fileName>               | Capture command output and write into a file in currect working directory and overwrite the original text.
+Syntax | <command> >> <fileName>              | Capture command output and write into a file in currect working directory and not overwrite the original text.
 Syntax | cat <fileName>                       | View contents of the file in currect working directory.
 Syntax | cat <fileName> <fileName>            | Display combined outout of two file in current working directory.
 Syntax | mv <originalFileName> <newFileName>  | Rename an file in current working directory.
 Syntax | cp <originalFileName> <copyFileName> | Copy an file in current working directory.
+
+All the <fileName> can be changed to <directory> to perform file manipulation between different directory without changing the currect working directory.
 ```
