@@ -1,8 +1,8 @@
 # Access Linux:
 
 ```html
-Access Linux Instance With Headless Mode: ssh <username>@<ipAddress>
-
+Syntax | ssh <username>@<ipAddress> | Access Linux instance with headless mode.
+ 
 <Example>
 Access my Linux instance | ssh ngjaawei@192.168.56.10
 ```
@@ -10,13 +10,11 @@ Access my Linux instance | ssh ngjaawei@192.168.56.10
 # Linux Command Syntax
 
 ```html
-Syntax: CommandName <options> <parameters>
-
-- A command may contain an option or an parameter.
-- In some cases, it can still run without them.
-
-- CommandName | The rule that you want to perform.
-- options     | Modifies a command's operation. Use hyphens (-) or double hyphens (--) to invoke it.
+Syntax | CommandName <options> <parameters> | A command may contain an option or an parameter.
+                                            | In some cases, it can still run without them.
+                                            | CommandName | The rule that you want to perform.
+                                            | options     | Modifies a command's operation. 
+                                            |             | Use hyphens (-) or double hyphens (--) to invoke it.
 ```
 
 # Navigating Directories
