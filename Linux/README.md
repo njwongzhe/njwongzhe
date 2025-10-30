@@ -15,6 +15,8 @@ Syntax | <commandName> <options> <parameters> | A command may contain an option 
                                               | <CommandName> | The rule that you want to perform.
                                               | <options>     | Modifies a command's operation. 
                                               |               | Use hyphens (-) or double hyphens (--) to invoke it.
+
+Others | clear | Clear the terminal interface.
 ```
 
 # Navigating Directories
@@ -33,7 +35,7 @@ Example of Directory:
 
 ```html
 Syntax | pwd                        | Display currect working directory.
-Syntax | cd                         | Set currect working directory to one level upper than current directory.
+Syntax | cd                         | Set currect working directory to user's home directory.
 Syntax | cd <directory>             | Set currect working directory to certain directory.
 
 Syntax | ls <directory>             | Display content of current directory.
@@ -73,7 +75,25 @@ If current working directory (pwd) is "home/ngjaawei":
 
 # File Permissions
 
+File Permissions String:
 ```html
+A string with 10 characters.
+      1st  characters is File Type.
+2nd - 4th  characters is Owner Permissions.
+5th - 7th  characters is Group Permissions.
+8th - 10th characters is Other Permissions.
+
+<Example>
+Example 1: -rw-r--r--
+Example 2: drwxr-xr-x
+Example 3: -rw-rw-r--
+```
+
+<br />
+
+```html
+File Type | -
+
 
 ```
 
@@ -81,6 +101,7 @@ If current working directory (pwd) is "home/ngjaawei":
 
 ```html
 Syntax | touch <fileName>                     | Create an empty file in currect working directory.
+Syntax | rm <fileName>                        | Delete an file in current working directory.
 Syntax | echo <content> > <fileName>          | Write text to a file in currect working directory and overwrite the original text.
 Syntax | echo <content> >> <fileName>         | Write text to a file in currect working directory and not overwrite the original text.
 Syntax | <command> > <fileName>               | Capture command output and write into a file in currect working directory and overwrite the original text.

@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>Number Sorting Website</title> 
+
+    <link rel="stylesheet" href="Number Sorting Website.css">
+</head> 
+
+<body> 
+    <div>
+        <input type="text" id="inText" value=""> 
+        <button id="addButton">+</button>
+        <button id="clrButton">Clear</button>
+
+        <br><br>
+
+        <select id="sortMode">
+            <option value="1">Bubble Sort</option>
+            <option value="2">Selection Sort</option>
+            <option value="3">Insertion Sort</option>
+        </select>
+        <button id="sortButton">Sort</button>
+        <input type="checkbox" id="processBool" checked>Show Process</input>
+    </div>
+
+    <br><br>
+    
+    <div id="numBoxArea"></div>
+
+    <script src="Sort.js"></script>
+    <script src="Event.js"></script>
+    <script src="SortBubble.js"></script>
+    <script src="SortSelection.js"></script> <!--Error, wait for fixed.-->
+</body> 
+
+</html>
