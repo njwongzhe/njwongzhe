@@ -61,6 +61,7 @@ Example of Directory:
 
 <br />
 
+Syntax:
 ```html
 Syntax | pwd                        | Display currect working directory.
 Syntax | cd                         | Set currect working directory to user's home directory.
@@ -119,6 +120,7 @@ Example 3: -rw-rw-r--
 
 <br />
 
+Syntax:
 ```html
 File Type  | -  | Regular File.
 
