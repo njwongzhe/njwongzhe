@@ -7,6 +7,8 @@ Syntax | ssh <username>@<ipAddress> | Access Linux instance with headless mode.
 Access my Linux instance | ssh ngjaawei@192.168.56.10
 ```
 
+<br />
+
 # 2.0 Linux Command Syntax
 
 ```html
@@ -20,6 +22,8 @@ Others | clear | Clear the terminal interface.
 
 All the <fileName> can be changed to <directory> to perform file manipulation between different directory without changing the currect working directory.
 ```
+
+<br />
 
 # 3.0 Option Reference List
 
@@ -36,6 +40,8 @@ Option | -iname <fileName> | Search file based on name (Case-Insensitive).
 Option | -type f           | Search file only.
 Option | -type d           | Search directory only.
 ```
+
+<br />
 
 # 4.0 Command Reference List
 
@@ -91,6 +97,8 @@ If current working directory (pwd) is "home/ngjaawei":
 - Show contents in "Folder_A" and their data such as file types... in easily readable formats | ls -lh Folder_A 
 ```
 
+<br />
+
 ## 4.2 File Permissions
 
 File Permissions String:
@@ -130,6 +138,8 @@ If permission string of "text.txt" is "-rw-r--r--":
 - Add write permission to other.      | chmod o+w test.txt | "-r--rw-r--" => "-r--rw-rw-"
 ```
 
+<br />
+
 ## 4.3 Text File Manipulation
 
 ```html
@@ -151,6 +161,8 @@ Syntax | cp <originalFileName> <copyFileName> | Copy an file in current working 
 <Example> 
 - Remove all things in "Test" directory in current working directory | rm -r Test
 ```
+
+<br />
 
 ## 4.4 Search Files & Content
 
