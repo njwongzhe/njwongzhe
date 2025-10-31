@@ -20,7 +20,7 @@ Syntax | <commandName> <options> <parameters> | A command may contain an option 
 
 Others | clear | Clear the terminal interface.
 
-All the <fileName> can be changed to <directory> to perform file manipulation between different directory without changing the currect working directory.
+Most of the <fileName> can be changed to <directory> to perform file manipulation between different directory without changing the currect working directory.
 ```
 
 <br />
@@ -160,6 +160,7 @@ Syntax | cat <fileName>                       | Display contents of the file in 
 Syntax | cat <fileName> <fileName>            | Display combined output of two file in current working directory.
 
 Syntax | mv <originalFileName> <newFileName>  | Rename an file in current working directory.
+Syntax | mv <fileName> <directory>            | Move an file in current working directory to another directory.
 Syntax | cp <originalFileName> <copyFileName> | Copy an file in current working directory.
 
 <Example> 
@@ -179,7 +180,39 @@ Syntax | find <startDirectory> <option> | Search file in start from <startDirect
 - Search txt file in all directory start from current working directory.      | find . -name ".txt"
 ```
 
+<br />
 
+# 5.0 Nano Text Editor
 
+```html
+Syntax | nano            | Opens a blank editor where you can start typing.
+Syntax | nano <fileName> | Opens a specific filename to create (If Not Exist) or edit (If Exist) a file.
+```
 
+<br />
 
+# 6.0 Managing Packages / Software in Ubuntu
+
+```html
+Syntax | sudo apt update       | Updateing package / software status.
+Syntax | apt list -upgradeable | List down upgradable package / software.
+
+Syntax | sudo apt install <package/softwareName> | Install application.
+
+<Example>
+- Download "build-essential" package | sudo apt install build-essential
+```
+
+<br />
+
+# 7.0 Compiler Execution
+
+```html
+Syntax | gcc <sourceCodeFileName> -o <compiledFileName> | Run C compiler.
+Syntax | ./<compiledFileName>                           | Run C executable file. 
+                                                        | (Search all directory start from current working directory and execute <compiledFileName>.)
+
+Syntax | g++ <sourceCodeFileName> -o <compiledFileName> | Run C++ compiler.
+Syntax | ./<compiledFileName>                           | Run C++ executable file.
+                                                        | (Search all directory start from current working directory and execute <compiledFileName>.)
+```
