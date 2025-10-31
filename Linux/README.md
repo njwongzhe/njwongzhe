@@ -1,4 +1,4 @@
-# Access Linux:
+# 1.0 Access Linux:
 
 ```html
 Syntax | ssh <username>@<ipAddress> | Access Linux instance with headless mode.
@@ -7,7 +7,7 @@ Syntax | ssh <username>@<ipAddress> | Access Linux instance with headless mode.
 Access my Linux instance | ssh ngjaawei@192.168.56.10
 ```
 
-# Linux Command Syntax
+# 2.0 Linux Command Syntax
 
 ```html
 Syntax | <commandName> <options> <parameters> | A command may contain an option or an parameter.
@@ -21,12 +21,12 @@ Others | clear | Clear the terminal interface.
 All the <fileName> can be changed to <directory> to perform file manipulation between different directory without changing the currect working directory.
 ```
 
-# Option Reference List
+# 3.0 Option Reference List
 
 ```html
-Option | -R  | Recursive. Lists all the files in the subdirectories.
-Option | -a  | All files. Shows hidden files in addition to the visible ones.
-Option | -l  | Long listing format. Shows Unix file types, number of hard links, permissions, group, owner, size, last modified date time and name.
+Option | -R  | Recursive.             Lists all the files in the subdirectories.
+Option | -a  | All files.             Shows hidden files in addition to the visible ones.
+Option | -l  | Long listing format.   Shows Unix file types, number of hard links, permissions, group, owner, size, last modified date time and name.
 Option | -lh | Long + human-readable. Shows the file sizes in easily readable formats such as MB, GB and TB.
 
 Option | -r  | Reverse order. Reverses the sorting order.
@@ -37,7 +37,9 @@ Option | -type f           | Search file only.
 Option | -type d           | Search directory only.
 ```
 
-# Navigating Directories
+# 4.0 Command Reference List
+
+## 4.1 Navigating Directories
 
 Example of Directory: 
 ```html
@@ -56,11 +58,11 @@ Syntax | pwd                        | Display currect working directory.
 Syntax | cd                         | Set currect working directory to user's home directory.
 Syntax | cd <directory>             | Set currect working directory to certain directory.
 
-Syntax | ls <directory>             | Display content of current directory.
+Syntax | ls <directory>             | Display all files and directories of current directory.
 Syntax | ls <option> <directory>    | "ls <directory>" that with <option>. 
 
 Syntax | mkdir <directoryName>      | Create a new directory at current working directory.
-Syntax | rmdir <emptyDirectoryName> | Delete empty directory at current working directory.
+Syntax | rmdir <emptyDirectoryName> | Delete a empty directory at current working directory.
 
 Others | .                          | Current directory. Can use in <directory>.
 Others | ..                         | Parent directory. Can use in <directory>.
@@ -89,7 +91,7 @@ If current working directory (pwd) is "home/ngjaawei":
 - Show contents in "Folder_A" and their data such as file types... in easily readable formats | ls -lh Folder_A 
 ```
 
-# File Permissions
+## 4.2 File Permissions
 
 File Permissions String:
 ```html
@@ -128,7 +130,7 @@ If permission string of "text.txt" is "-rw-r--r--":
 - Add write permission to other.      | chmod o+w test.txt | "-r--rw-r--" => "-r--rw-rw-"
 ```
 
-# Text File Manipulation
+## 4.3 Text File Manipulation
 
 ```html
 Syntax | touch <fileName>                     | Create an empty file in currect working directory.
@@ -140,8 +142,8 @@ Syntax | echo <content> >> <fileName>         | Write text to a file in currect 
 Syntax | <command> > <fileName>               | Capture command output and write into a file in currect working directory and overwrite the original text.
 Syntax | <command> >> <fileName>              | Capture command output and write into a file in currect working directory and not overwrite the original text.
 
-Syntax | cat <fileName>                       | View contents of the file in currect working directory.
-Syntax | cat <fileName> <fileName>            | Display combined outout of two file in current working directory.
+Syntax | cat <fileName>                       | Display contents of the file in currect working directory.
+Syntax | cat <fileName> <fileName>            | Display combined output of two file in current working directory.
 
 Syntax | mv <originalFileName> <newFileName>  | Rename an file in current working directory.
 Syntax | cp <originalFileName> <copyFileName> | Copy an file in current working directory.
@@ -150,11 +152,10 @@ Syntax | cp <originalFileName> <copyFileName> | Copy an file in current working 
 - Remove all things in "Test" directory in current working directory | rm -r Test
 ```
 
-# Search Files & Content
+## 4.4 Search Files & Content
 
 ```html
-Syntax | grep <content> <fileName>      | Search the content of an file in current working directory.
-
+Syntax | grep <content> <fileName>      | Search the content inside of a file in current working directory.
 Syntax | find <startDirectory> <option> | Search file in start from <startDirectory> to all its subdirectories.
 
 <Example>
