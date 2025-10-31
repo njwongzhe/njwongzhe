@@ -63,7 +63,7 @@ Syntax | mkdir <directoryName>      | Create a new directory at current working 
 Syntax | rmdir <emptyDirectoryName> | Delete empty directory at current working directory.
 
 Others | .                          | Current directory. Can use in <directory>.
-Others | ..                         | Parent directory. Double Dot mean one level upper than current directory. Can use in <directory>.
+Others | ..                         | Parent directory. Can use in <directory>.
 Others | ~                          | User's home directory.
 Others | ~<username>                | User's home directory of other user.
 
@@ -161,6 +161,7 @@ Syntax | find <startDirectory> <option> | Search file in start from <startDirect
 - Search "subTest.txt" in all directory start from current working directory. | find . -name "subTest.txt" 
 - Search txt file in all directory start from current working directory.      | find . -name ".txt"
 ```
+
 
 
 
