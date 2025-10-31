@@ -45,6 +45,8 @@ Option | -type d           | Search directory only.
 
 # 4.0 Command Reference List
 
+<br />
+
 ## 4.1 Navigating Directories
 
 Example of Directory: 
