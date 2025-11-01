@@ -4,10 +4,11 @@
  * @param {Boolean} processBool Process mode.
  */
 let selectionSort = async function (arrNum, processBool) {
-    let largestIndex = 0;
+    
 
     if(processBool === true) {
         for(let last = arrNum.length - 1; last >= 1; last--) {
+            let largestIndex = 0;
             for(let p = 1; p <= last; p++)
                 if(Number(arrNum[p].innerText) > Number(arrNum[largestIndex].innerText))
                     largestIndex = p;
@@ -18,6 +19,7 @@ let selectionSort = async function (arrNum, processBool) {
 
     else {
         for(let last = arrNum.length - 1; last >= 1; last--) {
+            let largestIndex = 0;
             for(let p = 1; p <= last; p++)
                 if(arrNum[p] > arrNum[largestIndex])
                     largestIndex = p;
