@@ -4,10 +4,11 @@ let addButton = document.querySelector("#addButton");
 let clrButton = document.querySelector("#clrButton");
 let defButton = document.querySelector("#defButton");
 let sortButton = document.querySelector("#sortButton");
+let sortMethod = document.querySelector("#sortMethod");
 let sortMode = document.querySelector("#sortMode");
 let processBool = document.querySelector("#processBool");
 
-let defaultNumBox = [10, 8, 2, 1, 3, 4, 7, 9]; // Default Example List
+let defaultNumBox = [10, 8, 2, 1, 5, 3, 4, 7, 6, 9]; // Default Example List
 
 // Create new number box.
 let numBoxCreate = function (num) {
@@ -51,6 +52,7 @@ defButton.onclick = function () {
 
 // Start sorting.
 sortButton.onclick = function () {
-    let index = sortMode.selectedIndex;
-    sort(sortMode[index].value, numBoxArea, processBool.checked);
+    let indexMethod = sortMethod.selectedIndex;
+    let indexMode = sortMode.selectedIndex;
+    sort(sortMethod[indexMethod].value, sortMode[indexMode].value, numBoxArea, processBool.checked);
 };

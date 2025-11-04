@@ -3,11 +3,12 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 /**
  * Determine the sorting mode and process mode.
- * @param {String} sortType Sorting Mode.
+ * @param {String} sortMethod Sorting method.
+ * @param {String} sortMode Sorting mode (Ascending / Descending).
  * @param {Element} numBoxArea The element of the area where the number box stay.
  * @param {Boolean} processBool Process mode.
  */
-let sort = function (sortType, numBoxArea, processBool) {
+let sort = function (sortMethod, sortMode, numBoxArea, processBool) {
     let arrNum = [];
 
     if(processBool === false) {
@@ -22,11 +23,25 @@ let sort = function (sortType, numBoxArea, processBool) {
         console.log(arrNum); // Checking.
     }
 
-    switch(sortType) {
-        case "1": bubbleSort(arrNum, processBool); break;
-        case "2": selectionSort(arrNum, processBool); break;
-        case "3": insertionSort(arrNum, processBool); break;
+    switch(sortMethod) {
+        case "1": bubbleSort(sortMode, arrNum, processBool); break;
+        case "2": selectionSort(sortMode, arrNum, processBool); break;
+        case "3": insertionSort(sortMode, arrNum, processBool); break;
     }
+};
+
+/**
+ * Control the ascending or descending sorting mode of different sort method.
+ * @param {String} sortMode Sorting mode (Ascending / Descending).
+ * @param {Number} num1 Number 1.
+ * @param {Number} num2 Number 2.
+ * @returns {Boolean} Comparison result.
+ */
+let sortJudge = function (sortMode, num1, num2) {
+    if(sortMode === "1") 
+        return num1 > num2; // Ascending
+    else 
+        return num1 < num2; // Descending
 };
 
 /**
@@ -102,4 +117,15 @@ let switchValue = function (arrNum, index1, index2) {
     let temp = arrNum[index1];
     arrNum[index1] = arrNum[index2];
     arrNum[index2] = temp;
+};
+
+/** 
+ * Replace all box with new box in correct arrangement without showing the process.
+ *  
+ */
+let replaceAllBox = function (arrNum) {
+    numBoxArea.innerHTML = "";
+        
+    for(let i = 0; i < arrNum.length; i++)
+        numBoxCreate(arrNum[i]);
 };
