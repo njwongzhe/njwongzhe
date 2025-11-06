@@ -10,6 +10,7 @@ void bubbleSort(int arr[], int arrSize) {
                 int temp = arr[i];
                 arr[i] = arr[i + 1];
                 arr[i + 1] = temp;
+
                 arrOutput(arr); // Output to show change.
             }
         }
@@ -30,6 +31,7 @@ void bubbleSortAdvanced(int arr[], int arrSize) {
                 arr[i] = arr[i + 1];
                 arr[i + 1] = temp;
                 sorted = false; // Since the operation entry compare branch. Thus, the arr is unsorted.
+                
                 arrOutput(arr); // Output to show change.
             }
         }
