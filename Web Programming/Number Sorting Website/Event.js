@@ -8,7 +8,8 @@ let sortMethod = document.querySelector("#sortMethod");
 let sortMode = document.querySelector("#sortMode");
 let processBool = document.querySelector("#processBool");
 
-let defaultNumBox = [10, 8, 2, 1, 5, 3, 4, 7, 6, 9]; // Default Example List
+// let defaultNumBox = [10, 8, 2, 1, 5, 3, 4, 7, 6, 9]; // Default Example List
+let defaultNumBox = [20, 80, 40, 25, 60, 30];
 
 // Create new number box.
 let numBoxCreate = function (num) {
