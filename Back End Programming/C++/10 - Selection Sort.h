@@ -32,7 +32,7 @@ void selectionSortAdvanced(int arr[], int arrSIZE) {
                 largestIndex = i;
         }
 
-        if(largestIndex != last) { // Do not do swaping if index of "largestIndex" and "last" equal.
+        if(largestIndex != last) { // Do not do swaping if index of "largestIndex" and "last" equal. (Largest element in "last".)
             int temp = arr[largestIndex];
             arr[largestIndex] = arr[last];
             arr[last] = temp;
