@@ -20,7 +20,7 @@ int main() {
     for(int i = 0; i < 3; i++)
         writeObject.write((char *)(arrBoxOriginal + i), sizeof(Box)); // "arrBox" already is an address since it is an array. There is no need to use "&".
     
-    // OR // writeObject.write((char *)arrBoxOriginal, sizeof(Box)); // Write all objects at once. Thus, no loop is required.
+    // OR // writeObject.write((char *)arrBoxOriginal, 3 * sizeof(Box)); // Write all objects at once. Thus, no loop is required.
 
     writeObject.close();
 
@@ -32,7 +32,7 @@ int main() {
     for(int i = 0; i < 3; i++)
         readObject.read((char *)(arrBoxNew + i), sizeof(Box));
     
-    // OR // readObject.read((char *)arrBoxNew, sizeof(Box)); // Read all objects at once. Thus, no loop is required.
+    // OR // readObject.read((char *)arrBoxNew, 3 * sizeof(Box)); // Read all objects at once. Thus, no loop is required.
     
     readObject.close();
 

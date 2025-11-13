@@ -2,6 +2,7 @@
 using namespace std;
 
 #include "11 - Sequential Search.h"
+#include "11 - Binary Search.h"
 
 const int SIZE = 5;
 
