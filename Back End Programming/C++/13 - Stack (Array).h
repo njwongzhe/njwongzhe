@@ -1,5 +1,5 @@
-#ifndef STACK_H 
-#define STACK_H
+#ifndef STACKARRAY_H 
+#define STACKARRAY_H
 
 const int SIZE = 100;
 
