@@ -1,5 +1,5 @@
-#ifndef QUEUE_H
-#define QUEUE_H
+#ifndef QUEUEARRAYLINEAR_H
+#define QUEUEARRAYLINEAR_H
 
 const int SIZE = 100;
 
