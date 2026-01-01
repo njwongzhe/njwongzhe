@@ -6,6 +6,15 @@ struct Node {
     Node *next;
 };
 
+/*
+    // Class Version Node
+    class Node {
+        public:
+            int data;
+            Node *next;
+    };
+*/
+
 class List {
     private:
         Node *head; // Pointer to the 1st node in the list.
