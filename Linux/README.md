@@ -127,6 +127,7 @@ File Type  | -  | Regular File.
 Permission | rw | Can read and write.
 Permission | r  | Can read.
 Permission | w  | Can write.
+Permission | x  | Can execute.
 
 User       | u  | Owner.
 User       | g  | Group.
