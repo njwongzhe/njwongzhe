@@ -85,9 +85,6 @@ void insert(TreeNode *&tree, char newItem) {
 }
 
 TreeNode * deleteNode(TreeNode *&tree, char delItem) {
-    TreeNode *temp1, *temp2;
-    char value;
-
     if(tree->info > delItem) 
         tree->left = deleteNode(tree->left, delItem);
 
@@ -96,40 +93,33 @@ TreeNode * deleteNode(TreeNode *&tree, char delItem) {
 
     else { 
         if(tree->left == NULL && tree->right == NULL) { // Leaf Node
-            temp1 = tree;
-            tree = NULL;
-            delete temp1;
-            tree = NULL;
-            return tree;
+            delete tree;
+            return NULL;
         }
 
         else if(tree->left == NULL) { // One Child (Right)
-            temp1 = tree;
-            temp1 = tree->right;
-            delete temp1;
-            return tree;
+            TreeNode *temp = tree->right;
+            delete tree;
+            return temp;
         }
 
         else if(tree->right == NULL) { // One Child (Left)
-            temp1 = tree; 
-            temp1 = tree->left;
-            delete temp1;
-            return tree;
+            TreeNode *temp = tree->left;
+            delete tree;
+            return temp;
         }
         
         else { // Two Children
-            temp1 = tree;
-            temp2 = tree->right;
+            TreeNode *temp = tree->right;
 
-            while(temp2->left != NULL) // Find leftmost node in right subtree.
-                temp2 = temp2->left;
+            while(temp->left != NULL) // Find leftmost node in right subtree.
+                temp = temp->left;
 
-            tree->info = temp2->info;
-            tree->right = deleteNode(tree->right, temp2->info);
+            tree->info = temp->info; // Replace the value with the leftmost node's value at right subtree.
+            tree->right = deleteNode(tree->right, temp->info); // Delete the leftmost node in right subtree that was moved.
+            return tree;
         }
     }
-
-    return tree;
 }
 
 void destroy(TreeNode *&tree) {
