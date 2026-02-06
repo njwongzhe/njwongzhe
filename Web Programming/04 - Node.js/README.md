@@ -5,7 +5,7 @@
 ## 1.0 - What Is Node.js & Installation
 
 - It is a JavaScript Runtime Environment.
-- Think of Node.js as a DVD Player that you install on your computer. It allows your computer to "play" (execute) JavaScript code outside of a web browser.
+- JavaScript allows your computer to execute JavaScript code outside of a web browser.
 - Standard computers don't speak JavaScript but they speak binary. Node.js translates JavaScript into instructions the computer understands.
 - Node.js Download: https://nodejs.org/en/download
 - Node Package Manager (NPM) Tools Library: https://www.npmjs.com/
