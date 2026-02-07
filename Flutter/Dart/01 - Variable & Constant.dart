@@ -9,12 +9,10 @@ void main(List<String> args) {
                           // Since an integer has been assigned to "data" at initial, the type of data cannot be change in future. 
 
 
-
   const constData = 40;              // "const" will be fixed once compile.
   // const constData = data;         // Error since a variable cannot be assigned to a constant.
   // constData = 30;                 // Error since data inside a constant cannot be changed. 
   print("constData = ${constData}"); // Output: constData = 40
-
 
 
   final finalData = "Final";            // "final" will be fixed once execute. (Someone call it.)

@@ -9,7 +9,6 @@ void main(List<String> args) {
   print("intNum + douNum = ${numNum1 + numNum2}"); // Output: intNum + douNum = 2.1
 
 
-
   // intNum = douNum;          // Error since "intNum" is "int".
   intNum = douNum.toInt();     // Convert data type.
   intNum = numNum1.toInt();
