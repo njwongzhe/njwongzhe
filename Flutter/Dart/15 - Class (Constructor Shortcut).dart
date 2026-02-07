@@ -16,13 +16,15 @@ void main(List<String> args) {
 }
 
 class Person {
-  String name = ""; 
-  int age = 0;      
+  String name; 
+  int age;      
 
   /* Constructor Shortcut */
-  Person(this.name, this.age); // First parameter is assigned to "name", second to "age".
-  Person.onlyName(this.name);  // Assign the only parameter to "name".
-  Person.onlyAge(this.age);    // Assign the only parameter to "age".
+  Person(this.name, this.age);          // Case 1: First parameter is assigned to "name", second to "age".
+  Person.onlyName(this.name) : age = 0; // Case 2: Assign the only parameter to "name".
+  Person.onlyAge(this.age) : name = ""; // Case 3: Assign the only parameter to "age".
+  // If using shortcut method, a default value can be avoided. (Case 1)
+  // However, some of the fields that not included in the parameter list must be initialized in the initializer list. (Case 2 & 3)
 
   void greet() {
     print("Hello, my name is $name.");
