@@ -3,6 +3,8 @@ void main(List<String> args) {
   // It can be assigned to a variable and the benefit is that it can be passed as an argument to another function.
 
   /* Anonymous Function with Multiple Statements */
+  // Syntax: (Parameters) { Function Body }
+
   var fruits = ['Apple', 'Banana', 'Orange'];
   fruits.forEach((fruit) { // Anonymous function passed as an argument to "forEach" ("List" Function).
     print('Processing $fruit...');
@@ -18,6 +20,8 @@ void main(List<String> args) {
 
 
   /* Anonymous Function with Single Expression (Fat Arrow / Lambda Expression) */
+  // Syntax: (Parameters) => Expression
+
   fruits.forEach((fruit) => print('Hello $fruit')); // Anonymous function passed as an argument to "forEach" ("List" Function).
   print("");
 
