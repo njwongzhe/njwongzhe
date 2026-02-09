@@ -46,8 +46,8 @@ flutter build | Builds your Flutter app for deployment.
 
 # 3.0 Flutter's Project Structure
 
-<p align="center" width="100%">
-    <img width="10%" src="https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Content_Flutter_Project.png"><br>
+<p align="center" width="50%">
+    <img width="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Content_Flutter_Project.png"><br>
     Flutter Project Structure after run "flutter create testfile".
 </p>
 
