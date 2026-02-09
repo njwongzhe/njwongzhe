@@ -40,7 +40,7 @@ To hot reload your application, "Ctrl + S" can be used or input "r" in the termi
 
 # 3.0 Flutter's Project Structure
 
-![Content of Flutter Project]()
+![Content of Flutter Project](https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Content_Flutter_Project.png)
 
 | File / Directory | Description |
 | :--- | :--- |
