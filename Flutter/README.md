@@ -19,22 +19,22 @@ flutter build | Builds your Flutter app for deployment.
 
 # 2.0 Flutter's Debugging
 
-Click "Debug" above the main function of "main.dart" file that is located inside the "lib" folder: <br />
+- Click "Debug" above the main function of "main.dart" file that is located inside the "lib" folder: <br />
 ![Start Debugging on Vscode](https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Flutter_Debugging.png)
 
 <br />
 
-The devices used for debugging can be changed by clicking the device name: <br />
+- The devices used for debugging can be changed by clicking the device name: <br />
 ![Start Debugging on Vscode](https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Flutter_Debugging2.png)
 
 <br />
 
-A emulator option will appear when you activate your emulators: <br />
+- A emulator option will appear when you activate your emulators: <br />
 ![Start Debugging on Vscode](https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Flutter_Debugging3.png)
 
 <br />
 
-To hot reload your application, "Ctrl + S" can be used or input "r" in the terminal. (Only in Debugging Mode)
+- To hot reload your application, "Ctrl + S" can be used or input "r" in the terminal. (Only in Debugging Mode)
 
 <br />
 
