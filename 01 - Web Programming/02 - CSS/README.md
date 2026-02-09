@@ -322,7 +322,9 @@ left   | The distance from the left edge of the containing element. (Used with p
 
 ## 7.0 - Box Model
 
-![Box Model](https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/02%20-%20CSS/08%20-%20CSS%20Box%20Model.png)
+<p align="center" width="100%">
+    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/02%20-%20CSS/08%20-%20CSS%20Box%20Model.png">
+</p>
 
 <br />
 
