@@ -53,6 +53,8 @@ Comment*/
  */
 ```
 
+<br />
+
 <p align="center" width="100%">
     <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/16%20-%20JS%20Documentation%20Comment.png"><br>
     Documentation Comment
