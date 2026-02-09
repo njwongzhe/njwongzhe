@@ -40,6 +40,7 @@ flutter build | Builds your Flutter app for deployment.
 
 # 3.0 Flutter's Project Structure
 
+- Flutter Project Structure after run "flutter create testfile": <br />
 ![Content of Flutter Project](https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Content_Flutter_Project.png)
 
 | File / Directory | Description | |
