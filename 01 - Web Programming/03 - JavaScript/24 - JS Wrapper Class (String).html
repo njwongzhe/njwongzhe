@@ -1,0 +1,242 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Wrapper Class (String)</title> 
+</head> 
+
+<body> 
+    <script> /* Static Methods */
+        console.log("------------------>>> Static Methods");
+
+        console.log("------------------>>> String.fromCharCode() & String.fromCodePoint()");
+
+        console.log(String.fromCharCode(83, 116, 114, 105, 110, 103));  // Output: String
+        console.log(String.fromCodePoint(83, 116, 114, 105, 110, 103)); // Output: String
+        // "String.fromCharCode()" and "String.fromCodePoint()" can convert the Unicode values to string.
+        // Both have same functionalities but different capabilities.
+        // "String.fromCharCode()" is old code which only support simple BMP characters. (Unicode Range: U+0000 to U+FFFF)
+        // "String.fromCodePoint()" is new code which support full Unicode range including the supplementary characters. (Unicode Range: U+0000 to U+10FFFF)
+
+        console.log("------------------>>> String.raw``");
+
+        console.log("a\nb"); // Output: a
+                             //         b
+        console.log(String.raw`a\nb`); // Output: a\nb
+    </script>
+
+    <script> /* Instance Properties */
+        console.log("------------------>>> Instance Properties");
+
+        console.log("------------------>>> length");
+
+        let stringLen = "String";
+        console.log(stringLen.length); // Output: 6
+    </script>
+
+    <script> /* Instance Methods */
+        console.log("------------------>>> Instance Methods");
+
+        console.log("------------------>>> String Index Check Based Data (indexOf & lastIndexOf)");
+
+        // Syntax: string.indexOf(data)
+        // "indexOf()" returns the position of the first occurrence of a value in a string.
+
+        // Syntax: string.lastIndexOf(data)
+        // "lastIndexOf()" returns the position of the last occurrence of a value in a string.
+
+        let stringIndex = "aabce";
+        console.log(stringIndex.indexOf("a"));     // Index of first occurrence of "a".  // Output: 0
+        console.log(stringIndex.lastIndexOf("a")); // Index of last occurrence of "a".   // Output: 1
+
+        console.log(stringIndex.indexOf("ab"));    // Index of first occurrence of "ab". // Output: 1
+        console.log(stringIndex.indexOf("bc"));    // Index of first occurrence of "bc". // Output: 2
+
+        console.log(stringIndex.indexOf("z"));     // "z" is not found in the string.    // Output: -1
+        console.log(stringIndex.lastIndexOf("z")); // "z" is not found in the string.    // Output: -1
+
+        console.log("------------------>>> String Index Check Based Data (search)");
+
+        // Syntax: string.search(data)
+        // "search()" returns the position of the first occurrence of a value in a string.
+        // It is similar with "indexOf()" but "search()" supports "Regular Expression".
+
+        let stringSearch = "String";
+        console.log(stringSearch.search("S"));  // Index of first occurrence of "S". // Output: 0
+        console.log(stringSearch.search("t"));  // Index of first occurrence of "t". // Output: 1
+
+        console.log(stringSearch.search("St")); // Index of first occurrence of "St". // Output: 0
+        console.log(stringSearch.search("tr")); // Index of first occurrence of "tr". // Output: 1
+
+        console.log(stringSearch.search("z"));  // "z" is not found in the string. // Output: -1
+        console.log(stringSearch.search("z"));  // "z" is not found in the string. // Output: -1
+
+        console.log("------------------>>> String Data Check Based Index (at & charAt)");
+
+        // Syntax: string.at(index)
+        // Syntax: string.charAr(index)
+        // "at()" and "charAt" returns the character at a specified index (position) in a string.
+        // "at()" supports negative index but "charAt" not supports.
+
+        let stringData = "String";
+        console.log(stringData.at(0));  // Output: S
+        console.log(stringData.at(-1)); // Output: g
+        console.log(stringData.charAt(0)); // Output: S
+        console.log(stringData.charAt(5)); // Output: g
+
+        console.log("------------------>>> String Unicode Check Based Index (charCodeAt & codePointAt)");
+
+        // Syntax: string.charCodeAt(index)
+        // Syntax: string.codePointAt(index)
+        // "charCodeAt()" and "codePointAt()" returns the Unicode of the character at a specified index (position) in a string.
+        // Different between both "charCodeAt()" and "codePointAt()" are same as static methods "String.fromCharCode()" (Smaller Range) and "String.fromCodePoint()" (Larger Range).
+
+        let stringUnicode = "Abc";
+        console.log(stringUnicode.charCodeAt(0)); // Output: 65
+        console.log(stringUnicode.codePointAt(0)); // Output: 65
+        
+        console.log("------------------>>> String Start or End With (startsWith & endsWith)");
+
+        // Syntax: string.startsWith(value)
+        // "startWith()" returns true if a string starts with a specified value.
+
+        // Syntax: string.endsWith(value)
+        // "endsWith()" returns true if a string ends with a specified value.
+
+        let stringSE = "String";
+        console.log(stringSE.startsWith("St")); // Output: true
+        console.log(stringSE.startsWith("t"));  // Output: false
+        console.log(stringSE.endsWith("ng"));   // Output: true
+        console.log(stringSE.endsWith("n"));    // Output: false
+
+        console.log("------------------>>> String Have (includes)");
+
+        // Syntax: string.includes(value, startIndex)
+        // "includes()" returns true if contains a specified value.
+
+        let stringInclude = "String";
+        console.log(stringInclude.includes("St"));    // Output: true
+        console.log(stringInclude.includes("tri"));   // Output: true
+        console.log(stringInclude.includes("tn"));    // Output: false
+        console.log(stringInclude.includes("St", 1)); // Output: false
+
+        console.log("------------------>>> String Lower & Upper Case (toLowerCase & toUpperCase & toLocaleLowerCase & toLocaleUpperCase)");
+
+        // Syntax: string.toLowerCase()
+        // Syntax: string.toUpperCase()
+        // Both will converts a string to lowercase or uppercase letters and returns in a new string.
+
+        let stringCase = "String";
+        console.log(stringCase.toLowerCase()); // Output: string
+        console.log(stringCase.toUpperCase()); // Output: STRING
+
+        // Syntax: string.toLocaleLowerCase(locales)
+        // Syntax: string.toLocaleUpperCase(locales)
+        // "locales" is the language specific format to use. (Example: "en-MY", "en-US", "en-GB" and etc)
+
+        console.log(stringCase.toLocaleUpperCase("en-US")); // Output: STRING
+        console.log(stringCase.toLocaleUpperCase("TR"));    // Output: STRİNG
+
+        console.log("------------------>>> String Fill Fix Length (padStart & padEnd)");
+
+        // Syntax: string.padStart(length, string) 
+        // "padStart()" pads (fill) a string from the start if not satisfy length set and returns in a new string.
+
+        // Syntax: string.padEnd(length, string) 
+        // "padEnd()" pads (fill) a string from the end if not satisfy length set and returns in a new string.
+
+        let stringPad = "String";
+        console.log(stringPad.padStart(10, "String")); // Output: StriString
+        console.log(stringPad.padEnd(10, "String"));   // Output: StringStri
+
+        console.log("------------------>>> String Remove Whitespaces (trim & trimStart & trimEnd)");
+
+        // Syntax: string.trim()
+        // “trim()" remove the whitespaces at start and end and returns in a new string.
+
+        // Syntax: string.trimStart()
+        // “trimStart()" remove the whitespaces at start and returns in a new string.
+
+        // Syntax: string.trimEnd()
+        // “trimEnd()" remove the whitespaces at end and returns in a new string.
+
+        let stringTrim = " Hello World ";
+        console.log(stringTrim.trim()      + "|"); // Output: Hello World|
+        console.log(stringTrim.trimStart() + "|"); // Output: Hello World |
+        console.log(stringTrim.trimEnd()   + "|"); // Output:  Hello World|
+
+        console.log("------------------>>> String Copy (slice & substring)");
+
+        // Syntax: string.slice(start, end)
+        // "slice()" copy a string and returns in a new string. (end index is not included)
+
+        let stringCopy = "String";
+
+        let stringCopyNew = stringCopy.slice(0, 5);
+        console.log(stringCopyNew); // Output: Strin
+        stringCopyNew = stringCopy.slice(0, 6);
+        console.log(stringCopyNew); // Output: String
+
+        // Syntax: string.substring(start, end)
+        // "substring()" copy a string and returns in a new string. (end index is not included)
+        // If the index of "start" is larger than the index of "end", it will automatically reverse both index.
+
+        stringCopyNew = stringCopy.substring(0, 5);
+        console.log(stringCopyNew); // Output: Strin
+        stringCopyNew = stringCopy.substring(5, 0);
+        console.log(stringCopyNew); // Output: Strin
+
+        console.log("------------------>>> String Combine (concat)");
+
+        // Syntax: string.concat(string1, string2, ..., stringX)
+        // "concat()" combine two or more strings and returns in a new string.
+
+        let stringCombine1 = "Hello ";
+        let stringCombine2 = "World ";
+        let stringCombine3 = "!";
+        console.log(stringCombine1.concat(stringCombine2, stringCombine3)); // Output: Hello World !
+
+         console.log("------------------>>> String Split (split)");
+
+        // Syntax: string.split(separator, limit)
+        // "seperator" is a string or regular expression to use for splitting.
+        // "limit" is an integer that limits the number of splits. Items after the limit are excluded.
+
+        let stringSplit = "Hello World !";
+        console.log(stringSplit.split());        // Output: ['Hello World !']
+        console.log(stringSplit.split(" "));     // Output: (3) ['Hello', 'World', '!']
+        console.log(stringSplit.split("World")); // Output: (2) ['Hello ', ' !']
+        console.log(stringSplit.split(" ", 2));  // Output: (2) ['Hello', 'World']
+
+        console.log("------------------>>> String Replace (replace & replaceAll)")
+
+        // Syntax: string.replace(searchValue, newValue)
+        // Syntax: string.replaceAll(searchValue, newValue)
+        // The "newValue" can be a function which has three parameters (matchValue, index, input).
+
+        let stringReplace = "Hello World ! World ! World !"; 
+        console.log(stringReplace.replace("World", "Code"));    // Output: Hello Code ! World ! World !
+        console.log(stringReplace.replaceAll("World", "Code")); // Output: Hello Code ! Code ! Code !
+
+        console.log(stringReplace.replaceAll("World", function (matchValue, index, input) {
+            return `${matchValue}s`;
+        })); // Output: Hello Worlds ! Worlds ! Worlds !
+
+        console.log("------------------>>> String Repeat (repeat)");
+
+        // Syntax: string.repeat(count)
+        
+        let stringRepeat = "String";
+        console.log(stringRepeat.repeat(3)); // Output: StringStringString
+
+        console.log("------------------>>> String Permitive (valueOf)");
+
+        // "valueOf()" method returns the primitive value of a string.
+
+        let stringValue = new String("String");
+        console.log(stringValue);           // String in wrapper class.                          // Output: String {'String'}
+        console.log(stringValue.valueOf()); // String in wrapper class change to permitive type. // Output: String
+    </script>
+</body> 
+
+</html>

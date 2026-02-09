@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Regular Expression (Metacharacters)</title> 
+</head> 
+
+<body> 
+    <script>
+        let text = "Hello World 123 !";
+
+        console.log("------------------>>> Any One (.)");
+
+        // "." matches any character except line terminators. Each "." is one of any character.
+        // "s" flag can be used to matches any character include line terminators (\n).
+        console.log(text.match(/H../));   // Output: ['Hel']
+        console.log(text.match(/H..../)); // Output: ['Hello']
+        console.log(/!.../.test(text));   // Output: false
+
+        console.log("------------------>>> Or (|)");
+
+        // "|" acts as OR operator.
+        console.log(/Hello|World/.test(text));   // Output: true
+        console.log(text.match(/Hello|World/));  // Output: ['Hello']
+        console.log(text.match(/Hello|World/g)); // Output: (2) ['Hello', 'World']
+
+        console.log("------------------>>> Word (\\w)");
+
+        // "\w" matches word characters (alphanumeric, numerical and _).
+        console.log(/\w/.test(text));   // Output: true
+        console.log(text.match(/\w/));  // Output: ['H']
+        console.log(text.match(/\w/g)); // Output: (13) ['H', 'e', 'l', 'l', 'o', 'W', 'o', 'r', 'l', 'd', '1', '2', '3']
+
+        console.log("------------------>>> Non-Word (\\W)");
+
+        // "\W" matches non-word characters.
+        console.log(/\W/.test(text));   // Output: true
+        console.log(text.match(/\W/));  // Output: [' ']
+        console.log(text.match(/\W/g)); // Output: (4) [' ', ' ', ' ', '!']
+
+        console.log("------------------>>> Digit (\\d)");
+
+        // "\d" matches digits 0 to 9.
+        console.log(/\d/.test(text));   // Output: true
+        console.log(text.match(/\d/));  // Output: ['1']
+        console.log(text.match(/\d/g)); // Output: (3) ['1', '2', '3']
+
+        console.log("------------------>>> Non-Digit (\\D)");
+
+        // "\D" matches non-digit characters.
+        console.log(/\D/.test(text));   // Output: true
+        console.log(text.match(/\D/));  // Output: ['H']
+        console.log(text.match(/\D/g)); // Output: (14) ['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', ' ', ' ', '!']
+
+        console.log("------------------>>> Space (\\s)");
+
+        // "\s" matches whitespace characters (space, tab, newline).
+        console.log(/\s/.test(text));   // Output: true
+        console.log(text.match(/\s/));  // Output: [' ']
+        console.log(text.match(/\s/g)); // Output: (3) [' ', ' ', ' ']
+
+        console.log("------------------>>> Non-Space (\\S)");
+
+        // "\S" matches non-whitespace character.
+        console.log(/\S/.test(text));   // Output: true
+        console.log(text.match(/\S/));  // Output: ['H']
+        console.log(text.match(/\S/g)); // Output: (14) ['H', 'e', 'l', 'l', 'o', 'W', 'o', 'r', 'l', 'd', '1', '2', '3', '!']
+    </script>
+
+    <script>
+        console.log("------------------>>> Null (\\0)");
+
+        let textNull = "Hello World \0 !";
+
+        // "\0" matches NULL characters.
+        console.log(/\0/.test(textNull));   // Output: true
+        console.log(textNull.match(/\0/));  // Output: ['\x00']
+        console.log(textNull.match(/\0/g)); // Output: ['\x00']
+        
+        console.log("------------------>>> New Line (\\n)");
+
+        let textNew = "Hello World \n\n !";
+
+        // "\n" matches new line characters.
+        console.log(/\n/.test(textNew));   // Output: true
+        console.log(textNew.match(/\n/));  // Output: ['\n']
+        console.log(textNew.match(/\n/g)); // Output: (2) ['\n', '\n']
+
+        console.log("------------------>>> Tab (\\t)");
+
+        let textTab = "\t Hello World !";
+
+        // "\t" matches tab characters.
+        console.log(/\t/.test(textTab));   // Output: true
+        console.log(textTab.match(/\t/));  // Output: ['\t']
+        console.log(textTab.match(/\t/g)); // Output: ['\t']
+    </script>
+</body> 
+
+</html>

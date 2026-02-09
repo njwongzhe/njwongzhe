@@ -1,0 +1,20 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS HTML DOM Event Register</title> 
+</head> 
+
+<body>  
+    <button id="b1">Click Me</button>
+    
+    <script>
+        // Syntax: targetElement.event = function
+
+        document.querySelector("#b1").onclick = function () { // Event Register
+            alert("You had click the button.");               // Show alert message when click the button.
+        };
+    </script>
+</body> 
+
+</html>

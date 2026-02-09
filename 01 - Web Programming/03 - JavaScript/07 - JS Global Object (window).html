@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Global Object (window)</title> 
+</head> 
+
+<body> 
+    <script> /* Global Object */
+        console.log("------------------>>> Global Object");
+
+        // In JavaScript, there’s a special “top-level” object called the global object.
+        // It holds all built-in global properties and methods (things you can use anywhere without importing).
+        // Example: "window" in browsers / "global" in Node.js
+
+        console.log(window); // In browsers, the global object is "window".
+
+        /* Example of Global Variable (name) */
+        
+        console.log(typeof name); // Output: string
+        // The variable "name" is one of the default property in the global object (window).
+        // Thus, you should avoid using global variables as much as possible.
+
+        name = 1;
+        console.log(typeof name); // Output: string
+        // Even if you assign a number to "name", it is still a string because the global variable "name" is a property of the global object (window in browsers).
+    </script>
+
+    <script> /* Global Object (Auto Convert) */
+        console.log("------------------>>> Global Object (Auto Convert)");
+
+        a = 1; // Equal to "window.a = 1;"
+        // If we not use "var" to a variable, it will automatically become a global variable.
+
+        var b = 2; 
+        // If we use "var" to create a variable, it will become a global variable inside "window".
+    </script>
+
+    <script> /* Check Global Namespace */
+        console.log("------------------>>> Check Global Namespace");
+
+        console.log(window); // "a" and "b" exist in global namespace since they become a global variable.
+    </script>
+</body> 
+
+</html>

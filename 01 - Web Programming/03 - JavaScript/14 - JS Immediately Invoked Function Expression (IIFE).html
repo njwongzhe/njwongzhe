@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Immediately Invoked Function Expression (IIFE)</title> 
+</head> 
+
+<body> 
+    <script> /* Global Variable Pollution */
+        console.log("------------------>>> Local & Global Variable");
+
+        function myFunction() { // Global Function
+            var a = 10;
+        }
+
+        myFunction();
+        // Although the "var a" in "myFunction()" is not pollute the global namespace (window) but the function "myFunction()" will.
+        // Thus, there is another method to declare a function can be used which is Immediately Invoked Function Expressions (IIFE).
+    </script>
+
+    <script> /* Immediately Invoked Function Expressions (IIFE) */
+        console.log("------------------>>> IIFE");
+        
+        // Immediately Invoked Function Expressions (IIFE) are JavaScript functions that are executed immediately after they are defined. 
+        // They are typically used to create a local scope for function to prevent them from polluting the global scope.
+        // IIFEs are commonly used to create private scope in JavaScript, allowing variables and functions to be encapsulated and inaccessible from outside the function.
+
+        (function () {
+            console.log("Function");
+            var b = 10;
+        })();
+        // IIFE can be created without function name if not call itself inside its function.
+
+        (function myFunction1() {
+            console.log("Function 1");
+            console.log(myFunction1); // Call Itself
+        })();
+        // IIFE that call itself inside its function.
+
+        (function myFunction2() {
+            console.log("Function 2");
+        })();
+        // IIFE with function name.
+
+        (function myFunction3(x) {
+            console.log(x);
+        })("Function 3");
+        // IIFE with function name and parameter.
+
+     // myFunction1();             // Error
+     // myFunction2();             // Error
+     // myFunction3("Function 3"); // Error
+        // IIFE are not available in the global scope.
+    </script>
+
+    <script> /* Check Global Namespace */
+        console.log("------------------>>> Check Global Namespace");
+
+        console.log(window); 
+        // "myFunction()" exist in global namespace (window).
+        // "myFunction1()", "myFunction2()" and "myFunction3()" not exist in global namespace (window).
+    </script>
+</body> 
+
+</html>

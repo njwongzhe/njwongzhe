@@ -1,0 +1,111 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Data Types</title> 
+</head> 
+
+<body> 
+    <script> /* String */
+        console.log("------------------>>> String");
+
+        console.log(typeof "Hello World"); // Data Type = String 
+        console.log(typeof 'Hello World'); // Data Type = String
+        // " and ' are same for strings.
+
+        console.log(typeof `Hello 
+                                  World`); // Data Type = String
+        console.log(`Hello 
+                                  World`);
+        // ` allows multi-line strings. 
+
+        let a = 10;
+        console.log(`${a}`);
+        // "${variable}" allow variables in strings. (Template Strings) 
+        // Template strings provide an easy way to interpolate variables in strings.
+        
+        console.log("Hello' World"); 
+        console.log('Hello" World');
+        console.log(`Hello' " World`);
+        // Different quotes ("" '' ``) can be used inside each other to avoid escape characters like ' and ".
+
+        console.log("Hello \" World");
+        console.log('Hello \' World');
+        console.log('Hello \\ World');
+        // Escape character \ is used to insert special characters inside strings.
+        // The character after \ is treated as a normal character.
+
+        console.log("Hello \n World"); // \n is new line.
+        console.log("Hello \t World"); // \t is tab.
+    </script>
+
+    <script> /* Number */
+        console.log("------------------>>> Number");
+
+        console.log(typeof 123);       // Data Type = Number
+        console.log(typeof 123.45);    // Data Type = Number
+        console.log(typeof -123);      // Data Type = Number
+        console.log(typeof -123.45);   // Data Type = Number  
+        console.log(typeof NaN);       // Data Type = Number
+        console.log(typeof Infinity);  // Data Type = Number
+        console.log(typeof -Infinity); // Data Type = Number
+
+        console.log(0b0011); // Binary (3 in Decimal)
+        console.log(0o11);   // Octal (9 in Decimal)
+        console.log(0xFF);   // Hexadecimal (255 in Decimal)
+    </script>
+
+    <script> /* BigInt */
+        console.log("------------------>>> BigInt");
+
+        console.log(typeof 123n);        // Data Type = Bigint
+        console.log(typeof BigInt(123)); // Data Type = Bigint
+    </script>
+
+    <script> /* Boolean */
+        console.log("------------------>>> Boolean");
+
+        console.log(typeof true);  // Data Type = Boolean
+        console.log(typeof false); // Data Type = Boolean
+    </script>
+
+    <script> /* Undefined & Null */
+        console.log("------------------>>> Undefined & Null");
+
+        console.log(typeof undefined); // Data Type = Undefined
+        
+        console.log(typeof null);      // Data Type = Object 
+        // The data type of the null is object is because the historical issues. 
+        // It is a bug in JavaScript and typeof null always returns "object".
+    </script>
+
+    <script> /* Object */
+        console.log("------------------>>> Object");
+
+        console.log(typeof {});                      // Data Type = Object
+        console.log(typeof {name: "John", age: 30}); // Data Type = Object
+
+        console.log({
+            name: "John", 
+            age: 30, 
+            address: {
+                city: "New York", 
+                state: "NY"
+            }
+        });
+        // An object is a collection of properties.
+
+        console.log(typeof []);        // Data Type = Object
+        console.log(typeof [1, 2, 3]); // Data Type = Object
+        // The data type of array is object.
+    </script>
+
+    <script> /* Other Data Types */ 
+        console.log("------------------>>> Other Data Types");
+            
+        console.log(typeof Symbol());     // Data Type = Symbol
+        console.log(typeof function(){}); // Data Type = Function
+    </script>
+</body> 
+
+</html>

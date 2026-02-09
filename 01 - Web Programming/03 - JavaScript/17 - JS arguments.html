@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS arguments</title> 
+</head> 
+
+<body> 
+    <script> /* "arguments" */
+        console.log("------------------>>> \"arguments\"");
+
+        function myFunction(a, b) {
+            console.log(arguments); // Equal to "console.log(myFunction.arguments);" but this method is already outdated. 
+            // Prefer only use the "arguments" inside function.
+        }
+
+        myFunction(1, 2); // Output: Arguments(2) [1, 2, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+        // "arguments" is a JavaScript built-in object (Array-like Objects) which contains an array of the arguments used when the function was called.
+    
+        myFunction(1, 2, 3, 4); // Output: Arguments(4) [1, 2, 3, 4, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+        // If the amount of value we pass as arguments is exceed the amount of parameter in function, the exceed value will still store in "arguments".
+    </script>
+
+    <script> /* Reflection of Arguments */
+        console.log("------------------>>> Reflection of Arguments");
+
+        function myFunction2(a, b) {
+            a = 123
+            arguments[1] = 456
+
+            console.log(arguments[0], arguments[1], a, b);
+        }
+
+        myFunction2(1, 2); // Output: 123 456 123 456
+        // Function parameters (a, b) and arguments[i] are linked.
+        // If you change a, the corresponding arguments[0] changes and vice versa.
+
+        myFunction2(1); // Output: 123 456 123 undefined
+        // If the arguments was not provided, then the link doesn’t exist.
+        // Although we can still edit the properties inside "arguments[1]" object but it won't reflect on parameter "b".
+
+        myFunction2(); // Output: undefined 456 123 undefined
+        // Although we set "a = 123" in function but "arguments[0]" doesn’t exist (no argument was passed). Thus, only "a" changes.
+        
+        // Although "arguments" can perform indexed and length access such as array but it is just an array-like object, not a real array.
+        // It lost some method that the common array can use such as "filter()", "slice()", "pop()" and others.
+    </script>
+</body> 
+
+</html>

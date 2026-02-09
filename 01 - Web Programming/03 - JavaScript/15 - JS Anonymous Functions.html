@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Anonymous Functions</title> 
+</head> 
+
+<body> 
+    <script> /* Anonymous Functions (Assigned to a Variable) */
+        console.log("------------------>>> Anonymous Functions (Assigned to a Variable");
+
+        var varSumNumber = function (x, y) {
+            console.log(x + y);
+        };
+
+        varSumNumber(1, 2);
+        // Although function will not pollute the namespace but the variable "varSumNumber" will since it use "var".
+        // Thus, we prefer to use "let" or "const".
+
+        let letSumNumber = function (x, y) {
+            console.log(x + y);
+        };
+
+        letSumNumber(1, 2);
+
+        // Anonymous Functions is similar with IIFE but IIFE will executed directly and cannot use repeatly.
+        // However, Anonymous Functions can use repeatly without pollute the global namespace.
+    </script>
+
+    <script> /* Anonymous Functions (Callback) */
+        console.log("------------------>>> Anonymous Functions (Callback)");
+
+        let run = function (callback) {
+            callback();
+        };
+
+        run(function() {
+            console.log("callback");
+        });
+    </script>
+
+    <script> /* Check Global Namespace */
+        console.log("------------------>>> Check Global Namespace");
+
+        console.log(window); 
+        // "varSumNumber" exist in global namespace (window).
+        // "letSumNumber" not exist in global namespace (window).
+    </script>
+</body> 
+
+</html>

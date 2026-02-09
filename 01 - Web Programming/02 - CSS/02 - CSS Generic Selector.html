@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>CSS Generic Selector</title> 
+
+    <style> 
+        * { /* Universal Selector */
+            color: grey;
+        }
+
+        h1 { /* Tag Selector */
+            color: red;
+        }
+
+        .class-selector { /* Class Selector */
+            color: green;
+        }
+
+        p.class-selector { /* Class Selector */
+            color: green;
+            font-style: italic;
+        }
+
+        #id-selector { /* ID Selector */
+            color: blue;
+        }
+
+        p#id-selector { /* ID Selector */
+            color: blue;
+            font-style: italic;
+        }
+    </style>
+</head> 
+
+<body> 
+    <!--Universal Selector-->
+    <h2>Universal Selector</h2>
+    <h3>Universal Selector</h3>
+    <h4>Universal Selector</h4>
+
+    <!--Tag Selector-->
+    <h1>Tag Selector</h1>
+
+    <!--Class Selector-->
+    <h1 class="class-selector">class-selector</h1>
+    <h2 class="class-selector">class-selector</h2>
+    <p class="class-selector">tag.class-selector</p>
+
+    <!--ID Selector-->
+    <h1 id="id-selector">id-selector</h1>
+    <h2 id="id-selector">id-selector</h2>
+    <p id="id-selector">tag#id-selector</p>
+</body> 
+
+</html>

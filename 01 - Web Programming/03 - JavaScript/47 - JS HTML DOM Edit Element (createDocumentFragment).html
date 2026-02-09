@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS HTML DOM Edit ELement (createDocumentFragment)</title> 
+</head> 
+
+<body> 
+    How Many Times You Want to Copy the Word "Item" & Append : <input id="textInput" type="text" value="">
+
+    <br><br>
+
+    <button id="refreshEach">Refresh Each Times</button>
+    <button id="refreshOnce">Refresh One Times</button>
+    
+    <br><br>
+
+    <b>List Item</b>
+    <ol>
+        <li>Item</li>
+    </ol>
+
+    <script>
+        let textInput = document.querySelector("#textInput");
+        let refreshEach = document.querySelector("#refreshEach");
+        let refreshOnce = document.querySelector("#refreshOnce");
+        let itemList = document.querySelector("ol");
+        
+        refreshEach.onclick = function () {
+            for(let i = 0; i < textInput.value; i++) {
+                let newElement = itemList.firstElementChild.cloneNode(true);
+                itemList.append(newElement);
+                // This method will cause the pages need to refresh each times when create the new element.
+                // Thus, we may use "createDocumentFragment" to avoid this problems.
+            }
+        };
+
+        // Syntax: document.createDocumentFragment()
+        // Creates an offscreen node.
+
+        let frag = document.createDocumentFragment();
+
+        refreshOnce.onclick = function () {
+            for(let i = 0; i < textInput.value; i++) {
+                let newElement = itemList.firstElementChild.cloneNode(true);
+                frag.append(newElement);
+                // By using "createDocumentFragment", all the element create will store inside "frag" first and not show on the screen.
+            }
+            itemList.append(frag);
+            // Once we done all of our operation, we can directly move all the element out from "frag" and show on screen.
+            // Thus, the pages just need to refresh one times and the operation more efficiency.
+        };
+    </script>
+</body> 
+
+</html>

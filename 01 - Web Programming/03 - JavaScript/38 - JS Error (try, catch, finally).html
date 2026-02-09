@@ -1,0 +1,89 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Error (try, catch, finally)</title> 
+</head> 
+
+<body> 
+    <script>
+        // Syntax:
+        // try {
+        //      statement...
+        // } catch(errorObject) {
+        //      statement...
+        // } finally {
+        //      statement...
+        // }
+
+        // "try" statement defines a code block to run (to try).
+        // "catch" statement defines a code block to handle any error. Error object will passed automatically to "errorObject". (It only run when error in "try" happen.)
+        // "finally" statement defines a code block to run regardless of the result. (It must run no mather what situation.)
+    </script>
+
+    <script> /* Without "try", "catch" & "finally" */
+        console.log("------------------>>> Without \"try\", \"catch\" & \"finally\"");
+
+        function a1(x) {
+            a2(x);                                // Error is passed back from "a2".
+            console.log("\"a1\" done executed."); // Not executed since uncaught error happen.
+        }
+
+        function a2(x) {
+            a3(x);                                // Error is passed back from "a3".
+            console.log("\"a2\" done executed."); // Not executed since uncaught error happen.
+        }
+
+        function a3(x) {
+            throw new Error("Error Happen");      // Error happen.
+            console.log("\"a3\" done executed."); // Not executed since uncaught error happen.
+        }
+
+        a1(10); // Error is passed back from "a1".
+
+        // Output: 
+        // Uncaught Error: Error Happen
+        //   at a3 (50 - JS Error (try, catch, finally).html:38:19)  // "a3" not handle the error. Error is passed back to "a2".
+        //   at a2 (50 - JS Error (try, catch, finally).html:33:13)  // "a2" not handle the error. Error is passed back to "a1".
+        //   at a1 (50 - JS Error (try, catch, finally).html:28:13)  // "a1" not handle the error. Error is passed back to global scope.
+        //   at 50 - JS Error (try, catch, finally).html:42:9        // Global also did not handle the error. Program stops with an uncaught error.
+    </script>
+
+    <script> /* With "try", "catch" & "finally" */
+        console.log("------------------>>> With \"try\", \"catch\" & \"finally\"");
+
+        function b1(x) {
+            console.log(b2(x));                   // Executed. No error is passed back since error is caught in "b2".
+            console.log("\"b1\" done executed."); // Executed since no error.
+        }
+
+        function b2(x) {
+            try {
+                b3(x);                                                     // Error is passed back from "b3".
+                console.log("\"b2\" done executed without error.");        // Not executed since uncaught error happen.
+                return 1;                                                  // Not executed since uncaught error happen.
+            } catch(errorObject) {                                         // Caught error in "try".
+                console.log("Error happen when executed function \"b3\""); // Executed since error is caught. 
+                return 2;                                                  // Not executed since "return" value had set in "finally".
+            } finally {
+                console.log("\"b2\" done executed with error.");           // Executed after "try" is completed.
+                return 3;                                                  // Executed after "try" is completed.
+            }
+        }
+
+        function b3(x) {
+            throw new Error("Error Happen");      // Error happen.
+            console.log("\"b3\" done executed."); // Not executed since uncaught error happen.
+        }
+
+        b1(10); // No error is passed back since error is caught in "b2".
+
+        // Output: 
+        // Error happen when executed function "b3".
+        // "b2" done executed with error.
+        // 3                                          
+        // "b1" done executed.
+    </script>
+</body> 
+
+</html>

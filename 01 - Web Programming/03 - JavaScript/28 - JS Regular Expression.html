@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Regular Expression</title> 
+</head> 
+
+<body> 
+    <script> /* Regular Expression */
+        console.log("------------------>>> Regular Expression");
+
+        // A Regular Expression is a sequence of characters that forms a search pattern.
+        // Regex is a common shorthand for a regular expression.
+        // "RexExp" is an object for handling regular expressions.
+        // RegExp are be used for text searching, text replacing and text validation.
+        
+        // Syntax Regular Expression: /pattern/flags
+
+        // Syntax: regExp.test(string)
+        // "test()" is one of the method in object "RegExp". It tests for a match in a string. Returns true or false.
+
+        let text1 = "Hello !";
+        let text2 = "Hello World world World !";
+        console.log(/World/.test(text1)); // Pattern "World" is not exist in "text1". // Output: false
+        console.log(/World/.test(text2)); // Pattern "World" is exist in "text2".     // Output: true
+
+        // Syntax: string.match(regExp)
+        // Searches a string for a value or a regular expression and returns the matches.
+
+        // Syntax: string.replace(regExp, newValue)
+        // Searches a string for a value or a regular expression and returns a string where the first match is replaced.
+
+        // Syntax: string.search(regExp)
+        // Searches a string for a value or a regular expression and returns the index (position) of the match.
+
+        // These method from object "String" can apply the regular expression.
+
+        console.log(text2.match(/World/));              // Output: ['World']
+        console.log(text2.replace(/World/, "Replace")); // Output: Hello Replace world World !
+        console.log(text2.search(/World/));             // Output: 6
+
+        // Without any flags such as "g", all the "String" method will only affect or return the first match found in the string.
+    </script>
+</body> 
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Function</title> 
+</head> 
+
+<body> 
+    <script> /* Function with Return Value */
+        console.log("------------------>>> Function with Return Value");
+
+        function myFunction(p1, p2) { // "p1" & "p2" = Parameter
+            return p1 * p2; // Function End
+        }
+
+        console.log(myFunction(4, 3)); // "4" & "3" = Argument // Output the value return by "myFunction".
+    </script>
+
+    <script> /* Function without Return Value */
+        console.log("------------------>>> Function without Return Value");
+
+        function myFunction2() { 
+            console.log("Hello World!");
+        }
+
+        myFunction2(); // Execute "myFunction2".
+    </script>
+
+    <script> /* Function Constructor */
+        console.log("------------------>>> Function Constructor");
+
+        // Syntax: var functionName = new Function("arg1", "arg2", ..., "Function Body as String");
+
+        var myFunction3 = new Function("x", "y", "console.log(x + y);");
+
+        myFunction3(1, 2); // Output: 3
+    </script>
+
+    <script> /* Function & Variables */
+        console.log("------------------>>> Function & Variables");
+
+        var a = 20;
+        
+        function myFunction4() {
+            console.log(a); // Output: undefined
+            // "var a" is moved to the top of "myFunction4" and initialized as undefined until the assignment is reached.
+
+            var a = 10; // Now "a" is assigned with a value of 10.
+            console.log(a); // Output: 10
+        }
+
+        myFunction4(); // Execute "myFunction4".
+
+        console.log(a); // Output: 20
+        // The variable inside a function only can be accessed inside the function.
+        // The variable outside a function only can be accessed outside the function.
+    </script>
+
+    <script> /* Function & Hoisting */
+        console.log("------------------>>> Function & Hoisting");
+
+        myFunction5(); // No error.
+        
+        function myFunction5() {
+            console.log("Function & Hoisting");
+        }
+
+        myFunction2(); // Success.
+     // myFunction6(); // Error since out of scope.
+
+        // Function is same as "var". The hoisting will happen on them.
+        // However, a function declaration is hoisted to the top of its enclosing scope (function body, block or script).
+    </script>
+
+    <script> /* Global Function */
+        console.log("------------------>>> Global Function");
+
+        function myFunction6() {
+            console.log("Global Function");
+        }
+
+        myFunction6();        // Equal to "window.myFunction6()".
+        window.myFunction6(); // A method to call a function in global scope.
+        console.log(window);  // "myFunction()", "myFunction2()", "myFunction3()", "myFunction4()", "myFunction5()" and "myFunction6()" are inside the global scope.
+    </script>
+</body> 
+
+</html>

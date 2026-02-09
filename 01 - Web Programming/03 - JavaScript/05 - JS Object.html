@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Object</title> 
+</head> 
+
+<body> 
+    <script> /* Basic Object Declaration and Access */
+        console.log("------------------>>> Basic Object Declaration and Access");
+
+        var person = {
+            name: "John", 
+            age: 30, 
+            address: {
+                city: "New York", 
+                state: "NY"
+            }
+        };
+        // An object is a collection of properties.
+
+        console.log(person, typeof person);             // Data Type = Object
+        console.log(person.name, typeof person.name);   // Output: John string
+        console.log(person.hobby, typeof person.hobby); // Output: undefined 'undefined'
+     // console.log(people.age);                        // Error since "people" is not defined in the current scope.
+
+        var a = 1;
+        console.log(a.name, typeof a.name); // Output: undefined 'undefined'
+        // In JavaScript, primitive values (like numbers) can have properties accessed on them, but they do not actually have those properties.
+        // Accessing a property that doesn't exist on a primitive value will return undefined.
+    </script>
+
+    <script> /* Object Constructor */
+        console.log("------------------>>> Object Constructor");
+
+        var person2 = new Object();
+        console.log(person2, typeof person2); // Data Type = Object
+    </script>
+
+    <script> /* Object Modification */
+        console.log("------------------>>> Object Modification");
+
+        var person3 = {
+            name: "John", 
+            age: 30, 
+        };
+
+        person3.age = 31;          // Modifying an existing property of the object.
+
+        person3.hobby = "Reading"; // Adding a new property to the object.
+        
+        delete person3.name;       // Deleting a property from the object.
+
+        console.log(person3);
+    </script>
+
+    <script> /* Bracket Notation */
+        console.log("------------------>>> Bracket Notation");
+
+        var person4 = {
+            name: "Alice", 
+            age: 25, 
+            "My Address": {
+                city: "Los Angeles", 
+                state: "CA"
+            }
+        };
+
+     // console.log(person4."My Address");  // Error
+        console.log(person4["My Address"]); // Accessing property with space or special characters using bracket notation.
+
+        console.log(person4["name"]); // Accessing property using bracket notation also works for regular property names.
+    </script>
+
+    <script> /* Object Elements Existence Check (in) */
+        console.log("------------------>>> Object Elements Existence Check (in)");
+
+        var person5 = {
+            name: "Bob", 
+            age: 28
+        };
+
+        console.log("name" in person5);  // Output: true
+        console.log("hobby" in person5); // Output: false
+    </script>
+
+    <script> /* Object Returns in Array (Object.values()) */
+        console.log("------------------>>> Object Returns in Array (Object.values())");
+
+        var person6 = {
+            name: "Bob", 
+            age: 28
+        };
+
+        console.log(Object.values(person6));    // Output: (2) ['Bob', 28]
+        document.write(Object.values(person6)); // Output: Bob,28
+    </script>
+</body> 
+
+</html>

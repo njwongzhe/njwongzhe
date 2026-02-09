@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS HTML DOM Element Properties (Attributes)</title> 
+</head> 
+
+<body>  
+    <input id="b1" type="text" value=""> 
+    <button id="Read1">Read Text to Console</button> 
+    <button id="Clear1">Clear Text Box</button>
+
+    <script> /* Standard Properties (Attributes) */ 
+        // Attributes of HTML Element can be modify through the JavaScript properties.
+        
+        let textBox1 = document.querySelector("#b1");
+        let readButton1 = document.querySelector("#Read1");
+        let clearButton1 = document.querySelector("#Clear1");
+        
+        readButton1.onclick = function () {
+            console.log(textBox1.value); // Return the value of attribute "value" in "input" tag.
+        };
+
+        clearButton1.onclick = function () {
+            textBox1.value = ""; // Set the value of attribute "value" in "input" tag.
+        };
+
+        // Most HTML attributes share the same name as their corresponding JavaScript properties. 
+        // However, there are exceptions. For example, the HTML attribute "class" becomes the "className" property in JavaScript because the "class" keyword is reserved for creating JavaScript classes.
+    </script>
+
+    <br><br>
+
+    <input data-a="1" data-b="2" id="b2" type="text" value="Original"> 
+    <button id="Read2">Read Text to Console</button> 
+    <button id="Clear2">Clear Text Box</button>
+    <button id="testCustom">Test Custom</button>
+    <button id="listCustom">List Custom ("dataset")</button>
+
+    <script> /* Custom Properties (Attributes) */
+        // We are allowed to add some attributes to HTML element for certain purpose.
+        // The name of the custom properties (attributes) prefer in format "data-customAttribute" such as "data-a" and "data-b".
+
+        // To manage these custom attributes, HTML DOM provides three primary methods:
+        // element.getAttribute(attributeName)           - Read the value of attribute.
+        // element.setAttribute(attributeName, setValue) - Set the value of attribute.
+        // element.removeAttribute(attributeName)        - Delete the attribute.
+
+        // These three method also support standard properties (attributes) but we must make sure that certain HTML elements has been used in our HTML tags.
+        // However, these method will just updates the HTML attribute in code but doesn't change what's displayed in the input. 
+        // Thus, if possible avoid to use them on standard properties (attributes) to avoid confusing.
+
+        let textBox2 = document.querySelector("#b2");
+        let readButton2 = document.querySelector("#Read2");
+        let clearButton2 = document.querySelector("#Clear2");
+        let testCustom = document.querySelector("#testCustom");
+        let listCustom = document.querySelector("#listCustom");
+        
+        readButton2.onclick = function () {
+         // console.log(textBox2.value); 
+            console.log(textBox2.getAttribute("value")); // Output: Original
+                                                         // Same output will be get although you change the text in text box on UI.
+                                                         // It will output "Clear" if we had click the second button before.
+        };
+
+        clearButton2.onclick = function () {
+         // textBox2.value = "";
+            textBox2.setAttribute("value", "Clear"); // Set the value in text box to "Clear" if we didn't change the value in text box on UI before.
+        };
+
+        testCustom.onclick = function () {
+            textBox2.setAttribute("data-a", "11");        // Set the value of custom properties (attributes) "data-a" to "11".
+            console.log(textBox2.getAttribute("data-a")); // Output: 11
+        }
+
+        // By applying format "data-customAttribute" on naming custom properties (attributes), properties "dataset" can be call to list all the custom properties (attributes) under certain HTML element.
+        // Thus, we also can call the custom properties (attributes) through this properties ("dataset") without using the "getAttribute" and "setAttribute".
+
+        listCustom.onclick = function () {
+            console.log(textBox2.dataset); // Output: DOMStringMap {a: '1', b: '2'}  // If not click third button before.
+                                           // Output: DOMStringMap {a: '11', b: '2'} // If click third button before.
+            console.log(textBox2.dataset.a);
+            console.log(textBox2.dataset.b);
+        }
+    </script>
+</body> 
+
+</html>
