@@ -50,9 +50,9 @@ To hot reload your application, "Ctrl + S" can be used or input "r" in the termi
 | **`pubspec.lock`** | Locks dependency versions to ensure consistency across environments. |
 | **`pubspec.yaml`** | Defines project metadata, dependencies (libraries) and assets. | Project Configuration Files |
 | **`README.md`** | The main documentation file for the project. | 
-| **`testfile.iml`** | Configuration file for IntelliJ IDEA / Android Studio. | IDE Configuration Files (Android Studio) |
+| **`testfile.iml`** | Configuration file for IntelliJ IDEA / Android Studio. | Android Studio Files |
 | **`.dart_tool/`** | Contains temporary files and cache used by Dart tools. | Dart Tooling Files |
-| **`.idea/`** | Stores local editor settings (window layout, run configs). | IDE Configuration Files (Android Studio) |
+| **`.idea/`** | Stores local editor settings (window layout, run configs). | Android Studio Files |
 | **`android/`** | Native Android project files (Gradle, AndroidManifest). | Platform-Specific Files |
 | **`build/`** | Contains the compiled app output (auto-generated). | Build Artifacts (Actual App Files) |
 | **`ios/`** | Native iOS project files (Xcode, Info.plist). | Platform-Specific Files |
