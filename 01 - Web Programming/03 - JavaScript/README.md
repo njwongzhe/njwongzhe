@@ -54,7 +54,9 @@ Comment*/
 ```
 
 Documentation Comment :
-![Documentation Comment](https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/16%20-%20JS%20Documentation%20Comment.png)
+<p align="center" width="100%">
+    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/16%20-%20JS%20Documentation%20Comment.png">
+</p>
 
 <br />
 
@@ -65,7 +67,9 @@ Documentation Comment :
 - Loop: REPL goes back to step 1, waiting for you to type more code.This loop continues until you quit REPL.
 
 Chrome REPL Environment ("10 - JS REPL Environment.html") :
-![Chrome REPL Environment](https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/10%20-%20JS%20REPL%20Environment.png)
+<p align="center" width="100%">
+    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/10%20-%20JS%20REPL%20Environment.png">
+</p>
 
 - The REPL allows developers to quickly test small code snippets, experiment with JavaScript, CSS, and HTML, and see the immediate results.
 - You can inspect variables, execute functions and pinpoint issues in your code directly within the context of the running application.
@@ -78,7 +82,9 @@ Chrome REPL Environment ("10 - JS REPL Environment.html") :
 - Example: "window" in browsers / "global" in Node.js
 
 Browsers - "window" :
-![Global Object, Method and Properties](https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/20%20-%20JS%20Global%20Methods%20and%20Properties.png)
+<p align="center" width="100%">
+    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/20%20-%20JS%20Global%20Methods%20and%20Properties.png">
+</p>
 
 <br />
 
@@ -122,9 +128,13 @@ Browsers - "window" :
 
 HTML DOM :
 <br />
-![HTML DOM](https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/39%20-%20JS%20HTML%20DOM.png)
+<p align="center" width="100%">
+    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/39%20-%20JS%20HTML%20DOM.png">
+</p>
 
 HTML DOM Node Relationship :
 <br />
-![HTML DOM Node](https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/42%20-%20JS%20HTML%20DOM%20Get%20Node.png)
+<p align="center" width="100%">
+    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/42%20-%20JS%20HTML%20DOM%20Get%20Node.png">
+</p>
 
