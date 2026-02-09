@@ -20,17 +20,23 @@ flutter build | Builds your Flutter app for deployment.
 # 2.0 Flutter's Debugging
 
 - Click "Debug" above the main function of "main.dart" file that is located inside the "lib" folder: <br />
-![Start Debugging on Vscode](https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Flutter_Debugging.png)
+<p align="center" width="100%">
+    <img width="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Flutter_Debugging.png"> 
+</p>
 
 <br />
 
 - The devices used for debugging can be changed by clicking the device name: <br />
-![Start Debugging on Vscode](https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Flutter_Debugging2.png)
+<p align="center" width="100%">
+    <img width="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Flutter_Debugging2.png"> 
+</p>
 
 <br />
 
 - A emulator option will appear when you activate your emulators: <br />
-![Start Debugging on Vscode](https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Flutter_Debugging3.png)
+<p align="center" width="100%">
+    <img width="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Flutter_Debugging3.png"> 
+</p>
 
 <br />
 
@@ -41,7 +47,9 @@ flutter build | Builds your Flutter app for deployment.
 # 3.0 Flutter's Project Structure
 
 - Flutter Project Structure after run "flutter create testfile": <br />
-![Content of Flutter Project](https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Content_Flutter_Project.png)
+<p align="center" width="100%">
+    <img width="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/Flutter/Content_Flutter_Project.png"> 
+</p>
 
 | File / Directory | Description | |
 | :--- | :--- | :--- |
