@@ -66,10 +66,14 @@ Comment*/
 - Print: REPL shows you the result of your code.
 - Loop: REPL goes back to step 1, waiting for you to type more code.This loop continues until you quit REPL.
 
+<br />
+
 <p align="center" width="100%">
     <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/10%20-%20JS%20REPL%20Environment.png"><br>
     Chrome REPL Environment ("10 - JS REPL Environment.html")
 </p>
+
+<br />
 
 - The REPL allows developers to quickly test small code snippets, experiment with JavaScript, CSS, and HTML, and see the immediate results.
 - You can inspect variables, execute functions and pinpoint issues in your code directly within the context of the running application.
@@ -80,6 +84,8 @@ Comment*/
 - In JavaScript, there’s a special “top-level” object called the global object.
 - It holds all built-in global properties and methods (things you can use anywhere without importing).
 - Example: "window" in browsers / "global" in Node.js
+
+<br />
 
 <p align="center" width="100%">
     <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/20%20-%20JS%20Global%20Methods%20and%20Properties.png"><br>
@@ -127,12 +133,14 @@ Comment*/
 ```
 
 <br />
+
 <p align="center" width="100%">
     <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/39%20-%20JS%20HTML%20DOM.png"><br>
     HTML DOM
 </p>
 
 <br />
+
 <p align="center" width="100%">
     <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/42%20-%20JS%20HTML%20DOM%20Get%20Node.png"><br>
     HTML DOM Node Relationship
