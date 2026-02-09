@@ -41,6 +41,7 @@ flutter build | Builds your Flutter app for deployment.
 <br />
 
 - To hot reload your application, "Ctrl + S" can be used or input "r" in the terminal. (Only in Debugging Mode)
+- Any changes in "main" function must be restarted to see the changes. Hot reload will not work on "main" function.
 
 <br />
 
