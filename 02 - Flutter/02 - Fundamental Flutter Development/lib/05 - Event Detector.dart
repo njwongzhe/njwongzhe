@@ -102,7 +102,7 @@ class _CustomWidgetState extends State<CustomWidget> {
   8. Checkbox             : A widget that allows users to select or deselect an option
   9. Radio                : A widget that allows users to select one option from a set of mutually exclusive options.
   10. TextField           : A widget that allows users to input text and responds to text change events.
-  11. Form                : A container widget that groups multiple form fields and responds to form submission events.
+  11. Form                : A "Container" widget that groups multiple form fields and responds to form submission events.
   12. Draggable           : A widget that can be dragged across the screen and responds to drag events.
   etc.
 */

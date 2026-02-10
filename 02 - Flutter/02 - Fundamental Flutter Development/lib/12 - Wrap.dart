@@ -1,4 +1,4 @@
-// "Wrap" allow to display its children in multiple horizontal or vertical runs.
+// "Wrap" allow to display its "children" in multiple horizontal or vertical runs.
 // When there is not enough space in the main axis, it will automatically wrap (move) to the next line.
 
 import 'package:flutter/material.dart';
