@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
     - Alignment.topLeft    | Alignment.topCenter    | Alignment.topRight
     - Alignment.centerLeft | Alignment.center       | Alignment.centerRight
     - Alignment.bottomLeft | Alignment.bottomCenter | Alignment.bottomRight
-      - Alignment(double x, double y) : Range is from -1.0 to 1.0.
+    - Alignment(double x, double y) : Range is from -1.0 to 1.0.
 
   - color : The color to paint behind the child. (Cannot be used with decoration.)
     - Colors.red, Colors.green, Colors.blue, Colors.yellow...

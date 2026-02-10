@@ -23,7 +23,7 @@ class _CustomWidgetState extends State<CustomWidget> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "06 - Widget Rebuild (setState)",
+      title: "Widget Rebuild (setState)",
       theme: ThemeData(scaffoldBackgroundColor: Colors.pink[50]),
       home: Scaffold(
         body: Center(

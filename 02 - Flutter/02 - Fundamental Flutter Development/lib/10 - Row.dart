@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         body: Container (
           width: double.infinity, 
           height: double.infinity,
-          decoration: BoxDecoration(color: Colors.grey[300]),
+          color: Colors.grey[300],
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             // mainAxisAlignment: MainAxisAlignment.start, // Default

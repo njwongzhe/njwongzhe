@@ -37,7 +37,7 @@ class _CustomWidgetState extends State<CustomWidget> {
   Widget build(BuildContext context) { 
     print("build Called"); 
     return MaterialApp(                                
-      title: "05 - Event Detector",                                            
+      title: "Event Detector",                                            
       theme: ThemeData(scaffoldBackgroundColor: Colors.pink[50]), 
       home: Scaffold(
         appBar: AppBar(                                      

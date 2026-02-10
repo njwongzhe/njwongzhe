@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(                                        
-      title: "02 - MaterialApp (Scaffold Widget)",                                            
+      title: "MaterialApp (Scaffold Widget)",                                            
       theme: ThemeData(scaffoldBackgroundColor: Colors.pink[50]), 
       home: Scaffold(
         appBar: AppBar(                                      

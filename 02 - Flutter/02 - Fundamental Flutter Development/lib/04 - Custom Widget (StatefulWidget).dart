@@ -63,7 +63,7 @@ class _CustomWidgetState extends State<CustomWidget> { // The state class (Priva
   Widget build(BuildContext context) { // The "build" method must exist in a StatefulWidget.
     print("build Called"); // This line is just for demonstration purposes.
     return MaterialApp(    // It returns a MaterialApp widget that will display the UI.                              
-      title: "04 - Custom Widget (StatefulWidget)",                                            
+      title: "Custom Widget (StatefulWidget)",                                            
       theme: ThemeData(scaffoldBackgroundColor: Colors.pink[50]), 
       home: Scaffold(
         appBar: AppBar(                                      

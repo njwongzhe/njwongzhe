@@ -7,7 +7,7 @@ void main() {
   // In Flutter, everything is a widget. Widgets are the basic building blocks of a Flutter app's user interface. (Like <div> in HTML) 
   runApp(
     MaterialApp(                                         
-      title: "01 - MaterialApp",                                            
+      title: "MaterialApp",                                            
       theme: ThemeData(scaffoldBackgroundColor: Colors.pink[50]), 
       home: Scaffold()
     )

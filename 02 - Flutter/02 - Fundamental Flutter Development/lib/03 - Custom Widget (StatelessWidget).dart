@@ -23,7 +23,7 @@ class CustomWidget extends StatelessWidget { // The class of your static widget 
   Widget build(BuildContext context) { // The build method must exist in a StatelessWidget.
     print("build Called"); // This line is just for demonstration purposes.
     return MaterialApp(    // It returns a MaterialApp widget that will display the UI.                              
-      title: "03 - Custom Widget (StatelessWidget)",                                            
+      title: "Custom Widget (StatelessWidget)",                                            
       theme: ThemeData(scaffoldBackgroundColor: Colors.pink[50]), 
       home: Scaffold(
         appBar: AppBar(                                      
