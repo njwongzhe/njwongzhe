@@ -37,6 +37,7 @@ class _MyAppState extends State<MyApp> {
               borderRadius: BorderRadius.circular(20)
             ),
 
+            /* Username "TextField" */
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -55,6 +56,7 @@ class _MyAppState extends State<MyApp> {
 
                 SizedBox(height: 10),
 
+                /* Password "TextField" */
                 TextField(
                   controller: _password,           // Connect the "TextField" to the "_password" controller.
                   obscureText: true,               // Hide the input text and making it suitable for password entry.

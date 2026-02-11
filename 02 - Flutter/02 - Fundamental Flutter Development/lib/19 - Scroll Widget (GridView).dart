@@ -97,8 +97,8 @@ class _MyAppState extends State<MyApp> {
       itemCount: 100,                                    // Specify the total number of items in the grid. (Must Exist)
       itemBuilder: (context, index) => buildItem(index), // Define how each item in the grid should be built using the "buildItem" method. (Must Exist)
 
-      scrollDirection: Axis.vertical,                           // Set the scroll direction of the "GridView" to vertical (Default).
-      padding: EdgeInsets.all(20),                              // Add padding around the content of the "GridView".
+      scrollDirection: Axis.vertical, // Set the scroll direction of the "GridView" to vertical (Default).
+      padding: EdgeInsets.all(20)     // Add padding around the content of the "GridView".
     );
   }
 
@@ -122,8 +122,8 @@ class _MyAppState extends State<MyApp> {
       itemCount: 100,                                    // Specify the total number of items in the grid. (Must Exist)
       itemBuilder: (context, index) => buildItem(index), // Define how each item in the grid should be built using the "buildItem" method. (Must Exist)
 
-      scrollDirection: Axis.horizontal,                         // Set the scroll direction of the "GridView" to horizontal.
-      padding: EdgeInsets.all(20),                              // Add padding around the content of the "GridView".
+      scrollDirection: Axis.horizontal, // Set the scroll direction of the "GridView" to horizontal.
+      padding: EdgeInsets.all(20)       // Add padding around the content of the "GridView".
     );
   }
 
