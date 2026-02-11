@@ -50,3 +50,9 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+/*
+  mainAxisSize : Determines how much space the "Column" should occupy in the main axis (vertical).
+    - MainAxisSize.max : The "Column" will take up all available vertical space. (Default)
+    - MainAxisSize.min : The "Column" will only take up as much vertical space as needed by its "children".
+*/
