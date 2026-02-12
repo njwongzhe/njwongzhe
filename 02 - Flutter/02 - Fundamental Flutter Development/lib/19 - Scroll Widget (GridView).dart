@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
         border: Border.all(color: Colors.blue),
         borderRadius: BorderRadius.circular(8),
       ),
-      child: Text("Item ${index + 1}"),
+      child: Text("Item ${index + 1}")
     );
   }
 

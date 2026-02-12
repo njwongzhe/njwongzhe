@@ -1,0 +1,31 @@
+The website use in "24 - Network Request (Dio).dart" is "https://mockapi.io/projects". 
+This website is a mock API that provides a list of items in JSON format. 
+
+The base URL at line 17 for the API is "https://698dc106b79d1c928ed666d7.mockapi.io/api/".
+The endpoint used at line 88 is "itemList".
+The code will automatically combine the base URL and endpoint to form the full URL for the GET request which is "https://698dc106b79d1c928ed666d7.mockapi.io/api/itemList".
+
+In "mockapi.io" website, an endpoint called "itemList" should be created which returns a list of items with "Name", "Info" and "id" fields.
+After the endpoint is set up, we can adjust the amount of dummy data in the "itemList" endpoint at any time to see how the Flutter app fetches and displays the updated data.
+
+At initial run, the Flutter app will send a GET request to "https://698dc106b79d1c928ed666d7.mockapi.io/api/itemList" automatically to get the data and build the UI.
+We can update the amount of dummy data in the "itemList" endpoint on "mockapi.io" website, then press the "GET Request" button in UI to update the data shown in the Flutter app.
+
+Example set of dummy data returned from the GET request to "https://698dc106b79d1c928ed666d7.mockapi.io/api/itemList" would look like this (JSON format):
+[
+  {
+    "Name": "Name 1",
+    "Info": "Info 1",
+    "id": "1"
+  },
+  {
+    "Name": "Name 2",
+    "Info": "Info 2",
+    "id": "2"
+  },
+  {
+    "Name": "Name 3",
+    "Info": "Info 3",
+    "id": "3"
+  }
+]
