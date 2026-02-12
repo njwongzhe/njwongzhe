@@ -3,7 +3,7 @@ This website is a mock API that provides a list of items in JSON format.
 
 The base URL at line 17 for the API is "https://698dc106b79d1c928ed666d7.mockapi.io/api/".
 The endpoint used at line 88 is "itemList".
-If needed, you can change the base URL and endpoint to your own created project on "mockapi.io" website and set up the endpoint accordingly.
+If needed, we can change the base URL and endpoint to your own created project on "mockapi.io" website and set up the endpoint accordingly.
 
 In "mockapi.io" website, an endpoint called "itemList" should be created which returns a list of items with "Name", "Info" and "id" fields.
 After the endpoint is set up, we can adjust the amount of dummy data in the "itemList" endpoint at any time to see how the Flutter app fetches and displays the updated data.
