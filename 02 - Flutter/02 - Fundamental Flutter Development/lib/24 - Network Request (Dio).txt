@@ -2,7 +2,7 @@ The website use in "24 - Network Request (Dio).dart" is "https://mockapi.io/proj
 This website is a mock API that provides a list of items in JSON format. 
 
 The base URL at line 17 for the API is "https://698dc106b79d1c928ed666d7.mockapi.io/api/".
-The endpoint used at line 88 is "itemList".
+The endpoint used at line 87 is "itemList".
 If needed, we can change the base URL and endpoint to your own created project on "mockapi.io" website and set up the endpoint in that website accordingly.
 
 In "mockapi.io" website, an endpoint called "itemList" should be created which returns a list of items with "Name", "Info" and "id" fields.

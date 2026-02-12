@@ -68,7 +68,6 @@ class DioUtil {
   }
 }
 
-
 // Main app widget which performs GET request and displays data in a grid view.
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
