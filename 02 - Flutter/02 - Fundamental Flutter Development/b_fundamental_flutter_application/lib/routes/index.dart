@@ -7,6 +7,7 @@ Widget getRootWidget() {
   return MaterialApp(
     initialRoute: "/",
     routes: getAppRoutes(),
+    theme: ThemeData(scaffoldBackgroundColor: Colors.white),
   );
 }
 

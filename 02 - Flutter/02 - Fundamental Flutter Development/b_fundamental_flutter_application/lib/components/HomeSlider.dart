@@ -11,17 +11,20 @@ class HomeSlider extends StatefulWidget {
 
 class _HomeSliderState extends State<HomeSlider> {
   List<SliderItem> sliderItems = [
-    SliderItem(id: "1", imgUrl: "https://down-my.img.susercontent.com/file/sg-11134201-7rblt-lntp3ww0t5v95b.webp"),
-    SliderItem(id: "2", imgUrl: "https://via.placeholder.com/350x150"),
-    SliderItem(id: "3", imgUrl: "https://via.placeholder.com/350x150"),
+    SliderItem(id: "1", imgUrl: "https://raw.githubusercontent.com/njwongzhe/njwongzhe/refs/heads/main/02%20-%20Flutter/02%20-%20Fundamental%20Flutter%20Development/b_fundamental_flutter_application_demo_network_request_image/SliderItem%20(1).jpg"),
+    SliderItem(id: "2", imgUrl: "https://raw.githubusercontent.com/njwongzhe/njwongzhe/refs/heads/main/02%20-%20Flutter/02%20-%20Fundamental%20Flutter%20Development/b_fundamental_flutter_application_demo_network_request_image/SliderItem%20(2).jpg"),
+    SliderItem(id: "3", imgUrl: "https://raw.githubusercontent.com/njwongzhe/njwongzhe/refs/heads/main/02%20-%20Flutter/02%20-%20Fundamental%20Flutter%20Development/b_fundamental_flutter_application_demo_network_request_image/SliderItem%20(3).jpg"),
   ];
 
   Widget _getSlider() {
+    final double ScreenWidth = MediaQuery.of(context).size.width;
+
     return CarouselSlider(
-      items: List.generate(sliderItems.length, (index) => Image.network(sliderItems[index].imgUrl)),
+      items: List.generate(sliderItems.length, (index) => Image.network(sliderItems[index].imgUrl, width: ScreenWidth, fit: BoxFit.cover,)),
       options: CarouselOptions(
         height: 200,
         autoPlay: true,
+        autoPlayAnimationDuration: Duration(seconds: 2),
         enlargeCenterPage: true,
       ),
     );
@@ -31,7 +34,7 @@ class _HomeSliderState extends State<HomeSlider> {
   Widget build(BuildContext context) {
     return Container(
       height: 200,
-      color: Colors.grey,
+      color: Colors.transparent,
       child: Center(child: _getSlider())
     );
   }
