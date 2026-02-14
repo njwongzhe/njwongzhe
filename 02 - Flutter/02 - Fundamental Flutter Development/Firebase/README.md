@@ -1,21 +1,25 @@
 # Firebase
 
+<br />
+
 ## 1.0 Firestore Database
+
+<br />
 
 ### 1.1 Firestore Setup
 
+- flutter pub add cloud_firestore : Run in terminal to add the Firestore package to your Flutter project.
 ```dart
-// flutter pub add cloud_firestore | Run in terminal to add the Firestore package to your Flutter project.
-
+// Import the Firestore package in your Dart file.
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-// Create an instance of Firestore
+// Create an instance of Firestore.
 final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-// Read data from Firestore
+// Read data from Firestore.
 Future<void> readData() async {
   try {
-    DocumentSnapshot snapshot = await firestore.collection('your_collection').doc('your_document_id').get();
+    DocumentSnapshot snapshot = await firestore.collection('your_collection').doc('your_document_id').get(); // Read (GET)
     if(snapshot.exists) {
       Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
       print("Data: $data");
@@ -27,6 +31,8 @@ Future<void> readData() async {
   }
 }
 ```
+
+<br />
 
 ### 1.2 Firestore Security Rules
 
@@ -47,4 +53,3 @@ service cloud.firestore {
   }
 }
 ```
-

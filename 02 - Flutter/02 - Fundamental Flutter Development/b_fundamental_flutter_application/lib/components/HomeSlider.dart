@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:b_fundamental_flutter_application/viewmodels/home.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -12,20 +11,17 @@ class HomeSlider extends StatefulWidget {
 }
 
 class _HomeSliderState extends State<HomeSlider> {
-  /* Carousel Controller */
-  final CarouselSliderController _controller = CarouselSliderController();
-
-  /* Slider Item */
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance; // Create a Firestore instance to fetch slider data from Firestore.
-  List<String> sliderItems = []; 
-
-  @override
+   @override
   void initState() {
     super.initState();
     _unboxFuture(); // Call the unboxed future to fetch slider items asynchronously.
   }
 
-  Future<List<String>> _fetchSliderItems() async {
+  /* Slider Item */
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance; // Create a Firestore instance to fetch slider data from Firestore.
+  List<String> sliderItems = []; 
+
+  Future<List<String>> _getSliderItems() async {
     try {
       // Get a reference to the 'assets/slider' document.
       DocumentSnapshot doc = await _firestore.collection("assets").doc("slider").get();
@@ -54,9 +50,12 @@ class _HomeSliderState extends State<HomeSlider> {
   }
 
   void _unboxFuture() async {
-    List<String> results = await _fetchSliderItems(); // 1. Program PAUSES here until data is ready.
-    setState(() => sliderItems = results);            // 2. Once ready, tell Flutter to rebuild the UI with the new data.
+    List<String> results = await _getSliderItems(); // 1. Program PAUSES here until data is ready.
+    setState(() => sliderItems = results);          // 2. Once ready, tell Flutter to rebuild the UI with the new data.
   }
+
+  /* Carousel Controller */
+  final CarouselSliderController _controller = CarouselSliderController();
 
   /* Slider Interface */
   Widget _getSlider() {
@@ -78,7 +77,7 @@ class _HomeSliderState extends State<HomeSlider> {
   /* Indicator */
   int _currentIndex = 0; // Track the currently active slider index.
 
-  /* Indicator Interface */
+  /* Indicator Bar Interface */
   Widget _getIndicator() {
     return Row (
       mainAxisAlignment: MainAxisAlignment.center,
