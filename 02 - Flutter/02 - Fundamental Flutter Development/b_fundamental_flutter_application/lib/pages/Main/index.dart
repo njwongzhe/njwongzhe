@@ -58,7 +58,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Image.asset("lib/assets/Logo.png", height: 10,), centerTitle: true, backgroundColor: Colors.white,),
+      appBar: AppBar(title: Image.asset("lib/assets/Appbar_Logo.png", height: 30,), centerTitle: true, backgroundColor: Colors.white,),
 
       body: SafeArea( 
         // "SafeArea" ensure that the child widget is not obscured by system UI elements.
