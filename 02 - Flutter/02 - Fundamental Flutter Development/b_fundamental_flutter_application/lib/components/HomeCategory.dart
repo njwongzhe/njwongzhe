@@ -19,8 +19,8 @@ class _HomeCategoryState extends State<HomeCategory> {
       "text": "Beverages"
     },
     {
-      "icon": "lib/assets/Category_Dessert.png",
-      "text": "Dessert"
+      "icon": "lib/assets/Category_Desserts.png",
+      "text": "Desserts"
     },
     {
       "icon": "lib/assets/Category_FastFoods.png",
@@ -39,16 +39,26 @@ class _HomeCategoryState extends State<HomeCategory> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50, // "ListView" in horizontal direction cannot be displayed without a fixed height.
+      height: 80, // "ListView" in horizontal direction cannot be displayed without a fixed height.
       margin: EdgeInsets.symmetric(horizontal: 10),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: _categoryList.length,
         itemBuilder: (context, index) => Container(
-          height: 50,
-          width: 50,
-          margin: EdgeInsets.only(right: 10),
-          color: Colors.grey,
+          width: 80,
+          margin: EdgeInsets.only(right: 25),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey[200]!,
+                spreadRadius: 1,
+                blurRadius: 10,
+                offset: Offset(0, 2), // Changes position of shadow.
+              ),
+            ],
+          ),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

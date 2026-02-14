@@ -20,7 +20,8 @@ class _HomeSearchState extends State<HomeSearch> {
       ),
       child: TextField(
         decoration: InputDecoration(
-          hintText: 'Search',
+          hintText: 'Search (SAMPLE ONLY)',
+          hintStyle: TextStyle(color: Colors.grey[300]),
           border: InputBorder.none,
           prefixIcon: Icon(Icons.search)
         ),
