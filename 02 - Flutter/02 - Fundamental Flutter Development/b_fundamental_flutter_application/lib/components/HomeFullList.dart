@@ -1,3 +1,4 @@
+import 'package:b_fundamental_flutter_application/api/index.dart';
 import 'package:b_fundamental_flutter_application/components/ItemBox.dart';
 import 'package:b_fundamental_flutter_application/utils/FirebaseRequest.dart';
 import 'package:flutter/material.dart';
@@ -19,29 +20,35 @@ class _HomeFullListState extends State<HomeFullList> {
   }
 
   FirebaseRequest firebaseRequest = FirebaseRequest();
+  CategoryList categoryList = CategoryList();
 
-  /* Fetch Complete Item List from Firestore */
+  /* Fetch Complete Item List from Firestore - Dynamically from CategoryList */
   void getitemList() async {
     try {
-      final List<List<Map<String, dynamic>>> allCategoryLists = await Future.wait([
-        firebaseRequest.fetchData("assets", "menu", collection2: "bakery"),
-        firebaseRequest.fetchData("assets", "menu", collection2: "beverages"),
-        firebaseRequest.fetchData("assets", "menu", collection2: "desserts"),
-        firebaseRequest.fetchData("assets", "menu", collection2: "fast_foods"),
-        firebaseRequest.fetchData("assets", "menu", collection2: "noodles"),
-        firebaseRequest.fetchData("assets", "menu", collection2: "rices"),
-      ]);
+      // Dynamically create fetch futures from the CategoryList.
+      final fetchFutures = categoryList.list.map((category) async {
+        final itemListConfig = category["ItemList"];
+        return await firebaseRequest.fetchData(
+          itemListConfig["collection"],
+          itemListConfig["document"],
+          collection2: itemListConfig["collection2"],
+        );
+      }).toList();
 
+      // Execute all fetch operations in parallel.
+      final List<List<Map<String, dynamic>>> allCategoryLists = await Future.wait(fetchFutures);
+
+      // Combine all items into a single list.
       List<Map<String, dynamic>> combinedList = [];
       for (var list in allCategoryLists) {
         combinedList.addAll(list);
       }
 
       setState(() => _itemList = combinedList);
-      } catch (e) {
-        print("Error fetching item list: $e");
-      }
+    } catch (e) {
+      print("Error fetching item list: $e");
     }
+  }
 
   /* Instance of Helper Class */
   Itembox itembox = Itembox();

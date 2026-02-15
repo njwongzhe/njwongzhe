@@ -18,7 +18,6 @@ Map<String, Widget Function(BuildContext)> getAppRoutes() {
   return {
     "/": (context) => MainPage(),
     "/category": (context) => CategoryPage(),
-    "/category/bakery"
     "/cart": (context) => CartPage(),
     "/login": (context) => LoginPage(),
   };
