@@ -32,7 +32,7 @@ class _HomeCategoryState extends State<HomeCategory> {
     },
     {
       "icon": "lib/assets/Category_Rice.png",
-      "text": "Rice"
+      "text": "Rices"
     },
   ];
 
