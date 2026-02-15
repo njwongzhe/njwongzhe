@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Itembox {
+  /* Box of An Item */
   Container buildItemBox(Map<String, dynamic> item) {
     return Container(
       decoration: BoxDecoration(
@@ -42,6 +43,7 @@ class Itembox {
     );
   }
 
+  /* List of Item Box */
   GridView buildItemList(List<Map<String, dynamic>> itemList) {
     return GridView(
       padding: EdgeInsets.symmetric(horizontal: 10),
@@ -55,5 +57,4 @@ class Itembox {
       children: List.generate(itemList.length, (index) => buildItemBox(itemList[index])),
     );
   }
-
 }

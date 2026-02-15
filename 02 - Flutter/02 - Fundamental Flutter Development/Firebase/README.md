@@ -19,13 +19,8 @@ final FirebaseFirestore firestore = FirebaseFirestore.instance;
 // Read data from Firestore.
 Future<void> readData() async {
   try {
-    DocumentSnapshot snapshot = await firestore.collection('your_collection').doc('your_document_id').get(); // Read (GET)
-    if(snapshot.exists) {
-      Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
-      print("Data: $data");
-    } else {
-      print("Document does not exist!");
-    }
+    QuerySnapshot querySnapshot = await firestore.collection('your_collection').get();                       // Read (GET) all documents in a collection.
+    DocumentSnapshot snapshot = await firestore.collection('your_collection').doc('your_document_id').get(); // Read (GET) a specific document.
   } catch (e) {
     print("Error reading data: $e");
   }

@@ -1,6 +1,5 @@
-import 'dart:convert';
+import 'package:b_fundamental_flutter_application/utils/loadSliderItems.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class HomeSlider extends StatefulWidget {
@@ -14,45 +13,11 @@ class _HomeSliderState extends State<HomeSlider> {
    @override
   void initState() {
     super.initState();
-    _unboxFuture(); // Call the unboxed future to fetch slider items asynchronously.
+    loadSliderItems((items) => setState(() => sliderItems = items)); // Load slider items from Firestore when the widget is initialized.
   }
 
   /* Slider Item */
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance; // Create a Firestore instance to fetch slider data from Firestore.
-  List<String> sliderItems = []; 
-
-  Future<List<String>> _getSliderItems() async {
-    try {
-      // Get a reference to the 'assets/slider' document.
-      DocumentSnapshot doc = await _firestore.collection("assets").doc("slider").get();
-
-      if(doc.exists) {
-        // Extract data from the document in firestore.
-        String? baseUrl = doc.get("baseUrl");
-        String? endpointsJson = doc.get("endpoint");
-        
-        if(baseUrl != null && endpointsJson != null) {
-          // Convert string to List<String>.
-          List<dynamic> endpointsList = jsonDecode(endpointsJson);
-          List<String> endpoints = List<String>.from(endpointsList);
-
-          // Construct full image URLs.
-          List<String> fullImageUrls = endpoints.map((endpoint) => "$baseUrl$endpoint").toList();
-          return fullImageUrls;
-        } 
-      }
-      print("Document does not exist in Firestore!");
-      return []; // Return an empty list if data is incomplete.
-    } catch (e) {
-      print("Error fetching slider items: $e");
-      return []; // Handle errors by returning an empty list.
-    }
-  }
-
-  void _unboxFuture() async {
-    List<String> results = await _getSliderItems(); // 1. Program PAUSES here until data is ready.
-    setState(() => sliderItems = results);          // 2. Once ready, tell Flutter to rebuild the UI with the new data.
-  }
+  List<String> sliderItems = [];
 
   /* Carousel Controller */
   final CarouselSliderController _controller = CarouselSliderController();
@@ -113,12 +78,12 @@ class _HomeSliderState extends State<HomeSlider> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        Container( // Image of Slider
           height: 200,
           color: Colors.transparent,
           child: Center(child: _getSlider())
         ),
-        Positioned(
+        Positioned( // Indicator of Slider
           bottom: 10,
           left: 0,
           right: 0,

@@ -35,26 +35,29 @@ class _MainPageState extends State<MainPage> {
     },
   ];
 
-  int _currentIndex = 0; // Track the currently selected index (page).
+  /* Index of Current Page */
+  int _currentIndex = 0;
 
+  /* Navigation Bar Widget */
   List<BottomNavigationBarItem> _getNavigationBar() {
     return List.generate(_icon.length, (index) {
       return BottomNavigationBarItem(
-        icon: Image.asset(
+        icon: Image.asset( // Icon of Inactive State
           _icon[index]["icon"]!,
           width: 24,
           height: 24,
         ),
-        activeIcon: Image.asset(
+        activeIcon: Image.asset( // Icon of Active State
           _icon[index]["active"]!,
           width: 24,
           height: 24,
         ),
-        label: _icon[index]["text"],
+        label: _icon[index]["text"], // Text Label
       );
     });
   }
 
+  /* Complete Navigation Bar */
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,13 +66,13 @@ class _MainPageState extends State<MainPage> {
       body: SafeArea( 
         // "SafeArea" ensure that the child widget is not obscured by system UI elements.
         // It helps to avoid content being hidden behind notches, status bars or navigation bars by adding appropriate padding automatically.
-        child: IndexedStack(
-          index: _currentIndex,
+        child: IndexedStack(    // "IndexedStack" is used to maintain the state of each page while navigating between them. 
+          index: _currentIndex, // It keeps all the child widgets alive and only shows the one at the specified index.
           children: const [
-            Center(child: HomePage()),
-            Center(child: CategoryPage()),
-            Center(child: CartPage()),
-            Center(child: UserPage()),
+            Center(child: HomePage()),     // Index 0: Home Page
+            Center(child: CategoryPage()), // Index 1: Category Page
+            Center(child: CartPage()),     // Index 2: Cart Page
+            Center(child: UserPage()),     // Index 3: User Page
           ],
         ),
       ),
@@ -83,7 +86,7 @@ class _MainPageState extends State<MainPage> {
         unselectedFontSize: 12,
         showUnselectedLabels: true,
         currentIndex: _currentIndex,
-        onTap: (index) => setState(() => _currentIndex = index),
+        onTap: (index) => setState(() => _currentIndex = index), // Update the current index when a navigation item is tapped, triggering a rebuild to display the corresponding page.
       )
     );
   }

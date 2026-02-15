@@ -8,6 +8,7 @@ class HomeSearch extends StatefulWidget {
 }
 
 class _HomeSearchState extends State<HomeSearch> {
+  /* Complete Search Bar */
   @override
   Widget build(BuildContext context) {
     return Container(

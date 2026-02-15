@@ -11,16 +11,18 @@ class HomeFullList extends StatefulWidget {
 }
 
 class _HomeFullListState extends State<HomeFullList> {
-  List<Map<String, dynamic>> _itemList = [];
-  
   @override
   void initState() {
     super.initState();
     getitemList(); // Fetch item list from Firestore when the widget is initialized.
   }
 
+  /* Instances of Helper Classes */
   FirebaseRequest firebaseRequest = FirebaseRequest();
   CategoryList categoryList = CategoryList();
+
+  /* Item List */
+  List<Map<String, dynamic>> _itemList = [];
 
   /* Fetch Complete Item List from Firestore - Dynamically from CategoryList */
   void getitemList() async {
