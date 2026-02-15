@@ -1,3 +1,5 @@
+import 'package:b_fundamental_flutter_application/pages/Cart/index.dart';
+import 'package:b_fundamental_flutter_application/pages/Category/index.dart';
 import 'package:b_fundamental_flutter_application/pages/Login/index.dart';
 import 'package:b_fundamental_flutter_application/pages/Main/index.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,9 @@ Widget getRootWidget() {
 Map<String, Widget Function(BuildContext)> getAppRoutes() {
   return {
     "/": (context) => MainPage(),
+    "/category": (context) => CategoryPage(),
+    "/category/bakery"
+    "/cart": (context) => CartPage(),
     "/login": (context) => LoginPage(),
   };
 }

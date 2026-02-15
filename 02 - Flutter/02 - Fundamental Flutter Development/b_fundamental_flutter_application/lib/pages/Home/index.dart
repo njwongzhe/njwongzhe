@@ -1,5 +1,5 @@
 import 'package:b_fundamental_flutter_application/components/HomeCategory.dart';
-import 'package:b_fundamental_flutter_application/components/HomeMoreList.dart';
+import 'package:b_fundamental_flutter_application/components/HomeFullList.dart';
 import 'package:b_fundamental_flutter_application/components/HomeSearch.dart';
 import 'package:b_fundamental_flutter_application/components/HomeSlider.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
         SliverToBoxAdapter(child: SizedBox(height: 10),),
         SliverToBoxAdapter(child: HomeCategory(),),
         SliverToBoxAdapter(child: SizedBox(height: 10),),
-        SliverToBoxAdapter(child: HomeMoreList(),),
+        SliverToBoxAdapter(child: HomeFullList(),),
       ]
     );
   }
