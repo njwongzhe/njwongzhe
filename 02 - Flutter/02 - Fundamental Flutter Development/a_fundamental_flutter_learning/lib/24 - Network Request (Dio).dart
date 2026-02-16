@@ -1,8 +1,7 @@
-// Run "flutter pub add dio" in terminal to add "Dio" package before using this code.
 // "Dio" is a powerful HTTP client for Dart/Flutter which supports Interceptors, Global configuration, FormData, File downloading, Timeout, etc.
 
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart'; // Run "flutter pub add dio" in terminal to add "Dio" package before using this code.
 
 void main() {
   runApp(const MyApp());
