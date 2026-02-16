@@ -11,6 +11,8 @@ flutter create --platform=android <projectName> | Creates a new Flutter project 
 flutter create --platform=windows <projectName> | Creates a new Flutter project with Windows support.
 flutter create --platform=linux <projectName>   | Creates a new Flutter project with Linux support
 
+flutter create --platform=<platform> . | Creates a new Flutter project in the current directory with specified platform support.   
+
 flutter run   | Runs your Flutter app on an emulator or device.
 flutter build | Builds your Flutter app for deployment.
 
