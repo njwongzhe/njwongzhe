@@ -13,8 +13,10 @@ flutter create --platform=linux <projectName>   | Creates a new Flutter project 
 
 flutter create --platform=<platform> . | Creates a new Flutter project in the current directory with specified platform support.   
 
-flutter run   | Runs your Flutter app on an emulator or device.
-flutter build | Builds your Flutter app for deployment.
+flutter run | Runs your Flutter app on an emulator or device.
+
+flutter build     | Builds your Flutter app for deployment.
+flutter build apk | Builds an Android APK file for your Flutter app.
 
 flutter pub get | Fetches the dependencies listed in your pubspec.yaml file.
 ```
