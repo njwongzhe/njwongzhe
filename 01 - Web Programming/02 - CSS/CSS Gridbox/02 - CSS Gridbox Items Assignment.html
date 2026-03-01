@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head>
+    <title>CSS Gridbox Items Assignment</title> 
+
+    <style>
+        .box {
+            background-color: green;
+            border: 1px solid black;
+            text-align: center;
+            align-content: center;
+        }
+
+        .container {
+            display: grid;
+
+            /* Create a grid with 5 columns and 5 rows. */
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+
+            gap: 10px; 
+        }
+
+        /* Assign the grid items to specific grid cells. */
+        #box1 { 
+            /* Box 1 will occupy the first 2 columns and the first 2 rows. */
+            grid-column-start: 1; /* Start at column 1. */
+            grid-column-end: 3;   /* End at column 3. */
+            grid-row-start: 1;    /* Start at row 1. */
+            grid-row-end: 3;      /* End at row 3. */
+        }
+
+        #box2 { 
+            /* Box 2 will occupy the third column and the first row. */
+            grid-column-start: 3; /* Start at column 3. */
+            grid-column-end: 4;   /* End at column 4. */
+            grid-row-start: 1;    /* Start at row 1. */
+            grid-row-end: 3;      /* End at row 3. */
+        }
+
+        #box3 {
+            /* Box 3 will occupy the fourth and fifth columns and the first and second rows. */
+            grid-column: 4 / 6; /* Shorthand Syntax: Start at column 4 and end at column 6. */
+            grid-row: 1 / 3;    /* Shorthand Syntax: Start at row 1 and end at row 3. */
+        }
+
+        /* Other boxes will automatically occupy the remaining grid cells. */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="box1" class="box">Box 1</div>
+        <div id="box2" class="box">Box 2</div>
+        <div id="box3" class="box">Box 3</div>
+        <div id="box4" class="box">Box 4</div>
+        <div id="box5" class="box">Box 5</div>
+        <div id="box6" class="box">Box 6</div>
+    </div>
+</body>
+
+</html>

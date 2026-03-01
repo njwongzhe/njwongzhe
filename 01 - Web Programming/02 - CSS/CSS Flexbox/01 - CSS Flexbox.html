@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head>
+    <title>CSS Flexbox</title> 
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            text-align: center;
+            align-content: center;
+        }
+
+        .container {
+            display: flex;
+            
+            flex-direction: row;
+            /* flex-direction: row-reverse; */
+            /* flex-direction: column; */
+            /* flex-direction: column-reverse; */
+
+            /* flex-wrap: nowrap; */
+            flex-wrap: wrap;         
+            /* flex-wrap: wrap-reverse; */
+
+            /* justify-content: flex-start; */
+            /* justify-content: flex-end; */
+            /* justify-content: center; */
+            /* justify-content: space-between; */
+            justify-content: space-around;
+            /* justify-content: space-evenly; */
+
+            height: 500px; /* "align-content" property only works when there is extra space in the cross-axis, so we need to set a height or width for the container based on flex direction. */
+            /* align-content: flex-start; */
+            /* align-content: flex-end; */
+            align-content: center;
+            /* align-content: space-between; */
+            /* align-content: space-around; */
+            /* align-content: space-evenly; */
+            /* align-content: sketch; */
+
+            /* align-items: flex-start; */
+            /* align-items: flex-end; */
+            /* align-items: center; */
+            /* align-items: stretch; */
+            /* align-items: baseline; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <div class="box">Box 4</div>
+        <div class="box">Box 5</div>
+        <div class="box">Box 6</div>
+        <div class="box">Box 7</div>
+        <div class="box">Box 8</div>
+        <div class="box">Box 9</div>
+    </div>
+</body>
+
+</html>

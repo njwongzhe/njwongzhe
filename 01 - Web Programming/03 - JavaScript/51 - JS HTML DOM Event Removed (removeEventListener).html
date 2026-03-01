@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS HTML DOM Event Removed (removeEventListener)</title> 
+</head> 
+    
+<body> 
+    <button id="myButton">Click Me</button>
+    <br>
+    <button id="removeButton">Remove "Click Me" Button's Event</button>
+
+    <script>
+        let box1 = document.querySelector("#myButton");
+        let box2 = document.querySelector("#removeButton");
+
+        // Syntax: element.removeEventListener(event, function, options);
+
+        let event = function () {
+            console.log("Click Me button clicked!");
+        };
+
+        box1.addEventListener("click", event);
+        // When the "Click Me" button is clicked, it will log "Click Me button clicked!" in the console.
+
+        box2.addEventListener("click", function () {
+            console.log("Remove event listener!");
+            box1.removeEventListener("click", event); 
+            // When the "Remove "Click Me" Button's Event" button is clicked, it will remove the click event listener of the "Click Me" button.
+        });
+    </script>
+</body> 
+
+</html>

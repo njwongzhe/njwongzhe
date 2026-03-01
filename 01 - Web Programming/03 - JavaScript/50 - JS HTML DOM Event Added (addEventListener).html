@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS HTML DOM Event Added (addEventListener)</title> 
+</head> 
+    
+<body> 
+    <div id="outerBox" style="width: 200px; height: 200px; background-color: red;">
+        Outer Box
+        <div id="innerBox" style="width: 100px; height: 100px; background-color: yellow; position: relative; top: 50px; left: 50px;">
+            Inner Box
+        </div>
+    </div>
+
+    <script>
+        let box1 = document.querySelector("#outerBox");
+        let box2 = document.querySelector("#innerBox");
+
+        // Syntax: element.addEventListener(event, function);
+        // Add an event listener to an element. The event listener will execute the function when the specified event occurs on the element.
+        // If multiple event listeners are added to the same element for the same event, they will be executed in the order they were added.
+
+        box1.addEventListener("click", function () {
+            console.log("Outer box clicked!");
+        });
+
+        box2.addEventListener("click", function (event) {
+            console.log("Inner box clicked!");
+        });
+
+        // When the outer box ("box1") is clicked, it will log "Outer box clicked!" in the console.
+        // When the inner box ("box2") is clicked, it will log "Inner box clicked!" in the console, then it will log "Outer box clicked!" in the console.
+        // This is because when the inner box is clicked, the click event will bubble up to the outer box since the inner box is a child element of the outer box.
+        // If we want to prevent the click event from bubbling up to the outer box when the inner box is clicked, we can use the "event.stopPropagation()" method in the event handler of the inner box.
+    </script>
+
+    <br>
+
+    <div id="outerBox2" style="width: 200px; height: 200px; background-color: red;">
+        Outer Box 2
+        <div id="innerBox2" style="width: 100px; height: 100px; background-color: yellow; position: relative; top: 50px; left: 50px;">
+            Inner Box 2
+        </div>
+    </div>
+
+    <script>
+        let box3 = document.querySelector("#outerBox2");
+        let box4 = document.querySelector("#innerBox2");
+
+        box3.addEventListener("click", function () {
+            console.log("Outer box clicked!");
+        });
+        box4.addEventListener("click", function () {
+            console.log("Inner box clicked!");
+        }, {
+            // The third parameter of the "addEventListener" method is an options object that can be used to specify additional options for the event listener.
+            
+            capture: true, 
+            // This will make the event listener of the inner box to be executed in the capturing phase instead of the bubbling phase.
+            // In the capturing phase, the event will be captured by the outer box first, then it will be captured by the inner box. 
+            // In the bubbling phase, the event will be captured by the inner box first, then it will be captured by the outer box.
+            // Capture phase is the phase where the event is captured by the ancestors of the target element before it reaches the target element.
+
+            once: true 
+            // This will make the event listener of the inner box to be executed only once. After the event listener is executed, it will be removed from the element.
+        });
+    </script>
+</body> 
+
+</html>

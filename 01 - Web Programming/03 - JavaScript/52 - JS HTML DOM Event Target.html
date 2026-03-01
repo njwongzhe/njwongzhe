@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS HTML DOM Event Target</title> 
+</head> 
+    
+<body> 
+    <ul id="parent">
+        <li>
+            Item 1
+            <button>Delete Me</button>
+        </li>
+        <li>
+            Item 2
+            <button>Delete Me</button>
+        </li>
+        <li>
+            Item 3
+            <button>Delete Me</button>
+        </li>
+    </ul>
+
+    <script>
+        let parent = document.querySelector("#parent");
+
+        // Syntax: event.target
+        // It returns the element that triggered the event.
+        // When a click event occurs on any of the "Delete Me" buttons, the "event.target" property will return the button element that was clicked.
+
+        // Syntax: event.currentTarget
+        // It will return the element to which the event handler is attached, as opposed to the "event.target" property which identifies the element on which the event occurred.
+        // In this case, the "event.currentTarget" property will return the "ul" element since the click event listener is attached to the "ul" element.
+
+        parent.addEventListener("click", function (event) {
+            if (event.target.tagName === "BUTTON") { 
+                let li = event.target.parentElement;
+                li.remove();
+            }
+        });
+        
+        // We assign the click event listener to the parent element ("ul") instead of the child elements ("li") because the child elements may be dynamically added or removed from the parent element.
+        // When we assign the click event listener to the parent element, each time a click event occurs on the parent element or any of its child elements, the event will bubble up to the parent element and trigger the event listener of the parent element.
+        // In the event listener of the parent element, we can check if the target of the click event is a button element. 
+        // If it is, we can get the parent element of that certain button (which is the "li" element) and remove it from the DOM.
+
+        // Instead of assigning event listeners to each individual button, we use event delegation by assigning the event listener to the parent element.
+    </script>
+</body> 
+
+</html>

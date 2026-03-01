@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS HTML DOM Event Prevent Default</title> 
+</head> 
+    
+<body> 
+    <a href="https://www.youtube.com" id="link">Don't Go to Youtube</a>
+    <br>
+    <a href="https://www.youtube.com" id="link2">Go to Youtube</a>
+
+    <script>
+        let link = document.querySelector("#link");
+        let link2 = document.querySelector("#link2");
+
+        // In some case, the browser has a default behavior for some events. 
+        // For example, when you click on a link, the browser will navigate to the URL specified in the href attribute. 
+        // However, you can prevent this default behavior using the "event.preventDefault()" method.
+
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevents the default behavior of the link.
+            console.log("Link clicked but prevented from navigating.");
+        });
+
+        link2.addEventListener("click", function (event) {
+            // No "preventDefault()" call, so the default behavior is allowed
+            console.log("Link clicked and navigated.");
+        });
+    </script>
+</body> 
+
+</html>

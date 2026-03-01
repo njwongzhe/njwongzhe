@@ -1,0 +1,89 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Asynchronous Programming</title> 
+
+    <style>
+        .container { display: flex; gap: 10px; flex-wrap: wrap; padding: 20px; }
+        .box {
+            width: 100px; height: 100px;
+            background-color: #3498db; color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; font-family: sans-serif; cursor: pointer;
+            border-radius: 8px; transition: background 0.3s;
+        }
+        .box.running { background-color: #e74c3c; cursor: not-allowed; }
+    </style>
+</head> 
+    
+<body> 
+    <h3>Click a box to start an independent async countdown!</h3>
+    <div class="container" id="boxContainer"></div>
+
+    <script>
+        // "async" and "await" are keywords that provide a declarative way to define asynchronous functions.
+        // They act as "Syntactic Sugar" for the ".then()" style, making asynchronous code look like synchronous code. (Improves readability.)
+
+        // Key Concepts:
+        // 1. async: Marks a function as asynchronous. It allows you to use the "await" keyword inside it.
+        //    An "async" function always returns a "Promise" automatically.
+        // 2. await: Pauses the execution of the current function until the "Promise" settles (succeeds or fails).
+        //    It only pauses the function it is inside, not the entire application (non-blocking).
+
+        /* Syntax */
+        /*
+            async function asyncFunction() {
+                try {
+                    const result1 = await asyncFunction1();
+                    const result2 = await asyncFunction2(result1);
+                    // More sequential async calls...
+                } catch (e) {
+                    // Handle errors (equivalent to .catch()).
+                    console.error(e);
+                } finally {
+                    // Code that runs regardless of success or error.
+                }
+            }
+        */
+
+        // "async" and "await" must be used together. (You can't use await in a regular function.)
+        // Different "async" functions can run concurrently. To wait for many at once, use Promise.all([func1(), func2()]).
+
+        const container = document.getElementById("boxContainer");
+
+        // Helper function that returns a Promise. (The "Wait" tool)
+        const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+        // The Async function for the countdown.
+        async function startCountdown(event) {
+            const box = event.target;
+            
+            // Prevent clicking again if already running.
+            if (box.classList.contains("running")) return;
+            
+            box.classList.add("running");
+            let count = 10;
+
+            while (count >= 0) {   // Countdown from 10 to 0.
+                box.innerText = count;
+                await delay(1000); // Pause this function for 1 second.
+                count--;           // Decrement the count.
+            }
+
+            box.innerText = "Done!";
+            box.classList.remove("running");
+        }
+
+        // Create 5 boxes using a loop.
+        for (let i = 1; i <= 5; i++) {
+            const box = document.createElement("div");
+            box.className = "box";
+            box.innerText = `Box ${i}`;
+            box.onclick = startCountdown;
+            container.appendChild(box);
+        }
+    </script>
+</body> 
+
+</html>

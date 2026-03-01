@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head>
+    <title>CSS Gridbox Items Assignment (grid-template-areas)</title> 
+
+    <style>
+        .box {
+            background-color: green;
+            border: 1px solid black;
+            text-align: center;
+            align-content: center;
+        }
+
+        .container {
+            display: grid;
+
+            /* Create a grid with 2 columns and 3 rows. */
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: 100px 300px 100px;
+
+            gap: 10px; 
+
+            /* Assign names to the grid areas. */
+            grid-template-areas: 
+            "header1 header2"
+            "sidebar main"
+            "footer1 footer2";
+        }
+
+        #box1 { 
+            /* Box 1 will occupy the first 2 columns and the first 2 rows. */
+            grid-area: header1;
+        }
+        #box2 { 
+            /* Box 2 will occupy the third column and the first row. */
+            grid-area: header2;
+        }
+        #box3 {
+            /* Box 3 will occupy the fourth and fifth columns and the first and second rows. */
+            grid-area: sidebar;
+        }
+        #box4 {
+            /* Box 4 will occupy the fourth and fifth columns and the first and second rows. */
+            grid-area: main;
+        }
+        #box5 {
+            /* Box 5 will occupy the fourth and fifth columns and the first and second rows. */
+            grid-area: footer1;
+        }
+        #box6 {
+            /* Box 6 will occupy the fourth and fifth columns and the first and second rows. */
+            grid-area: footer2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="box1" class="box">Header 1</div>
+        <div id="box2" class="box">Header 2</div>
+        <div id="box3" class="box">Sidebar</div>
+        <div id="box4" class="box">Main Content</div>
+        <div id="box5" class="box">Footer 1</div>
+        <div id="box6" class="box">Footer 2</div>
+    </div>
+</body>
+
+</html>

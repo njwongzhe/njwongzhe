@@ -1,4 +1,4 @@
-# 04 - Node.js
+# Node.js
 
 <br />
 
@@ -9,6 +9,7 @@
 - Standard computers don't speak JavaScript but they speak binary. Node.js translates JavaScript into instructions the computer understands.
 - Node.js Download: https://nodejs.org/en/download
 - Node Package Manager (NPM) Tools Library: https://www.npmjs.com/
+- NPM is a package manager for JavaScript. It is the default package manager for Node.js. It allows you to install and manage libraries and tools for your projects such as React.js, Next.js, etc.
 
 <br />
 

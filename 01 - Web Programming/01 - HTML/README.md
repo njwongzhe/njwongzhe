@@ -1,4 +1,4 @@
-# 01 - HTML (.html)
+# HTML (.html)
 
 <br />
 

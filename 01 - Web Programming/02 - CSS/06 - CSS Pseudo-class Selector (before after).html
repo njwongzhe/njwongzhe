@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>CSS Pseudo-class Selector (before after)</title> 
+
+    <style>
+        #div1:before {
+            content: "Before ";
+            color: red;
+        }
+        #div1:after {
+            content: " After";
+            color: blue;
+        }
+
+        #div2 { /* Make two line built by "::before" and "::after" appear in the same line as "div2". */
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        #div2:before {
+            content: ""; /* Although we do not need to add any content before "div2", we still need to set a empty content to make the pseudo-element appear. */
+            height: 1px;
+            width: 100px;
+            background: linear-gradient(to right, green, yellow, orange, red);
+            display: inline-block; /* "::before" is an inline element by default and inline element cannot be styled directly, so we need to set it to "inline-block". */
+        }
+        #div2:after {
+            content: ""; /* Although we do not need to add any content after "div2", we still need to set a empty content to make the pseudo-element appear. */
+            height: 1px;
+            width: 100px;
+            background: linear-gradient(to left, green, yellow, orange, red);
+            display: inline-block; /* "::after" is an inline element by default and inline element cannot be styled directly, so we need to set it to "inline-block". */
+        }
+    </style>
+</head> 
+
+<body> 
+    <div id="div1">Text</div>
+    <div id="div2">Line</div>
+</body> 
+
+</html>

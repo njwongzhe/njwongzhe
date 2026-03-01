@@ -16,10 +16,35 @@
 </head> 
     
 <body> 
-    <div id="box">Box</div><br>
+    <div class="box">Box</div><br>
 
     <script>
+        let box = document.querySelector(".box");
+
+        // Syntax: elemnt.style
+        // Get the whole "style" property of an element.
+
+        // Syntax: element.style.property
+        // Get the value of a specific "style" property of an element.
+
+        // Syntax: element.style.property = value
+        // Set a specific "style" property of an element with a value.
+
+        console.log(box.style); // Output: CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}
+        // It will return the whole "style" property of the element belong to "box" class.
         
+        document.querySelector(".box").onclick = function () {
+            if(box.style.backgroundColor == "aqua") 
+                box.style.backgroundColor = "greenyellow";
+             // The "background-color" property in CSS is represented as "backgroundColor" in JavaScript when using dot notation to access the property of an element's style.
+             // box.style.background-color    // Error because the "-" symbol is not allowed in JavaScript variable name.
+             // box.style["background-color"] // This is the correct way to access the "background-color" property of the element belong to "box" class.
+            else
+                box.style.backgroundColor = "aqua";
+        };
+        // When the box is clicked, it will check the value of "backgroundColor" property of the element belong to "box" class.
+        // If the value is "aqua", it will change the value to "greenyellow".
+        // If the value is not "aqua", it will change the value to "aqua".
     </script>
 </body> 
 

@@ -1,0 +1,20 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS HTML DOM Event Type</title> 
+</head> 
+    
+<body> 
+    <button id="myButton" onclick="console.log(event.type)">Click Me</button>
+    <button id="myButton2" onmouseover="console.log(event.type)">Hover Me</button>
+    
+    <script>
+        // Syntax: event.type
+        // It returns the type of the event that occurred.
+        // When the "Click Me" button is clicked, it will log "click" in the console since the type of the event that occurred is a click event.
+        // When the "Hover Me" button is hovered over, it will log "mouseover" in the console since the type of the event that occurred is a mouseover event.
+    </script>
+</body> 
+
+</html>

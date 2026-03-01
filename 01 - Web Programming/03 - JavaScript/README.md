@@ -1,4 +1,4 @@
-# 03 - JavaScript (.js)
+# JavaScript (.js)
 
 <br />
 
