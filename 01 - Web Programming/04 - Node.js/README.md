@@ -16,26 +16,26 @@
 ## 2.0 Command
 
 ```html
-- node -v | Check version of Node.js. Use this to verify Node.js is installed and recognized by your computer.
-- npm -v  | Check version of NPM. Use this to verify Node Package Manager is installed and recognized by your computer.
+node -v | Check version of Node.js. Use this to verify Node.js is installed and recognized by your computer.
+npm -v  | Check version of NPM. Use this to verify Node Package Manager is installed and recognized by your computer.
 
-- npm install 
+npm install 
   | Install all dependencies listed in package.json of a project.
   | Run it when you first download a new project or if you deleted the node_modules folder.
   | Your current directory must be the project folder (where the package.json file is).
 
-- npm install <targetTool> 
+npm install <targetTool> 
   | Install a specific new tool into your project.
   | Example: "npm install axios" will download the "axios" tool and add it to your project list.
 
-- npm run dev   
+npm run dev   
   | Start the project in development mode.
   | Your current directory must be the project folder.
 
-- npm run build 
+npm run build 
   | Build the project for production.
 
-- npm config set fetch-retry-maxtimeout <maxTimeOutTime> 
+npm config set fetch-retry-maxtimeout <maxTimeOutTime> 
   | Increase the network timeout limit.
   | Tells npm to wait longer before giving up on a slow download.
   | Example: "npm config set fetch-retry-maxtimeout 120000" set the maximum timeout time to 120000 milliseconds.
