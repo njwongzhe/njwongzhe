@@ -346,7 +346,7 @@ Relative Units | It is a unit that is relative to another value, such as the fon
 ## 8.0 - Box Model
 
 <p align="center" width="100%">
-    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/02%20-%20CSS/08%20-%20CSS%20Box%20Model.png">
+    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/02%20-%20CSS/09%20-%20CSS%20Box%20Model.png">
 </p>
 
 <br />
