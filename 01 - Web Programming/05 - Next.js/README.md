@@ -58,3 +58,12 @@ npm run dev
    | Same as Node.js. Start the project in development mode.
    | Your current directory must be the project folder.
 ```
+
+<br />
+
+## 3.0 - Next.js Project Structure
+
+<p align="center" width="100%">
+    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/02%20-%20Flutter/Content_Flutter_Project.png"><br>
+    Flutter Project Structure after run "flutter create testfile".
+</p>
