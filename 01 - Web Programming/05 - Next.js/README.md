@@ -85,3 +85,7 @@ npm run dev
 | **`node_modules\`** | Directory where all the installed dependencies of your project are stored. This directory is automatically generated when you run "npm install". | Dependencies Directory |
 | **`public`** | Directory for static assets (e.g., images, fonts). Files in this directory can be accessed directly via the URL. | Static Assets Directory |
 | **`src`** | Directory for your source code. It typically contains your application logic, components, and styles. | Source Code Directory |
+| └ **`app\`** | Directory for App Router (if you chose App Router). It contains your application code organized by route. | Application Code Directory |
+|   └ **`layout.tsx`** | The root layout file for your application. It defines the common structure and layout for all pages in your app. (File name cannot be changed in App Router.) | Root Layout File |
+|   └ **`page.tsx`** | The main page file for your application. It serves as the entry point for your app and typically contains the main content and components. (File name cannot be changed in App Router.) | Main Page File |
+| └ **`pages\`** | Directory for Pages Router (if you chose Pages Router). It contains your application code organized by page. | Application Code Directory |
