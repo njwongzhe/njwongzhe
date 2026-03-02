@@ -81,7 +81,7 @@ npm run dev
 | postcss.config.js | Configuration file for PostCSS, a tool for transforming CSS with JavaScript plugins. It is used when you have Tailwind CSS or other PostCSS plugins in your project. | PostCSS Configuration File |
 | README.md | A markdown file that provides an overview of your project, instructions for setup, usage, and other relevant information. | Project Documentation File |
 | tsconfig.json | Configuration file for TypeScript, where you can specify compiler options and other settings for your TypeScript project. | TypeScript Configuration File |
-| next | | Directory for Next.js-specific files and configurations. It may contain files like "app" (for App Router) or "pages" (for Pages Router), depending on your routing choice. | Next.js Directory |
+| next | Directory for Next.js-specific files and configurations. It may contain files like "app" (for App Router) or "pages" (for Pages Router), depending on your routing choice. | Next.js Directory |
 | node_modules | Directory where all the installed dependencies of your project are stored. This directory is automatically generated when you run "npm install". | Dependencies Directory |
 | public | Directory for static assets (e.g., images, fonts). Files in this directory can be accessed directly via the URL. | Static Assets Directory |
 | src | Directory for your source code. It typically contains your application logic, components, and styles. | Source Code Directory |
