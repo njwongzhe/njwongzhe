@@ -34,6 +34,9 @@
       g) App Router or Pages Router 
          - App Router is the new routing system in Next.js that provides a more flexible and powerful way to define routes in your application. It is recommended to use it for new projects.
          - Pages Router is the traditional routing system in Next.js that uses a file-based approach to define routes. It is still supported but may be deprecated in the future.
+      h) Use "src" Directory
+         - It is a common convention to organize your source code in a "src" directory. (Recommended)
+         - It can help keep your project organized and make it easier to find your code files.
 ```
 
 <br />
@@ -41,4 +44,17 @@
 ## 2.0 Command
 
 ```html
+npx create-next-app@latest 
+   | Create a new Next.js project. 
+   | It will prompt you to answer some questions about your project setup (e.g., TypeScript, Tailwind CSS, etc.).
+   | Run it in the terminal where you want to create your project.
+
+npm install
+   | Same as Node.js. Install all dependencies listed in package.json of a project.
+   | Run it when you first download a new project or if you deleted the node_modules folder.
+   | Your current directory must be the project folder (where the package.json file is).
+
+npm run dev   
+   | Same as Node.js. Start the project in development mode.
+   | Your current directory must be the project folder.
 ```
