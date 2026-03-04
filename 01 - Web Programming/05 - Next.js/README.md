@@ -89,3 +89,11 @@ npm run dev
 |   └ **`layout.tsx`** | The root layout file for your application. It defines the common structure and layout for all pages in your app. (File name cannot be changed in App Router.) | Root Layout File |
 |   └ **`page.tsx`** | The main page file for your application. It serves as the entry point for your app and typically contains the main content and components. (File name cannot be changed in App Router.) | Main Page File |
 | └ **`pages\`** | Directory for Pages Router (if you chose Pages Router). It contains your application code organized by page. | Application Code Directory |
+
+<br />
+
+## 4.0 - Next.js App Router vs Pages Router
+
+```html
+
+```

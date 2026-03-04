@@ -238,22 +238,36 @@ h4 ~ h3 {color: grey;} /* Selects all <h3> element that is placed immediately af
 
 <br />
 
-#### 5.3.5 : Pseudo-class Selector (:)
-- It allow user to define a special state of an element without polluting the HTML with extra classes or ids.
-- For example, you can add two line before and after the element without adding extra tags in the HTML.
-- It is also useful for styling interactive elements such as links and buttons based on their state (e.g., hover, active, visited).
-
-<br />
-
-- Sequence of Pseudo-class Selector is important.
-- Pseudo-class Selector put in front will be shown on top when active.
+#### 5.3.5 : Pseudo-Class Selector (:)
+- Pseudo-Class Selector is used to define a special state of an element.
+- It allow us to apply a style to an element when it is in a certain state without needing to write complex JavaScript code.
+- Sequence of Pseudo-Class Selector is important since Pseudo-class Selector put in front will be shown on top when active.
 - Example : The color of Pseudo-class Selector put in front will block the color of Pseudo-class Selector put behind.
 
 ```css
+:root { ... }     /* Apply on the root element of the document. */
+
 a:link { ... }    /* Apply on unvisited link <a>. */ 
 a:active { ... }  /* Apply on clicked link <a>. */
 a:hover { ... }   /* Apply on touched element <a>. */
 a:visited { ... } /* Apply on visited link <a>.*/
+```
+
+<br />
+
+#### 5.3.6 : Pseudo-Element Selector (::)
+- Pseudo-Element Selector is used to style specified parts of an element.
+- It is used to create "virtual" elements that do not exist in the document tree, but can be styled like the real elements.
+- You can apply styles to specific parts of an element without needing to add extra HTML elements to the document and pollute the html code.
+- Example : We can add two line besides the <p> tag without adding extra HTML elements by using "p::before" and "p::after".
+- Sequence of Pseudo-Element Selector is not important since they will not block each other.
+
+```css
+p::first-line { ... }   /* Apply on the first line of <p>. */
+p::first-letter { ... } /* Apply on the first letter of <p>. */
+p::before { ... }       /* Insert content before <p>. */
+p::after { ... }        /* Insert content after <p>. */
+p::selection { ... }    /* Apply on the portion of <p> that is selected by the user. */
 ```
 
 <br />
