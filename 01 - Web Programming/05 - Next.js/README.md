@@ -53,29 +53,30 @@ npm run dev
 <p align="center" width="100%">
    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/05%20-%20Next.js/Content_Nextjs_Project.png"><br>
    Next.js Project Structure after run "npx create-next-app@latest".
+   TypeScript, Tailwind CSS, ESLint, React Compiler, App Router and "src" directory are all enabled in this example.
 </p>
 
 <br />
 
-| File / Directory | Description | |
-| :--- | :--- | :--- |
-| **`.gitignore`** | Specifies which files Git should ignore (e.g., build artifacts, keys). | Git File |
-| **`eslint.config.js`** | Configuration file for ESLint, a tool for identifying and fixing problems in your JavaScript code. Can be "biome.json" if you're using Biome instead of ESLint. | Linter Configuration File |
-| **`next-env.d.ts`** | TypeScript declaration file that provides type definitions for Next.js. It helps TypeScript understand the types of Next.js-specific features and APIs. | TypeScript Declaration File |
-| **`next.config.js`** | Configuration file for Next.js, where you can customize various aspects of your Next.js application. | Next.js Configuration File |
-| **`package-lock.json`** | Automatically generated file that describes the exact dependency tree of your project. It ensures that the same versions of dependencies are installed across different environments. | Dependency Lock File |
+| File / Directory | Description |
+| :--- | :--- |
+| **`.gitignore`** | Specifies which files Git should ignore. |
+| **`eslint.config.js`** | Configuration file for ESLint, a tool for identifying and fixing problems in your JavaScript code. Can be "biome.json" if you're using Biome instead of ESLint. |
+| **`next-env.d.ts`** | TypeScript declaration file that provides type definitions for Next.js. It helps TypeScript understand the types of Next.js-specific features and APIs. |
+| **`next.config.js`** | Configuration file for Next.js, where you can customize various aspects of your Next.js application. |
+| **`package-lock.json`** | Automatically generated file that describes the exact dependency tree of your project. It ensures that the same versions of dependencies are installed across different environments. |
 | **`package.json`** | Contains metadata about your project, including dependencies, scripts, and other configurations. | Project Metadata File |
-| **`postcss.config.js`** | Configuration file for PostCSS, a tool for transforming CSS with JavaScript plugins. It is used when you have Tailwind CSS or other PostCSS plugins in your project. | PostCSS Configuration File |
-| **`README.md`** | A markdown file that provides an overview of your project, instructions for setup, usage, and other relevant information. | Project Documentation File |
-| **`tsconfig.json`** | Configuration file for TypeScript, where you can specify compiler options and other settings for your TypeScript project. | TypeScript Configuration File |
-| **`next\`** | Directory for Next.js-specific files and configurations. It may contain files like "app" (for App Router) or "pages" (for Pages Router), depending on your routing choice. | Next.js Directory |
-| **`node_modules\`** | Directory where all the installed dependencies of your project are stored. This directory is automatically generated when you run "npm install". | Dependencies Directory |
-| **`public`** | Directory for static assets (e.g., images, fonts). Files in this directory can be accessed directly via the URL. | Static Assets Directory |
-| **`src`** | Directory for your source code. It typically contains your application logic, components, and styles. | Source Code Directory |
+| **`postcss.config.js`** | Configuration file for PostCSS. It is used when you have Tailwind CSS or other PostCSS plugins in your project. |
+| **`README.md`** | A markdown file that provides an overview of your project, instructions for setup, usage, and other relevant information. |
+| **`tsconfig.json`** | Configuration file for TypeScript, where you can specify compiler options and other settings for your TypeScript project. |
+| **`next\`** | Directory for Next.js-specific files and configurations. It may contain files like "app" (for App Router) or "pages" (for Pages Router), depending on your routing choice. |
+| **`node_modules\`** | Directory where all the installed dependencies of your project are stored. This directory is automatically generated when you run "npm install". | 
+| **`public`** | Directory for static assets (e.g., images, fonts). Files in this directory can be accessed directly via the URL. | 
+| **`src`** | Directory for your source code. It typically contains your application logic, components, and styles. Can not exist if you choose not to use a "src" directory. |
 | └ **`app\`** | Directory for App Router (if you chose App Router). It contains your application code organized by route. | Application Code Directory |
-|   └ **`layout.tsx`** | The root layout file for your application. It defines the common structure and layout for all pages in your app. (File name cannot be changed in App Router.) | Root Layout File |
-|   └ **`page.tsx`** | The main page file for your application. It serves as the entry point for your app and typically contains the main content and components. (File name cannot be changed in App Router.) | Main Page File |
-| └ **`pages\`** | Directory for Pages Router (if you chose Pages Router). It contains your application code organized by page. | Application Code Directory |
+|   └ **`layout.tsx`** | The root layout file for your application. It defines the common structure and layout for all pages in your app. (File name cannot be changed in App Router.) |
+|   └ **`page.tsx`** | The main page file for your application. It serves as the entry point for your app and typically contains the main content and components. (File name cannot be changed in App Router.) |
+| └ **`pages\`** | Directory for Pages Router (if you chose Pages Router). It contains your application code organized by page. |
 
 <br />
 
