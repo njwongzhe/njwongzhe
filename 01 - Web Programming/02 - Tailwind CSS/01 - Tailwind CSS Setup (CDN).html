@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>Tailwind CSS Setup (CDN)</title> 
+
+    <!--Tailwind CSS CDN-->
+    <!--Simple setup that allows you to use Tailwind CSS without any build step.-->
+    <!--However, this approach is not recommended for production environments since it increases the page load time.-->
+    <!--It is only suitable for development and prototyping purposes.-->
+    <!--It only can be used when there is a network connection.-->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!--Thus, usually we prefer to setup the Tailwind CSS environment through other method such as CLI or PostCSS.-->
+    <!--Also, different framework such as Next.js and others will have their own way to setup Tailwind CSS environment. (Refer official website.)-->
+    <!--Most of these method will need to import Tailwind CSS into your project through "@import "tailwindcss";" after setup the Tailwind CSS environment.-->
+</head> 
+
+<body> 
+    <!--To use Tailwind CSS, you need to add the appropriate Tailwind CSS classes (e.g. text-blue-500, underline, etc.) to your HTML elements.-->
+    <!--The "class" attribute inside html tag is used to specify the Tailwind CSS classes that you want to apply to the element.-->
+    <!--However, in different frameworks or projects, the usage might vary.-->
+    <!--For example, in React, you would use "className" instead of "class".-->
+
+    <!--The content inside "class" will be the Tailwind CSS classes that you want to apply to the element.-->
+    <!--You can combine multiple Tailwind CSS classes to achieve the desired styling.-->
+    <!--It is basically same as using CSS inline styles but with a more convenient syntax. (Shortform Syntax)-->
+
+    <!--Simple Example Using Tailwind CSS Classes-->
+    <h1 class="text-3xl font-bold underline text-red-500">
+        Hello world!
+    </h1>
+
+    <!--Flexible Styling with JavaScript-->
+    <h2 id="my-title" class="text-2xl font-semibold">
+        Hello world!
+    </h2>
+
+    <script>
+        let color2 = "text-blue-500";
+        document.getElementById("my-title").classList.add(color2); // Adding a Tailwind CSS class to the element with id "my-title" using JavaScript.
+    </script>
+</body> 
+
+</html>
