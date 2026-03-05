@@ -74,14 +74,6 @@ npm run dev
 | **`public`** | Directory for static assets (e.g., images, fonts). Files in this directory can be accessed directly via the URL. | 
 | **`src`** | Directory for your source code. It typically contains your application logic, components, and styles. Can not exist if you choose not to use a "src" directory. |
 | └ **`app\`** | Directory for App Router (if you chose App Router). It contains your application code organized by route. | Application Code Directory |
-|   └ **`layout.tsx`** | The root layout file for your application. It defines the common structure and layout for all pages in your app. (File name cannot be changed in App Router.) |
-|   └ **`page.tsx`** | The main page file for your application. It serves as the entry point for your app and typically contains the main content and components. (File name cannot be changed in App Router.) |
+| --└ **`layout.tsx`** | The root layout file for your application. It defines the common structure and layout for all pages in your app. (File name cannot be changed in App Router.) |
+| --└ **`page.tsx`** | The main page file for your application. It serves as the entry point for your app and typically contains the main content and components. (File name cannot be changed in App Router.) |
 | └ **`pages\`** | Directory for Pages Router (if you chose Pages Router). It contains your application code organized by page. |
-
-<br />
-
-## 4.0 - Next.js App Router vs Pages Router
-
-```html
-
-```
