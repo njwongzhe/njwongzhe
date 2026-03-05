@@ -52,7 +52,7 @@ npm run dev
 
 <p align="center" width="100%">
    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/05%20-%20Next.js/Content_Nextjs_Project.png"><br>
-   Next.js Project Structure after run "npx create-next-app@latest".
+   Next.js Project Structure after run "npx create-next-app@latest".<br>
    TypeScript, Tailwind CSS, ESLint, React Compiler, App Router and "src" directory are all enabled in this example.
 </p>
 
