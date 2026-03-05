@@ -6,38 +6,24 @@
 
 - It is a React Framework for building web applications.
 - It is built on top of React.js and provides additional features and optimizations for server-side rendering, static site generation and API routes.
-
-```html
 - Next.js Installation: https://nextjs.org/
-- Summary: 
-  1 - Ensure Node.js is installed on your computer.
-  2 - Run "npx create-next-app@latest" in your terminal. 
-      If you not install Next.js yet, it will automatically download and run the latest version of Next.js to create your project.
-  3 - Follow the prompts to set up your Next.js project.
-      Prompts include: 
-      a) Project Name
-      b) TypeScript or JavaScript
-         - TypeScript is a superset of JavaScript that adds static typing to the language. 
-         - It can help catch errors early and improve code quality. It is recommended to use TypeScript for new projects.
-      c) Linter : ESLint / Biome / None
-         - ESLint is a tool for identifying and fixing problems in your JavaScript code. It helps maintain code quality and consistency.
-         - Prettier is a code formatter that automatically formats your code according to a set of rules. It helps maintain a consistent code style across your project.
-         - Biome is a tool that combines the functionalities of both ESLint and Prettier.
-      d) Tailwind CSS 
-         - A CSS framework that provides pre-designed classes for styling your web application. 
-         - It allows you to quickly and easily style your components without writing custom CSS.
-      e) React Compiler 
-         - It optimizes the performance of your React code. It is recommended to enable it.
-      f) Import Alias 
-         - It allows you to create custom import paths for your modules. 
-         - It can help simplify your import statements and make your code more organized.
-      g) App Router or Pages Router 
-         - App Router is the new routing system in Next.js that provides a more flexible and powerful way to define routes in your application. It is recommended to use it for new projects.
-         - Pages Router is the traditional routing system in Next.js that uses a file-based approach to define routes. It is still supported but may be deprecated in the future.
-      h) Use "src" Directory
-         - It is a common convention to organize your source code in a "src" directory. (Recommended)
-         - It can help keep your project organized and make it easier to find your code files.
-```
+
+- Installation & Setup Summary:
+   1. Ensure Node.js is installed on your computer.
+   2. Run "npx create-next-app@latest" in your terminal. If you not install Next.js yet, it will automatically download and run the latest version of Next.js to create your project.
+   3. Follow the prompts to set up your Next.js project.
+
+- Included Prompts:
+| Prompt | Description |
+| :--- | :--- |
+| **`Project Name`** | Name of the Next.js project. |
+| **`TypeScript`** | Choose whether to use TypeScript for your project. (Default is JavaScript.) |
+| **`Tailwind CSS`** | Choose whether to use Tailwind CSS for styling. (Default is CSS.) |
+| **`Linter`** | Choose a linter (ESLint / Biome / None) for your project. Linter helps maintain code quality and consistency. (Prefer ESLint.) |
+| **`React Compiler`** | Choose whether to use the React Compiler. (Recommended to Enable it.) |
+| **`App Router or Pages Router`** | Choose the routing system for your project. App Router threats each folder in the "app" directory as a route while Pages Router treats each file in the "pages" directory as a route. (Default is App Router. Recommended.) |
+| **`Use "src" Directory`** | Choose whether to use a "src" directory for your source code. If not enable it, the "app" or "pages" directory will be placed at root directory. |
+| **`Import Alias`** | Choose whether to use import aliases. It allows you to create custom import paths for your modules, which can help simplify your import statements and make your code more organized. (Recommended to Enable it.) |
 
 <br />
 
