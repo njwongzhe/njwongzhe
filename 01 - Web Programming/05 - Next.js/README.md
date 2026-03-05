@@ -14,6 +14,7 @@
    3. Follow the prompts to set up your Next.js project.
 
 - Included Prompts:
+
 | Prompt | Description |
 | :--- | :--- |
 | **`Project Name`** | Name of the Next.js project. |
