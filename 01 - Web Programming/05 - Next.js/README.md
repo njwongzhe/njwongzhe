@@ -22,8 +22,8 @@
 | **`Tailwind CSS`** | Choose whether to use Tailwind CSS for styling. (Default is CSS.) |
 | **`Linter`** | Choose a linter (ESLint / Biome / None) for your project. Linter helps maintain code quality and consistency. (Prefer ESLint.) |
 | **`React Compiler`** | Choose whether to use the React Compiler. (Recommended to Enable it.) |
-| **`App Router or Pages Router`** | Choose the routing system for your project. App Router threats each folder in the "app" directory as a route while Pages Router treats each file in the "pages" directory as a route. (Default is App Router. Recommended.) |
-| **`Use "src" Directory`** | Choose whether to use a "src" directory for your source code. If not enable it, the "app" or "pages" directory will be placed at root directory. |
+| **`App or Pages Router`** | Choose the routing system for your project. App Router threats each folder in the "app" directory as a route while Pages Router treats each file in the "pages" directory as a route. (Default is App Router. Recommended.) |
+| **`"src" Directory`** | Choose whether to use a "src" directory for your source code. If not enable it, the "app" or "pages" directory will be placed at root directory. |
 | **`Import Alias`** | Choose whether to use import aliases. It allows you to create custom import paths for your modules, which can help simplify your import statements and make your code more organized. (Recommended to Enable it.) |
 
 <br />
