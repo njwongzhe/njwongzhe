@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>HTML frame Tag</title> 
+</head> 
+
+<body>
+    <!--Frame is used to divide the browser window into multiple sections, each displaying a different document.-->
+    <!--In a frame, you can display different HTML documents in separate regions of the window.-->
+
+   <h1><u>Hyperlink with Frame Target</u></h1>
+    <p>
+        <a href="01 - HTML Basic Structure (Tag).html" target="DemoFrame">Open "01 - HTML Basic Structure (Tag).html"</a><br>
+        <a href="02 - HTML Attributes.html" target="DemoFrame">Open "02 - HTML Attributes.html"</a><br>
+        <a href="03 - HTML form Tag.html" target="DemoFrame">Open "03 - HTML form Tag.html"</a><br>
+        <a href="https://www.youtube.com/" target="DemoFrame">Open Youtube in Frame</a> <!--Not works since some websites block framing.-->
+    </p>
+
+    <!--frame-->
+    <!--The <frame> tag is not supported in HTML5. Use <iframe> instead.-->
+    <frameset>
+        <frame name="DemoFrame" src="01 - HTML Basic Structure (Tag).html" width="100%" height="350" title="Demo Frame"> <!--This tag is not supported in HTML5. Thus, it will not be displayed.-->
+    </frameset>
+
+    <!--iframe-->
+    <iframe name="DemoFrame" src="01 - HTML Basic Structure (Tag).html" width="100%" height="350" title="Demo Frame"></iframe>
+</body> 
+
+</html> 
