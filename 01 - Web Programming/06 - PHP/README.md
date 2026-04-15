@@ -12,8 +12,13 @@
 - PHP Official Documentation: https://www.php.net/manual/en/
 - Popular PHP Frameworks: Laravel, Symfony, CodeIgniter, WordPress
 
+<br />
+
 - However, for development purposes, it is often easier to use a local development environment that includes PHP, such as XAMPP.
 - These packages provide an easy way to set up a local server with PHP and a database (like MySQL) for testing and development.
+- In XAMPP, PHP is included and can be accessed through the command line or by placing PHP files in the "htdocs" directory for web access.
+- To access XAMPP servers, you can active suitable control panel and start the Apache server. 
+- Then, you can access your PHP files by navigating to `http://localhost:<port>/<folder>` in your web browser.
 
 <br />
 
@@ -30,7 +35,7 @@ php <filename.php> | Execute a PHP file from the command line.
 
 - PHP files have a ".php" extension.
 - PHP code must be enclosed within `<?php` and `?>` tags.
-- PHP code can be mixed with HTML, CSS, and JavaScript in a single file.
+- PHP code can be mixed with HTML, CSS and JavaScript in a single file.
 - PHP code is executed on the server and the output (usually HTML) is sent to the browser.
 - It is generally preferred to keep PHP logic separate from HTML for better code organization (separation of concerns).
 
@@ -40,22 +45,27 @@ php <filename.php> | Execute a PHP file from the command line.
 <?php
     /* PHP Code */
 ?>
+
+<?= 
+    /* Short Echo Tag - Used to output content directly. */
+?>
 ```
+
+<br />
 
 ### 3.2 - PHP Embedded in HTML
 
-HTML File:
-```html
+```php
 <!DOCTYPE html>
 <html>
-<head>
-    <title>PHP Example</title>
-</head>
-<body>
-    <?php
-        echo "Hello World!";
-    ?>
-</body>
+    <head>
+        <title>PHP Example</title>
+    </head>
+    <body>
+        <?php
+            echo "Hello World!";
+        ?>
+    </body>
 </html>
 ```
 
@@ -68,14 +78,11 @@ HTML File:
 
 # Single Line Comment (Alternative)
 
-/*
- * Multi Line
- * Comment
- */
+/* Multi Line
+Comment */
 
 /**
  * Documentation Comment
  * Used to document functions and classes
  */
 ```
-

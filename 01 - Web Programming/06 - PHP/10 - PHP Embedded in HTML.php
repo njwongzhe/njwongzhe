@@ -6,7 +6,7 @@
 
 <html>
     <head>
-        <title>Embedded PHP into HTML</title>
+        <title>PHP Embedded in HTML</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
