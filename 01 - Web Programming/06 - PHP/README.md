@@ -39,6 +39,8 @@ php <filename.php> | Execute a PHP file from the command line.
 - PHP code is executed on the server and the output (usually HTML) is sent to the browser.
 - It is generally preferred to keep PHP logic separate from HTML for better code organization (separation of concerns).
 
+<br />
+
 ### 3.1 - Basic PHP File Structure
 
 ```php
