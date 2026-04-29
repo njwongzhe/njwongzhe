@@ -9,8 +9,8 @@
     //    GRANT ALL PRIVILEGES ON cpad_fruit.* TO 'cpad'@'localhost';
     // 5. You must use the "cpad_fruit" database before running this code. Execute "USE cpad_fruit" to select the database.
     $host = "localhost";
-    $username = "cpad";
-    $password = "cpadPassword";
+    $username = "cpad";         // We can login through "mysql -u cpad -p".
+    $password = "cpadPassword"; // The password for the "cpad" user is "cpadPassword".
     $database = "cpad_fruit";
 
     // Create connection.

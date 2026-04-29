@@ -6,8 +6,7 @@
 
     if ($name != "" && $calories != "") {
         // Insert a new record into the "fruits" table.
-        $sql = "INSERT INTO fruits (name, calories)
-        VALUES ('$name', '$calories')";
+        $sql = "INSERT INTO fruits (name, calories) VALUES ('$name', '$calories')";
 
         // Check if the insertion was successful.
         if ($db_connect->query($sql) === TRUE) {
