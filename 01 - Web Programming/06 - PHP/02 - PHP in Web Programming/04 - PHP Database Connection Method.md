@@ -5,7 +5,7 @@ Both are secure and prevent SQL injection when used correctly, but they have fun
 
 Here is a comprehensive breakdown of their differences.
 
----
+<br />
 
 ## 1. Supported Databases (The Biggest Difference)
 
@@ -20,7 +20,7 @@ Here is a comprehensive breakdown of their differences.
 - It only supports MySQL. 
 - If you ever need to migrate to a different database system, you will have to rewrite every single database interaction in your codebase.
 
----
+<br />
 
 ## 2. Application Programming Interface (API) Style
 
@@ -31,7 +31,7 @@ Here is a comprehensive breakdown of their differences.
 - Offers both Object-Oriented methods (like `$mysqli->query()`) and older Procedural functions (like `mysqli_query($conn)`). 
 - This makes it easier for developers maintaining legacy code, but it can lead to messy, inconsistent codebases if both styles are mixed.
 
----
+<br />
 
 ## 3. Parameter Binding and Execution
 
@@ -58,7 +58,7 @@ $stmt->bind_param("si", $name, $age);
 $stmt->execute();
 ```
 
----
+<br />
 
 ## 4. Security Considerations
 
