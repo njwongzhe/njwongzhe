@@ -1,7 +1,7 @@
 <?php
   class Fruit {
-    private $name;
-    private $calories;
+    private string $name;
+    private int $calories;
 
     public function __construct($name, $calories) {
       $this->name = $name;
@@ -18,6 +18,4 @@
       echo "<tr><td>" . $this->getName() . "</td><td>" . $this->getCalories() . "</td></tr>";
     }
   }
-  
-  $fruits = array(new Fruit("Apple", 52), new Fruit("Banana", 89));
 ?>

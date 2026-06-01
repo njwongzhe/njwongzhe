@@ -10,12 +10,12 @@
         // $sql = "INSERT INTO fruits (name, calories) VALUES ('$name', '$calories')";
 
         // Secure the code by using prepared statements to prevent SQL injection attacks.
-        $stmt = $db_connect->prepare("INSERT INTO fruits (name, calories) VALUES (?, ?)");
+        $stmt = $db_connect->prepare("INSERT INTO fruits (name, calories) VALUES (:name, :calories)");
         $stmt->bind_param("ss", $name, $calories); // "ss" means both parameters are strings. ($name and $calories are both strings.)
         // "ss" can be replaced to other combinations of "i" (integer), "d" (double), "s" (string) and "b" (binary) depending on the data types of the parameters.
 
         // Check if the insertion was successful.
-        if ($stmt->execute() === TRUE) {
+        if ($stmt->execute([':name' => $name, ':calories' => $calories]) === TRUE) {
             echo "Successful add new fruit.";
             echo "<p><a href='13 - PHP Connect Database - Main.php'>Back to Main Page</a></p>";
             echo "<p><a href='13 - PHP Connect Database - Insert.html'>Add Another Fruit</a></p>";

@@ -1,7 +1,8 @@
 <?php 
     $qtrSales = array(4500, 5488, 3200, 6400); 
     $total = 0;
-   
+
+    $variable = null; // A empty variable use for demonstration purpose for the comment below only to avoid error, it is not used in the code below.
 ?>
 
 <html>
