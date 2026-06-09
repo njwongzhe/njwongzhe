@@ -2,9 +2,7 @@
 
 <img src="Profile/animationBanner.gif" alt="Retro runner animation" width="100%" />
 
-# Hi, I'm Galen GUI
-
-<img src="./assets/tagline.svg" alt="Software Engineering Student | Full-Stack Learner | Backend & Database Builder" width="100%" />
+# Hi, I'm NG JAA WEI
 
 </div>
 
