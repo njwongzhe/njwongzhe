@@ -10,11 +10,11 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
 
 ---
 
-<h2 align="bottom"><img src="https://api.iconify.design/lucide:layers.svg?color=%238b949e" width="26" height="26" style="vertical-align: middle;" /> &nbspTech Stack</h2>
+<h2 align="center"><img src="https://api.iconify.design/lucide:layers.svg?color=%238b949e" width="26" height="26" align="center" />&nbsp; Tech Stack</h2>
 
 <div align="center">
 
-<h3 align="bottom"><img src="https://api.iconify.design/lucide:code.svg?color=%238b949e" width="22" height="22" style="vertical-align: middle;" /> Languages</h3>
+<h3 align="center"><img src="https://api.iconify.design/lucide:code.svg?color=%238b949e" width="22" height="22" align="center" /> Languages</h3>
 <p align="center">
   <img src="Profile/cards/cplusplus.svg" width="110" height="82" />
   <img src="Profile/cards/java.svg" width="110" height="82" />
@@ -28,7 +28,7 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
   <img src="Profile/cards/typescript.svg" width="110" height="82" />
 </p>
 
-<h3 align="bottom"><img src="https://api.iconify.design/lucide:layout.svg?color=%238b949e" width="22" height="22" style="vertical-align: middle;" /> Frontend & Frameworks</h3>
+<h3 align="center"><img src="https://api.iconify.design/lucide:layout.svg?color=%238b949e" width="22" height="22" align="center" /> Frontend & Frameworks</h3>
 
 <p align="center">
   <img src="Profile/cards/nodejs.svg" width="110" height="82" />
@@ -38,7 +38,7 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
   <img src="Profile/cards/flutter.svg" width="110" height="82" />
 </p>
 
-<h3 align="bottom"><img src="https://api.iconify.design/lucide:database.svg?color=%238b949e" width="22" height="22" style="vertical-align: middle;" /> Databases & Cloud</h3>
+<h3 align="center"><img src="https://api.iconify.design/lucide:database.svg?color=%238b949e" width="22" height="22" align="center" /> Databases & Cloud</h3>
 
 <p align="center">
   <img src="Profile/cards/mysql.svg" width="110" height="82" />
@@ -48,7 +48,7 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
   <img src="Profile/cards/supabase.svg" width="110" height="82" />
 </p>
 
-<h3 align="bottom"><img src="https://api.iconify.design/lucide:wrench.svg?color=%238b949e" width="22" height="22" style="vertical-align: middle;" /> Tools & Technologies</h3>
+<h3 align="center"><img src="https://api.iconify.design/lucide:wrench.svg?color=%238b949e" width="22" height="22" align="center" /> Tools & Technologies</h3>
 
 <p align="center">
   <img src="Profile/cards/git.svg" width="110" height="82" />
