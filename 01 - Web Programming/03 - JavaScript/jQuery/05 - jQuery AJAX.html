@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>jQuery Advanced AJAX Control</title>
+    <!-- Import jQuery from Google CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>jQuery Advanced AJAX Control</h1>
+    <p>Check the browser's developer console (F12) to see AJAX requests execute.</p>
+    
+    <button id="get-data">Fetch Mock Data (GET)</button>
+    <button id="post-data">Submit Mock Data (POST)</button>
+    <button id="error-data">Trigger Error (GET Invalid URL)</button>
+
+    <script> /* Standard $.ajax() Configuration Template */
+        /*
+        $.ajax({
+            type: "GET",                              // HTTP Method: GET, POST, PUT, DELETE
+            url: "https://api.example.com/items",    // Target endpoint URL
+            async: true,                             // True for asynchronous request, false for synchronous
+            dataType: "json",                        // Expected format of response data (json, xml, html, text)
+            contentType: "application/json",         // Format of payload being sent to the server
+            data: JSON.stringify({ key: "value" }),  // Data sent to the server (for POST/PUT requests)
+            
+            // Runs right before the request is sent
+            beforeSend: function(xhr) {
+                // e.g. Show loading spinners or insert authentication token headers
+            },
+            // Triggered when request succeeds (2xx response status)
+            success: function(response, status, xhr) {
+                // response contains the payload returned by the server
+                // status contains string state (e.g. "success")
+                // xhr contains full XMLHTTPRequest object details
+            },
+            // Triggered when request fails (4xx/5xx errors, timeouts, etc.)
+            error: function(xhr, status, error) {
+                // xhr contains full error info including xhr.status (e.g. 404, 500)
+                // status contains error descriptor (e.g. "error")
+                // error contains textual HTTP response status text (e.g. "Not Found")
+            },
+            // Runs after success/error call finishes completely
+            complete: function(xhr, status) {
+                // e.g. Hide loading spinners or release interface locks
+            }
+        });
+        */
+    </script>
+
+    <script> /* Executable AJAX Request Demos */
+        console.log("------------------>>> Executable AJAX Demos");
+
+        // 1. GET Request Example
+        $("#get-data").click(function() {
+            console.log("Triggering GET request...");
+            $.ajax({
+                type: "GET",
+                url: "https://jsonplaceholder.typicode.com/posts/1",
+                dataType: "json",
+                success: function(response, status, xhr) {
+                    console.log("GET Request Successful!");
+                    console.log("Status Code:", xhr.status);
+                    console.log("Response Body Data:", response);
+                },
+                error: function(xhr, status, error) {
+                    console.error("GET Request Failed:", status, error);
+                }
+            });
+        });
+
+        // 2. POST Request Example
+        $("#post-data").click(function() {
+            console.log("Triggering POST request...");
+            $.ajax({
+                type: "POST",
+                url: "https://jsonplaceholder.typicode.com/posts",
+                contentType: "application/json; charset=UTF-8",
+                dataType: "json",
+                data: JSON.stringify({
+                    title: "Learning jQuery AJAX",
+                    body: "We are passing options to $.ajax()",
+                    userId: 101
+                }),
+                success: function(response, status, xhr) {
+                    console.log("POST Request Successful (Post Created)!");
+                    console.log("Status Code:", xhr.status); // 201 Created
+                    console.log("Response Payload (including assigned ID):", response);
+                },
+                error: function(xhr, status, error) {
+                    console.error("POST Request Failed:", status, error);
+                }
+            });
+        });
+
+        // 3. Simulated HTTP Error Example
+        $("#error-data").click(function() {
+            console.log("Triggering invalid URL request...");
+            $.ajax({
+                type: "GET",
+                url: "https://jsonplaceholder.typicode.com/non-existent-endpoint-test",
+                dataType: "json",
+                success: function(response) {
+                    console.log("Success (unexpected):", response);
+                },
+                error: function(xhr, status, error) {
+                    console.log("Captured Expected Error Callback!");
+                    console.log("Status Code:", xhr.status); // 404
+                    console.log("Status text description:", error); // Not Found
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

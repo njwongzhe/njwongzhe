@@ -56,7 +56,7 @@ Comment*/
 <br />
 
 <p align="center" width="100%">
-    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/16%20-%20JS%20Documentation%20Comment.png"><br>
+    <img height="33%" src="16 - JS Documentation Comment.png"><br>
     Documentation Comment
 </p>
 
@@ -71,7 +71,7 @@ Comment*/
 <br />
 
 <p align="center" width="100%">
-    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/10%20-%20JS%20REPL%20Environment.png"><br>
+    <img height="33%" src="10 - JS REPL Environment.png"><br>
     Chrome REPL Environment ("10 - JS REPL Environment.html")
 </p>
 
@@ -90,7 +90,7 @@ Comment*/
 <br />
 
 <p align="center" width="100%">
-    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/20%20-%20JS%20Global%20Methods%20and%20Properties.png"><br>
+    <img height="33%" src="20 - JS Global Methods and Properties.png"><br>
     Browsers - "window"
 </p>
 
@@ -137,14 +137,13 @@ Comment*/
 <br />
 
 <p align="center" width="100%">
-    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/39%20-%20JS%20HTML%20DOM.png"><br>
+    <img height="33%" src="39 - JS HTML DOM.png"><br>
     HTML DOM
 </p>
 
 <br />
 
 <p align="center" width="100%">
-    <img height="33%" src="https://github.com/njwongzhe/njwongzhe/blob/main/01%20-%20Web%20Programming/03%20-%20JavaScript/42%20-%20JS%20HTML%20DOM%20Get%20Node.png"><br>
+    <img height="33%" src="42 - JS HTML DOM Get Node.png"><br>
     HTML DOM Node Relationship
 </p>
-

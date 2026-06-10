@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>jQuery Advanced DOM Control and Traversing</title>
+    <!-- Import jQuery from Google CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        /* Small styling for classes demonstration */
+        .highlight-blue {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+        .bg-dark {
+            background-color: #1e293b;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>jQuery Advanced DOM Control and Traversing</h1>
+
+    <!-- DOM tree for Traversing and manipulations -->
+    <div id="ancestor">
+        <div id="parent">
+            <span class="sibling-prev">Previous Sibling</span>
+            <div id="target-box" class="target">
+                Target Element
+                <p class="child child-0">Child Paragraph Index 0</p>
+                <p class="child child-1 special">Child Paragraph Index 1 (.special)</p>
+                <p class="child child-2">Child Paragraph Index 2</p>
+            </div>
+            <span class="sibling-next">Next Sibling</span>
+        </div>
+    </div>
+
+    <script> /* Get vs Set Mechanism Duality */
+        console.log("------------------>>> Get vs Set Mechanism");
+        // Getter: Called without arguments. Retrieves the value of the first matched element in the query collection.
+        var targetTextGet = $("#target-box").text();
+        console.log("Read/Get Text:", targetTextGet);
+
+        // Setter: Called with arguments. Modifies the content of all matched elements.
+        // Uncomment the line below to test setting:
+        // $("#target-box").text("New Text Set!");
+    </script>
+
+    <script> /* Nodes CRUD: Clone, Append, Prepend, After, Before, Remove, Empty */
+        console.log("------------------>>> Nodes CRUD Operations");
+
+        // 1. .clone() - Creates a deep copy of matched elements
+        var $clonedNode = $("#target-box").clone();
+        console.log("Cloned Node structure:", $clonedNode);
+
+        // 2. .prepend() - Inserts content at the beginning inside matched elements
+        $("#target-box").prepend("<span>[PREPENDED CONTENT] </span>");
+
+        // 3. .append() - Inserts content at the end inside matched elements
+        $("#target-box").append("<span> [APPENDED CONTENT]</span>");
+
+        // 4. .before() - Inserts content directly before the matched elements
+        $("#target-box").before("<p>Inserted directly before the target-box</p>");
+
+        // 5. .after() - Inserts content directly after the matched elements
+        $("#target-box").after("<p>Inserted directly after the target-box</p>");
+
+        // 6. .empty() - Removes all child nodes (including text) from matched elements
+        // Uncomment to test:
+        // $("#target-box").empty();
+
+        // 7. .remove() - Removes matched elements entirely from the DOM tree
+        // Uncomment to test:
+        // $("#target-box").remove();
+    </script>
+
+    <script> /* CSS Class & Style Control */
+        console.log("------------------>>> CSS Class & Style Control");
+
+        // 1. .addClass(className) - Appends CSS classes
+        $("#target-box").addClass("bg-dark");
+
+        // 2. .removeClass(className) - Removes CSS classes
+        $("#target-box").removeClass("bg-dark");
+
+        // 3. .toggleClass(className) - Alternates between adding and removing a class
+        $("#target-box").toggleClass("highlight-blue"); // Will add it here since it doesn't exist
+        $("#target-box").toggleClass("highlight-blue"); // Will remove it here
+
+        // 4. .css(propertyName, value) - Reads or sets inline styles directly
+        // Set multiple styles using an object:
+        $("#target-box").css({
+            "border": "2px solid red",
+            "padding": "10px"
+        });
+        // Get single style:
+        console.log("Current border property:", $("#target-box").css("border"));
+    </script>
+
+    <script> /* DOM Tree Traversing */
+        console.log("------------------>>> DOM Tree Traversing");
+
+        // 1. .parent() - Selects the immediate parent element of matched elements
+        console.log("Parent element:", $("#target-box").parent());
+
+        // 2. .children() - Selects all immediate child elements of matched elements
+        console.log("Children elements:", $("#target-box").children());
+
+        // 3. .find(selector) - Selects descendant elements matching selector recursively
+        console.log("Descendants matching special:", $("#target-box").find(".special"));
+
+        // 4. .siblings() - Selects all sibling elements of matched elements
+        console.log("Siblings elements:", $("#target-box").siblings());
+
+        // 5. .next() - Selects the immediate next sibling element of matched elements
+        console.log("Next sibling element:", $("#target-box").next());
+
+        // 6. .eq(index) - Filters elements by index (0-based) in matched collection
+        console.log("Child at Index 1:", $("#target-box").children().eq(1));
+
+        // 7. .filter(selector) - Limits matched collection to elements that match selection query
+        console.log("Filtered child (.special):", $("#target-box").children().filter(".special"));
+
+        // 8. .not(selector) - Excludes matched elements from selector criteria
+        console.log("Children excluding (.special):", $("#target-box").children().not(".special"));
+    </script>
+</body>
+
+</html>

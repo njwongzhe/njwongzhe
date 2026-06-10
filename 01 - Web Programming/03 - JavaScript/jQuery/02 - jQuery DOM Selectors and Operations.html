@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>jQuery DOM Selectors and Operations</title>
+    <!-- Import jQuery from Google CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>jQuery DOM Selectors and Operations</h1>
+    
+    <!-- Test elements for selectors and operations -->
+    <div id="container">
+        <p class="text-item">First paragraph item</p>
+        <p class="text-item" id="special-p">Second paragraph item with ID</p>
+        <input type="text" id="username" value="Initial Value">
+        <button id="action-btn">Click Me</button>
+    </div>
+
+    <script> /* DOM Selectors Comparison */
+        console.log("------------------>>> DOM Selectors Comparison");
+
+        // 1. Tag Selector
+        // Native: Returns NodeList of all matching elements
+        var pTagsNative = document.getElementsByTagName("p"); // or document.querySelectorAll("p")
+        // jQuery: Returns jQuery object holding matched collection
+        var pTagsJQuery = $("p");
+        console.log("Tag Selectors:", pTagsNative, pTagsJQuery);
+
+        // 2. Class Selector
+        // Native: Returns HTMLCollection of class matches
+        var classNative = document.getElementsByClassName("text-item"); // or document.querySelectorAll(".text-item")
+        // jQuery: Selects by class
+        var classJQuery = $(".text-item");
+        console.log("Class Selectors:", classNative, classJQuery);
+
+        // 3. ID Selector
+        // Native: Returns single unique element
+        var idNative = document.getElementById("special-p"); // or document.querySelector("#special-p")
+        // jQuery: Selects by ID
+        var idJQuery = $("#special-p");
+        console.log("ID Selectors:", idNative, idJQuery);
+
+        // 4. Mixed Selector (html_tag_name#id_name or html_tag_name.class_name)
+        // Native: Matches elements meeting multiple criteria
+        var mixedNative = document.querySelector("p#special-p");
+        // jQuery: Matches elements meeting multiple criteria
+        var mixedJQuery = $("p#special-p");
+        console.log("Mixed Selectors:", mixedNative, mixedJQuery);
+
+        // 5. 'this' and 'document' Wrapping
+        // Native: Represents raw JS element or document context
+        var docNative = document;
+        // jQuery: Wraps raw DOM object into a jQuery wrapper to allow jQuery methods
+        var docJQuery = $(document);
+        console.log("Context Wrapping:", docNative, docJQuery);
+    </script>
+
+    <script> /* Getting Elements / Nodes */
+        console.log("------------------>>> Getting Elements / Nodes");
+
+        // Native JS
+        var nativeEl = document.getElementById("special-p");
+        console.log("Native element content:", nativeEl.innerText);
+
+        // jQuery
+        var jQueryEl = $("#special-p");
+        console.log("jQuery element content:", jQueryEl.text());
+    </script>
+
+    <script> /* Creating Elements / Nodes */
+        console.log("------------------>>> Creating Elements / Nodes");
+
+        // Native JS: Create element node using document.createElement()
+        var newDivNative = document.createElement("div");
+        newDivNative.innerText = "Created with Native JS";
+        console.log("Native Created Node:", newDivNative);
+
+        // jQuery: Pass HTML tag structure as a string into $()
+        var newDivJQuery = $("<div>Created with jQuery</div>"); // or $("<div>", { text: "Created with jQuery" })
+        console.log("jQuery Created Node:", newDivJQuery);
+    </script>
+
+    <script> /* Setting and Getting Attributes */
+        console.log("------------------>>> Setting and Getting Attributes");
+
+        // Native JS: .setAttribute() and .getAttribute()
+        var nativeBtn = document.getElementById("action-btn");
+        nativeBtn.setAttribute("data-source", "native-js");
+        console.log("Native Attribute value:", nativeBtn.getAttribute("data-source"));
+
+        // jQuery: .attr() acts as getter (1 argument) and setter (2 arguments)
+        var jQueryBtn = $("#action-btn");
+        jQueryBtn.attr("data-source", "jquery-lib");
+        console.log("jQuery Attribute value:", jQueryBtn.attr("data-source"));
+    </script>
+
+    <script> /* Modifying Content (Text, HTML, and Values) */
+        console.log("------------------>>> Modifying Content");
+
+        // --- Modifying Text ---
+        // Native JS: .innerText or .textContent
+        document.getElementById("special-p").innerText = "Updated Native Text";
+        // jQuery: .text(value)
+        $("#special-p").text("Updated jQuery Text");
+
+        // --- Modifying HTML ---
+        // Native JS: .innerHTML
+        document.getElementById("special-p").innerHTML = "Updated via <strong>Native HTML</strong>";
+        // jQuery: .html(value)
+        $("#special-p").html("Updated via <strong>jQuery HTML</strong>");
+
+        // --- Modifying Input Value ---
+        // Native JS: .value
+        document.getElementById("username").value = "New Native Input Val";
+        console.log("Native read value:", document.getElementById("username").value);
+        // jQuery: .val(value)
+        $("#username").val("New jQuery Input Val");
+        console.log("jQuery read value:", $("#username").val());
+    </script>
+
+    <script> /* Appending / Inserting Nodes */
+        console.log("------------------>>> Appending Nodes");
+
+        // Native JS: parentNode.appendChild(childNode)
+        var containerNative = document.getElementById("container");
+        var childNative = document.createElement("span");
+        childNative.innerText = " [Appended via Native JS]";
+        containerNative.appendChild(childNative);
+
+        // jQuery: parent.append(child)
+        var $containerJQuery = $("#container");
+        $containerJQuery.append("<span> [Appended via jQuery]</span>");
+    </script>
+</body>
+
+</html>

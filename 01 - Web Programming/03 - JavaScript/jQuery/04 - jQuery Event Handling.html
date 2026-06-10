@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>jQuery Event Handling and Delegation</title>
+    <!-- Import jQuery from Google CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>jQuery Event Handling and Delegation</h1>
+
+    <!-- Elements for basic events -->
+    <div>
+        <button id="click-btn">Click and Double Click Target</button>
+        <br/><br/>
+        <input type="text" id="text-input" placeholder="Focus and Blur Input Field">
+        <br/><br/>
+        <select id="select-dropdown">
+            <option value="A">Value A</option>
+            <option value="B">Value B</option>
+        </select>
+    </div>
+
+    <!-- Elements for event delegation demonstration -->
+    <div style="margin-top: 30px;">
+        <h2>Event Delegation Demo</h2>
+        <button id="add-item">Add New Dynamic Item</button>
+        <ul id="list-container">
+            <li class="list-item">Hardcoded Item 1 (Already exists at load)</li>
+            <li class="list-item">Hardcoded Item 2 (Already exists at load)</li>
+        </ul>
+    </div>
+
+    <script> /* Basic Event Listeners */
+        console.log("------------------>>> Basic Event Listeners");
+
+        // 1. click event
+        $("#click-btn").click(function() {
+            console.log("Button click event triggered!");
+        });
+
+        // 2. dblclick (Double Click) event
+        $("#click-btn").dblclick(function() {
+            console.log("Button double click event triggered!");
+        });
+
+        // 3. focus event
+        $("#text-input").focus(function() {
+            console.log("Input focused (active)!");
+        });
+
+        // 4. blur (Focus Out) event
+        $("#text-input").blur(function() {
+            console.log("Input blurred (lost focus)!");
+        });
+
+        // 5. change event
+        $("#select-dropdown").change(function() {
+            console.log("Dropdown selection changed. New value:", $(this).val());
+        });
+    </script>
+
+    <script> /* Direct vs Delegated Events (Dynamic Elements) */
+        console.log("------------------>>> Direct vs Delegated Events");
+
+        // --- 1. DIRECT EVENT BINDING ---
+        // This binds the handler only to elements that exist in the DOM *at the exact moment* this code executes.
+        // It will NOT work on dynamically created items added later.
+        $(".list-item").click(function() {
+            console.log("Direct Click Event: " + $(this).text());
+        });
+
+        // --- 2. DELEGATED EVENT BINDING ---
+        // This binds the handler to a stable parent element (#list-container or document) that exists at page load.
+        // It listens for clicks bubbling up from specified child targets (".list-item").
+        // This works for both hardcoded and future dynamically created elements.
+        $("#list-container").on("click", ".list-item", function() {
+            console.log("Delegated Click Event: " + $(this).text());
+        });
+
+        // Action: Adding items dynamically on clicking "Add New Dynamic Item"
+        $("#add-item").click(function() {
+            var newItemCount = $("#list-container li").length + 1;
+            $("#list-container").append("<li class='list-item'>Dynamic Item " + newItemCount + "</li>");
+            console.log("Appended new item: Dynamic Item " + newItemCount);
+        });
+    </script>
+</body>
+
+</html>

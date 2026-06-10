@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>jQuery Basic Structure and Setup</title>
+    <!-- 1.0 - Importing jQuery from Google CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- 1.1 - Alternative Local jQuery Import Example (Commented) -->
+    <!-- <script src="jquery-3.6.0.min.js"></script> -->
+
+    <script> /* HEAD Script Execution Timing */
+        console.log("------------------>>> HEAD Script Timing");
+        console.log("HEAD script executing immediately. Target paragraph exists?", document.getElementById("timing-p"));
+        // This will print "null" because the DOM body elements have not been parsed yet.
+    </script>
+
+    <script> /* $(document).ready() Lifecycle */
+        console.log("------------------>>> $(document).ready() Timing");
+        $(document).ready(function() {
+            console.log("$(document).ready() triggered. Target paragraph exists?", document.getElementById("timing-p"));
+            // This works because ready() waits for the full HTML structure (DOM tree) to load first.
+            
+            // Basic Syntax Demo: $(selector).method(value)
+            $("#timing-p").text("Content set by $(document).ready()!");
+        });
+    </script>
+</head>
+
+<body>
+    <h1>jQuery Basic Structure and Setup</h1>
+    <p id="timing-p">Original Paragraph Text</p>
+
+    <script> /* Basic Syntax Structure */
+        console.log("------------------>>> Basic Syntax Structure");
+        // Syntax Breakdown: $(selector).method(value);
+        // $       -> Accesses the jQuery library. (alias for jQuery)
+        // (...)   -> CSS-style Selector to query DOM element(s).
+        // .text() -> jQuery method to change or read text content.
+        
+        $("h1").css("color", "blue"); // Select h1 tag, change css color property to blue.
+    </script>
+
+    <script> /* BODY-End Script Timing */
+        console.log("------------------>>> BODY-End Script Timing");
+        console.log("BODY-End script executing. Target paragraph exists?", document.getElementById("timing-p"));
+        // This works because the paragraph element is written above this script tag in the HTML body.
+    </script>
+</body>
+
+</html>

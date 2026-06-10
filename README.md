@@ -1,62 +1,158 @@
 <div align="center">
 
-<img src="Profile/animationBanner.gif" alt="Retro runner animation" width="100%" />
+<img src="Profile/animationBanner.gif" alt="Retro runner animation" width="80%" />
 
 # Hi, I'm NG JAA WEI
+
+An enthusiastic and detail-oriented individual with a strong passion for computer science and software development. Continuously seeking opportunities to learn new technologies and contribute to meaningful projects.
 
 </div>
 
 ---
 
-<h2>Tech Stack</h2>
+<h2 align="center"><img src="https://api.iconify.design/lucide:layers.svg?color=%238b949e" width="26" height="26" style="vertical-align: top;" /> &nbspTech Stack</h2>
 
-<div>
+<div align="center">
 
-### Backend
+<h3 align="center"><img src="https://api.iconify.design/lucide:code.svg?color=%238b949e" width="22" height="22" style="vertical-align: middle;" /> Languages</h3>
 
-<p>
-  <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++" />
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
-  <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP" />
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
-  <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart" />
-</p>
+<table align="center">
+  <tr>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" width="40" height="40" alt="C++" />
+      <br />
+      <sub><b>C++</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" width="40" height="40" alt="Java" />
+      <br />
+      <sub><b>Java</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="40" height="40" alt="PHP" />
+      <br />
+      <sub><b>PHP</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg" width="40" height="40" alt="Dart" />
+      <br />
+      <sub><b>Dart</b></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" width="40" height="40" alt="HTML5" />
+      <br />
+      <sub><b>HTML5</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" width="40" height="40" alt="CSS3" />
+      <br />
+      <sub><b>CSS3</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="40" height="40" alt="JavaScript" />
+      <br />
+      <sub><b>JavaScript</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" width="40" height="40" alt="TypeScript" />
+      <br />
+      <sub><b>TypeScript</b></sub>
+    </td>
+  </tr>
+</table>
 
-### Frontend
+<h3 align="center"><img src="https://api.iconify.design/lucide:layout.svg?color=%238b949e" width="22" height="22" style="vertical-align: top;" /> Frontend & Frameworks</h3>
 
-<p>
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-</p>
+<table align="center">
+  <tr>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" width="40" height="40" alt="Node.js" />
+      <br />
+      <sub><b>Node.js</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" width="40" height="40" alt="React" />
+      <br />
+      <sub><b>React</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" width="40" height="40" alt="Next.js" />
+      <br />
+      <sub><b>Next.js</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="40" height="40" alt="Tailwind CSS" />
+      <br />
+      <sub><b>Tailwind CSS</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" width="40" height="40" alt="Flutter" />
+      <br />
+      <sub><b>Flutter</b></sub>
+    </td>
+  </tr>
+</table>
 
-### Frameworks
+<h3 align="center"><img src="https://api.iconify.design/lucide:database.svg?color=%238b949e" width="22" height="22" style="vertical-align: top;" /> Databases & Cloud</h3>
 
-<p>
-  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
-  <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter" />
-</p>
+<table align="center">
+  <tr>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="40" height="40" alt="MySQL" />
+      <br />
+      <sub><b>MySQL</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="40" height="40" alt="PostgreSQL" />
+      <br />
+      <sub><b>PostgreSQL</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg" width="40" height="40" alt="Prisma" />
+      <br />
+      <sub><b>Prisma</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" width="40" height="40" alt="Firebase" />
+      <br />
+      <sub><b>Firebase</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" width="40" height="40" alt="Supabase" />
+      <br />
+      <sub><b>Supabase</b></sub>
+    </td>
+  </tr>
+</table>
 
-### Databases & Cloud
+<h3 align="center"><img src="https://api.iconify.design/lucide:wrench.svg?color=%238b949e" width="22" height="22" style="vertical-align: top;" /> Tools & Technologies</h3>
 
-<p>
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/Firestore-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firestore" />
-  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
-</p>
-
-### Tools
-
-<p>
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
-  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-  <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="VS Code" />
-  <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma" />
-</p>
+<table align="center">
+  <tr>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="40" height="40" alt="Git" />
+      <br />
+      <sub><b>Git</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.simpleicons.org/github/7E8C9A" width="40" height="40" alt="GitHub" />
+      <br />
+      <sub><b>GitHub</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" width="40" height="40" alt="VS Code" />
+      <br />
+      <sub><b>VS Code</b></sub>
+    </td>
+    <td align="center" width="150" height="110">
+      <img src="https://cdn.simpleicons.org/deepmind/4F46E5" width="40" height="40" alt="Antigravity" />
+      <br />
+      <sub><b>Antigravity</b></sub>
+    </td>
+  </tr>
+</table>
 
 </div>
 
@@ -64,6 +160,6 @@
 
 <div align="center">
 
-### "Code is not only about solving problems, but also about designing systems that stay understandable."
+### "There are two ways to write error-free programs; only the third one works."
 
 </div>
