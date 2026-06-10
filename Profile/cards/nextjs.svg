@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90" width="120" height="90">
+  <style>
+    .text {
+      fill: #24292f;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .icon-fill {
+      fill: #000000;
+    }
+    .icon-fill-fade {
+      fill: #000000;
+      opacity: 0.55;
+    }
+    @media (prefers-color-scheme: dark) {
+      .text {
+        fill: #c9d1d9;
+      }
+      .icon-fill {
+        fill: #ffffff;
+      }
+      .icon-fill-fade {
+        fill: #ffffff;
+        opacity: 0.55;
+      }
+    }
+  </style>
+  
+  <!-- Next.js "N" logo without outer circle -->
+  <svg x="40" y="8" width="40" height="40" viewBox="0 0 256 256">
+    <path class="icon-fill" d="M212.634 224.028L98.335 76.8H76.8v102.357h17.228V98.68L199.11 234.446a128 128 0 0 0 13.524-10.418"/>
+    <path class="icon-fill-fade" d="M163.556 76.8h17.067v102.4h-17.067z"/>
+  </svg>
+  
+  <!-- Label -->
+  <text class="text" x="60" y="70" text-anchor="middle">Next.js</text>
+</svg>
