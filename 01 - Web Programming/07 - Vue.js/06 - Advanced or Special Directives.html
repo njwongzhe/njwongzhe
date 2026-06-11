@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Advanced or Special Directives</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        /* "v-cloak" Styling: Keeps elements hidden until Vue is initialized. */
+        [v-cloak] {
+            display: none !important;
+        }
+        .html-container {
+            border: 1px dashed green;
+            padding: 10px;
+            background: #f0fff0;
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+            max-width: 400px;
+        }
+        .card-header {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            font-weight: bold;
+        }
+        .card-body {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!--"v-cloak"-->
+    <!--During the HTML page is loaded, the "{{ message }}" will be shown directly since the Vue is not loaded yet.-->
+    <!--Thus, we need the "v-cloak" to prevent the "{{ message }}" from being shown directly.-->
+    <!--We can set the default value of "display" to "none" for "v-cloak" in the CSS.-->
+    <!--To set the default "v-cloak" styling, we use "[v-cloak]" in the CSS.-->
+    <div id="app" v-cloak>
+        <h1>Advanced & Special Directives</h1>
+
+        <!--"v-pre"-->
+        <!--It tells Vue to ignore parsing. Useful for displaying raw template syntax.-->
+        <!--Which means if we use "v-pre", the raw text "{{ message }}" will directly show on screen without being parsed by Vue.-->
+        <h2>Skipping Compilation (v-pre)</h2>
+        <div>
+            <p>Normal rendering: {{ message }}</p>
+            <p v-pre>Raw syntax using v-pre: {{ message }}</p>
+        </div>
+
+        <!--"v-once"-->
+        <!--It renders once. It will not react to subsequent data changes.-->
+        <!--Which means if we use "v-once", it will not update even if the data changes.-->
+        <!--Therefore, if the data is rarely changed, using "v-once" can improve the performance.-->
+        <h2>Renders Once (v-once)</h2>
+        <div>
+            <p>Current message state: {{ message }}</p>
+            <p v-once>v-once initial static text: {{ message }}</p>
+            
+            <button @click="updateMessage">Modify message text</button>
+        </div>
+
+        <!--"v-slot"-->
+        <!--"v-slot" is a directive used to pass content into named slots in custom components.-->
+        <!--Syntax Sugar (Shorthand): "#" (e.g., "#header" is equivalent to "v-slot:header")-->
+        <h2>Slots and Custom Content (v-slot / #)</h2>
+        <div>
+            <card-layout>
+                <!--Standard Syntax: v-slot:header-->
+                <template v-slot:header>
+                    Card Title (Standard: v-slot:header)
+                </template>
+                <!--Default slot (implicit v-slot:default)-->
+                <p>This is content passed into the default slot body.</p>
+            </card-layout>
+
+            <card-layout>
+                <!--Syntax Sugar (Shorthand): #header-->
+                <template #header>
+                    Card Title (Shorthand: #header)
+                </template>
+                <p>This is content passed using the shorthand syntax sugar for named slots.</p>
+            </card-layout>
+        </div>
+
+        <!--Lifecycle Hooks (mounted)-->
+        <h2>Lifecycle Hooks</h2>
+        <div>
+            <p>Status logged: {{ consoleLogStatus }}</p>
+        </div>
+    </div>
+
+    <script> /* Options API Advanced Directives */
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: "Original Message",
+                    consoleLogStatus: "Ready"
+                };
+            },
+            methods: {
+                updateMessage() {
+                    this.message = "Updated Message text at " + new Date().toLocaleTimeString();
+                }
+            },
+            // "mounted()" lifecycle hook: runs after instance is inserted into the DOM.
+            mounted() {
+                console.log("------------------>>> Lifecycle: mounted() hook triggered");
+                this.consoleLogStatus = "Component mounted successfully at " + new Date().toLocaleTimeString();
+            }
+        });
+
+        // Register custom card-layout component using slots.
+        app.component('card-layout', {
+            template: `
+                <div class="card">
+                    <header class="card-header">
+                        <slot name="header">Default Header</slot>
+                    </header>
+                    <main class="card-body">
+                        <slot>Default Body Content</slot>
+                    </main>
+                </div>
+            `
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+</html>

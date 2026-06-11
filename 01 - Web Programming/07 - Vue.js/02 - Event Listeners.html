@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Event Listeners</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"> <!--This block will be mounted by Vue.-->
+        <h1>Event Listeners</h1>
+
+        <!--Basic Event Listeners (Standard vs Syntax Sugar)-->
+        <h2>Basic Event Listeners</h2>
+        <div>
+            <p>Count: {{ count }}</p>
+            
+            <!--Standard Syntax: v-on:click-->
+            <!--Call function "increment".-->
+            <button v-on:click="increment">Increment (Standard: v-on:click)</button>
+            
+            <!--Syntax Sugar (Shorthand): @click-->
+            <!--Call function "increment".-->
+            <button @click="increment">Increment (Shorthand: @click)</button>
+            
+            <!--Inline Expression-->
+            <!--Directly put the JavaScript expression inside.-->
+            <button @click="count--">Decrement by 1 (Inline)</button>
+        </div>
+
+        <!--Example: Passing Arguments and Event Object-->
+        <h2>Passing Parameters & $event</h2>
+        <div style="margin-top: 15px;">
+            <!--Call function "addAmount" with parameter 5.-->
+            <button @click="addAmount(5)">Add 5</button>
+            <!--Call function "addAmount" with parameter 10.-->
+            <button @click="addAmount(10)">Add 10</button>
+            <!--Call function "logEvent" with parameter "Parameter passed" and event object.-->
+            <button @click="logEvent('Parameter passed', $event)">Log Event details</button>
+        </div>
+
+        <!--Example: Event Modifiers-->
+        <h2>Event Modifiers (.prevent, .stop)</h2>
+        <div style="margin-top: 15px;">
+            <!--"@submit.prevent" is shorthand for "v-on:submit.prevent".-->
+            <!--".prevent" modifier calls "event.preventDefault()" automatically.-->
+            <form @submit.prevent="submitForm">
+                <input type="text" placeholder="Type something...">
+                <button type="submit">Submit Form (Without reload)</button>
+            </form>
+        </div>
+
+        <!--Example: Keyboard Event Modifiers-->
+        <h2>Keyboard Key Modifiers (@keyup.enter)</h2>
+        <div style="margin-top: 15px;">
+            <label for="keyboard-input">Press Enter to trigger action:</label>
+            <!--@keyup.enter" is shorthand for "v-on:keyup.enter".-->
+            <input type="text" id="keyboard-input" @keyup.enter="handleEnterKey" placeholder="Type and press Enter">
+            <p>Last entered: {{ textInput }}</p>
+        </div>
+    </div>
+
+    <script> /* Options API Events */
+        Vue.createApp({
+            data() {
+                return {
+                    count: 0,
+                    textInput: ""
+                };
+            },
+            methods: {
+                increment() {
+                    // "this." is mandatory inside methods to reference properties from "data()".
+                    this.count++;
+                },
+                addAmount(amount) {
+                    this.count += amount;
+                },
+                logEvent(message, event) {
+                    console.log("------------------>>> Log Event details");
+                    console.log("Message:", message);
+                    console.log("Event Type:", event.type);
+                    console.log("Target Tag:", event.target.tagName);
+                },
+                submitForm() {
+                    alert("Form submit event intercepted with .prevent modifier. Page did not reload!");
+                },
+                handleEnterKey(event) {
+                    this.textInput = event.target.value;
+                    event.target.value = ""; // Clear input field.
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Conditional and List Rendering</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"> <!--This block will be mounted by Vue.-->
+        <h1>Conditional and List Rendering</h1>
+
+        <!--Conditional Rendering (v-if, v-else-if, v-else)-->
+        <h2>Conditional Rendering (v-if, v-else-if, v-else)</h2>
+        <div style="margin-bottom: 15px;">
+            <p>Score: {{ score }}</p>
+            <button @click="score += 10">Increase Score</button>
+            <button @click="score -= 10">Decrease Score</button>
+            
+            <!--"v-if" will only show the element if the condition is true.-->
+            <p v-if="score >= 80" style="color: green; font-weight: bold;">Grade: Excellent (A)</p>
+            <!--"v-else-if" will only show the element if the previous condition is false.-->
+            <p v-else-if="score >= 50" style="color: blue;">Grade: Pass (C)</p>
+            <!--"v-else" will only show the element if all previous conditions are false.-->
+            <p v-else style="color: red;">Grade: Fail (F)</p>
+        </div>
+
+        <!--Conditional Visibility (v-show)-->
+        <h2>Conditional Visibility (v-show)</h2>
+        <div style="margin-bottom: 15px;">
+            <button @click="toggleAlert">Toggle Alert Visibility</button>
+            <!--"v-show" toggles CSS display: none. Element remains in DOM.-->
+            <p v-show="showAlert" style="background: yellow; padding: 10px; border: 1px solid gold;">
+                This is a toggled alert box using v-show.
+            </p>
+        </div>
+
+        <!--List Rendering (v-for)-->
+        <h2>List Rendering (v-for)</h2>
+        <div>
+            <h3>Product Inventory:</h3>
+            <ul>
+                <!--"v-for" iterates through items in an array. ":key" is required for proper list rendering.-->
+                <li v-for="(product, index) in products" :key="product.id">
+                    {{ index + 1 }}. {{ product.name }} - ${{ product.price }} 
+                    <span v-if="product.stock === 0" style="color: red; font-weight: bold;">(Out of Stock!)</span>
+                    <span v-else-if="product.stock < 5" style="color: orange;">(Low Stock: {{ product.stock }} left)</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script> /* Options API Definition */
+        Vue.createApp({
+            data() {
+                return {
+                    score: 75,
+                    showAlert: true,
+                    products: [
+                        { id: 101, name: "Laptop", price: 999, stock: 10 },
+                        { id: 102, name: "Smartphone", price: 599, stock: 3 },
+                        { id: 103, name: "Headphones", price: 99, stock: 0 },
+                        { id: 104, name: "Keyboard", price: 49, stock: 15 }
+                    ]
+                };
+            },
+            methods: {
+                toggleAlert() {
+                    this.showAlert = !this.showAlert;
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

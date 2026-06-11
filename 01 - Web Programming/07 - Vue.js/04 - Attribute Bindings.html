@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Attribute Bindings</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #333;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .active {
+            background-color: lightgreen;
+            border-radius: 50%;
+        }
+        .error {
+            border-color: red;
+            background-color: #ffcccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"> <!--This block will be mounted by Vue.-->
+        <h1>Attribute Bindings</h1>
+
+        <!--Basic Attribute Binding (Standard vs Shorthand)-->
+        <h2>Basic Attribute Binding (Standard vs Shorthand)</h2>
+        <div>
+            <!--Standard Syntax: v-bind:href-->
+            <!--"v-bind" is a directive that is used to bind an attribute to an expression. It is used to bind an attribute to an expression.-->
+            <!--It works like the "{{ }}" but this one is work inside an attribute of HTML tag.-->
+            <!--It allow the data inside "data()" passed to the HTML tag attribute.-->
+            <p><a v-bind:href="url" target="_blank">Go to Vue.js Official Website (Standard: v-bind:href)</a></p>
+
+            <!--Syntax Sugar (Shorthand): :href-->
+            <p><a :href="url" target="_blank">Go to Vue.js Official Website (Shorthand: :href)</a></p>
+            
+            <button :disabled="isButtonDisabled">Clickable Indicator</button>   
+            <button @click="isButtonDisabled = !isButtonDisabled">Toggle Button Disabled State</button>
+        </div>
+
+        <!--Dynamic Class Binding-->
+        <h2>Dynamic Class Binding (:class)</h2>
+        <div>
+            <button @click="isActive = !isActive">Toggle Active Shape Class</button>
+            <button @click="hasError = !hasError">Toggle Error State Class</button>
+            
+            <!--Class Binding Object Syntax: Key is class name, value is condition truthiness.-->
+            <!--"{ active: isActive, error: hasError }" is an object that is used to bind the style attribute to an expression.-->
+            <div class="box" :class="{ active: isActive, error: hasError }"> <!--Refer the CSS class.-->
+                Dynamic Class   
+            </div>
+        </div>
+
+        <!--Dynamic Style Binding-->
+        <h2>Dynamic Style Binding (:style)</h2>
+        <div style="margin-top: 15px;">
+            <!--"{ color: textColor, fontSize: fontSize + 'px' }" is an object that is used to bind the style attribute to an expression.-->
+            <!--It different with "style" because we can put the logic inside there. (Dynamic)-->
+            <p :style="{ color: textColor, fontSize: fontSize + 'px' }">
+                Adjustable Inline Styled Text
+            </p>
+            <button @click="textColor = 'red'">Change Color to Red</button>
+            <button @click="textColor = 'blue'">Change Color to Blue</button>
+            <button @click="fontSize += 2">Increase Font Size</button>
+            <button @click="fontSize -= 2">Decrease Font Size</button>
+        </div>
+    </div>
+
+    <script> /* Options API Bindings */
+        Vue.createApp({
+            data() {
+                return {
+                    url: "https://vuejs.org",
+                    isButtonDisabled: false,
+                    isActive: false,
+                    hasError: false,
+                    textColor: "black",
+                    fontSize: 16
+                };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

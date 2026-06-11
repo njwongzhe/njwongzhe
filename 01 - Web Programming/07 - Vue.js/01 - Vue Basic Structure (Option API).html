@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vue Core and Basic Skeleton</title>
+    <!-- Include Vue 3 Global Build CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"> <!--This block will be mounted by Vue.-->
+        <h1>Vue.js Basic Skeleton</h1>
+        <p>Open the console to view the Vue app lifecycle.</p>
+        
+        <!-- Text Interpolation -->
+        <h2>Message: {{ message }}</h2>
+        <h2>Status: {{ isActive ? "Active" : "Inactive" }}</h2> 
+        <!--In Vue, "{{ }}" is called interpolation.-->
+        <!--It is used to display the value of a variable in the DOM.-->
+        <!--In this case, the message and isActive variables are displayed in the DOM.-->
+    </div>
+
+    <script> /* Options API Structure */
+        // Vue.createApp creates the Vue application instance.
+        Vue.createApp({
+            // "data()" function returns the reactive state. (Model)
+            data() {
+                return {
+                    message: "Hello, Vue.js!",
+                    isActive: true
+                };
+            },
+            // "methods" object defines component actions.
+            methods: {
+                // Actions can go here.
+            }
+        }).mount('#app'); // "mount()" associates Vue with the DOM container.
+    </script>
+</body>
+</html>

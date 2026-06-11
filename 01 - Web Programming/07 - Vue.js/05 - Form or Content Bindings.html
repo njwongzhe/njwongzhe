@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Form or Content Bindings</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"> <!--This block will be mounted by Vue.-->
+        <h1>Form and Content Bindings</h1>
+
+        <!--Form Bindings (v-model)-->
+        <h2>Inputs and Textareas (v-model)</h2>
+        <div>
+            <label for="username">Username (trimmed): </label>
+            <!--"v-model" is a directive that is used to bind an attribute to an expression. It is two way binding and trim the whitespace.-->
+            <!--It different with "v-bind" because this one is two way binding.-->
+            <!--"v-bind" only can retrieve the value from "data()" to the HTML tag attribute.-->
+            <!--"v-model" can retrieve the value from "data()" to the HTML tag attribute and retrieve the value from the HTML tag attribute to "data()".-->
+            <input type="text" id="username" v-model.trim="username">
+            <p>Value: "{{ username }}"</p>
+
+            <label for="feedback">Feedback: </label>
+            <textarea id="feedback" v-model="feedback" placeholder="Write something..."></textarea>
+            <p style="white-space: pre-line;">Value: {{ feedback }}</p>
+        </div>
+
+        <!--Content Bindings (v-text, v-html)-->
+        <h2>Content Bindings (v-text, v-html)</h2>
+        <div>
+            <!--"v-text" is a directive used to update the element's textContent. It is the same as using the Mustache interpolation "{{ textMessage }}".-->
+            <!--It only can retrieve the value from data() to the HTML tag, can't retrieve value from the HTML tag to data().-->
+            <p v-text="textMessage"></p>
+
+            <!--"v-html" is a directive used to update the element's innerHTML. Renders raw HTML strings directly.-->
+            <!--It only can retrieve the value from data() to the HTML tag, can't retrieve value from the HTML tag to data().-->
+            <!--Warning: Using v-html is dangerous if content is user-provided (XSS vulnerabilities).-->
+            <div v-html="htmlMessage"></div>
+        </div>
+
+    <script> /* Options API Model binding */
+        Vue.createApp({
+            data() {
+                return {
+                    username: "",
+                    feedback: "",
+                    textMessage: "This content is bound using v-text.",
+                    htmlMessage: "<span style='color: green; font-weight: bold;'>This content is parsed and rendered as raw HTML using v-html.</span>"
+                };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
