@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JSON Operation</title>
+</head>
+
+<body>
+    <h1>JSON Operation</h1>
+    <p>Open the browser console (F12) to inspect the execution of various JSON operations and methods.</p>
+
+    <script> /* Deserialization: JSON.parse() */
+        console.log("------------------>>> Deserialization: JSON.parse()");
+        // Syntax: JSON.parse(string, reviver)
+        // string  - A valid JSON string.
+        // reviver - An optional function that transforms the resulting value before it is returned.
+
+        // JSON.parse(string)
+        // JSON.parse() parses a JSON-formatted string and constructs the JavaScript value or object described by the string.
+        var jsonString = '{"name":"Brendan Eich","matric_no":"AC123","isActive":true}';
+        var userObj = JSON.parse(jsonString);
+        console.log("Basic Parsed Object:", userObj);            // Output: { "name": "Brendan Eich", "matric_no": "AC123", "isActive": true }
+        console.log("Accessing Property (name):", userObj.name); // Output: Brendan Eich
+
+        // JSON.parse(string, reviver)
+        // The reviver function runs for every key-value pair parsed. It allows modifying properties before they are returned.
+        // Example: Parsing ISO date strings back into JavaScript Date objects (which JSON doesn't support natively).
+        var jsonWithDate = '{"event":"JavaScript Launch","date":"1995-12-04T00:00:00.000Z"}';
+        var parsedEvent = JSON.parse(jsonWithDate, function (key, value) {
+            if (key === "date")
+                return new Date(value); // Convert string to real Date object.
+            return value; // Keep other values as-is.
+        });
+        console.log("Parsed Date Type:", typeof parsedEvent.date);           // Output: object
+        console.log("Instance of Date?:", parsedEvent.date instanceof Date); // Output: true
+        console.log("Formatted Year:", parsedEvent.date.getFullYear());      // Output: 1995
+
+        // Safe Parsing with Error Handling (try...catch)
+        // Invalid JSON strings will throw a SyntaxError. Wrap parsing in a try...catch block to prevent application crashes.
+        var invalidJson = '{"name": "Rasmus Lerdof",}'; // Invalid due to trailing comma.
+        try {
+            var result = JSON.parse(invalidJson);
+        } catch (error) {
+            console.warn("JSON.parse Error Caught successfully:", error.message);
+        }
+    </script>
+
+    <script> /* Serialization: JSON.stringify() */
+        console.log("------------------>>> Serialization: JSON.stringify()");
+        // Syntax: JSON.stringify(value, replacer, space)
+        // value    - The value/object to convert to a JSON string.
+        // replacer - An optional function or array that controls which properties are included and how their values are transformed.
+        // space    - An optional parameter for formatting (pretty-printing). Can be a number (indentation spaces) or a string (custom indent).
+
+        var developer = {
+            name: "Rasmus Lerdof",
+            language: "PHP",
+            experienceYears: 30,
+            isAdmin: false,
+            secretCode: undefined, // "undefined" properties are omitted in objects
+            sayHello: function() { return "Hello"; } // "functions" are omitted in objects
+        };
+
+        // JSON.stringify(value)
+        // JSON.stringify() converts a JavaScript value/object to a JSON-formatted string.
+        var basicJsonStr = JSON.stringify(developer);
+        console.log("Basic Stringified:", basicJsonStr); // Output: {"name":"Rasmus Lerdof","language":"PHP","experienceYears":30,"isAdmin":false}
+
+        // JSON.stringify(value, replacer)
+        // If an array of strings/numbers is passed as the replacer, only those keys are serialized.
+        var filteredJsonStr = JSON.stringify(developer, ["name", "language"]);
+        console.log("Filtered Stringified (Array Replacer):", filteredJsonStr); // Output: {"name":"Rasmus Lerdof","language":"PHP"}
+
+        // JSON.stringify(value, replacer)
+        // A replacer function runs for each property, allowing value transformations or selective exclusions.
+        var transformedJsonStr = JSON.stringify(developer, function(key, value) {
+            if (typeof value === "string")  // Convert all string values to uppercase.
+                return value.toUpperCase(); 
+            if (key === "isAdmin") // Returning undefined removes the property from output.
+                return undefined; 
+            return value;
+        });
+        console.log("Transformed Stringified (Function Replacer):\n" + transformedJsonStr);
+
+        // JSON.stringify(value, space)
+        // The third argument specifies indentation spacing (either number of spaces up to 10, or a custom string like '\t').
+        var prettyJsonStr = JSON.stringify(developer, null, 4);
+        console.log("Pretty Printed JSON:\n" + prettyJsonStr); // Output: {"name":"Rasmus Lerdof","language":"PHP","experienceYears":30,"isAdmin":false}
+    </script>
+</body>
+
+</html>

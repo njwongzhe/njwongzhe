@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AJAX CORS Control</title>
+    <!-- Import jQuery from Google CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>AJAX CORS Control</h1>
+    <p>Open browser console (F12) and click the button below to test a CORS block example.</p>
+
+    <button id="test-cors-btn">Trigger CORS Request</button>
+
+    <script> /* What is CORS */
+        console.log("------------------>>> What is CORS");
+        // CORS (Cross-Origin Resource Sharing) is a security standard enforced by browsers.
+        // It prevents scripts running on one origin (domain/protocol/port) from accessing resources 
+        // hosted on a different origin unless that server responds with permissions headers.
+    </script>
+
+    <script> /* How to Bypass / Solve CORS */
+        console.log("------------------>>> CORS Solutions");
+        
+        // --- 1. FRONTEND LOCAL TESTING BYPASS ---
+        // Close all instances of Chrome, then launch via command line (Win + R) with disabled security flags: chrome.exe --disable-web-security --user-data-dir="C:/temp-chrome-profile"
+        // "temp-chrome-profile" can be any name. If the folder doesn't exist, it will be created automatically.
+        // It is just a folder that uses to store browser data. When it is deleted, the browser will be reset to default.
+        
+        // --- 2. BACKEND PHP HEADER RESOLUTION ---
+        // Add this line at the top of your server PHP script to permit access from any origin:
+        // header("Access-Control-Allow-Origin: *");
+    </script>
+
+    <script> /* CORS Request Execution Test */
+        $(document).ready(function() {
+            $("#test-cors-btn").click(function() {
+                console.log("Dispatching cross-origin request to google.com (expected to be blocked)...");
+                $.ajax({
+                    url: "https://www.google.com",
+                    type: "GET",
+                    success: function(data) {
+                        console.log("Success:", data);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("CORS Block Error captured successfully:", error); // Always get this error since google.com doesn't allow AJAX request. This just test the CORS setup.
+                    }
+                });
+            });
+        });
+
+        // However, even you already solve the CORS, you still can't access other website using AJAX because of security reasons.
+        // The result will always return error since the website you access doesn't allow AJAX request.
+        // For example, if you want to access google.com, you need to add header("Access-Control-Allow-Origin: *"); at the top of google.com
+        // But google.com doesn't allow you to do that.
+
+        // Thus, you just need to see that there is no error message like: 
+        // Access to XMLHttpRequest at 'https://www.google.com/' from origin 'http://localhost:5500' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+        // If yes, means that you are already successfully solve the CORS. Then, you may proceed to develop your project that required cross-origin AJAX requests.
+    </script>
+</body>
+
+</html>

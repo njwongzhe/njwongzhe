@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JSON Client-Server Implementation</title>
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>JSON Client-Server Implementation</h1>
+    <p>Perform asynchronous client-server data operations using jQuery AJAX and PHP.</p>
+
+    <!-- Search Section -->
+    <div style="margin-bottom: 20px;">
+        <label for="matric-input">Search Matric No:</label>
+        <input type="text" id="matric-input" placeholder="e.g. AC123">
+        <button id="btn-search">Search</button>
+        <button id="btn-load-all">Load All</button>
+    </div>
+
+    <!-- Results Table -->
+    <table border="1" cellpadding="5" style="border-collapse: collapse; min-width: 500px;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Matric No</th>
+                <th>Coursework (CW)</th>
+                <th>Final Exam (FE)</th>
+                <th>Total Marks</th>
+            </tr>
+        </thead>
+        <tbody id="student-table-body">
+            <tr>
+                <td colspan="5" style="text-align: center; color: gray;">No records loaded yet.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script> /* Client-Server Operations using jQuery */
+        $(document).ready(function () {
+            // Helper function to fetch and render student data.
+            function fetchStudentData(params) {
+                console.log("------------------>>> jQuery AJAX Request Dispatched", params);
+
+                $.ajax({
+                    type: "GET",
+                    url: "03 - JSON Client-Server Implementation.php",
+                    data: params,
+                    dataType: "json", // Automatically deserializes JSON response into JS object/array.
+                    success: function (response) {
+                        console.log("Response Received:", response);
+                        renderTable(response);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("jQuery AJAX Error:", error);
+                        $("#student-table-body").html('<tr><td colspan="5" style="text-align: center; color: red;">Failed to load data. See console for details.</td></tr>');
+                    }
+                });
+            }
+
+            // Function to dynamically build and inject HTML table rows.
+            function renderTable(students) {
+                var htmlRows = "";
+
+                if (students.length === 0) {
+                    htmlRows = '<tr><td colspan="5" style="text-align: center; color: orange;">No matching records found.</td></tr>';
+                } else {
+                    for (var i = 0; i < students.length; i++) {
+                        var student = students[i];
+                        // Perform client-side calculations on properties.
+                        var totalMarks = student.marks.cw + student.marks.fe;
+
+                        htmlRows += "<tr>" +
+                            "<td>" + student.name + "</td>" +
+                            "<td>" + student.matric_no + "</td>" +
+                            "<td>" + student.marks.cw + "</td>" +
+                            "<td>" + student.marks.fe + "</td>" +
+                            "<td>" + totalMarks + "</td>" +
+                            "</tr>";
+                    }
+                }
+
+                $("#student-table-body").html(htmlRows);
+            }
+
+            // Event handler to load all student records.
+            $("#btn-load-all").click(function () {
+                $("#matric-input").val(""); // Clear search input.
+                fetchStudentData({});
+            });
+
+            // Event handler to search for a specific student record by matric number.
+            $("#btn-search").click(function () {
+                var matricVal = $("#matric-input").val().trim();
+                fetchStudentData({ matric_no: matricVal });
+            });
+        });
+    </script>
+</body>
+
+</html>

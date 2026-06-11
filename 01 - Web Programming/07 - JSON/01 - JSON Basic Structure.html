@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JSON Basic Structure</title>
+</head>
+
+<body>
+    <h1>JSON Basic Structure</h1>
+    <p>Open the browser console (F12) to inspect the structural representation of JSON data.</p>
+
+    <script> /* 1.0 - Foundations of JSON */
+        console.log("------------------>>> 1.0 - Foundations of JSON");
+        // Definition: JSON is a text-based, language-independent data-interchange format.
+        // It is a strict subset of JavaScript object literals (representing values/properties without methods).
+
+        // JSON vs XML Mechanics:
+        // - JSON is parsed natively by JavaScript engine (JSON.parse()) making it faster than XML DOM parsing.
+        // - JSON lacks tags, making payloads significantly lighter, saving bandwidth.
+        // - JSON natively supports typing (Number, Boolean, Array, etc.), whereas XML parses everything as strings at runtime.
+        // - Disadvantages: JSON has no namespace support, no native schema validation (unlike XML DTD), and no template engine (unlike XML XSLT).
+    </script>
+
+    <script> /* 2.0 - Universal Syntax Architecture */
+        console.log("------------------>>> 2.0 - Syntax Rules");
+        // Blueprints:
+        // - Objects: Contained in curly braces { } as name/value pairs.
+        // - Arrays: Contained in square brackets [ ] as ordered value sequences.
+
+        // The 7 Strict Laws of JSON:
+        // 1. Double quotes required for keys and string values.
+        // 2. Boolean/null literals must be lowercase (true, false, null).
+        // 3. Trailing commas are banned.
+        // 4. Banned logic, functions, and expressions.
+        // 5. Banned comments (no // or /* */).
+        // 6. Banned undefined values (use null instead).
+        // 7. Backslashes and control characters must be escaped.
+
+        // Nested JSON Collection Example:
+        var studentCollection = [
+            {
+                "name": "Brendan Eich",
+                "matric_no": "AC123",
+                "marks": {
+                    "cw": 50,
+                    "fe": 25
+                }
+            },
+            {
+                "name": "Rasmus Lerdof",
+                "matric_no": "AC456",
+                "marks": {
+                    "cw": 55,
+                    "fe": 30
+                }
+            }
+        ];
+        console.log("Nested student data collection in JS:", studentCollection);
+    </script>
+</body>
+
+</html>

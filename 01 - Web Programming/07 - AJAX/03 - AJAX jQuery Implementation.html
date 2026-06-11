@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX jQuery Implementation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--Demo HTML Body-->
+    <h1>AJAX jQuery Implementation</h1>
+    <p>Perform a jQuery AJAX calculation. Open browser console (F12) to see success or error callbacks.</p>
+
+    <div>
+        <label>Num 1: <input type="number" id="num1" value="12"></label>
+        <label>Num 2: <input type="number" id="num2" value="8"></label>
+        <button id="calc-jq-btn">Calculate (jQuery)</button>
+    </div>
+    <div id="output-jq" style="margin-top: 15px; font-weight: bold;"></div>
+    <!--End of Demo HTML Body-->
+
+    <script> /* The jQuery AJAX Process */
+        // jQuery AJAX Workflow wraps the low-level XMLHttpRequest.
+        // It provides shorthand methods or the robust $.ajax() controller.
+        // Core structure: $.ajax({ property: value });
+    </script>
+
+    <script> /* Callback & HTTP Status Details */
+        // jQuery replaces readyState tracking with clean Event Hooks:
+        // success: function(response) {} - Triggered when transaction is complete and successful (status 200).
+        // error: function(xhr) {}        - Triggered if status code indicates failure (404, 500, 0, etc.).
+    </script>
+
+    <script> /* jQuery Calculation Dispatcher */ 
+        $(document).ready(function() { 
+            $("#calc-jq-btn").click(function() { 
+                console.log("------------------>>> jQuery AJAX Request Started");
+                var n1 = $("#num1").val();
+                var n2 = $("#num2").val();
+
+                // Prepare data payload as a clean JavaScript object.
+                var requestData = {
+                    num1: n1,
+                    num2: n2
+                };
+
+                // Execute the Advance AJAX Controller.
+                $.ajax({ 
+                    type: "GET",       // Method - GET - Retrieve data from the server.
+                    url: "sum.php",    // URL - The file to retrieve data from.
+                    data: requestData, // Data Payload - jQuery automatically appends this as a query string for GET.
+                    dataType: "json",  // Tells jQuery to automatically execute JSON.parse on response text.
+                    async: true,       // Async - true - Asynchronous Request (Default).
+                    
+                    success: function(response, status, xhr) { // Invoked when response returns successfully.
+                        // Since dataType is "json", response is already a parsed JS object.
+                        $("#output-jq").text("Result: " + response.sum + " (Success)");
+                    },
+                    
+                    error: function(xhr, status, error) { // Invoked if the transaction fails.
+                        $("#output-jq").text("Error: Received HTTP Status " + xhr.status); 
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

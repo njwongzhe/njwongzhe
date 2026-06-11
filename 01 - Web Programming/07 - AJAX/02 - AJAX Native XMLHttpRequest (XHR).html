@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AJAX Native XMLHttpRequest (XHR)</title>
+</head>
+
+<body>
+    <!--Demo HTML Body-->
+    <h1>AJAX Native XMLHttpRequest (XHR)</h1>
+    <p>Perform a native XHR calculation. Open browser console (F12) to see readyState transition logs.</p>
+
+    <div>
+        <label>Num 1: <input type="number" id="num1" value="12"></label>
+        <label>Num 2: <input type="number" id="num2" value="8"></label>
+        <button id="calc-xhr-btn">Calculate (XHR)</button>
+    </div>
+    <div id="output-xhr" style="margin-top: 15px; font-weight: bold;"></div>
+    <!--End of Demo HTML Body-->
+
+    <script> /* The XHR 4-Step Process */
+        // Native XMLHttpRequest Workflow Consists of 4 Main Steps:
+        // 1. Create    - var xhr = new XMLHttpRequest();
+        //              - var xhr = ActiveXObject("Microsoft.XMLHTTP");
+        // 2. Configure - xhr.open(method, url, async);
+        // 3. Callback  - xhr.onreadystatechange = function() { ... }
+        // 4. Dispatch  - xhr.send(data);
+    </script>
+
+    <script> /* readyState & HTTP Status Details */
+        // readyState Code Values:
+        // 0 (UNSENT)           - Client object created. open() not called yet.
+        // 1 (OPENED)           - open() configuration completed.
+        // 2 (HEADERS_RECEIVED) - send() dispatched; headers & status headers available.
+        // 3 (LOADING)          - Downloading data stream; responseText contains partial body.
+        // 4 (DONE)             - Full transaction completed.
+
+        // HTTP Status:
+        // 200 - OK (Request succeeded)
+        // 404 - Not Found
+        // 0   - Network Error / CORS block
+    </script>
+
+    <script> /* XHR Calculation Dispatcher */
+        document.getElementById("calc-xhr-btn").addEventListener("click", function() {
+            console.log("------------------>>> Native XHR Request Started");
+            var n1 = document.getElementById("num1").value;
+            var n2 = document.getElementById("num2").value;
+
+            // Step 1: Create XHR Object
+            // The conditional statement here ensure compatibility across different browsers.
+            if (window.XMLHttpRequest) 
+                var xhr = new XMLHttpRequest(); // Modern browsers. (For IE7+, Firefox, Chrome, Opera, Safari)
+            else 
+                var xhr = new ActiveXObject("Microsoft.XMLHTTP"); // Internet Explorer. (For IE6 and Below)
+            
+
+            // Step 2: Configure Connection
+            // In this step, we are configuring the connection to the server.
+            // Method - GET - Retrieve data from the server.
+            // URL    - "sum.php?num1=" + n1 + "&num2=" + n2 - The file to retrieve data from. (In this case we try to add some variable to bring together with the URL in GET request.)
+            // Async  - true - Asynchronous Request (Default).
+            xhr.open("GET", "sum.php?num1=" + n1 + "&num2=" + n2, true);
+
+            // Step 3: Listen to State Changes
+            // In this step, we are listening to the state changes of the request.
+            // readyState - The state of the request. (It will change from 0 to 4 as the request progresses.)
+            // status     - The status of the request.
+            xhr.onreadystatechange = function() {
+                switch (xhr.readyState) { 
+                    // There is no need any loop to check the readyState, it will automatically trigger the onreadystatechange function as the readyState changes. (Since it will always listen to the state change.)
+                    case 0: console.log("UNSENT (0)"); break;
+                    case 1: console.log("OPENED (1)"); break;
+                    case 2: console.log("HEADERS_RECEIVED (2)"); break;
+                    case 3: console.log("LOADING (3)"); break;
+                    case 4: console.log("DONE (4)"); break;
+                }
+                
+                if (xhr.readyState === 4) { // readyState 4 means the request is complete. 
+                    if (xhr.status === 200) { // If the HTTP status is 200 (OK), then the request was successful.
+                        var response = JSON.parse(xhr.responseText);
+                        document.getElementById("output-xhr").innerText = "Result: " + response.sum + " (Success)";
+                    } else { // If the HTTP status is not 200 (OK), then the request was unsuccessful.
+                        document.getElementById("output-xhr").innerText = "Error: Received HTTP Status " + xhr.status;
+                    }
+                }
+            };
+
+            // Step 4: Dispatch Payload
+            // This is used to send the request to the server. (The data to be sent to the server)
+            // There is no argument inside the send() method because we are using GET request.
+            // If we are using POST request, we need to send the data in the send() method. "xhr.send(data);" for example "xhr.send(JSON.stringify(data));".
+            xhr.send();
+        });
+    </script>
+</body>
+
+</html>

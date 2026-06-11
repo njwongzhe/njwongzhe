@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Brendan Eich",
+    "matric_no": "AC123",
+    "marks": {
+      "cw": 50,
+      "fe": 25
+    }
+  },
+  {
+    "name": "Rasmus Lerdof",
+    "matric_no": "AC456",
+    "marks": {
+      "cw": 55,
+      "fe": 30
+    }
+  }
+]

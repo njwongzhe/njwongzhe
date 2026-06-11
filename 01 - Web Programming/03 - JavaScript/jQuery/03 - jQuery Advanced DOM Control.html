@@ -23,14 +23,17 @@
     <!-- DOM tree for Traversing and manipulations -->
     <div id="ancestor">
         <div id="parent">
-            <span class="sibling-prev">Previous Sibling</span>
+            <span class="sibling-prev-2">Sibling Prev 2</span>
+            <span class="sibling-prev-1">Sibling Prev 1</span>
             <div id="target-box" class="target">
                 Target Element
                 <p class="child child-0">Child Paragraph Index 0</p>
                 <p class="child child-1 special">Child Paragraph Index 1 (.special)</p>
                 <p class="child child-2">Child Paragraph Index 2</p>
             </div>
-            <span class="sibling-next">Next Sibling</span>
+            <span class="sibling-next-1">Sibling Next 1</span>
+            <span class="sibling-next-2">Sibling Next 2</span>
+            <span class="sibling-next-3">Sibling Next 3</span>
         </div>
     </div>
 
@@ -48,27 +51,27 @@
     <script> /* Nodes CRUD: Clone, Append, Prepend, After, Before, Remove, Empty */
         console.log("------------------>>> Nodes CRUD Operations");
 
-        // 1. .clone() - Creates a deep copy of matched elements
+        // 1. .clone() - Creates a deep copy of matched elements.
         var $clonedNode = $("#target-box").clone();
         console.log("Cloned Node structure:", $clonedNode);
 
-        // 2. .prepend() - Inserts content at the beginning inside matched elements
+        // 2. .prepend() - Inserts content at the beginning inside matched elements.
         $("#target-box").prepend("<span>[PREPENDED CONTENT] </span>");
 
-        // 3. .append() - Inserts content at the end inside matched elements
+        // 3. .append() - Inserts content at the end inside matched elements.
         $("#target-box").append("<span> [APPENDED CONTENT]</span>");
 
-        // 4. .before() - Inserts content directly before the matched elements
+        // 4. .before() - Inserts content directly before the matched elements.
         $("#target-box").before("<p>Inserted directly before the target-box</p>");
 
-        // 5. .after() - Inserts content directly after the matched elements
+        // 5. .after() - Inserts content directly after the matched elements.
         $("#target-box").after("<p>Inserted directly after the target-box</p>");
 
-        // 6. .empty() - Removes all child nodes (including text) from matched elements
+        // 6. .empty() - Removes all child nodes (including text) from matched elements.
         // Uncomment to test:
         // $("#target-box").empty();
 
-        // 7. .remove() - Removes matched elements entirely from the DOM tree
+        // 7. .remove() - Removes matched elements entirely from the DOM tree.
         // Uncomment to test:
         // $("#target-box").remove();
     </script>
@@ -76,17 +79,17 @@
     <script> /* CSS Class & Style Control */
         console.log("------------------>>> CSS Class & Style Control");
 
-        // 1. .addClass(className) - Appends CSS classes
+        // 1. .addClass(className) - Appends CSS classes.
         $("#target-box").addClass("bg-dark");
 
-        // 2. .removeClass(className) - Removes CSS classes
+        // 2. .removeClass(className) - Removes CSS classes.
         $("#target-box").removeClass("bg-dark");
 
-        // 3. .toggleClass(className) - Alternates between adding and removing a class
-        $("#target-box").toggleClass("highlight-blue"); // Will add it here since it doesn't exist
-        $("#target-box").toggleClass("highlight-blue"); // Will remove it here
+        // 3. .toggleClass(className) - Alternates between adding and removing a class.
+        $("#target-box").toggleClass("highlight-blue"); // Will add it here since it doesn't exist.
+        $("#target-box").toggleClass("highlight-blue"); // Will remove it here.
 
-        // 4. .css(propertyName, value) - Reads or sets inline styles directly
+        // 4. .css(propertyName, value) - Reads or sets inline styles directly.
         // Set multiple styles using an object:
         $("#target-box").css({
             "border": "2px solid red",
@@ -99,29 +102,56 @@
     <script> /* DOM Tree Traversing */
         console.log("------------------>>> DOM Tree Traversing");
 
-        // 1. .parent() - Selects the immediate parent element of matched elements
+        // 1. .parent() - Selects the immediate parent element of matched elements.
         console.log("Parent element:", $("#target-box").parent());
 
-        // 2. .children() - Selects all immediate child elements of matched elements
+        // 2. .children() - Selects all immediate child elements of matched elements.
         console.log("Children elements:", $("#target-box").children());
 
-        // 3. .find(selector) - Selects descendant elements matching selector recursively
+        // 3. .find(selector) - Selects descendant elements matching selector recursively.
         console.log("Descendants matching special:", $("#target-box").find(".special"));
 
-        // 4. .siblings() - Selects all sibling elements of matched elements
+        // 4. .siblings() - Selects all sibling elements of matched elements.
         console.log("Siblings elements:", $("#target-box").siblings());
 
-        // 5. .next() - Selects the immediate next sibling element of matched elements
+        // 5. .next() - Selects the immediate next sibling element of matched elements.
         console.log("Next sibling element:", $("#target-box").next());
 
-        // 6. .eq(index) - Filters elements by index (0-based) in matched collection
+        // 6. .nextAll() - Selects all next sibling elements of matched elements.
+        console.log("All next sibling elements:", $("#target-box").nextAll());
+
+        // 7. .nextUntil(selector) - Selects all next sibling elements up to (but not including) the matching element.
+        console.log("Next sibling elements until .sibling-next-3:", $("#target-box").nextUntil(".sibling-next-3"));
+
+        // 8. .prev() - Selects the immediate previous sibling element of matched elements.
+        console.log("Previous sibling element:", $("#target-box").prev());
+
+        // 9. .prevAll() - Selects all previous sibling elements of matched elements.
+        console.log("All previous sibling elements:", $("#target-box").prevAll());
+
+        // 10. .prevUntil(selector) - Selects all previous sibling elements up to (but not including) the matching element.
+        console.log("Previous sibling elements until .sibling-prev-2:", $("#target-box").prevUntil(".sibling-prev-2"));
+
+        // 11. .first() - Selects the first element from the matched collection.
+        console.log("First child paragraph:", $("#target-box").children().first());
+
+        // 12. .last() - Selects the last element from the matched collection.
+        console.log("Last child paragraph:", $("#target-box").children().last());
+
+        // 13. .eq(index) - Filters elements by index (0-based) in matched collection.
         console.log("Child at Index 1:", $("#target-box").children().eq(1));
 
-        // 7. .filter(selector) - Limits matched collection to elements that match selection query
+        // 14. .filter(selector) - Limits matched collection to elements that match selection query.
         console.log("Filtered child (.special):", $("#target-box").children().filter(".special"));
 
-        // 8. .not(selector) - Excludes matched elements from selector criteria
+        // 15. .not(selector) - Excludes matched elements from selector criteria.
         console.log("Children excluding (.special):", $("#target-box").children().not(".special"));
+
+        // 16. .each(function(index, element)) - Iterates over a jQuery object, executing a callback function for each matched element.
+        console.log("Iterating through all children using .each():");
+        $("#target-box").children().each(function(index, element) {
+            console.log(`- Item Index ${index}: ${$(element).text().trim()}`);
+        });
     </script>
 </body>
 

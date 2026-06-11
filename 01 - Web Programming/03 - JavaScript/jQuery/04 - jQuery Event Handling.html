@@ -35,27 +35,27 @@
     <script> /* Basic Event Listeners */
         console.log("------------------>>> Basic Event Listeners");
 
-        // 1. click event
+        // 1. Click Event
         $("#click-btn").click(function() {
             console.log("Button click event triggered!");
         });
 
-        // 2. dblclick (Double Click) event
+        // 2. Double Click Event
         $("#click-btn").dblclick(function() {
             console.log("Button double click event triggered!");
         });
 
-        // 3. focus event
+        // 3. Focus Event
         $("#text-input").focus(function() {
             console.log("Input focused (active)!");
         });
 
-        // 4. blur (Focus Out) event
+        // 4. Focus Out Event
         $("#text-input").blur(function() {
             console.log("Input blurred (lost focus)!");
         });
 
-        // 5. change event
+        // 5. Change Event
         $("#select-dropdown").change(function() {
             console.log("Dropdown selection changed. New value:", $(this).val());
         });
@@ -79,7 +79,7 @@
             console.log("Delegated Click Event: " + $(this).text());
         });
 
-        // Action: Adding items dynamically on clicking "Add New Dynamic Item"
+        // Action: Adding items dynamically on clicking "Add New Dynamic Item".
         $("#add-item").click(function() {
             var newItemCount = $("#list-container li").length + 1;
             $("#list-container").append("<li class='list-item'>Dynamic Item " + newItemCount + "</li>");

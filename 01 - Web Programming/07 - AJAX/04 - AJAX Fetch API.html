@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AJAX Native Fetch API</title>
+</head>
+
+<body>
+    <h1>AJAX Native Fetch API</h1>
+    <p>Perform a native Fetch API calculation. Open browser console (F12) to see Promise chain resolve logs.</p>
+
+    <div>
+        <label>Num 1: <input type="number" id="num1" value="12"></label>
+        <label>Num 2: <input type="number" id="num2" value="8"></label>
+        <button id="calc-fetch-btn">Calculate (Fetch)</button>
+    </div>
+    <div id="output-fetch" style="margin-top: 15px; font-weight: bold;"></div>
+    <script> /* The Fetch API Process */
+        // Fetch API Workflow replaces the low-level XMLHttpRequest.
+        // It provides standard JavaScript function to handle AJAX operation in a more simple manner.
+        // Core structure: fetch(url, [options]).
+    </script>
+
+    <script> /* Promise Chain & HTTP Status Details */
+        // Fetch replaces readyState tracking with standard Promise chaining:
+        // .then(res => res.json()) - Converts the raw data stream into a valid JSON instance.
+        // .catch(err => ...)       - Catches network errors or connection restrictions.
+    </script>
+
+    <script> /* Fetch Calculation Dispatcher */
+        document.getElementById("calc-fetch-btn").addEventListener("click", function() {
+            console.log("------------------>>> Native Fetch Request Started");
+            var n1 = document.getElementById("num1").value;
+            var n2 = document.getElementById("num2").value;
+
+            // --- OPTION 1: FETCH GET METHOD ---
+            // For a GET request, parameters must be appended directly to the URL query string.
+            var url = "sum.php?num1=" + n1 + "&num2=" + n2;
+
+            // Step 1: Fetch initiates a GET request by default.
+            fetch(url) 
+                // Step 2: Check HTTP Status Code
+                .then(function(response) {
+                    if (response.ok) // "response.ok" is a boolean property that returns true if the HTTP status code is in the range 200-299 (inclusive).
+                        return response.json(); 
+                    else // If the HTTP status is not 200 (OK), then the request was unsuccessful.
+                        throw new Error("HTTP Status " + response.status); 
+                })
+                // Step 3: Convert the response to a JSON instance.
+                .then(function(jsonInst) {
+                    console.log("Success convert to JSON instance!", jsonInst);
+                    document.getElementById("output-fetch").innerText = "Result: " + jsonInst.sum + " (Success)";
+                })
+                // Extra: Catches network failures or CORS block restrictions.
+                .catch(function(err) {
+                    console.log(err);
+                    document.getElementById("output-fetch").innerText = "Error: " + err.message;
+                });
+
+
+            /* --- OPTION 2: FETCH POST METHOD (Commented out for reference) ---
+            // For a POST request, parameters must be sent inside the HTTP request body.
+            var postUrl = "sum.php";
+            var params = { // Create JSON parameter payload since we not put the variables in the URL.
+                num1: n1,
+                num2: n2
+            };
+
+            fetch(postUrl, {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(params)
+            })
+            .then(res => res.json())
+            .then(jsonInst => {
+                console.log("Success convert to JSON instance!", jsonInst);
+                document.getElementById("output-fetch").innerText = "Result: " + jsonInst.sum + " (Success)";
+            })
+            .catch(err => {
+                console.log(err);
+            });
+            ------------------------------------------------------------------- */
+        });
+    </script>
+</body>
+
+</html>

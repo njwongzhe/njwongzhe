@@ -9,13 +9,13 @@
     <!-- 1.1 - Alternative Local jQuery Import Example (Commented) -->
     <!-- <script src="jquery-3.6.0.min.js"></script> -->
 
-    <script> /* HEAD Script Execution Timing */
+    <script> /* HEAD Script Execution Timing (Original JavaScript) */
         console.log("------------------>>> HEAD Script Timing");
         console.log("HEAD script executing immediately. Target paragraph exists?", document.getElementById("timing-p"));
         // This will print "null" because the DOM body elements have not been parsed yet.
     </script>
 
-    <script> /* $(document).ready() Lifecycle */
+    <script> /* $(document).ready() Lifecycle (jQuery) */
         console.log("------------------>>> $(document).ready() Timing");
         $(document).ready(function() {
             console.log("$(document).ready() triggered. Target paragraph exists?", document.getElementById("timing-p"));
@@ -25,13 +25,19 @@
             $("#timing-p").text("Content set by $(document).ready()!");
         });
     </script>
+
+    <script> /* Difference between Normal JavaScript and jQuery */
+        // Normal JavaScript script are prefered to put at bottom to avoid the case such as the html body not generate yet but the script start searching on certain element.
+        // However, in jQuery, we can use $(document).ready() to make sure the script is executed after the full HTML structure (DOM tree) is loaded.
+        // That can ensure the script run smoothly even if it is placed at the head.
+    </script>
 </head>
 
 <body>
     <h1>jQuery Basic Structure and Setup</h1>
     <p id="timing-p">Original Paragraph Text</p>
 
-    <script> /* Basic Syntax Structure */
+    <script> /* Basic Syntax Structure of jQuery */
         console.log("------------------>>> Basic Syntax Structure");
         // Syntax Breakdown: $(selector).method(value);
         // $       -> Accesses the jQuery library. (alias for jQuery)
@@ -41,7 +47,7 @@
         $("h1").css("color", "blue"); // Select h1 tag, change css color property to blue.
     </script>
 
-    <script> /* BODY-End Script Timing */
+    <script> /* END Script Execution Timing (Original JavaScript) */
         console.log("------------------>>> BODY-End Script Timing");
         console.log("BODY-End script executing. Target paragraph exists?", document.getElementById("timing-p"));
         // This works because the paragraph element is written above this script tag in the HTML body.
