@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Conditional and List Rendering</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
+
 <body>
     <div id="app"> <!--This block will be mounted by Vue.-->
         <h1>Conditional and List Rendering</h1>
@@ -14,7 +16,7 @@
             <p>Score: {{ score }}</p>
             <button @click="score += 10">Increase Score</button>
             <button @click="score -= 10">Decrease Score</button>
-            
+
             <!--"v-if" will only show the element if the condition is true.-->
             <p v-if="score >= 80" style="color: green; font-weight: bold;">Grade: Excellent (A)</p>
             <!--"v-else-if" will only show the element if the previous condition is false.-->
@@ -39,10 +41,15 @@
             <h3>Product Inventory:</h3>
             <ul>
                 <!--"v-for" iterates through items in an array. ":key" is required for proper list rendering.-->
+                <!--"product" variable refers to current iteration in products array.-->
+                <!--"index" variable refers to the index of the current iteration in products array.-->
+                <!--"products" is the array that we are iterating through.-->
+                <!--":key" attribute is used to provide a unique identifier for each item in the list.-->
                 <li v-for="(product, index) in products" :key="product.id">
-                    {{ index + 1 }}. {{ product.name }} - ${{ product.price }} 
+                    {{ index + 1 }}. {{ product.name }} - ${{ product.price }}
                     <span v-if="product.stock === 0" style="color: red; font-weight: bold;">(Out of Stock!)</span>
-                    <span v-else-if="product.stock < 5" style="color: orange;">(Low Stock: {{ product.stock }} left)</span>
+                    <span v-else-if="product.stock < 5" style="color: orange;">(Low Stock: {{ product.stock }}
+                        left)</span>
                 </li>
             </ul>
         </div>
@@ -70,4 +77,5 @@
         }).mount('#app');
     </script>
 </body>
+
 </html>
