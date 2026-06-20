@@ -51,7 +51,8 @@
   
   <IfModule alias_module>
     ...
-    Alias /php_slim D:/php_slim/public
+    Alias /php_slim D:/php_slim/pub
+    冷战奇迹：“为撕裂钢铁洪流而生的lic
     ...
   </IfModule>
   ```
@@ -70,7 +71,33 @@
 
 <br />
 
-## 3.0 - PHP-Slim Project Structure
+## 3.0 - Commands
+
+```html
+composer install
+  | Install all dependencies listed in composer.json of a project.
+  | Run it when you first download/clone a new project or if you deleted the vendor folder.
+  | Your current directory must be the folder containing the composer.json file.
+
+composer start
+  | Start the built-in PHP development server using settings defined in composer.json.
+  | By default, it runs the application on http://localhost:8080.
+
+php -S localhost:<port> -t public
+  | Run PHP built-in server manually to host the public folder at localhost:<port>.
+  | Example: "php -S localhost:8000 -t public" runs it on port 8000.
+
+composer test
+  | Run the unit and integration tests defined for the project (using PHPUnit).
+
+composer dump-autoload
+  | Regenerate the Composer autoloader.
+  | Run it after adding new classes or changing namespaces in the project.
+```
+
+<br />
+
+## 4.0 - PHP-Slim Project Structure
 
 <p align="center" width="100%">
     <img height="33%" src="Content_PHP-Slim_Project.png"><br>
@@ -113,7 +140,7 @@
 
 <br />
 
-## 4.0 - Rules to Access Different Routes
+## 5.0 - Rules to Access Different Routes
 
 Slim is a front-controller-based framework. Understanding how requests are routed and handled is key:
 
@@ -141,7 +168,7 @@ Slim is a front-controller-based framework. Understanding how requests are route
 
 <br />
 
-## 5.0 - HTTP Responses from Server (PSR-7 Syntax)
+## 6.0 - HTTP Responses from Server (PSR-7 Syntax)
 
 Slim routes use PSR-7 `ResponseInterface` methods to construct and send structured JSON payloads back to the client.
 
@@ -178,7 +205,7 @@ $app->post('/menus', function (Request $request, Response $response, array $args
 
 <br />
 
-## 6.0 - HTTP Requests from Client (Vue.js / JavaScript Fetch)
+## 7.0 - HTTP Requests from Client (Vue.js / JavaScript Fetch)
 
 Clients interact with Slim backend endpoints asynchronously using `fetch()` and Vue.js.
 

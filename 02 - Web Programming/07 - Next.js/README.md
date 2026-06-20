@@ -28,7 +28,7 @@
 
 <br />
 
-## 2.0 Command
+## 2.0 Commands
 
 ```html
 npx create-next-app@latest 

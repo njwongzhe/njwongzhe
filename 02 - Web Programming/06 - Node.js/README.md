@@ -13,7 +13,7 @@
 
 <br />
 
-## 2.0 Command
+## 2.0 Commands
 
 ```html
 node -v | Check version of Node.js. Use this to verify Node.js is installed and recognized by your computer.
