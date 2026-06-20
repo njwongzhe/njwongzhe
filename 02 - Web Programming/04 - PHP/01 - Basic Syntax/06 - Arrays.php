@@ -22,4 +22,9 @@
     echo "Name: "   . $student["name"] . "<br>"; // Output: Name: John
     echo "Age: "    . $student["age"]  . "<br>"; // Output: Age: 22
     echo "Course: " . $student["course"];        // Output: Course: Computer Science
+
+    // Size of Array
+    echo "Number of Colors: " . count($colors) . "<br>";   // Output: Number of Colors: 3
+    echo "Number of Fruits: " . count($fruits) . "<br>";   // Output: Number of Fruits: 3
+    echo "Number of Student: " . count($student) . "<br>"; // Output: Number of Student: 3
 ?>

@@ -69,6 +69,7 @@
             methods: {
                 increment() {
                     // "this." is mandatory inside methods to reference properties from "data()".
+                    // However, is we put "this.$data" means we are refering to the "data()".
                     this.count++;
                 },
                 addAmount(amount) {
