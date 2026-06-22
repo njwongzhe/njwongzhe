@@ -52,7 +52,6 @@
   <IfModule alias_module>
     ...
     Alias /php_slim D:/php_slim/pub
-    冷战奇迹：“为撕裂钢铁洪流而生的lic
     ...
   </IfModule>
   ```
