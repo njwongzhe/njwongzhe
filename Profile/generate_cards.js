@@ -17,7 +17,7 @@ const items = [
   { id: 'vuejs', name: 'Vue.js', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg', type: 'original' },
   { id: 'react', name: 'React', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg', type: 'original' },
   { id: 'nextjs', name: 'Next.js', type: 'custom-nextjs' },
-  { id: 'slim', name: 'Slim', type: 'custom-slim' },
+  { id: 'php-slim', name: 'PHP-Slim', type: 'custom-slim' },
   { id: 'tailwindcss', name: 'Tailwind CSS', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg', type: 'original' },
   { id: 'flutter', name: 'Flutter', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg', type: 'original' },
   
