@@ -38,7 +38,7 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
 </p>
 <p align="center">
   <img src="Profile/cards/tailwindcss.svg" width="110" height="82" />
-  <img src="Profile/cards/slim.svg" width="110" height="82" />
+  <img src="Profile/cards/php-slim.svg" width="110" height="82" />
   <img src="Profile/cards/flutter.svg" width="110" height="82" />
 </p>
 
