@@ -38,8 +38,8 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
 </p>
 <p align="center">
   <img src="Profile/cards/tailwindcss.svg" width="110" height="82" />
-  <img src="Profile/cards/flutter.svg" width="110" height="82" />
   <img src="Profile/cards/slim.svg" width="110" height="82" />
+  <img src="Profile/cards/flutter.svg" width="110" height="82" />
 </p>
 
 <h3 align="center">Databases & Cloud</h3>
@@ -48,6 +48,8 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
   <img src="Profile/cards/mysql.svg" width="110" height="82" />
   <img src="Profile/cards/postgresql.svg" width="110" height="82" />
   <img src="Profile/cards/prisma.svg" width="110" height="82" />
+</p>
+<p align="center">
   <img src="Profile/cards/firebase.svg" width="110" height="82" />
   <img src="Profile/cards/supabase.svg" width="110" height="82" />
 </p>
