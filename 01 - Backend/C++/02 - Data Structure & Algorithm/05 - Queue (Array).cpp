@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-#include "14 - Queue (Array - Linear).h"
-#include "14 - Queue (Array - Circular).h"
+#include "05 - Queue (Array - Linear).h"
+#include "05 - Queue (Array - Circular).h"
 
 int main() {
     Queue test;

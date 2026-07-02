@@ -10,11 +10,11 @@ const int SIZE = 5;
 int arr1[SIZE] = {5, 2, 1, 4, 3}; // Case 1: Worst Case
 int arr2[SIZE] = {1, 2, 3, 4, 5}; // Case 2: Best Case
 
-#include "10 - Bubble Sort.h"
-#include "10 - Selection Sort.h"
-#include "10 - Insertion Sort.h"
-#include "10 - Merge Sort.h"
-#include "10 - Quick Sort.h"
+#include "01 - Bubble Sort.h"
+#include "01 - Selection Sort.h"
+#include "01 - Insertion Sort.h"
+#include "01 - Merge Sort.h"
+#include "01 - Quick Sort.h"
 
 // Main -----------------------------------------------------------------------
 

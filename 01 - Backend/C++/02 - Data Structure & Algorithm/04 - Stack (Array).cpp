@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#include "13 - Stack (Array).h"
+#include "04 - Stack (Array).h"
 
 int main() {
     Stack test;
