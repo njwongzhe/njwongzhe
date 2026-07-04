@@ -26,8 +26,7 @@
         // 1. CONNECT
         // --------------------------------------
 
-        $pdo = new PDO("mysql:host=$host;dbname=$database;charset=utf8mb4", $username, $password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo = new PDO("mysql:host=$host;dbname=$database;", $username, $password);
         echo "<h3>PDO: Database Connected Successfully!</h3><hr>";
 
         // --- SETUP TABLE ---
