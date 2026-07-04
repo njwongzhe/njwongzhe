@@ -17,6 +17,15 @@
         echo "<p><strong>POST Result:</strong> Login attempted for user '{$user}'</p>";
     }
 
+    // 3. Handling the REQUEST Request
+    // $_REQUEST is a superglobal array that contains the combined contents of $_GET, $_POST, and $_COOKIE.
+    // By default, it allows you to access input parameters regardless of whether they were sent via GET or POST.
+    // If you not sure which method they send the data, you can use $_REQUEST to access it.
+    if (isset($_REQUEST['req_input'])) {
+        $req_data = htmlspecialchars($_REQUEST['req_input']);
+        echo "<p><strong>REQUEST Result (GET or POST):</strong> Captured data: '{$req_data}'</p>";
+    }
+
     // Also, when using "GET", it will refresh the page since the link changes, but when using "POST", it will not refresh the page since the URL does not change.
 
     // "isset()" is used to check if a variable is set and is not NULL. 
@@ -60,7 +69,20 @@
 
         <hr>
 
-        <h2>3. "href" with Query Parameters Demo</h2>
+        <h2>3. The REQUEST Form & Link (GET and POST)</h2>
+        <p>$_REQUEST can capture data submitted by either GET or POST.</p>
+        <form method="POST" action="">
+            <label for="req">Input for $_REQUEST:</label>
+            <input type="text" id="req" name="req_input" value="Prefilled-Test-Data" required>
+            <button type="submit">Submit via POST (handled by $_REQUEST)</button>
+        </form>
+        <br>
+        <p>Or click this link to submit to $_REQUEST via a GET parameter:</p>
+        <a href="?req_input=HelloFromGETLink">Submit "HelloFromGETLink" via GET link</a>
+
+        <hr>
+
+        <h2>4. "href" with Query Parameters Demo</h2>
         <p>Click the link below to see how query parameters work with GET requests:</p>
         <a href="?search_term=example">Click here to search for "example" via GET</a>
         <!--"href" with "?action=..." means we are passing a query parameter named "action" to the same page and we can use PHP to read this parameter and perform different actions based on its value.-->
