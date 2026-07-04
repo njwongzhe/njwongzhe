@@ -7,7 +7,7 @@
 
     try {
         // Establish database connection using PDO (PHP Data Objects).
-        $pdo = new PDO("mysql:host=$host;dbname=$database;charset=utf8mb4", $username, $password);
+        $pdo = new PDO("mysql:host=$host;dbname=$database;", $username, $password);
 
         // Automatically create the 'users' table if it doesn't exist yet.
         $pdo->exec("CREATE TABLE IF NOT EXISTS users (
