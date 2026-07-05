@@ -288,7 +288,7 @@ p::selection { ... }    /* Apply on the portion of <p> that is selected by the u
 <!--Example-->
 <style>
        /* Sequence Problem */
-       .box1 {margin: 20px 10px 30px 5px;}
+       .box1 {margin: 20px 10px 30px 5px;} /* Sequence will be "Top Right Bottom Left". */
        .box2 {margin: 20px 30px 10px 5px;} /* Both result are different. */
 
        /* Format and Sequence Problem */
