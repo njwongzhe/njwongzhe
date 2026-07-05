@@ -1,0 +1,94 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <title>JS Error (then, catch, finally)</title> 
+</head> 
+
+<body> 
+    <script>
+        // Syntax:
+        // promise
+        //      .then(onFulfilled)
+        //      .catch(onRejected)
+        //      .finally(onFinally)
+
+        // The "then" method defines a callback to handle successful resolution.
+        // The "catch" method defines a callback to handle promise rejection (errors).
+        // The "finally" method defines a callback to run regardless of the promise result.
+    </script>
+
+    <script> /* Without "catch" & "finally" */
+        console.log("------------------>>> Without \"catch\" & \"finally\"");
+
+        function a1(x) {
+            a2(x)
+                .then(function() {
+                    console.log("\"a1\" done executed."); // Not executed because an uncaught rejection occurred.
+                });
+        }
+
+        function a2(x) {
+            return a3(x)
+                .then(function() {
+                    console.log("\"a2\" done executed."); // Not executed because an uncaught rejection occurred.
+                });
+        }
+
+        function a3(x) {
+            return Promise.reject(new Error("Error Happen")); // Promise rejection occurs.
+        }
+
+        a1(10); // Unhandled Promise Rejection.
+
+        // Output: 
+        // Uncaught (in promise) Error: Error Happen
+        //   at a3 (38 - JS Error (then, catch, finally).html:38:19)
+        //   at a2 (38 - JS Error (then, catch, finally).html:33:13)
+        //   at a1 (38 - JS Error (then, catch, finally).html:28:13)
+        //   at 38 - JS Error (then, catch, finally).html:42:9
+    </script>
+
+    <script> /* With "then", "catch" & "finally" */
+        console.log("------------------>>> With \"then\", \"catch\" & \"finally\"");
+
+        function b1(x) {
+            b2(x)
+                .then(function(val) {
+                    console.log(val); // Executed. The value resolved from b2 is printed.
+                    console.log("\"b1\" done executed."); // Executed since the error was caught and resolved in b2.
+                });
+        }
+
+        function b2(x) {
+            return b3(x)
+                .then(function() {
+                    console.log("\"b2\" done executed without error.");
+                    return 1;
+                })
+                .catch(function(errorObject) {
+                    console.log("Error happen when executed function \"b3\""); // Executed since promise rejection is caught.
+                    return 2; // Returns 2 as the resolved value.
+                })
+                .finally(function() {
+                    console.log("\"b2\" done executed with error."); // Executed regardless of resolution or rejection.
+                    // Note: returning a value in a finally callback does not override the resolved value (unlike try/catch).
+                    return 3;
+                });
+        }
+
+        function b3(x) {
+            return Promise.reject(new Error("Error Happen")); // Promise rejection occurs.
+        }
+
+        b1(10); // The rejection is handled inside b2, so no uncaught errors.
+
+        // Output: 
+        // Error happen when executed function "b3"
+        // "b2" done executed with error.
+        // 2
+        // "b1" done executed.
+    </script>
+</body> 
+
+</html>
