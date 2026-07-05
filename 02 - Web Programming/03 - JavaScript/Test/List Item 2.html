@@ -1,0 +1,122 @@
+<html>
+
+<head>
+    <title>List Item 2</title>
+</head>
+
+<body>
+    <!-- Input field to enter new text content. -->
+    <input type="text" placeholder="Text" id="textBox">
+    <!-- Button to trigger the addText() function. -->
+    <button onclick="addText();">Add</button>
+    <!-- Button to trigger the removeAll() function to delete all data rows. -->
+    <button onclick="removeAll();" style="background-color: red; color: white;">Remove All</button>
+
+    <br><br>
+
+    <!-- Table to display the text list and action buttons. -->
+    <table border="1" width="100%" id="table">
+        <tr>
+            <th width="70%">Text</th>
+            <th width="30%">Action</th>
+        </tr>
+    </table>
+
+    <script>
+        /**
+         * Function to add a new row with text and actions to the table.
+         */
+        function addText() {
+            // Get the input field's text value.
+            let newValue = document.getElementById("textBox").value;
+
+            // Only add the row if the input is not empty.
+            if (newValue !== "") {
+                // Get the table DOM element.
+                let table = document.getElementById("table");
+                // Create a new table row element <tr>.
+                let newElement = document.createElement("tr");
+                newElement.className = "data";
+
+                // Create the text cell <td>.
+                let newText = document.createElement("td");
+                newText.style.padding = "5px";
+                // Create a <span> element to hold the text content.
+                let textField = document.createElement("span");
+                textField.innerText = newValue;
+                newText.appendChild(textField);
+
+                // Create the action buttons cell <td>.
+                let newAction = document.createElement("td");
+                newAction.style.padding = "5px";
+                newAction.align = "center";
+                // Create the "Edit" button.
+                let editButton = document.createElement("button");
+                editButton.innerText = "Edit";
+                // Create the "Delete" button.
+                let deleteButton = document.createElement("button");
+                deleteButton.innerText = "Delete";
+                deleteButton.style.marginLeft = "5px";
+
+                // Append the edit button and delete button to the action cell.
+                newAction.appendChild(editButton);
+                newAction.appendChild(deleteButton);
+
+                // Append both the text cell and the action cell to the new row.
+                newElement.appendChild(newText);
+                newElement.appendChild(newAction);
+
+                // Bind the click event for the "Edit" button (enter edit mode).
+                editButton.onclick = function () {
+                    // Create the "Save" button.
+                    let saveButton = document.createElement("button");
+                    saveButton.innerText = "Save";
+
+                    // Replace the "Edit" button with the "Save" button.
+                    newAction.replaceChild(saveButton, editButton);
+
+                    // Create an input field for editing the text.
+                    inputField = document.createElement("input");
+                    inputField.type = "text";
+                    inputField.value = textField.innerText;
+
+                    // Replace the text span with the input field.
+                    newText.replaceChild(inputField, textField);
+
+                    // Bind the click event for the "Save" button (save changes and exit edit mode).
+                    saveButton.onclick = function () {
+                        // Replace the "Save" button back with the "Edit" button.
+                        newAction.replaceChild(editButton, saveButton);
+
+                        // Update the span's text with the input's value and replace the input field back to the span.
+                        textField.innerText = inputField.value;
+                        newText.replaceChild(textField, inputField);
+                    };
+                };
+
+                // Bind the click event for the "Delete" button (remove the current row from the table).
+                deleteButton.onclick = function () {
+                    table.removeChild(newElement);
+                };
+
+                // Append the fully constructed new row to the table.
+                table.appendChild(newElement);
+            }
+        }
+
+        /**
+         * Function to remove all data rows from the table.
+         */
+        let removeAll = function () {
+            // Find all row elements within the table that have the class "data".
+            let target = document.querySelectorAll("#table .data");
+
+            // Loop through the selected rows and remove each one from the document.
+            for (let i = 0; i < target.length; i++) {
+                target[i].remove();
+            }
+        }
+    </script>
+</body>
+
+</html>
