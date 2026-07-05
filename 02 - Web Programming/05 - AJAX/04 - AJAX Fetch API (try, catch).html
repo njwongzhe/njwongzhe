@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AJAX Fetch API (try, catch)</title>
+</head>
+
+<body>
+    <h1>AJAX Fetch API (try, catch)</h1>
+    <p>Perform an AJAX Fetch API calculation using async/await and try/catch. Open browser console (F12) to see execution logs.</p>
+
+    <div>
+        <label>Num 1: <input type="number" id="num1" value="12"></label>
+        <label>Num 2: <input type="number" id="num2" value="8"></label>
+        <button id="calc-fetch-btn">Calculate (Fetch)</button>
+    </div>
+    <div id="output-fetch" style="margin-top: 15px; font-weight: bold;"></div>
+    <script> /* The Fetch API Process */
+        // Fetch API Workflow replaces the low-level XMLHttpRequest.
+        // It provides standard JavaScript function to handle AJAX operation in a more simple manner.
+        // Core structure: fetch(url, [options]).
+    </script>
+
+    <script> /* Promise with Async/Await & Try/Catch Details */
+        // Using async/await turns promise chains into synchronous-looking code.
+        // try/catch blocks are used to catch both network errors and HTTP status errors.
+    </script>
+
+    <script> /* Fetch Calculation Dispatcher */
+        document.getElementById("calc-fetch-btn").addEventListener("click", async function() {
+            console.log("------------------>>> Native Fetch (async/await) Request Started");
+            var n1 = document.getElementById("num1").value;
+            var n2 = document.getElementById("num2").value;
+
+            // --- OPTION 1: FETCH GET METHOD ---
+            // For a GET request, parameters must be appended directly to the URL query string.
+            var url = "sum.php?num1=" + n1 + "&num2=" + n2;
+
+            try {
+                // Step 1: Await the response from the fetch request.
+                let response = await fetch(url);
+
+                // Step 2: Check HTTP Status Code.
+                if (!response.ok) { // "response.ok" returns true if HTTP status code is in range 200-299.
+                    // If the HTTP status is not successful, throw an error to be caught in the catch block.
+                    throw new Error("HTTP Status " + response.status);
+                }
+
+                // Step 3: Await the conversion of response to a JSON instance.
+                let jsonInst = await response.json();
+
+                console.log("Success convert to JSON instance!", jsonInst);
+                document.getElementById("output-fetch").innerText = "Result: " + jsonInst.sum + " (Success)";
+            } catch (err) {
+                // Catches network failures, CORS block restrictions, or custom thrown status errors.
+                console.log(err);
+                document.getElementById("output-fetch").innerText = "Error: " + err.message;
+            }
+
+
+            /* --- OPTION 2: FETCH POST METHOD (Commented out for reference) ---
+            // For a POST request, parameters must be sent inside the HTTP request body.
+            var postUrl = "sum.php";
+            var params = { // Create JSON parameter payload since we not put the variables in the URL.
+                num1: n1,
+                num2: n2
+            };
+
+            try {
+                let response = await fetch(postUrl, {
+                    method: 'POST', 
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(params)
+                });
+
+                if (!response.ok) {
+                    throw new Error("HTTP Status " + response.status);
+                }
+
+                let jsonInst = await response.json();
+                console.log("Success convert to JSON instance!", jsonInst);
+                document.getElementById("output-fetch").innerText = "Result: " + jsonInst.sum + " (Success)";
+            } catch (err) {
+                console.log(err);
+                document.getElementById("output-fetch").innerText = "Error: " + err.message;
+            }
+            ------------------------------------------------------------------- */
+        });
+    </script>
+</body>
+
+</html>
