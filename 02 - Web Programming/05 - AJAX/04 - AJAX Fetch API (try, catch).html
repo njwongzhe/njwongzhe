@@ -12,7 +12,8 @@
     <div>
         <label>Num 1: <input type="number" id="num1" value="12"></label>
         <label>Num 2: <input type="number" id="num2" value="8"></label>
-        <button id="calc-fetch-btn">Calculate (Fetch)</button>
+        <button id="calc-fetch-get-btn">Calculate (Fetch GET)</button>
+        <button id="calc-fetch-post-btn">Calculate (Fetch POST)</button>
     </div>
     <div id="output-fetch" style="margin-top: 15px; font-weight: bold;"></div>
     <script> /* The Fetch API Process */
@@ -27,8 +28,9 @@
     </script>
 
     <script> /* Fetch Calculation Dispatcher */
-        document.getElementById("calc-fetch-btn").addEventListener("click", async function() {
-            console.log("------------------>>> Native Fetch (async/await) Request Started");
+        // Bind GET click event listener.
+        document.getElementById("calc-fetch-get-btn").addEventListener("click", async function() {
+            console.log("------------------>>> Native Fetch GET (async/await) Request Started");
             var n1 = document.getElementById("num1").value;
             var n2 = document.getElementById("num2").value;
 
@@ -56,37 +58,45 @@
                 console.log(err);
                 document.getElementById("output-fetch").innerText = "Error: " + err.message;
             }
+        });
 
+        // Bind POST click event listener.
+        document.getElementById("calc-fetch-post-btn").addEventListener("click", async function() {
+            console.log("------------------>>> Native Fetch POST (async/await) Request Started");
+            var n1 = document.getElementById("num1").value;
+            var n2 = document.getElementById("num2").value;
 
-            /* --- OPTION 2: FETCH POST METHOD (Commented out for reference) ---
+            // --- OPTION 2: FETCH POST METHOD ---
             // For a POST request, parameters must be sent inside the HTTP request body.
             var postUrl = "sum.php";
-            var params = { // Create JSON parameter payload since we not put the variables in the URL.
+            var params = { // Create JSON parameter payload since we do not put the variables in the URL.
                 num1: n1,
                 num2: n2
             };
 
             try {
+                // Step 1: Await the response from the POST fetch request.
                 let response = await fetch(postUrl, {
                     method: 'POST', 
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
                     body: JSON.stringify(params)
                 });
 
-                if (!response.ok) {
+                // Step 2: Check HTTP Status Code.
+                if (!response.ok) { // "response.ok" returns true if HTTP status code is in range 200-299.
+                    // If the HTTP status is not successful, throw an error to be caught in the catch block.
                     throw new Error("HTTP Status " + response.status);
                 }
 
+                // Step 3: Await the conversion of response to a JSON instance.
                 let jsonInst = await response.json();
+
                 console.log("Success convert to JSON instance!", jsonInst);
                 document.getElementById("output-fetch").innerText = "Result: " + jsonInst.sum + " (Success)";
             } catch (err) {
+                // Catches network failures, CORS block restrictions, or custom thrown status errors.
                 console.log(err);
                 document.getElementById("output-fetch").innerText = "Error: " + err.message;
             }
-            ------------------------------------------------------------------- */
         });
     </script>
 </body>

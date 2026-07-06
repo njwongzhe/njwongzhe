@@ -12,7 +12,8 @@
     <div>
         <label>Num 1: <input type="number" id="num1" value="12"></label>
         <label>Num 2: <input type="number" id="num2" value="8"></label>
-        <button id="calc-fetch-btn">Calculate (Fetch)</button>
+        <button id="calc-fetch-get-btn">Calculate (Fetch GET)</button>
+        <button id="calc-fetch-post-btn">Calculate (Fetch POST)</button>
     </div>
     <div id="output-fetch" style="margin-top: 15px; font-weight: bold;"></div>
     <script> /* The Fetch API Process */
@@ -28,8 +29,9 @@
     </script>
 
     <script> /* Fetch Calculation Dispatcher */
-        document.getElementById("calc-fetch-btn").addEventListener("click", function() {
-            console.log("------------------>>> Native Fetch Request Started");
+        // Bind GET click event listener.
+        document.getElementById("calc-fetch-get-btn").addEventListener("click", function() {
+            console.log("------------------>>> Native Fetch GET Request Started");
             var n1 = document.getElementById("num1").value;
             var n2 = document.getElementById("num2").value;
 
@@ -39,7 +41,7 @@
 
             // Step 1: Fetch initiates a GET request by default.
             fetch(url) 
-                // Step 2: Check HTTP Status Code
+                // Step 2: Check HTTP Status Code.
                 .then(function(response) {
                     if (response.ok) // "response.ok" is a boolean property that returns true if the HTTP status code is in the range 200-299 (inclusive).
                         return response.json(); 
@@ -56,32 +58,43 @@
                     console.log(err);
                     document.getElementById("output-fetch").innerText = "Error: " + err.message;
                 });
+        });
 
+        // Bind POST click event listener.
+        document.getElementById("calc-fetch-post-btn").addEventListener("click", function() {
+            console.log("------------------>>> Native Fetch POST Request Started");
+            var n1 = document.getElementById("num1").value;
+            var n2 = document.getElementById("num2").value;
 
-            /* --- OPTION 2: FETCH POST METHOD (Commented out for reference) ---
+            // --- OPTION 2: FETCH POST METHOD ---
             // For a POST request, parameters must be sent inside the HTTP request body.
             var postUrl = "sum.php";
-            var params = { // Create JSON parameter payload since we not put the variables in the URL.
+            var params = { // Create JSON parameter payload since we do not put the variables in the URL.
                 num1: n1,
                 num2: n2
             };
 
             fetch(postUrl, {
                 method: 'POST', 
-                headers: {
-                    'Content-Type': 'application/json'
-                },
                 body: JSON.stringify(params)
             })
-            .then(res => res.json())
-            .then(jsonInst => {
+            // Step 1: Check HTTP Status Code.
+            .then(function(response) {
+                if (response.ok) // "response.ok" is a boolean property that returns true if the HTTP status code is in the range 200-299 (inclusive).
+                    return response.json();
+                else // If the HTTP status is not successful, throw an error.
+                    throw new Error("HTTP Status " + response.status);
+            })
+            // Step 2: Convert the response to a JSON instance.
+            .then(function(jsonInst) {
                 console.log("Success convert to JSON instance!", jsonInst);
                 document.getElementById("output-fetch").innerText = "Result: " + jsonInst.sum + " (Success)";
             })
-            .catch(err => {
+            // Extra: Catches network failures or CORS block restrictions.
+            .catch(function(err) {
                 console.log(err);
+                document.getElementById("output-fetch").innerText = "Error: " + err.message;
             });
-            ------------------------------------------------------------------- */
         });
     </script>
 </body>
