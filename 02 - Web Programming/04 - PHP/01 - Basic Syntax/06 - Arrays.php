@@ -21,10 +21,23 @@
     ];
     echo "Name: "   . $student["name"] . "<br>"; // Output: Name: John
     echo "Age: "    . $student["age"]  . "<br>"; // Output: Age: 22
-    echo "Course: " . $student["course"];        // Output: Course: Computer Science
+    echo "Course: " . $student["course"] . "<br>"; // Output: Course: Computer Science
+    echo "<hr>";
 
     // Size of Array
     echo "Number of Colors: " . count($colors) . "<br>";   // Output: Number of Colors: 3
     echo "Number of Fruits: " . count($fruits) . "<br>";   // Output: Number of Fruits: 3
     echo "Number of Student: " . count($student) . "<br>"; // Output: Number of Student: 3
+    echo "<hr>";
+
+    // Traversing Indexed Array using foreach.
+    foreach ($colors as $color) {
+        echo "Color: " . $color . "<br>";
+    }
+    echo "<hr>";
+
+    // Traversing Associative Array using foreach. (Key => Value)
+    foreach ($student as $key => $value) {
+        echo $key . ": " . $value . "<br>";
+    }
 ?>
