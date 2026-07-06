@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vue Components</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <strong>Parent App Stats:</strong> Total Likes Tracked: {{ totalLikes }}
+        </div>
+        
+        <hr>
+
+        <app-header title="UTM Course Portal"></app-header>
+
+        <!--Passing props and listening to custom events.-->
+        <app-body 
+            content="Welcome to the Web Programming course! Today we are learning about Vue.js components, passing props, emitting events, and structure organization using ES modules." 
+            :initial-like-count="10"
+            @like-updated="onLikeUpdated">
+        </app-body>
+
+        <app-footer copyright="© 2026 UTM School of Computing. All rights reserved."></app-footer>
+    </div>
+
+    <!--Use "type=module" to enable ES Module imports.-->
+    <script type="module">
+        // Default import: No curly braces needed. (Can be imported as any name.)
+        import AppHeader from './07 - Vue Components (Header).js';
+        
+        // Named import: Curly braces are required. (Names must match the exports exactly.)
+        import { AppBody } from './07 - Vue Components (Body).js';
+        import { AppFooter } from './07 - Vue Components (Footer).js';
+
+        Vue.createApp({
+            data() {
+                return {
+                    totalLikes: 10
+                };
+            },
+            // "components" registers child components locally.
+            // It will be auto converted to "Kebab-Case" format when using it in the template.
+            components: {
+                AppHeader, // It will be converted to "app-header" in the template.
+                AppBody,   // It will be converted to "app-body" in the template.
+                AppFooter  // It will be converted to "app-footer" in the template.
+            },
+            methods: {
+                onLikeUpdated(newLikes) {
+                    this.totalLikes = newLikes;
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

@@ -18,6 +18,14 @@
         <!--In this case, the message and isActive variables are displayed in the DOM.-->
     </div>
 
+    <hr>
+
+    <div id="app2">
+        <h1>Vue.js Basic Skeleton (App 2)</h1>
+        <!--Using const version to bind app2.-->
+        <h2>Message: {{ message }}</h2>
+    </div>
+
     <script> /* Options API Structure */
         // Vue.createApp creates the Vue application instance.
         Vue.createApp({
@@ -33,6 +41,16 @@
                 // Actions can go here.
             }
         }).mount('#app'); // "mount()" associates Vue with the DOM container.
+
+        // Alternative : Const version of Vue app instance, bound and mounted to #app2.
+        const app2 = Vue.createApp({
+            data() {
+                return {
+                    message: "Hello from app2 (bound using const)!"
+                };
+            }
+        });
+        app2.mount('#app2');
     </script>
 </body>
 </html>
