@@ -1,0 +1,190 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="myApp">
+        <panel 
+            @database-change="readUsers" 
+            :is-login="isLogin" 
+            :logged-in-user="loggedInUser" 
+            @login-success="onLoginSuccess" 
+            @logout="onLogout">
+        </panel>
+
+        <br><br>
+
+        <table border="1" width="100%">
+            <tr>
+                <th width="10%">Id</th>
+                <th width="35%">Username</th>
+                <th width="35%">Password</th>
+                <th width="20%">Action</th>
+            </tr>
+            <tr class="dataRow" v-for="(users, index) in users">
+                <td align="center">{{ users.userId }}</td>
+                <td>{{ users.username }}</td>
+                <td>{{ users.password }}</td>
+                <td align="center">
+                    <button @click="editUser(users)">Edit</button>
+                    <button @click="deleteUser(users.userId)">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="module">
+        import Panel from "./authPanel.js";
+
+        let myApp = Vue.createApp({
+            data() {
+                return {
+                    isLogin: false,   // Stores whether user is authenticated
+                    loggedInUser: "", // Stores username of authenticated user
+                    users: [],        // Stores list of registered users
+                }
+            },
+
+            components: {
+                Panel
+            },
+
+            mounted() {
+                this.readUsers();
+                this.checkLoginStatus();
+            },
+
+            methods: {
+                // --- Check Login Status ---
+                async checkLoginStatus() {
+                    try {
+                        let response = await fetch("api/login-status");
+                        let returnedJson = await response.json();
+                        if (returnedJson.success === true) {
+                            this.isLogin = true;
+                            this.loggedInUser = returnedJson.data.username;
+                        } else {
+                            this.isLogin = false;
+                            this.loggedInUser = "";
+                        }
+                    } catch (err) {
+                        console.error("Failed to check login status:", err);
+                    }
+                },
+
+                // --- On Login Success ---
+                onLoginSuccess(user) {
+                    this.isLogin = true;
+                    this.loggedInUser = user.username;
+                },
+
+                // --- On Logout ---
+                onLogout() {
+                    this.isLogin = false;
+                    this.loggedInUser = "";
+                },
+
+                // --- Toggle Login ---
+                toggleLogin() {
+                    this.isLogin = !this.isLogin;
+                },
+
+                // --- Read Users ---
+                async readUsers() {
+                    try {
+                        let response = await fetch("api/users", {
+                            method: "GET",
+                        });
+
+                        let returnedJson = await response.json();
+                        let returnedUsers = returnedJson.data;
+
+                        if (returnedJson.success === true) {
+                            console.log("Fetch all users successfully.");
+                            this.users = [];
+                            for (let i = 0; i < returnedUsers.length; i++) {
+                                let readId = returnedUsers[i]["userId"];
+                                let readName = returnedUsers[i]["username"];
+                                let readPass = returnedUsers[i]["password"];
+                                this.users.push({
+                                    userId: readId,
+                                    username: readName,
+                                    password: readPass
+                                })
+                            }
+                        }
+                        else
+                            throw Error("Fetch all users failed.");
+                    } catch (err) {
+                        alert(err);
+                    }
+                },
+
+                // --- Delete User ---
+                async deleteUser(userId) {
+                    let json = JSON.stringify({
+                        userId: userId
+                    });
+
+                    try {
+                        let response = await fetch("api/users", {
+                            method: "DELETE",
+                            body: json
+                        });
+
+                        let returnedJson = await response.json();
+
+                        if (returnedJson.success === true) {
+                            console.log("User is deleted successfully.");
+                            this.readUsers();
+                        }
+                        else
+                            throw Error("User is deleted failed.");
+                    } catch (err) {
+                        alert(err);
+                    }
+                },
+
+                // --- Edit User ---
+                async editUser(user) {
+                    let newName = prompt("Enter new username:", user.username);
+                    if (newName === null) return;
+
+                    let newPass = prompt("Enter new password:", user.password);
+                    if (newPass === null) return;
+
+                    let json = JSON.stringify({
+                        userId: user.userId,
+                        name: newName,
+                        pass: newPass
+                    });
+
+                    try {
+                        let response = await fetch("api/users", {
+                            method: "PUT",
+                            body: json
+                        });
+
+                        let returnedJson = await response.json();
+
+                        if (returnedJson.success === true) {
+                            console.log("User is updated successfully.");
+                            this.readUsers();
+                        }
+                        else
+                            throw Error("User is updated failed.");
+                    } catch (err) {
+                        alert(err);
+                    }
+                }
+            }
+        });
+
+        myApp.mount("#myApp");
+    </script>
+</body>
+
+</html>
