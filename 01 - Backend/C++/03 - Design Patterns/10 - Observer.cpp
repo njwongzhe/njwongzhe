@@ -49,6 +49,7 @@ class ServiceNotifier {
         virtual void attach(Service* service) {
             serviceList.push_back(service);
         }
+    protected:
         virtual void notify(string message) {
             for(auto service : serviceList)
                 service->update(message);
@@ -62,6 +63,7 @@ class ServiceNotifier {
 class NotifierEngine : public ServiceNotifier {
     public: 
         void triggeredNotify(string message) {
+            // Put the decision logic here.
             notify(message);
         }
 };

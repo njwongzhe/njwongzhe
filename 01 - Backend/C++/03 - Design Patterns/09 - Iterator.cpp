@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <list>
 
 using namespace std;
 
@@ -26,37 +27,55 @@ class ComputerProduct {
 
 class SimpleProductList {
     private:
-        ComputerProduct* _items[3]; 
+        list<ComputerProduct*> _items;
     public:
         SimpleProductList() {
-            _items[0] = new ComputerProduct(101, 500, "Basic PC");
-            _items[1] = new ComputerProduct(102, 700, "Office PC");
-            _items[2] = new ComputerProduct(103, 900, "Home PC");
+            _items.push_back(new ComputerProduct(101, 500, "Basic PC"));
+            _items.push_back(new ComputerProduct(102, 700, "Office PC"));
+            _items.push_back(new ComputerProduct(103, 900, "Home PC"));
         }
         ~SimpleProductList() {
-            for(int i = 0; i < getLength(); i++) delete _items[i];
+            for(auto item : _items) delete item;
         }
         int getLength() { 
-            return sizeof(_items) / sizeof(_items[0]); 
+            return _items.size(); 
+            // return sizeof(_items) / sizeof(_items[0]); // If normal array.
         }
-        ComputerProduct* getSimpleProduct(int index) { return _items[index]; }
+        ComputerProduct* getSimpleProduct(int index) { 
+            int i = 0;
+            for (auto item : _items) {
+                if (i == index) 
+                    return item; 
+                i++;
+            }
+            return 0;
+        }
 };
 
 class AdvancedProductList {
     private:
-        ComputerProduct* _items[2];
+        list<ComputerProduct*> _items; 
     public:
         AdvancedProductList() {
-            _items[0] = new ComputerProduct(201, 1500, "Gaming Rig");
-            _items[1] = new ComputerProduct(202, 2500, "Workstation");
+            _items.push_back(new ComputerProduct(201, 1500, "Gaming Rig"));
+            _items.push_back(new ComputerProduct(202, 2500, "Workstation"));
         }
         ~AdvancedProductList() {
-            for(int i = 0; i < getLength(); i++) delete _items[i];
+            for(auto item : _items) delete item;
         }
         int getLength() { 
-            return sizeof(_items) / sizeof(_items[0]); 
+            return _items.size();
+            // return sizeof(_items) / sizeof(_items[0]); // If normal array.
         }
-        ComputerProduct* getAdvancedProduct(int index) { return _items[index]; }
+        ComputerProduct* getAdvancedProduct(int index) { 
+            int i = 0;
+            for (auto item : _items) {
+                if (i == index) 
+                    return item; 
+                i++;
+            }
+            return 0;
+        }
 };
 
 // ==========================================
@@ -96,6 +115,11 @@ class SimpleStoreProductIterator : public StoreProductIterator {
             if (this->hasNext()) {
                 int current = getPosition();
                 ComputerProduct* p = _products->getSimpleProduct(current);
+
+                // Implementation of the iterator's position update logic.
+                // It decide the sequence of the iteration. Here, we simply increment the position by 1.
+                // If we want to implement a more complex iteration logic, we can modify this part accordingly.
+
                 setPosition(current + 1);
                 return p;
             }
@@ -117,6 +141,11 @@ class AdvancedStoreProductIterator : public StoreProductIterator {
             if (this->hasNext()) {
                 int current = getPosition();
                 ComputerProduct* p = _products->getAdvancedProduct(current);
+
+                // Implementation of the iterator's position update logic.
+                // It decide the sequence of the iteration. Here, we simply increment the position by 1.
+                // If we want to implement a more complex iteration logic, we can modify this part accordingly.
+
                 setPosition(current + 1);
                 return p;
             }
@@ -140,7 +169,7 @@ class ComputerStore {
 
 class SimpleComputerStore : public ComputerStore {
     private:
-        SimpleProductList _products;
+        SimpleProductList _products; // It auto initializes in constructor since we not using "SimpleProductList* _products" pointer.
     public:
         virtual StoreProductIterator* createIterator() {
             return new SimpleStoreProductIterator(&_products);
@@ -149,7 +178,7 @@ class SimpleComputerStore : public ComputerStore {
 
 class AdvancedComputerStore : public ComputerStore {
     private:
-        AdvancedProductList _products;
+        AdvancedProductList _products; // It auto initializes in constructor since we not using "AdvancedProductList* _products" pointer.
     public:
         virtual StoreProductIterator* createIterator() {
             return new AdvancedStoreProductIterator(&_products);
