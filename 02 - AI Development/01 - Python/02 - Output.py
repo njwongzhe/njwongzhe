@@ -33,21 +33,3 @@ print("Name: {0}, Age: {1}, Repeat Name: {0}".format(name, age)) # Specifying in
 print(f"Name: {name}, Age: {age}") # Output: Name: Alice, Age: 25
 print(f"Next year, age will be {age + 1}") # Expressions can be evaluated directly inside f-strings
 
-# ---------------------------------------------------------
-
-# Input: The input() function
-# The input() function halts execution and prompts the user to enter text.
-# Crucial: input() ALWAYS returns data as a string (str) type.
-
-# 1. Basic Input
-# user_name = input("Enter your name: ")
-# print(f"Hello, {user_name}!")
-
-# 2. Input with Type Casting
-# Since input() returns a string, we must convert it (type cast) to use it as a number.
-# age_str = input("Enter your age: ")
-# age_num = int(age_str) # Converts the string to an integer
-# print(f"You will be {age_num + 10} in ten years.")
-
-# price = float(input("Enter item price: ")) # Converts the string directly to a float
-# print(f"Double the price is: {price * 2}")
