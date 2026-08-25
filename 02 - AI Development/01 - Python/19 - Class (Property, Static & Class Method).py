@@ -1,6 +1,8 @@
+# ------------------------------------------------------------> 
 # OOP: Properties, Class Methods, and Static Methods
+# ------------------------------------------------------------> 
 
-# 1. Properties (@property, getters and setters)
+# ---> Properties (@property, Getters and Setters)
 # The @property decorator allows a method to be accessed like an attribute.
 # This makes it easy to add validation when reading or writing attribute values.
 
@@ -25,14 +27,12 @@ class Celsius:
 c = Celsius(25)
 print(c.temperature) # Accesses getter -> Output: Getting value... \n 25
 
-c.temperature = 37 # Accesses setter -> Output: Setting value with validation...
+c.temperature = 37   # Accesses setter -> Output: Setting value with validation...
 print(c.temperature) # Output: 37
 
 # c.temperature = -300 # Setter validation fails -> Raises ValueError
 
-# ---------------------------------------------------------
-
-# 2. Instance vs Class vs Static Methods
+# ---> Instance vs Class vs Static Methods
 
 class Employee:
     company_name = "GlobalCorp" # Class attribute
@@ -41,12 +41,12 @@ class Employee:
         self.name = name
         self.salary = salary
 
-    # A. Instance Method
+    # Instance Method
     # Receives "self" as the first argument. Can access/modify instance AND class state.
     def get_details(self):
         return f"{self.name} earns ${self.salary} at {self.company_name}"
 
-    # B. Class Method (@classmethod)
+    # Class Method (@classmethod)
     # Receives "cls" as the first argument instead of "self". Can access/modify class state only.
     # Often used as factory methods / alternative constructors.
     @classmethod
@@ -59,7 +59,7 @@ class Employee:
         name, salary = emp_str.split("-")
         return cls(name, int(salary))
 
-    # C. Static Method (@staticmethod)
+    # Static Method (@staticmethod)
     # Does NOT receive "self" or "cls". Behaves like a normal function inside the class namespace.
     # Used for utility functions that don't need access to instance or class attributes.
     @staticmethod
@@ -67,7 +67,7 @@ class Employee:
         # 5 = Saturday, 6 = Sunday
         return day not in (5, 6)
 
-# --- Verification ---
+# ---> Verification
 
 emp1 = Employee("Alice", 60000)
 print(emp1.get_details()) # Output: Alice earns $60000 at GlobalCorp
@@ -82,4 +82,5 @@ print(emp2.name, emp2.salary) # Output: Bob 80000
 
 # Call static method (can be called on class directly or instance)
 print(Employee.is_workday(2)) # Tuesday -> Output: True
-print(emp1.is_workday(5)) # Saturday -> Output: False
+print(emp1.is_workday(5))     # Saturday -> Output: False
+

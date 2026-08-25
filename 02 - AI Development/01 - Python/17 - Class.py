@@ -1,6 +1,8 @@
+# ------------------------------------------------------------> 
 # Object-Oriented Programming (OOP): Classes and Objects
+# ------------------------------------------------------------> 
 
-# 1. Defining a Class
+# ---> Defining a Class
 # In Python, class names follow PascalCase by convention.
 class Dog:
     # A class attribute (shared by all instances of the class)
@@ -11,22 +13,22 @@ class Dog:
     # It must be the first parameter of any instance method.
     def __init__(self, name, age):
         self.name = name # Instance attribute
-        self.age = age # Instance attribute
+        self.age = age   # Instance attribute
 
     # Instance method
     def bark(self):
         return f"{self.name} says Woof!"
 
-# 2. Instantiating Objects
+# ---> Instantiating Objects
 dog1 = Dog("Buddy", 3)
 dog2 = Dog("Max", 5)
 
-print(dog1.name) # Output: Buddy
-print(dog1.bark()) # Output: Buddy says Woof!
-print(dog2.bark()) # Output: Max says Woof!
+print(dog1.name)    # Output: Buddy
+print(dog1.bark())  # Output: Buddy says Woof!
+print(dog2.bark())  # Output: Max says Woof!
 print(dog1.species) # Output: Canine
 
-# 3. Encapsulation & Access Modifiers
+# ---> Encapsulation & Access Modifiers
 # In Python, all attributes and methods are public by default.
 # Privacy is enforced by conventions and name mangling rather than keywords like public/private.
 
@@ -51,12 +53,13 @@ class BankAccount:
             self.__balance += amount
 
 account = BankAccount("Bob", 1000)
-print(account.owner) # Output: Bob
+print(account.owner)         # Output: Bob
 print(account._account_type) # Output: Savings (Accessible, but breaks convention)
 
-# print(account.__balance) # Error: AttributeError: 'BankAccount' object has no attribute '__balance'
+# print(account.__balance)   # Error: AttributeError: 'BankAccount' object has no attribute '__balance'
 print(account.get_balance()) # Output: 1000 (Correct way to access)
 
 # How Name Mangling works internally:
 # Python renames __balance to _BankAccount__balance.
 print(account._BankAccount__balance) # Output: 1000 (Allows bypass, but highly discouraged)
+

@@ -1,24 +1,26 @@
+# ------------------------------------------------------------> 
 # File Handling in Python
+# ------------------------------------------------------------> 
 # Python provides built-in functions to read and write files.
 
-# --- Crucial Practice: The "with" Statement ---
+# ---> The "with" Statement
 # Using the "with" statement (context manager) is the best practice for file operations.
 # It automatically closes the file when the block is finished, even if errors occur.
 # Failing to close files can cause resource leaks and lock files in the OS.
 
-# 1. Writing to a File ('w' mode)
+# ---> Writing to a File ('w' mode)
 # WARNING: 'w' mode will overwrite the file if it already exists.
 with open("example.txt", "w") as file:
     file.write("Hello, this is the first line.\n")
     file.write("Writing to files in Python is easy.\n")
     # write() does not add a newline automatically; you must append \n manually.
 
-# 2. Appending to a File ('a' mode)
+# ---> Appending to a File ('a' mode)
 # 'a' mode appends content to the end of the file, preserving existing data.
 with open("example.txt", "a") as file:
     file.write("This line is appended to the end.\n")
 
-# 3. Reading from a File ('r' mode)
+# ---> Reading from a File ('r' mode)
 # 'r' is the default mode if no mode is specified.
 
 # Method A: read()
@@ -51,7 +53,7 @@ with open("example.txt", "r") as file:
     for index, line in enumerate(file, 1):
         print(f"Line {index}: {line.strip()}")
 
-# 4. Writing multiple lines (writelines())
+# ---> Writing Multiple Lines (writelines())
 lines_to_write = [
     "Line 1\n",
     "Line 2\n",
@@ -60,10 +62,10 @@ lines_to_write = [
 with open("lines.txt", "w") as file:
     file.writelines(lines_to_write)
 
-# ---------------------------------------------------------
-# Summary of Common File Modes:
+# ---> Summary of Common File Modes
 # 'r' : Read mode (default). Raises FileNotFoundError if file does not exist.
 # 'w' : Write mode. Overwrites existing files, creates file if it doesn't exist.
 # 'a' : Append mode. Adds data to the end, creates file if it doesn't exist.
 # 'r+': Read and Write.
 # 'rb'/'wb': Read/Write in binary mode (used for images, PDFs, etc.).
+

@@ -1,7 +1,9 @@
+# ------------------------------------------------------------> 
 # Conditional Statements in Python
+# ------------------------------------------------------------> 
 # Python uses indentation (usually 4 spaces) to define code blocks, instead of curly braces {}.
 
-# 1. Basic if-elif-else Structure
+# ---> Basic if-elif-else Structure
 age = 20
 
 if age >= 21:
@@ -11,7 +13,7 @@ elif age >= 18:
 else:
     print("You are too young to enter.")
 
-# 2. Nested Conditionals
+# ---> Nested Conditionals
 has_ticket = True
 has_id = False
 
@@ -23,13 +25,13 @@ if has_ticket:
 else:
     print("No ticket, no entry.")
 
-# 3. Ternary Operator (Conditional Expression)
+# ---> Ternary Operator (Conditional Expression)
 # Syntax: expression_if_true if condition else expression_if_false
 score = 85
 result = "Pass" if score >= 50 else "Fail"
 print(f"Result: {result}") # Output: Result: Pass
 
-# 4. Structural Pattern Matching (match-case)
+# ---> Structural Pattern Matching (match-case)
 # Introduced in Python 3.10, equivalent to switch-case statements in other languages.
 status_code = 404
 
@@ -42,5 +44,6 @@ match status_code:
         print("Not Found")
     case 500 | 503: # Combine patterns using the pipe (|) operator
         print("Server Error")
-    case _: # Wildcard pattern (default block)
+    case _:         # Wildcard pattern (default block)
         print("Unknown Status Code")
+

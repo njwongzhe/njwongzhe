@@ -1,6 +1,8 @@
+# ------------------------------------------------------------> 
 # Modules and Packages in Python
+# ------------------------------------------------------------> 
 
-# 1. What is a Module?
+# ---> Modules
 # A module is simply a file containing Python definitions and statements (a `.py` file).
 # You can use code written in other modules using the "import" keyword.
 
@@ -24,9 +26,7 @@ print("Current year:", dt.datetime.now().year)
 from math import cos as cosine
 print(cosine(0)) # Output: 1.0
 
-# ---------------------------------------------------------
-
-# 2. What is a Package?
+# ---> Packages
 # A package is a directory containing multiple modules.
 # To be treated as a package, the directory must contain an "__init__.py" file.
 # Example Directory Structure:
@@ -39,9 +39,7 @@ print(cosine(0)) # Output: 1.0
 # from my_package import math_utils
 # math_utils.add(5, 10)
 
-# ---------------------------------------------------------
-
-# 3. The __name__ Variable and Entry Point Pattern
+# ---> The __name__ Variable and Entry Point Pattern
 # Whenever Python runs a script, it sets special variables. One of them is __name__.
 # - If the script is run DIRECTLY from the command line, Python sets __name__ to "__main__".
 # - If the script is IMPORTED into another module, __name__ is set to the filename of the module.
@@ -59,3 +57,4 @@ if __name__ == "__main__":
     # This block only executes if you run this script directly.
     # It won't run if you do `import my_script` in another file.
     main()
+
