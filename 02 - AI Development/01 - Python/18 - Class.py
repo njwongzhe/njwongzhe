@@ -1,25 +1,23 @@
 # ------------------------------------------------------------> 
-# Object-Oriented Programming (OOP): Classes and Objects
+# Class & Instance
 # ------------------------------------------------------------> 
-
-# ---> Defining a Class
 # In Python, class names follow PascalCase by convention.
+
 class Dog:
-    # A class attribute (shared by all instances of the class)
+    # Class Attribute
     species = "Canine"
 
-    # Constructor method (__init__)
-    # "self" represents the specific object instance we are creating/working with.
-    # It must be the first parameter of any instance method.
+    # Constructor (__init__)
+    # It must be the first parameter of any class method.
     def __init__(self, name, age):
-        self.name = name # Instance attribute
-        self.age = age   # Instance attribute
+        self.name = name 
+        self.age = age   
 
-    # Instance method
+    # Class Method
     def bark(self):
         return f"{self.name} says Woof!"
 
-# ---> Instantiating Objects
+# ---> Objects
 dog1 = Dog("Buddy", 3)
 dog2 = Dog("Max", 5)
 
@@ -28,38 +26,37 @@ print(dog1.bark())  # Output: Buddy says Woof!
 print(dog2.bark())  # Output: Max says Woof!
 print(dog1.species) # Output: Canine
 
-# ---> Encapsulation & Access Modifiers
+# ------------------------------------------------------------> 
+# Encapsulation & Access Modifiers
+# ------------------------------------------------------------> 
 # In Python, all attributes and methods are public by default.
-# Privacy is enforced by conventions and name mangling rather than keywords like public/private.
+# Privacy is enforced by conventions and name mangling rather than keywords like public / private.
+# Python doesn't enforce privacy but rather uses conventions and name mangling.
 
 class BankAccount:
-    def __init__(self, owner, balance):
-        self.owner = owner # Public: Access and modify freely
-        
-        # Protected attribute (prefixed with a single underscore '_')
-        # Tells developers: "This is internal; do not access it directly outside this class hierarchy."
-        # Python does not enforce this restriction.
-        self._account_type = "Savings"
-        
-        # Private attribute (prefixed with a double underscore '__')
-        # Triggers "Name Mangling" - Python changes the internal name so it cannot be easily accessed.
-        self.__balance = balance # Private: Cannot be accessed directly from outside
+    owner         # Public Attribute    # Prefixed with No Underscore.
+    _account_type # Protected Attribute # Prefixed with a single underscore '_'.
+    __balance     # Private Attribute   # Prefixed with a double underscore '__'.
 
-    def get_balance(self): # Public getter method
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self._account_type = "Savings"
+        self.__balance = balance
+
+    def get_balance(self): # Public Getter Method
         return self.__balance
 
-    def deposit(self, amount): # Public setter/modifier method
+    def deposit(self, amount): # Public Setter Method
         if amount > 0:
             self.__balance += amount
 
 account = BankAccount("Bob", 1000)
 print(account.owner)         # Output: Bob
-print(account._account_type) # Output: Savings (Accessible, but breaks convention)
+print(account._account_type) # Output: Savings
 
-# print(account.__balance)   # Error: AttributeError: 'BankAccount' object has no attribute '__balance'
-print(account.get_balance()) # Output: 1000 (Correct way to access)
+# print(account.__balance) # Error: AttributeError: 'BankAccount' object has no attribute '__balance' 
+                           # This is because when interpreter compiled the code, it will auto rename private attributes to _ClassName__attributeName.
+                           # The actual private attribute name is '_BankAccount__balance'.
+print(account._BankAccount__balance) # Output: 1000 # Allows bypass, but highly discouraged.
 
-# How Name Mangling works internally:
-# Python renames __balance to _BankAccount__balance.
-print(account._BankAccount__balance) # Output: 1000 (Allows bypass, but highly discouraged)
-
+print(account.get_balance()) # Output: 1000 # Correct way to access.

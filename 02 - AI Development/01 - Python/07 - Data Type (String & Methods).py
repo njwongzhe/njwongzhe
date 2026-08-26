@@ -1,7 +1,8 @@
 # ------------------------------------------------------------> 
-# Strings in Python (str)
+# Strings (str)
 # ------------------------------------------------------------> 
-# Strings are sequences of character data. They are immutable, meaning once created, their characters cannot be modified in-place.
+# Strings are sequences of character data. 
+# They are immutable, meaning once created, their characters cannot be modified in-place.
 
 # ---> String Creation
 str1 = 'Single quotes'
@@ -34,9 +35,9 @@ print("First character:" , text[0])  # Output: P
 print("Last character:"  , text[-1]) # Output: g
 
 # Syntax: string[start:stop:step]
-# start: Start Index (Inclusive)
-# stop: End Index (Exclusive)
-# step: Step Size (It means skipping characters by the number of step size, default value is 1)
+# start - Start index. (Inclusive)
+# stop  - End index. (Exclusive)
+# step  - Step size. (It means skipping characters by the number of step size, default value is 1.)
 print("Slicing (0 to 6):"  , text[0:6])  # Output: Python             # Stops before index 6.
 print("Shortcut to start:" , text[:6])   # Output: Python             # Stops before index 6.
 print("Shortcut to end:"   , text[7:])   # Output: Programming        # Starts from index 7.

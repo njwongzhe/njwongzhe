@@ -1,5 +1,5 @@
 # ------------------------------------------------------------> 
-# Numbers, Booleans, and NoneType in Python
+# Numbers, Booleans & NoneType
 # ------------------------------------------------------------> 
 
 # ---> Integers (int)

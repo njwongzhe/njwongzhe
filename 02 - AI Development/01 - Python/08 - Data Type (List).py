@@ -1,5 +1,5 @@
 # ------------------------------------------------------------> 
-# Lists in Python (list)
+# Lists (list)
 # ------------------------------------------------------------> 
 # Lists are ordered, mutable (changeable) sequences of items.
 # They can contain elements of different data types and allow duplicate values.

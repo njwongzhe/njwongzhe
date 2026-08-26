@@ -1,5 +1,5 @@
 # ------------------------------------------------------------> 
-# Variables in Python
+# Variables
 # ------------------------------------------------------------> 
 # Python is dynamically typed. You don't need to declare a variable's type.
 # The type is determined automatically when a value is assigned.
@@ -34,7 +34,7 @@ user_age = 20
 total_amount = 99.50
 
 # ------------------------------------------------------------> 
-# Constants in Python
+# Constants
 # ------------------------------------------------------------> 
 # Python does not have built-in read-only constants (like const in JS or Dart).
 # Instead, Python uses naming conventions and type hints to indicate constants.

@@ -1,8 +1,6 @@
 # ------------------------------------------------------------> 
-# OOP: Properties, Class Methods, and Static Methods
+# Properties (@property, Getters and Setters)
 # ------------------------------------------------------------> 
-
-# ---> Properties (@property, Getters and Setters)
 # The @property decorator allows a method to be accessed like an attribute.
 # This makes it easy to add validation when reading or writing attribute values.
 
@@ -32,7 +30,9 @@ print(c.temperature) # Output: 37
 
 # c.temperature = -300 # Setter validation fails -> Raises ValueError
 
-# ---> Instance vs Class vs Static Methods
+# ------------------------------------------------------------> 
+# Instance, Class (@classmethod), and Static (@staticmethod) Methods
+# ------------------------------------------------------------> 
 
 class Employee:
     company_name = "GlobalCorp" # Class attribute
@@ -68,7 +68,6 @@ class Employee:
         return day not in (5, 6)
 
 # ---> Verification
-
 emp1 = Employee("Alice", 60000)
 print(emp1.get_details()) # Output: Alice earns $60000 at GlobalCorp
 
@@ -83,4 +82,3 @@ print(emp2.name, emp2.salary) # Output: Bob 80000
 # Call static method (can be called on class directly or instance)
 print(Employee.is_workday(2)) # Tuesday -> Output: True
 print(emp1.is_workday(5))     # Saturday -> Output: False
-

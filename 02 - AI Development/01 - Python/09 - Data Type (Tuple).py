@@ -1,5 +1,5 @@
 # ------------------------------------------------------------> 
-# Tuples in Python (tuple)
+# Tuples (tuple)
 # ------------------------------------------------------------> 
 # Tuples are ordered, immutable sequences of items.
 # Once a tuple is created, you cannot change, add, or remove its elements.
@@ -23,7 +23,7 @@ print("Last item:"   , my_tuple[-1])  # Output: cherry
 print("Slice tuple:" , my_tuple[0:2]) # Output: ('apple', 'banana')
 
 # ------------------------------------------------------------> 
-# Tuple Packing and Unpacking
+# Tuple Packing & Unpacking
 # ------------------------------------------------------------> 
 
 # ---> Packing

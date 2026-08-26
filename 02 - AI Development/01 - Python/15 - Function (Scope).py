@@ -2,65 +2,41 @@
 # Variable Scope
 # ------------------------------------------------------------> 
 # Python resolves variables using the LEGB rule:
-# L: Local (inside the current function)
-# E: Enclosing (inside outer/nested functions)
-# G: Global (at the top-level of the script)
-# B: Built-in (predefined names like print, len, range)
+# L: Local (Inside the current function.)
+# E: Enclosing (Inside outer/nested functions.)
+# G: Global (At the top-level of the script.)
+# B: Built-in (Predefined names like print, len, range.)
 
 # ---> Local vs Global Scope
-message = "Global Message" # Global variable
+message = "Global Message" # Global Variable
 
 def show_msg():
-    message = "Local Message" # Local variable, shadows the global one
+    message = "Local Message" # Local Variable
     print("Inside function:", message)
 
-show_msg() # Output: Inside function: Local Message
+show_msg()                          # Output: Inside function: Local Message
 print("Outside function:", message) # Output: Outside function: Global Message
 
-# ---> Modifying a Global Variable (global keyword)
+# ---> Modifying a Global Variable (global)
 counter = 0
 
 def increment():
-    global counter # Declare that we want to modify the global variable 'counter'
+    global counter # Declare that we want to modify the global variable 'counter'.
     counter += 1
 
 increment()
 print("Counter:", counter) # Output: Counter: 1
 
-# ---> Nonlocal Scope (nonlocal keyword)
+# ---> Nonlocal Scope (nonlocal)
 # Used in nested functions to reference a variable in the enclosing outer function.
 def outer_func():
     x = "Outer value"
     
     def inner_func():
-        nonlocal x # Declare that we want to modify 'x' from outer_func
+        nonlocal x # Declare that we want to modify 'x' from outer_func.
         x = "Inner modified value"
         
     inner_func()
     print("Outer X after modification:", x)
 
 outer_func() # Output: Outer X after modification: Inner modified value
-
-# ------------------------------------------------------------> 
-# Lambda (Anonymous) Functions
-# ------------------------------------------------------------> 
-# A lambda function is a small, anonymous function that can have any number of arguments,
-# but can only have a single expression. The expression is evaluated and automatically returned.
-# Syntax: lambda arguments: expression
-
-# ---> Basic Lambda
-square = lambda x: x ** 2
-print(square(5)) # Output: 25
-
-add = lambda a, b: a + b
-print(add(3, 4)) # Output: 7
-
-# ---> Real-World Use Case: Sorting
-# Lambda functions are commonly passed as arguments to higher-order functions like sorted(), min(), max().
-pairs = [(1, "one"), (3, "three"), (2, "two")]
-
-# Sort pairs by their second element (alphabetically: "one", "three", "two")
-# x represents each tuple in the list, x[1] is the string.
-sorted_pairs = sorted(pairs, key=lambda x: x[1])
-print(sorted_pairs) # Output: [(1, 'one'), (3, 'three'), (2, 'two')] -> because 'one' < 'three' < 'two' (o, t, t)
-
