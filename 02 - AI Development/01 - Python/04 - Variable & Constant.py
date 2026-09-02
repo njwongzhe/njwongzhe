@@ -34,6 +34,24 @@ user_age = 20
 total_amount = 99.50
 
 # ------------------------------------------------------------> 
+# Type Hinting for Variables
+# ------------------------------------------------------------> 
+# Python doesn't force you to declare a variable's type.
+# Type hints are optional annotations that improve code readability and IDE auto-completion.
+# Python does NOT enforce type safety at runtime.
+
+# ---> Initialized Variable Type Hinting
+count: int = 5
+user_name: str = "Alice"
+is_active: bool = True
+print(f"{user_name} ({count})") # Output: Alice (5)
+
+# ---> Uninitialized Variable Type Hinting
+# Declares type without assigning a value yet.
+# Useful in class bodies or static type checkers.
+unassigned_var: str
+
+# ------------------------------------------------------------> 
 # Constants
 # ------------------------------------------------------------> 
 # Python does not have built-in read-only constants (like const in JS or Dart).
@@ -45,6 +63,6 @@ PI = 3.14    # Technically, Python still allows you to change it. No interpreter
 
 # ---> Type Hinting (typing.Final)
 from typing import Final # Starting from Python 3.8, you can use Final to tell linters/IDEs that a value shouldn't be changed.
-GRAVITY : Final = 9.8
+GRAVITY: Final = 9.8
 # GRAVITY = 9.0 # Static analysis tools (like mypy or IDEs) will flag this as an error.
 print(f"GRAVITY = {GRAVITY}") # Output: GRAVITY = 9.8

@@ -1,71 +1,84 @@
 # ------------------------------------------------------------> 
-# File Handling in Python
+# File Handling
 # ------------------------------------------------------------> 
-# Python provides built-in functions to read and write files.
+# Python provides built-in functions to create, read, update, and delete files.
+# - with: Automatically closes files after execution.
+# - open: Open a file to create/r/w/a/r+/rb/wb.
+# - read: Read a file (read, readline, readlines).
+# - write: Write to a file (write, writelines).
+# - delete: Delete a file (os.remove).
+# - close: Close a file (handled automatically by 'with').
 
-# ---> The "with" Statement
-# Using the "with" statement (context manager) is the best practice for file operations.
-# It automatically closes the file when the block is finished, even if errors occur.
-# Failing to close files can cause resource leaks and lock files in the OS.
+# ---> Common File Modes Summary:
+# 'r'         - Read mode (default). Raises FileNotFoundError if file does not exist.
+# 'w'         - Write mode. Overwrites existing file or creates a new file.
+# 'a'         - Append mode. Appends data to the end of the file.
+# 'r+'        - Read and Write mode.
+# 'rb' / 'wb' - Read/Write in Binary mode (used for images, audio, PDFs, etc.).
 
-# ---> Writing to a File ('w' mode)
-# WARNING: 'w' mode will overwrite the file if it already exists.
+# ------------------------------------------------------------> 
+# Writing Files ('w' mode)
+# ------------------------------------------------------------> 
+
+# ---> write()
+# Writes a single string to the file. 'w' mode overwrites existing content or creates a new file.
 with open("example.txt", "w") as file:
-    file.write("Hello, this is the first line.\n")
+    file.write("Hello, World!\n")
     file.write("Writing to files in Python is easy.\n")
-    # write() does not add a newline automatically; you must append \n manually.
 
-# ---> Appending to a File ('a' mode)
-# 'a' mode appends content to the end of the file, preserving existing data.
-with open("example.txt", "a") as file:
-    file.write("This line is appended to the end.\n")
-
-# ---> Reading from a File ('r' mode)
-# 'r' is the default mode if no mode is specified.
-
-# Method A: read()
-# Reads the ENTIRE content of the file as a single string.
-with open("example.txt", "r") as file:
-    content = file.read()
-    print("--- Reading Entire File ---")
-    print(content)
-
-# Method B: readline()
-# Reads the file line-by-line. Useful for very large files.
-with open("example.txt", "r") as file:
-    print("--- Reading Line-by-Line ---")
-    line1 = file.readline()
-    line2 = file.readline()
-    print("Line 1:", line1.strip()) # strip() removes the newline character
-    print("Line 2:", line2.strip())
-
-# Method C: readlines()
-# Reads all lines and returns them as a list of strings.
-with open("example.txt", "r") as file:
-    lines = file.readlines()
-    print("--- Reading all lines into a List ---")
-    print(lines) # Output: ['Hello, this is the first line.\n', ...]
-
-# Method D: Iterating Directly over the File Object
-# Memory-efficient and clean way to process large text files.
-with open("example.txt", "r") as file:
-    print("--- Iterating directly over file ---")
-    for index, line in enumerate(file, 1):
-        print(f"Line {index}: {line.strip()}")
-
-# ---> Writing Multiple Lines (writelines())
-lines_to_write = [
-    "Line 1\n",
-    "Line 2\n",
-    "Line 3\n"
-]
+# ---> writelines()
+# Writes a list of strings to the file.
+lines_to_write = ["First line\n", "Second line\n"]
 with open("lines.txt", "w") as file:
     file.writelines(lines_to_write)
 
-# ---> Summary of Common File Modes
-# 'r' : Read mode (default). Raises FileNotFoundError if file does not exist.
-# 'w' : Write mode. Overwrites existing files, creates file if it doesn't exist.
-# 'a' : Append mode. Adds data to the end, creates file if it doesn't exist.
-# 'r+': Read and Write.
-# 'rb'/'wb': Read/Write in binary mode (used for images, PDFs, etc.).
+# ------------------------------------------------------------> 
+# Appending Files ('a' mode)
+# ------------------------------------------------------------> 
 
+with open("example.txt", "a") as file:
+    file.write("This line is appended to the end.\n")
+
+# ------------------------------------------------------------> 
+# Reading Files ('r' mode)
+# ------------------------------------------------------------> 
+
+# ---> read()
+# Reads entire file into a single string.
+with open("example.txt", "r") as file:
+    content = file.read()
+    print("--- Reading Entire File ---")
+    print(content.strip())
+
+# ---> readline()
+# Reads one line at a time.
+with open("example.txt", "r") as file:
+    first_line = file.readline()
+    print("--- Reading Single Line ---")
+    print(first_line.strip()) # strip() removes trailing newline '\n'
+
+# ---> readlines()
+# Reads all lines into a list.
+with open("example.txt", "r") as file:
+    lines = file.readlines()
+    print("--- Reading All Lines as List ---")
+    print(lines)
+
+# ---> Iterating over File Object (Memory Efficient)
+with open("example.txt", "r") as file:
+    print("--- Iterating Line-by-Line ---")
+    for index, line in enumerate(file, 1):
+        print(f"Line {index}: {line.strip()}")
+
+# ------------------------------------------------------------> 
+# Deleting Files & Common File Modes
+# ------------------------------------------------------------> 
+
+# ---> Deleting Files (os.remove())
+import os
+
+if os.path.exists("lines.txt"):
+    os.remove("lines.txt")
+
+if os.path.exists("example.txt"):
+    os.remove("example.txt")

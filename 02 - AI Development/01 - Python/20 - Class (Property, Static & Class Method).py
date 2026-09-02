@@ -1,84 +1,85 @@
 # ------------------------------------------------------------> 
-# Properties (@property, Getters and Setters)
+# Getters & Setters (@property & @<property_name>.setter)
 # ------------------------------------------------------------> 
-# The @property decorator allows a method to be accessed like an attribute.
-# This makes it easy to add validation when reading or writing attribute values.
 
 class Celsius:
     def __init__(self, temperature=0):
-        self._temperature = temperature # Protected backing variable
+        self._temperature = temperature
 
+    # The @property decorator allows a method to be accessed like an attribute.
+    # It is used to add validation or custom logic when reading or writing attribute values.
     @property
     def temperature(self):
-        """Getter: Called when accessing obj.temperature"""
-        print("Getting value...")
         return self._temperature
 
+    # The @<property_name>.setter decorator is used to define a setter method for the <property_name> attribute.
+    # It is used to add validation or custom logic when writing attribute values.
     @temperature.setter
     def temperature(self, value):
-        """Setter: Called when writing obj.temperature = value"""
-        print("Setting value with validation...")
         if value < -273.15:
-            raise ValueError("Temperature below Absolute Zero is not possible!")
+            raise ValueError("Temperature below Absolute Zero (-273.15°C) is not possible!")
         self._temperature = value
 
 c = Celsius(25)
-print(c.temperature) # Accesses getter -> Output: Getting value... \n 25
+print(c.temperature)  # Accesses getter. # Output: 25
 
-c.temperature = 37   # Accesses setter -> Output: Setting value with validation...
-print(c.temperature) # Output: 37
+c.temperature = 37    # Accesses setter.
+print(c.temperature)  # Output: 37
 
 # c.temperature = -300 # Setter validation fails -> Raises ValueError
 
 # ------------------------------------------------------------> 
-# Instance, Class (@classmethod), and Static (@staticmethod) Methods
+# Class Methods (@classmethod)
 # ------------------------------------------------------------> 
+# The @classmethod decorator is used to define a class method.
+# It receives 'cls' (the class itself) as the first parameter.
+# They can modify class-level state or serve as alternative constructors (factory methods).
 
 class Employee:
-    company_name = "GlobalCorp" # Class attribute
+    company_name = "GlobalCorp"
 
     def __init__(self, name, salary):
         self.name = name
         self.salary = salary
 
-    # Instance Method
-    # Receives "self" as the first argument. Can access/modify instance AND class state.
-    def get_details(self):
-        return f"{self.name} earns ${self.salary} at {self.company_name}"
+    def get_info(self):
+        return f"{self.name} earns ${self.salary} at {self.company_name}."
 
-    # Class Method (@classmethod)
-    # Receives "cls" as the first argument instead of "self". Can access/modify class state only.
-    # Often used as factory methods / alternative constructors.
     @classmethod
-    def change_company(cls, new_name):
+    def set_company_name(cls, new_name):
         cls.company_name = new_name
 
     @classmethod
     def from_string(cls, emp_str):
-        """Alternative constructor: create Employee from string 'John-50000'"""
         name, salary = emp_str.split("-")
         return cls(name, int(salary))
 
-    # Static Method (@staticmethod)
-    # Does NOT receive "self" or "cls". Behaves like a normal function inside the class namespace.
-    # Used for utility functions that don't need access to instance or class attributes.
+emp1 = Employee("Alice", 60000)
+print(emp1.get_info())  # Output: Alice earns $60000 at GlobalCorp.
+
+# Set company name for all instance.
+Employee.set_company_name("TechCorp")
+print(emp1.get_info()) # Output: Alice earns $60000 at TechCorp.
+
+# Alternative constructor classmethod.
+emp2 = Employee.from_string("Bob-80000")
+print(emp2.get_info()) # Output: Bob earns $80000 at TechCorp.
+
+# ------------------------------------------------------------> 
+# Static Methods (@staticmethod)
+# ------------------------------------------------------------> 
+# The @staticmethod decorator is used to define a static method.
+# They behave like regular functions, but belong to the class namespace for utility grouping.
+
+class MathUtils:
+    @staticmethod
+    def is_even(number):
+        return number % 2 == 0
+
     @staticmethod
     def is_workday(day):
         # 5 = Saturday, 6 = Sunday
         return day not in (5, 6)
 
-# ---> Verification
-emp1 = Employee("Alice", 60000)
-print(emp1.get_details()) # Output: Alice earns $60000 at GlobalCorp
-
-# Call class method to change state for all objects
-Employee.change_company("TechMega")
-print(emp1.get_details()) # Output: Alice earns $60000 at TechMega
-
-# Use alternative constructor class method
-emp2 = Employee.from_string("Bob-80000")
-print(emp2.name, emp2.salary) # Output: Bob 80000
-
-# Call static method (can be called on class directly or instance)
-print(Employee.is_workday(2)) # Tuesday -> Output: True
-print(emp1.is_workday(5))     # Saturday -> Output: False
+print(MathUtils.is_even(10))   # Output: True
+print(MathUtils.is_workday(5)) # Output: False

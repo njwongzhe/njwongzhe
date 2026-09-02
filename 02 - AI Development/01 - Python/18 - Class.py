@@ -34,9 +34,12 @@ print(dog1.species) # Output: Canine
 # Python doesn't enforce privacy but rather uses conventions and name mangling.
 
 class BankAccount:
-    owner         # Public Attribute    # Prefixed with No Underscore.
-    _account_type # Protected Attribute # Prefixed with a single underscore '_'.
-    __balance     # Private Attribute   # Prefixed with a double underscore '__'.
+    # ---> Class Attributes with Type Hinting. 
+    # Type hinting is optional and not strictly enforced at runtime.
+    # However, if not applying type hinting at there, these part of code is redundant since __init__ is the method that will be called when creating an instance.
+    owner: str         # Public Attribute    # Prefixed with No Underscore.
+    _account_type: str # Protected Attribute # Prefixed with a single underscore '_'.
+    __balance: int     # Private Attribute   # Prefixed with a double underscore '__'.
 
     def __init__(self, owner, balance):
         self.owner = owner
