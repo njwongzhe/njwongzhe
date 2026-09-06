@@ -1,4 +1,4 @@
-# math_utils.py - A module inside my_package
+# A module inside my_package.
 
 def add(a, b):
     return a + b
