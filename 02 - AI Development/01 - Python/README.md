@@ -1,69 +1,23 @@
-# Python (.py)
+# Python
 
 <br />
 
-## 1.0 - What Is Python & Installation
+## Modules & Roadmaps
 
-- It is a high-level, interpreted, and dynamically typed programming language.
-- Python is known for its readability, clean syntax, and versatility.
-- Python Download: https://www.python.org/downloads/
+- [01 - Fundamental of Python](./01%20-%20Fundamental%20of%20Python/README.md)
+  - Core Python syntax, data types, control flow, functions, OOP, asynchronous programming, and package management.
 
-<br />
+- [02 - Network Request in Python](./02%20-%20Network%20Request%20in%20Python/README.md)
+  - Low-level network requests using Python standard libraries (urllib and json): JSON conversion, GET, POST, PUT, and DELETE.
 
-## 2.0 - Comments
-
-```python
-# Single Line Comment
-
-"""
-Multi Line 
-Comment
-"""
-
-'''
-Multi Line 
-Comment
-'''
-```
+- [03 - FastApi](./03%20-%20FastApi/README.md)
+  - High-performance web APIs with FastAPI: routing, parameters, Pydantic validation, dependencies, middleware, background tasks, and full RESTful CRUD operations.
 
 <br />
 
-## 3.0 - Command
+## Setup & Guides
 
-```html
-python --version 
-  | Check version of Python. Use this to verify Python is installed and recognized by your computer.
-
-python <filename.py> 
-  | Run the Python script.
-
-python 
-  | Enter the Python REPL Environment (interactive shell). Type exit() or press Ctrl+Z to exit.
-```
-
-<br />
-
-## 4.0 - Package Manager & Virtual Environment
-
-```html
-pip --version 
-  | Check version of Pip (Python Package Index package manager).
-
-pip install <packageName> 
-  | Install a specific package/library.
-  | Example: "pip install requests" will download and install the "requests" library.
-
-pip uninstall <packageName> 
-  | Uninstall a specific package.
-
-pip list 
-  | List all packages installed in the current environment.
-
-python -m venv <envName> 
-  | Create a virtual environment to manage dependencies locally for a project.
-  | Example: "python -m venv myenv" will create a virtual environment named "myenv".
-
-myenv\Scripts\activate.bat 
-  | Activate the virtual environment (Windows Command Prompt).
-  | Use "deactivate" to turn off the virtual environment.
-```
+- [MockAPI Setup (Network Request)](./02%20-%20Network%20Request%20in%20Python/mockapi_setup.md)
+  - Quick setup guide for simulating cloud RESTful APIs with MockAPI for Chapter 02.
+- [MockAPI Setup (FastAPI)](./03%20-%20FastApi/mockapi_setup.md)
+  - Quick setup guide for integrating MockAPI upstream endpoints for Chapter 03.
