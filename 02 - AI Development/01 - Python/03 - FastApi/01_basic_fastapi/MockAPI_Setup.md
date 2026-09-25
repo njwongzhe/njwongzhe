@@ -65,15 +65,15 @@ In this module, FastAPI acts as an API gateway / backend service layer. Clients 
 
 ### 3.2 - Configuration Setup
 
-1. Navigate to the FastAPI demo directory:
+1. Navigate to the FastAPI project directory:
    ```bash
-   cd "03 - FastApi/fastapi_demo"
+   cd "03 - FastApi/01_modular_versioned_api"
    ```
-2. Create or update the `.env` file (`fastapi_demo/.env`):
+2. Create or update the `.env` file (`01_modular_versioned_api/.env`):
    ```env
    MOCK_API_URL=https://<your_project_id>.mockapi.io/itemList
    ```
-3. In `mockapi_package/services.py`, `python-dotenv` loads this variable automatically on application startup:
+3. In `services/item_v1_service.py` and `services/item_v2_service.py`, `python-dotenv` loads this variable automatically:
    ```python
    import os
    from dotenv import load_dotenv

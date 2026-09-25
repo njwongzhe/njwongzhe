@@ -2,173 +2,149 @@
 
 <br />
 
-## 1.0 - What is FastAPI & Installation
+## 1.0 - What Is FastAPI & Installation
 
-- FastAPI is a modern, high-performance web framework for building RESTful APIs with Python based on standard Python type hints.
-- Automatically provides interactive OpenAPI documentation:
-  - Swagger UI: `http://127.0.0.1:8000/docs`
-  - ReDoc: `http://127.0.0.1:8000/redoc`
+- It is a modern, high-performance web framework for building RESTful APIs in Python.
+- Built on top of **Starlette** (for ASGI web routing and async capabilities) and **Pydantic** (for data validation and serialization).
+- FastAPI Official Website & Documentation: https://fastapi.tiangolo.com/
 
-- Installation:
-  ```bash
-  pip install fastapi uvicorn httpx python-dotenv
-  ```
+- Installation & Setup Summary:
+   1. Ensure Python 3.8+ is installed on your computer.
+   2. Create and activate a virtual environment for your project (recommended).
+   3. Run `pip install "fastapi[standard]"` to install FastAPI and all standard tools (including Uvicorn ASGI server).
+   4. Start your application server using `uvicorn main:app --reload` or `fastapi dev main.py`.
 
 <br />
 
-## 2.0 - Command
+## 2.0 - Commands
 
 ```html
-# Configure your MockAPI endpoint in fastapi_demo/.env:
-cp fastapi_demo/.env.example fastapi_demo/.env
+python --version 
+   | Check version of Python. Use this to verify Python is installed and recognized by your computer.
 
-pip install -r requirements.txt
-  | Install required dependencies (FastAPI, Uvicorn, HTTPX, and python-dotenv).
+pip --version 
+   | Check version of pip. Use this to verify Python package manager is installed and recognized.
 
-python main.py
-  | Run the application directly using the Python runner script.
+python -m venv .venv 
+   | Create an isolated virtual environment named ".venv" in the current directory.
+   | Recommended to run before installing packages to avoid polluting the global Python environment.
 
-uvicorn main:app --reload
-  | Start the Uvicorn development server with hot-reloading enabled.
+.\.venv\Scripts\activate 
+   | Activate the virtual environment on Windows (PowerShell/CMD).
+   | Once activated, "(venv)" will appear at the start of your terminal prompt.
+   | On macOS/Linux, run: "source .venv/bin/activate".
+
+deactivate 
+   | Deactivate the currently active virtual environment and return to the system global Python.
+
+pip install "fastapi[standard]" 
+   | Install FastAPI with all recommended standard tools and dependencies.
+   | Includes Uvicorn (ASGI server), Pydantic (data validation), email-validator, and the FastAPI CLI.
+
+pip install fastapi uvicorn 
+   | Install minimal core FastAPI and Uvicorn server without extra optional tools.
+
+pip install -r requirements.txt 
+   | Install all dependencies listed in the requirements.txt file of a project.
+   | Run it when you first clone/download a project or if you switch to a new environment.
+   | Your current directory must be the project folder (where requirements.txt is located).
+
+pip freeze > requirements.txt 
+   | Export all installed packages and their exact versions into requirements.txt.
+   | Run this when you install new packages so other team members can install the same dependencies.
+
+pip list 
+   | Display all installed Python packages and their versions in the current environment.
+
+uvicorn main:app --reload 
+   | Start the FastAPI application in development mode with hot-reloading.
+   | "main" refers to the file "main.py".
+   | "app" refers to the FastAPI() object instance created inside main.py (e.g. app = FastAPI()).
+   | "--reload" tells Uvicorn to monitor files and restart automatically when code changes.
+   | Your current working directory must be the folder containing main.py.
+
+uvicorn main:app --host 0.0.0.0 --port 8000 
+   | Start the server on a custom IP address and port number.
+   | "0.0.0.0" makes the server accessible across the local network (LAN), not just localhost.
+   | Default port is 8000.
+
+uvicorn main:app --workers 4 
+   | Start the server with multiple worker processes (typically used for production deployments).
+   | Note: "--reload" cannot be used together with "--workers".
+
+fastapi dev main.py 
+   | Modern FastAPI CLI command to launch a development server with auto-reload and rich terminal output.
+   | Available when "fastapi[standard]" is installed.
+
+fastapi run main.py 
+   | Modern FastAPI CLI command to run the application in production mode (auto-reload disabled).
 ```
 
 <br />
 
-## 3.0 - RESTful API Operations (CRUD)
+## 3.0 - Standard Project Structure
 
-Standard RESTful APIs map HTTP methods to CRUD operations. In this module, FastAPI acts as an API gateway that validates client requests and interacts asynchronously with MockAPI via `httpx`.
+A typical production-ready, modular FastAPI project follows this layered architecture:
 
-For MockAPI setup and `.env` configuration, refer to [MockAPI_Setup.md](./MockAPI_Setup.md).
-
-### Summary of Endpoint Mapping
-
-| Operation | HTTP Method | FastAPI Route | Request Body | Upstream MockAPI | Status Code |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Read (All)** | `GET` | `/items` | None | `GET /itemList` | `200 OK` |
-| **Read (Single)** | `GET` | `/items/{item_id}` | None | `GET /itemList/{id}` | `200 OK` / `404 Not Found` |
-| **Create** | `POST` | `/items` | `ItemBase` | `POST /itemList` | `201 Created` |
-| **Update** | `PUT` | `/items/{item_id}` | `ItemBase` | `PUT /itemList/{id}` | `200 OK` / `404 Not Found` |
-| **Delete** | `DELETE` | `/items/{item_id}` | None | `DELETE /itemList/{id}` | `200 OK` / `404 Not Found` |
+| File / Directory | Description |
+| :--- | :--- |
+| **`.gitignore`** | Specifies files and folders Git should ignore (e.g. `.venv/`, `__pycache__/`, `.env`). |
+| **`.env`** | Stores local environment variables (e.g. database credentials, API keys) safely outside version control. |
+| **`.env.example`** | Example template showing required environment variables without sensitive secrets. |
+| **`requirements.txt`** | Lists all Python package dependencies and versions needed to run the project. |
+| **`main.py`** | Application entry point: initializes `FastAPI()`, configures middleware, mounts routers, and runs Uvicorn. |
+| **`routers\`** | Directory containing API route definitions and endpoint handlers grouped by domain or resource. |
+| └ **`__init__.py`** | Centralizes and exports routers, simplifying imports into `main.py`. |
+| └ **`items.py`** | Defines URL paths and HTTP verbs (`@router.get`, `@router.post`, etc.) for items. |
+| **`schemas\`** | Directory containing Pydantic data validation models (`BaseModel`). |
+| └ **`__init__.py`** | Centralizes and exports public schemas. |
+| └ **`item.py`** | Defines request bodies (`ItemCreate`) and response models (`ItemResponse`). |
+| **`services\`** | Directory containing business logic, external API calls, and database operations. |
+| └ **`__init__.py`** | Centralizes and exports service modules. |
+| └ **`item_service.py`** | Implements CRUD business logic, isolating network/database logic from route handlers. |
 
 <br />
 
-### 3.1 - Data Validation Model (Pydantic)
-FastAPI uses Pydantic models to validate incoming JSON payloads and enforce strict type checking:
+## 4.0 - Interactive Documentation
+
+FastAPI automatically generates interactive documentation out of the box with zero extra configuration.
+
+<br />
+
+### 4.1 - How to Access Default Documentation
+
+1. Start your FastAPI application:
+   ```bash
+   uvicorn main:app --reload
+   ```
+2. Open your browser and navigate to either of the built-in documentation interfaces:
+   - **Swagger UI**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)  
+     *(Interactive testing UI where you can inspect endpoints and execute live requests)*.
+   - **ReDoc**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)  
+     *(Clean, responsive documentation layout)*.
+   - **OpenAPI JSON**: [http://127.0.0.1:8000/openapi.json](http://127.0.0.1:8000/openapi.json)  
+     *(Raw machine-readable OpenAPI schema)*.
+
+<br />
+
+### 4.2 - Customizing or Disabling Documentation URLs
+
+You can customize the URL paths or disable the documentation entirely inside `main.py`:
 
 ```python
-from typing import Optional
-from pydantic import BaseModel
+from fastapi import FastAPI
 
-# Shared Base Schema for Item payloads.
-class ItemBase(BaseModel):
-    name: str
-    info: Optional[str] = None
+# Customizing documentation URLs:
+app = FastAPI(
+    docs_url="/documentation", # Changes Swagger UI to http://127.0.0.1:8000/documentation
+    redoc_url="/redoc-api",    # Changes ReDoc to http://127.0.0.1:8000/redoc-api
+    openapi_url="/api/v1/openapi.json"
+)
+
+# Disabling documentation entirely (useful in production):
+app = FastAPI(
+    docs_url=None,   # Disables Swagger UI
+    redoc_url=None,  # Disables ReDoc
+    openapi_url=None # Disables raw OpenAPI schema
+)
 ```
-
-<br />
-
-### 3.2 - Read Operations (GET)
-Retrieve all items or fetch a single record by its path parameter `{item_id}`:
-
-```python
-# 1. Retrieve all items.
-@app.get("/items")
-async def get_items():
-    async with httpx.AsyncClient() as client:
-        response = await client.get(MOCK_API_URL)
-        if response.status_code != 200:
-            raise HTTPException(status_code=response.status_code, detail="Failed to fetch items.")
-        return response.json()
-
-# 2. Retrieve a single item by ID.
-@app.get("/items/{item_id}")
-async def get_item(item_id: str):
-    async with httpx.AsyncClient() as client:
-        response = await client.get(f"{MOCK_API_URL}/{item_id}")
-        if response.status_code == 404:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Item not found.")
-        elif response.status_code != 200:
-            raise HTTPException(status_code=response.status_code, detail="Failed to fetch item.")
-        return response.json()
-```
-
-<br />
-
-### 3.3 - Create Operation (POST)
-Creates a new resource using the validated `ItemBase` payload and returns `201 Created`:
-
-```python
-# Create an item using validated ItemBase schema.
-@app.post("/items", status_code=status.HTTP_201_CREATED)
-async def create_item(item: ItemBase):
-    async with httpx.AsyncClient() as client:
-        response = await client.post(MOCK_API_URL, json=item.model_dump())
-        if response.status_code not in (200, 201):
-            raise HTTPException(status_code=response.status_code, detail="Failed to create item.")
-        return response.json()
-```
-
-<br />
-
-### 3.4 - Update Operation (PUT)
-Combines path parameter `{item_id}` with incoming `ItemBase` payload to update an existing record:
-
-```python
-# Update an existing item by ID.
-@app.put("/items/{item_id}")
-async def update_item(item_id: str, item: ItemBase):
-    async with httpx.AsyncClient() as client:
-        response = await client.put(f"{MOCK_API_URL}/{item_id}", json=item.model_dump())
-        if response.status_code == 404:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Item not found.")
-        elif response.status_code != 200:
-            raise HTTPException(status_code=response.status_code, detail="Failed to update item.")
-        return response.json()
-```
-
-<br />
-
-### 3.5 - Delete Operation (DELETE)
-Removes an existing resource by its identifier:
-
-```python
-# Delete an item by ID.
-@app.delete("/items/{item_id}")
-async def delete_item(item_id: str):
-    async with httpx.AsyncClient() as client:
-        response = await client.delete(f"{MOCK_API_URL}/{item_id}")
-        if response.status_code == 404:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Item not found.")
-        elif response.status_code != 200:
-            raise HTTPException(status_code=response.status_code, detail="Failed to delete item.")
-        return {"message": f"Item {item_id} deleted successfully.", "data": response.json()}
-```
-
-<br />
-
-### 3.6 - Modular Architecture (`fastapi_demo`)
-In production applications, code is separated into layers rather than kept in a single file:
-- **`main.py`**: Application entry point, mounts routers and starts Uvicorn.
-- **`mockapi_package/router.py`**: Route handlers and API path definitions (`APIRouter`).
-- **`mockapi_package/schemas.py`**: Pydantic data validation schemas (`ItemBase`).
-- **`mockapi_package/services.py`**: Async HTTP client logic communicating with MockAPI via `httpx`.
-- **`.env`**: Stores environment variables (`MOCK_API_URL`).
-
-<br />
-
-## 4.0 - Comparison: Native Python vs. FastAPI
-
-Refer to [02 - Network Request in Python](../02%20-%20Network%20Request%20in%20Python/README.md) for native Python HTTP operations (`urllib.request` and `http.server.BaseHTTPRequestHandler`).
-
-The following table provides a comprehensive comparison between building HTTP services with Python's built-in standard library versus modern **FastAPI**:
-
-| Feature / Dimension | Native Python (`urllib` & `http.server`) | Modern Framework (`FastAPI` & `HTTPX`) |
-| :--- | :--- | :--- |
-| **Role & Architecture** | Low-level direct socket client & minimal synchronous server | High-performance ASGI API gateway & service layer |
-| **Routing & Dispatch** | Manual path parsing (`self.path`) and strict method dispatch (`do_GET`, `do_POST`) | Declarative route decorators (`@app.get()`, `@app.post()`) with automatic parameter injection |
-| **Request Body Parsing** | Manual `Content-Length` header check, byte stream reading (`rfile.read()`), UTF-8 decode, `json.loads()` | Automatic JSON deserialization and mapping into Pydantic models |
-| **Data Validation** | Manual dictionary inspection and manual error raising | Automated schema validation with informative error messages via Pydantic (`ItemBase`) |
-| **Concurrency & I/O** | Synchronous and blocking by default (one request per thread) | Native asynchronous non-blocking I/O (`async` / `await`) for high concurrency |
-| **Response & Headers** | Manual `send_response()`, `send_header()`, and byte stream encoding (`wfile.write()`) | Direct return of Python `dict` or `BaseModel`; status codes and headers managed automatically |
-| **Interactive Docs** | None (must be written and maintained manually) | Auto-generated interactive Swagger UI (`/docs`) and ReDoc (`/redoc`) |
-| **Environment & Config** | Hardcoded variables at top of script | Centralized `.env` file management via `python-dotenv` |

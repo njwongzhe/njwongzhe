@@ -1,6 +1,0 @@
-# Environment variables
-.env
-
-# Byte-compiled / cache files
-__pycache__/
-*.py[cod]
