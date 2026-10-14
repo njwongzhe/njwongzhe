@@ -19,6 +19,7 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
   <img src="Profile/cards/cplusplus.svg" width="110" height="82" />
   <img src="Profile/cards/java.svg" width="110" height="82" />
   <img src="Profile/cards/php.svg" width="110" height="82" />
+  <img src="Profile/cards/python.svg" width="110" height="82" />
   <img src="Profile/cards/dart.svg" width="110" height="82" />
 </p>
 <p align="center">
@@ -28,7 +29,7 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
   <img src="Profile/cards/typescript.svg" width="110" height="82" />
 </p>
 
-<h3 align="center">Frontend & Frameworks</h3>
+<h3 align="center">Frameworks</h3>
 
 <p align="center">
   <img src="Profile/cards/nodejs.svg" width="110" height="82" />
@@ -39,6 +40,7 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
 <p align="center">
   <img src="Profile/cards/tailwindcss.svg" width="110" height="82" />
   <img src="Profile/cards/php-slim.svg" width="110" height="82" />
+  <img src="Profile/cards/fastapi.svg" width="110" height="82" />
   <img src="Profile/cards/flutter.svg" width="110" height="82" />
 </p>
 
@@ -48,8 +50,6 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
   <img src="Profile/cards/mysql.svg" width="110" height="82" />
   <img src="Profile/cards/postgresql.svg" width="110" height="82" />
   <img src="Profile/cards/prisma.svg" width="110" height="82" />
-</p>
-<p align="center">
   <img src="Profile/cards/firebase.svg" width="110" height="82" />
   <img src="Profile/cards/supabase.svg" width="110" height="82" />
 </p>
