@@ -1,12 +1,11 @@
 -- =============================================================================
--- 07 - Subqueries
+-- 08 - Subqueries
 -- =============================================================================
 -- Description:
 -- Demonstrates nested subqueries across WHERE, SELECT, HAVING, and FROM clauses, including scalar, column, derived tables, and EXISTS.
 -- =============================================================================
 
 USE dml_practice_db;
-
 
 /* ========================================================================= */
 /* 1. Scalar Subqueries (Returns a Single Value)                             */
@@ -20,9 +19,9 @@ WHERE salary > (SELECT AVG(salary) FROM employees);
 
 -- 1.2 Display scalar subquery value in SELECT list.
 -- Display each employee alongside the overall average salary.
-SELECT 
-    emp_id, 
-    first_name, 
+SELECT
+    emp_id,
+    first_name,
     salary,
     ROUND((SELECT AVG(salary) FROM employees), 2) AS overall_avg_salary
 FROM employees;
@@ -33,11 +32,10 @@ SELECT dept_id, AVG(salary) AS avg_sal
 FROM employees
 GROUP BY dept_id
 HAVING AVG(salary) > (
-    SELECT AVG(salary) 
-    FROM employees 
+    SELECT AVG(salary)
+    FROM employees
     WHERE dept_id = 50
 );
-
 
 /* ========================================================================= */
 /* 2. Column Subqueries (Returns a Single Column, Multiple Rows)             */
@@ -63,18 +61,18 @@ WHERE dept_id NOT IN (
     WHERE location = 'New York'
 );
 
-
 /* ========================================================================= */
 /* 3. Derived Tables (Subqueries in FROM Clause)                             */
 /* ========================================================================= */
+
 -- Critical Rule: In MySQL, every derived table in a FROM clause must have an alias.
 
 -- 3.1 Query from a pre-aggregated derived table in FROM clause.
-SELECT 
+SELECT
     dt.dept_id,
     dt.avg_salary
 FROM (
-    SELECT 
+    SELECT
         dept_id,
         ROUND(AVG(salary), 2) AS avg_salary
     FROM employees
@@ -82,10 +80,10 @@ FROM (
 ) AS dt
 WHERE dt.avg_salary > 8000.00;
 
-
 /* ========================================================================= */
 /* 4. Correlated Subqueries & EXISTS / NOT EXISTS                            */
 /* ========================================================================= */
+
 -- A correlated subquery references columns from the outer query.
 -- It executes once for each row evaluated by the outer query.
 

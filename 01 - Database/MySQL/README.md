@@ -18,17 +18,14 @@
 ### 1.1 - Database Operations
 
 ```sql
--- Create database with UTF-8 character encoding
-CREATE DATABASE IF NOT EXISTS school_db
-    CHARACTER SET utf8mb4 
-    COLLATE utf8mb4_unicode_ci;
+-- Create database safely
+CREATE DATABASE IF NOT EXISTS school_db;
 
--- Switch database context
+-- Switch active database
 USE school_db;
 
--- Inspect databases
+-- List all databases
 SHOW DATABASES;
-SHOW CREATE DATABASE school_db;
 
 -- Delete database
 DROP DATABASE IF EXISTS school_db;
@@ -99,10 +96,7 @@ CREATE TABLE courses (
     CONSTRAINT uq_course_name UNIQUE (course_name),
     CONSTRAINT ck_course_credit CHECK (course_credit BETWEEN 1 AND 6),
     CONSTRAINT ck_course_fee CHECK (course_fee >= 0.00),
-    CONSTRAINT fk_courses_dept FOREIGN KEY (dept_id)
-        REFERENCES departments (dept_id)
-        ON UPDATE CASCADE
-        ON DELETE SET NULL
+    CONSTRAINT fk_courses_dept FOREIGN KEY (dept_id) REFERENCES departments (dept_id)
 );
 ```
 
@@ -147,7 +141,6 @@ ALTER TABLE table_name DROP COLUMN column_name;
 
 -- Inspection
 DESCRIBE table_name; -- or DESC table_name;
-SHOW CREATE TABLE table_name;
 
 -- Rename table
 RENAME TABLE old_name TO new_name;
@@ -167,7 +160,27 @@ DROP TABLE IF EXISTS table_name;
 
 <br />
 
-### 2.1 - Data Insertion (INSERT)
+### 2.1 - Basic Query (SELECT)
+
+```sql
+-- Retrieve all columns (*) or specific columns
+SELECT * FROM employees;
+SELECT first_name, last_name, salary FROM employees;
+
+-- Column alias (AS) and table alias
+SELECT first_name AS given_name, salary * 12 AS annual_salary
+FROM employees AS e;
+
+-- Literal expressions and functions without table
+SELECT 100 + 200 AS calculation_result, CURRENT_DATE() AS today;
+
+-- Deduplication
+SELECT DISTINCT department FROM employees;
+```
+
+<br />
+
+### 2.2 - Data Insertion (INSERT)
 
 ```sql
 -- Standard single-row insert
@@ -177,8 +190,8 @@ INSERT INTO table_name (col1, col2) VALUES (val1, val2);
 INSERT INTO table_name (col1, col2) VALUES (v1, v2), (v3, v4);
 
 -- Date and time insertion
-INSERT INTO time_log (log_date, log_time, log_datetime)
-VALUES (CURDATE(), CURTIME(), NOW());
+INSERT INTO time_log (log_date, log_time, log_datetime, log_timestamp)
+VALUES (CURDATE(), CURTIME(), NOW(), CURRENT_TIMESTAMP());
 
 -- Insert from query (without VALUES keyword)
 INSERT INTO table_archive (col1, col2)
@@ -187,42 +200,37 @@ SELECT colA, colB FROM table_source WHERE condition;
 
 <br />
 
-### 2.2 - Data Modification & Deletion (UPDATE & DELETE)
+### 2.3 - Data Modification & Deletion (UPDATE & DELETE)
 
 ```sql
 -- UPDATE: Always specify WHERE to avoid modifying all records!
 UPDATE employees
-SET salary = salary * 1.05, commission_pct = 0.10
+SET salary = 5000.00
 WHERE emp_id = 101;
-
--- UPDATE with Subquery
-UPDATE employees
-SET salary = salary + 500
-WHERE dept_id = (SELECT dept_id FROM departments WHERE dept_name = 'IT');
 
 -- DELETE: Always specify WHERE to avoid deleting all records!
 DELETE FROM employees
-WHERE emp_id = 999;
+WHERE emp_id = 101;
 ```
 
 <br />
 
-### 2.3 - Basic Filtering & Operators (SELECT ... WHERE)
+### 2.4 - Data Filtering & Operators (WHERE, LIKE, BETWEEN, IN, IS NULL)
 
 ```sql
 Comparison Operators | =, <>, !=, <, >, <=, >=
+Logical Operators    | AND (all conditions true) / OR (at least one true)
 Range Matching       | BETWEEN val1 AND val2 (Inclusive)
 Set Matching         | IN (val1, val2, ...) / NOT IN (val1, val2, ...)
 Pattern Matching     | LIKE 'A%'  (Starts with 'A', % represents 0 or more characters)
                      | LIKE '_e%' (_ represents exactly 1 single character)
 NULL Verification    | IS NULL / IS NOT NULL (Never use '= NULL'!)
-Logical Precedence   | NOT > AND > OR (Use parentheses () to alter precedence)
 Deduplication        | SELECT DISTINCT col1, col2 (Combines columns for uniqueness)
 ```
 
 <br />
 
-### 2.4 - Result Sorting (ORDER BY)
+### 2.5 - Result Sorting (ORDER BY)
 
 ```sql
 -- Single / Multi-column sorting (ASC is default, DESC for descending)
@@ -238,7 +246,7 @@ ORDER BY annual_salary DESC;
 
 <br />
 
-### 2.5 - Numeric & NULL Functions (MySQL Specifics)
+### 2.6 - Numeric & NULL Functions (MySQL Specifics)
 
 ```sql
 ROUND(val, n)     | Rounds val to n decimal places (negative n rounds to tens/hundreds).
@@ -253,10 +261,10 @@ COALESCE(...)     | Returns the first non-NULL expression from argument list.
 
 <br />
 
-### 2.6 - Aggregate Functions & Grouping (GROUP BY & HAVING)
+### 2.7 - Aggregate Functions & Grouping (GROUP BY & HAVING)
 
 - All aggregate functions (except `COUNT(*)`) automatically ignore `NULL` values.
-- **GROUP BY Rule (SQL-92 / ONLY_FULL_GROUP_BY)**: All non-aggregated columns in the `SELECT` list **must** appear in the `GROUP BY` clause!
+- **GROUP BY Rule**: All non-aggregated columns in the `SELECT` list **must** appear in the `GROUP BY` clause!
 - **WHERE vs HAVING**:
   - `WHERE`: Filters individual rows **before** grouping. Cannot contain aggregate functions.
   - `HAVING`: Filters summarized groups **after** aggregation. Can contain aggregate functions.
@@ -274,58 +282,42 @@ HAVING COUNT(*) >= 2           -- 3. Filter groups after aggregation
 
 <br />
 
-### 2.7 - Subqueries
+### 2.8 - Subqueries
 
 ```sql
 -- 1. Scalar Subquery: returns single value
-SELECT * FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);
+SELECT * FROM employees
+WHERE salary > (SELECT AVG(salary) FROM employees);
 
 -- 2. Column Subquery: returns multiple rows, single column
-SELECT * FROM employees WHERE dept_id IN (SELECT dept_id FROM departments WHERE location = 'Austin');
-
--- 3. Derived Table: subquery in FROM clause (MUST have an alias!)
-SELECT dt.dept_id, dt.avg_sal
-FROM (SELECT dept_id, AVG(salary) AS avg_sal FROM employees GROUP BY dept_id) AS dt
-WHERE dt.avg_sal > 7000;
-
--- 4. Correlated Subquery & EXISTS
-SELECT d.dept_name FROM departments d
-WHERE EXISTS (SELECT 1 FROM employees e WHERE e.dept_id = d.dept_id);
+SELECT * FROM employees
+WHERE dept_id IN (SELECT dept_id FROM departments WHERE location = 'Austin');
 ```
 
 <br />
 
-### 2.8 - Multi-Table Joins & Outer Joins
+### 2.9 - Multi-Table Joins & Outer Joins
 
 ```sql
--- 1. Traditional Comma Join (Implicit Join)
-SELECT e.first_name, d.dept_name
-FROM employees e, departments d
-WHERE e.dept_id = d.dept_id;
-
--- 2. ANSI NATURAL JOIN (Matches on all identical column names)
-SELECT * FROM employees NATURAL JOIN departments;
-
--- 3. ANSI JOIN ... USING (Specifies shared column)
-SELECT * FROM employees JOIN departments USING (dept_id);
-
--- 4. ANSI INNER JOIN ... ON (Explicit condition - standard practice)
+-- 1. Standard Inner Join (Explicit condition)
 SELECT e.first_name, d.dept_name
 FROM employees e
 INNER JOIN departments d ON e.dept_id = d.dept_id;
 
--- 5. Self Join (Joining a table to itself using aliases)
+-- 2. Left Outer Join (Preserves all rows from left table)
+SELECT e.first_name, d.dept_name
+FROM employees e
+LEFT JOIN departments d ON e.dept_id = d.dept_id;
+
+-- 3. Right Outer Join (Preserves all rows from right table)
+SELECT e.first_name, d.dept_name
+FROM employees e
+RIGHT JOIN departments d ON e.dept_id = d.dept_id;
+
+-- 4. Self Join (Joining a table to itself using aliases)
 SELECT emp.first_name AS employee, mgr.first_name AS manager
 FROM employees emp
 JOIN employees mgr ON emp.manager_id = mgr.emp_id;
-
--- 6. Outer Joins
--- LEFT OUTER JOIN  : Preserves all rows from left table (unmatched right rows become NULL).
--- RIGHT OUTER JOIN : Preserves all rows from right table (unmatched left rows become NULL).
--- FULL OUTER JOIN  : MySQL lacks native FULL OUTER JOIN syntax; simulate via UNION:
-SELECT e.first_name, d.dept_name FROM employees e LEFT JOIN departments d ON e.dept_id = d.dept_id
-UNION
-SELECT e.first_name, d.dept_name FROM employees e RIGHT JOIN departments d ON e.dept_id = d.dept_id;
 ```
 
 <br />
@@ -345,15 +337,8 @@ CREATE USER 'dev_user'@'localhost' IDENTIFIED BY 'Password@2026';
 -- Change user password
 ALTER USER 'dev_user'@'localhost' IDENTIFIED BY 'NewPassword@2026';
 
--- Lock / Unlock account
-ALTER USER 'dev_user'@'localhost' ACCOUNT LOCK;
-ALTER USER 'dev_user'@'localhost' ACCOUNT UNLOCK;
-
--- Rename user
-RENAME USER 'dev_user'@'localhost' TO 'engineer'@'localhost';
-
 -- Delete user
-DROP USER IF EXISTS 'engineer'@'localhost';
+DROP USER IF EXISTS 'dev_user'@'localhost';
 ```
 
 <br />
@@ -365,20 +350,15 @@ DROP USER IF EXISTS 'engineer'@'localhost';
 -- Global    : ON *.*
 -- Database  : ON db_name.*
 -- Table     : ON db_name.table_name
--- Column    : ON db_name.table_name (col1, col2)
 
 -- Grant privileges
 GRANT SELECT, INSERT, UPDATE ON school_db.* TO 'dev_user'@'localhost';
-
--- Grant with delegation privilege
-GRANT ALL PRIVILEGES ON school_db.* TO 'admin_user'@'localhost' WITH GRANT OPTION;
 
 -- Inspect grants
 SHOW GRANTS FOR 'dev_user'@'localhost';
 
 -- Revoke privileges
 REVOKE INSERT, UPDATE ON school_db.* FROM 'dev_user'@'localhost';
-REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'dev_user'@'localhost';
 
 -- Reload grant tables
 FLUSH PRIVILEGES;
@@ -389,20 +369,16 @@ FLUSH PRIVILEGES;
 ### 3.3 - Role Management (MySQL 8.0+)
 
 ```sql
--- 1. Create roles
-CREATE ROLE 'role_reader', 'role_writer';
+-- 1. Create role
+CREATE ROLE 'role_reader';
 
--- 2. Assign privileges to roles
+-- 2. Assign privileges to role
 GRANT SELECT ON school_db.* TO 'role_reader';
-GRANT SELECT, INSERT, UPDATE, DELETE ON school_db.* TO 'role_writer';
 
--- 3. Grant roles to users
+-- 3. Grant role to user
 GRANT 'role_reader' TO 'alice'@'localhost';
 
--- 4. Set default active roles
-SET DEFAULT ROLE ALL TO 'alice'@'localhost';
-
--- 5. Revoke and Drop roles
+-- 4. Revoke and Drop role
 REVOKE 'role_reader' FROM 'alice'@'localhost';
-DROP ROLE IF EXISTS 'role_reader', 'role_writer';
+DROP ROLE IF EXISTS 'role_reader';
 ```

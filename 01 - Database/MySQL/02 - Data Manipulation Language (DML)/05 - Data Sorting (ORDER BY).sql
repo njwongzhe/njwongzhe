@@ -1,12 +1,11 @@
 -- =============================================================================
--- 04 - Result Sorting (ORDER BY)
+-- 05 - Data Sorting (ORDER BY)
 -- =============================================================================
 -- Description:
 -- Demonstrates ordering query results with ORDER BY, ASC/DESC sorting, multi-column sorts, and sorting by aliases.
 -- =============================================================================
 
 USE dml_practice_db;
-
 
 /* ========================================================================= */
 /* 1. Basic Sorting (ASC & DESC)                                             */
@@ -22,7 +21,6 @@ SELECT emp_id, first_name, salary
 FROM employees
 ORDER BY salary DESC;
 
-
 /* ========================================================================= */
 /* 2. Multi-Column Sorting                                                   */
 /* ========================================================================= */
@@ -33,7 +31,6 @@ ORDER BY salary DESC;
 SELECT emp_id, first_name, dept_id, salary
 FROM employees
 ORDER BY dept_id ASC, salary DESC;
-
 
 /* ========================================================================= */
 /* 3. Sorting by Column Alias & Expressions                                  */

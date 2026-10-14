@@ -1,12 +1,11 @@
 -- =============================================================================
--- 03 - Basic Filtering & Operators (WHERE, LIKE, BETWEEN, IN, IS NULL)
+-- 04 - Data Filtering & Operators (WHERE, LIKE, BETWEEN, IN, IS NULL)
 -- =============================================================================
 -- Description:
--- Demonstrates filtering records with WHERE, comparison operators, ranges, sets, wildcards, NULL checks, and precedence.
+-- Demonstrates filtering records with WHERE, comparison operators, logical operators (AND, OR), ranges, sets, wildcards, and NULL checks.
 -- =============================================================================
 
 USE dml_practice_db;
-
 
 /* ========================================================================= */
 /* 1. Comparison Operators (=, <>, !=, <, >, <=, >=)                         */
@@ -27,99 +26,92 @@ SELECT emp_id, first_name, salary
 FROM employees
 WHERE salary >= 10000.00;
 
+/* ========================================================================= */
+/* 2. Logical Operators (AND, OR)                                            */
+/* ========================================================================= */
+
+-- Logical operators combine multiple conditions in a WHERE clause.
+-- The AND operator requires all conditions to evaluate to true.
+-- The OR operator requires at least one condition to evaluate to true.
+
+-- 2.1 Combine conditions using AND.
+SELECT emp_id, first_name, dept_id, salary
+FROM employees
+WHERE dept_id = 50 AND salary >= 5000.00;
+
+-- 2.2 Combine conditions using OR.
+SELECT emp_id, first_name, dept_id
+FROM employees
+WHERE dept_id = 10 OR dept_id = 20;
 
 /* ========================================================================= */
-/* 2. Range Matching (BETWEEN ... AND ...)                                   */
+/* 3. Range Matching (BETWEEN ... AND ...)                                   */
 /* ========================================================================= */
 
--- 2.1 Match inclusive range using BETWEEN.
+-- 3.1 Match inclusive range using BETWEEN.
 -- Note: salary BETWEEN 5000 AND 10000 is equivalent to salary >= 5000 AND salary <= 10000.
 SELECT emp_id, first_name, salary
 FROM employees
 WHERE salary BETWEEN 5000.00 AND 10000.00;
 
--- 2.2 Exclude range using NOT BETWEEN.
+-- 3.2 Exclude range using NOT BETWEEN.
 SELECT emp_id, first_name, salary
 FROM employees
 WHERE salary NOT BETWEEN 5000.00 AND 10000.00;
 
-
 /* ========================================================================= */
-/* 3. Set Matching (IN / NOT IN)                                             */
+/* 4. Set Matching (IN / NOT IN)                                             */
 /* ========================================================================= */
 
--- 3.1 Match any value in a list using IN.
+-- 4.1 Match any value in a list using IN.
 SELECT emp_id, first_name, dept_id
 FROM employees
 WHERE dept_id IN (10, 20);
 
--- 3.2 Exclude values in a list using NOT IN.
+-- 4.2 Exclude values in a list using NOT IN.
 SELECT emp_id, first_name, dept_id
 FROM employees
 WHERE dept_id NOT IN (10, 20);
 
-
 /* ========================================================================= */
-/* 4. Pattern Matching (LIKE)                                                */
+/* 5. Pattern Matching (LIKE)                                                */
 /* ========================================================================= */
 
 -- Wildcards
 --   '%' represents 0, 1, or multiple characters.
 --   '_' represents exactly 1 single character.
 
--- 4.1 Match prefix pattern starting with 'A'.
+-- 5.1 Match prefix pattern starting with 'A'.
 SELECT emp_id, first_name
 FROM employees
 WHERE first_name LIKE 'A%';
 
--- 4.2 Match substring pattern containing 'an'.
+-- 5.2 Match substring pattern containing 'an'.
 SELECT emp_id, first_name
 FROM employees
 WHERE first_name LIKE '%an%';
 
--- 4.3 Match positional pattern where second character is 'e'.
+-- 5.3 Match positional pattern where second character is 'e'.
 SELECT emp_id, first_name
 FROM employees
 WHERE first_name LIKE '_e%';
 
-
 /* ========================================================================= */
-/* 5. NULL Verification (IS NULL / IS NOT NULL)                              */
+/* 6. NULL Verification (IS NULL / IS NOT NULL)                              */
 /* ========================================================================= */
 
 -- In SQL, NULL represents an unknown value.
 -- Always use 'IS NULL' or 'IS NOT NULL' because '= NULL' and '!= NULL' will not evaluate correctly.
 
--- 5.1 Check for NULL values.
+-- 6.1 Check for NULL values.
 SELECT emp_id, first_name, commission_pct
 FROM employees
 WHERE commission_pct IS NULL;
 
--- 5.2 Check for non-NULL values.
+-- 6.2 Check for non-NULL values.
 SELECT emp_id, first_name, commission_pct
 FROM employees
 WHERE commission_pct IS NOT NULL;
-
-
-/* ========================================================================= */
-/* 6. Logical Operators & Operator Precedence                                */
-/* ========================================================================= */
-
--- Default operator precedence evaluates in order: NOT > AND > OR.
--- Without parentheses, AND is evaluated before OR.
-
--- 6.1 Evaluate default operator precedence without parentheses.
--- Evaluates as: (dept_id = 50 AND salary > 5000) OR dept_id = 20.
-SELECT emp_id, first_name, dept_id, salary
-FROM employees
-WHERE dept_id = 50 AND salary > 5000 OR dept_id = 20;
-
--- 6.2 Override operator precedence using parentheses ().
--- Evaluates as: (dept_id = 50 OR dept_id = 20) AND salary > 8000.
-SELECT emp_id, first_name, dept_id, salary
-FROM employees
-WHERE (dept_id = 50 OR dept_id = 20) AND salary > 8000;
-
 
 /* ========================================================================= */
 /* 7. Deduplication (SELECT DISTINCT)                                        */

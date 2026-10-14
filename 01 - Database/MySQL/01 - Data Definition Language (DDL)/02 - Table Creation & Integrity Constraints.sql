@@ -15,28 +15,29 @@ DROP TABLE IF EXISTS students;
 DROP TABLE IF EXISTS courses;
 DROP TABLE IF EXISTS departments;
 
-
 /* ========================================================================= */
 /* 1. Constraint Concepts & Definition Levels                                */
 /* ========================================================================= */
 
--- Constraint Types
---   - PRIMARY KEY : Uniquely identifies each row (implies NOT NULL + UNIQUE).
+-- 1.1 Constraint Types
+--   - PRIMARY KEY : Uniquely identifies each row (Implies NOT NULL + UNIQUE).
 --   - FOREIGN KEY : Enforces referential integrity pointing to a parent table.
---   - UNIQUE      : Ensures all values in a column are distinct (allows NULL).
+--   - UNIQUE      : Ensures all values in a column are distinct (Allows NULL).
 --   - NOT NULL    : Ensures a column cannot contain NULL.
 --   - CHECK       : Ensures values meet a specified boolean condition.
 --   - DEFAULT     : Specifies a default value when no value is provided in INSERT.
---
--- Definition Levels
+
+-- 1.2 Definition Levels
 --   1. Column-Level Constraints
 --      - Appended immediately after the column data type definition.
+--      - Applies only to the single column being defined.
 --      - NOT NULL can only be defined at the column level.
+--      - Example: id INT PRIMARY KEY, email VARCHAR(100) UNIQUE.
 --   2. Table-Level Constraints
 --      - Declared after all columns have been defined.
---      - Can explicitly name constraints (CONSTRAINT constraint_name ...).
---      - Composite Primary Keys and Composite Unique Keys must be declared at the table level.
-
+--      - Can define constraints across multiple columns simultaneously.
+--      - Can explicitly name constraints with custom identifiers (CONSTRAINT constraint_name ...).
+--      - Centralizes table rules and makes constraints easier to drop or modify later.
 
 /* ========================================================================= */
 /* 2. Creating Parent Tables                                                 */
@@ -44,12 +45,12 @@ DROP TABLE IF EXISTS departments;
 
 -- 2.1 Create parent table departments with column-level constraints.
 CREATE TABLE departments (
-    dept_id INT AUTO_INCREMENT PRIMARY KEY,          -- Column-Level Primary Key
-    dept_name VARCHAR(50) NOT NULL,                 -- Column-Level NOT NULL Constraint
-    budget DECIMAL(12, 2) DEFAULT 100000.00,        -- Column-Level DEFAULT Value
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Column-Level Timestamp DEFAULT
+    dept_id INT AUTO_INCREMENT PRIMARY KEY,         -- Column-Level Primary Key.
+    dept_name VARCHAR(50) NOT NULL,                 -- Column-Level NOT NULL Constraint.
+    budget DECIMAL(12, 2) DEFAULT 100000.00,        -- Column-Level DEFAULT Value.
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Column-Level Timestamp DEFAULT.
 
-    -- Table-Level UNIQUE Constraint with Custom Name
+    -- Table-Level UNIQUE Constraint with Custom Name (uq_dept_name)
     CONSTRAINT uq_dept_name UNIQUE (dept_name)
 );
 
@@ -66,10 +67,7 @@ CREATE TABLE courses (
     CONSTRAINT uq_course_name UNIQUE (course_name),
     CONSTRAINT ck_course_credit CHECK (course_credit BETWEEN 1 AND 6),
     CONSTRAINT ck_course_fee CHECK (course_fee >= 0.00),
-    CONSTRAINT fk_courses_dept FOREIGN KEY (dept_id)
-        REFERENCES departments (dept_id)
-        ON UPDATE CASCADE
-        ON DELETE SET NULL
+    CONSTRAINT fk_courses_dept FOREIGN KEY (dept_id) REFERENCES departments (dept_id)
 );
 
 -- 2.3 Create parent table students with table-level constraints.
@@ -85,10 +83,10 @@ CREATE TABLE students (
     -- Table-Level Constraints
     CONSTRAINT pk_students PRIMARY KEY (student_id),
     CONSTRAINT uq_student_email UNIQUE (email),
+    CONSTRAINT uq_student_name UNIQUE (first_name, last_name), -- Multi-column table-level constraint.
     CONSTRAINT ck_student_gender CHECK (gender IN ('M', 'F', 'O')),
     CONSTRAINT ck_student_gpa CHECK (gpa BETWEEN 0.00 AND 4.00)
 );
-
 
 /* ========================================================================= */
 /* 3. Junction Table with Composite Primary Key                              */
@@ -105,16 +103,10 @@ CREATE TABLE enrollments (
     -- Table-Level Composite Primary Key
     CONSTRAINT pk_enrollments PRIMARY KEY (student_id, course_id),
 
-    -- Foreign Keys with Referential Actions (CASCADE)
-    CONSTRAINT fk_enroll_student FOREIGN KEY (student_id)
-        REFERENCES students (student_id)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
-    CONSTRAINT fk_enroll_course FOREIGN KEY (course_id)
-        REFERENCES courses (course_id)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
+    -- Foreign Keys
+    CONSTRAINT fk_enroll_student FOREIGN KEY (student_id) REFERENCES students (student_id),
+    CONSTRAINT fk_enroll_course FOREIGN KEY (course_id) REFERENCES courses (course_id),
 
     -- Table-Level CHECK Constraint
-    CONSTRAINT ck_enroll_grade CHECK (grade IN ('A+', 'A', 'B', 'C', 'D', 'F', NULL))
+    CONSTRAINT ck_enroll_grade CHECK (grade IN ('A+', 'A', 'B', 'C', 'D', 'F'))
 );

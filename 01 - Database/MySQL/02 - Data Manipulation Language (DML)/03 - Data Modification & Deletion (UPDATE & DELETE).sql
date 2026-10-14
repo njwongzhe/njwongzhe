@@ -1,12 +1,11 @@
 -- =============================================================================
--- 02 - Data Modification & Deletion (UPDATE & DELETE)
+-- 03 - Data Modification & Deletion (UPDATE & DELETE)
 -- =============================================================================
 -- Description:
 -- Demonstrates record updates, row deletions, subquery and join updates, and contrasts DELETE vs TRUNCATE.
 -- =============================================================================
 
 USE dml_practice_db;
-
 
 /* ========================================================================= */
 /* 1. Data Modification (UPDATE)                                             */
@@ -24,8 +23,8 @@ WHERE emp_id = 107;
 UPDATE employees
 SET salary = salary + 500.00
 WHERE dept_id = (
-    SELECT dept_id 
-    FROM departments 
+    SELECT dept_id
+    FROM departments
     WHERE dept_name = 'Purchasing'
 );
 
@@ -41,7 +40,6 @@ SELECT emp_id, first_name, salary, commission_pct, dept_id
 FROM employees
 WHERE emp_id = 107;
 
-
 /* ========================================================================= */
 /* 2. Data Deletion (DELETE)                                                 */
 /* ========================================================================= */
@@ -53,24 +51,11 @@ WHERE emp_id = 100;
 -- 2.2 Delete records using a subquery condition.
 DELETE FROM employees_archive
 WHERE dept_id IN (
-    SELECT dept_id 
-    FROM departments 
+    SELECT dept_id
+    FROM departments
     WHERE location = 'Chicago'
 );
 
 -- 2.3 Delete all rows from a table.
 -- Caution: Omitting the WHERE clause deletes all rows from the table.
-# DELETE FROM employees_archive;
-
-
-/* ========================================================================= */
-/* 3. Critical Comparison: DELETE vs TRUNCATE                                */
-/* ========================================================================= */
-
--- Feature                | DELETE FROM table               | TRUNCATE TABLE
--- -----------------------|---------------------------------|-----------------------------
--- SQL Category           | DML (Data Manipulation)         | DDL (Data Definition)
--- Speed                  | Slower (logs row by row)        | Faster (drops/recreates table)
--- WHERE Clause           | Supported (can filter rows)     | NOT Supported (wipes all rows)
--- AUTO_INCREMENT Counter | Retains current counter value   | Resets counter back to 1
--- Transaction Rollback   | Can be rolled back (InnoDB)     | Cannot be rolled back
+-- DELETE FROM employees_archive;
