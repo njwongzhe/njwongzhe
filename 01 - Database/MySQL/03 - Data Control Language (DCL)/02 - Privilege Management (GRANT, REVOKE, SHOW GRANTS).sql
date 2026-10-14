@@ -5,6 +5,16 @@
 -- Demonstrates granting privileges (GRANT), revoking privileges (REVOKE), inspecting grants (SHOW GRANTS), and FLUSH.
 -- =============================================================================
 
+-- Ensure target database and demo table exist for privilege demonstrations.
+CREATE DATABASE IF NOT EXISTS school_db;
+USE school_db;
+
+CREATE TABLE IF NOT EXISTS students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    gpa DECIMAL(3, 2)
+);
 
 /* ========================================================================= */
 /* 1. Setup Test Users                                                       */
@@ -13,7 +23,6 @@
 -- 1.1 Create test users for privilege management.
 CREATE USER IF NOT EXISTS 'analyst'@'localhost' IDENTIFIED BY 'AnalystPass@2026';
 CREATE USER IF NOT EXISTS 'developer'@'localhost' IDENTIFIED BY 'DevPass@2026';
-
 
 /* ========================================================================= */
 /* 2. Granting Privileges (GRANT)                                            */
@@ -43,7 +52,6 @@ GRANT UPDATE (email, gpa) ON school_db.students TO 'developer'@'localhost';
 GRANT ALL PRIVILEGES ON school_db.* TO 'developer'@'localhost'
 WITH GRANT OPTION;
 
-
 /* ========================================================================= */
 /* 3. Inspecting Privileges (SHOW GRANTS)                                    */
 /* ========================================================================= */
@@ -55,10 +63,10 @@ SHOW GRANTS FOR 'developer'@'localhost';
 -- 3.2 View grants for current logged-in user.
 SHOW GRANTS;
 
-
 /* ========================================================================= */
 /* 4. Revoking Privileges (REVOKE)                                           */
 /* ========================================================================= */
+
 -- Syntax: REVOKE privilege_list ON object FROM 'user'@'host';
 
 -- 4.1 Revoke specific privileges from a user.
@@ -70,16 +78,15 @@ REVOKE GRANT OPTION ON school_db.* FROM 'developer'@'localhost';
 -- 4.3 Revoke all privileges and options completely.
 REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'developer'@'localhost';
 
-
 /* ========================================================================= */
 /* 5. Applying Privileges (FLUSH PRIVILEGES)                                 */
 /* ========================================================================= */
--- When using GRANT, REVOKE, or CREATE USER statements directly, MySQL updates internal memory structures automatically.
+
+-- Statements such as GRANT, REVOKE, and CREATE USER update internal privilege tables in memory immediately.
 -- FLUSH PRIVILEGES is only required when making direct modifications to underlying grant tables (e.g., via UPDATE mysql.user).
 
 -- 5.1 Reload grant tables into memory using FLUSH PRIVILEGES.
 FLUSH PRIVILEGES;
-
 
 /* ========================================================================= */
 /* 6. Cleanup                                                                */

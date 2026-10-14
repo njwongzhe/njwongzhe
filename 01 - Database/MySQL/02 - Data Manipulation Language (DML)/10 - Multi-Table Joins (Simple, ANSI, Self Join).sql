@@ -1,5 +1,5 @@
 -- =============================================================================
--- 09 - Multi-Table Joins (Simple, ANSI, Self Join)
+-- 10 - Multi-Table Joins (Simple, ANSI, Self Join)
 -- =============================================================================
 -- Description:
 -- Demonstrates multi-table inner joins including traditional comma joins, ANSI SQL:1999 joins, and self joins.

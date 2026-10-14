@@ -1,5 +1,5 @@
 -- =============================================================================
--- 07 - Aggregate Functions & Grouping (GROUP BY & HAVING)
+-- 08 - Aggregate Functions & Grouping (GROUP BY & HAVING)
 -- =============================================================================
 -- Description:
 -- Demonstrates SQL aggregate functions (COUNT, SUM, AVG, MIN, MAX), GROUP BY grouping, and HAVING group filtering.
@@ -56,23 +56,3 @@ SELECT
     ROUND(AVG(salary), 2) AS team_avg_salary
 FROM employees
 GROUP BY dept_id, manager_id;
-
-/* ========================================================================= */
-/* 3. Group Filtering: HAVING vs WHERE                                       */
-/* ========================================================================= */
-
--- Comparison: WHERE vs HAVING
---   - WHERE: Filters raw individual rows before grouping and cannot contain aggregate functions (e.g., WHERE AVG(salary) > 5000 is invalid).
---   - HAVING: Filters summarized groups after aggregation and can contain aggregate functions.
-
--- 3.1 Filter grouped summary data using HAVING.
-SELECT
-    dept_id,
-    COUNT(*) AS emp_count,
-    ROUND(AVG(salary), 2) AS avg_dept_salary
-FROM employees
-WHERE salary >= 4500.00        -- Step 1: Filter individual employees with salary >= 4500.
-GROUP BY dept_id               -- Step 2: Group surviving employees by dept_id.
-HAVING COUNT(*) >= 2           -- Step 3: Keep only departments having at least 2 qualifying employees.
-   AND AVG(salary) >= 6000.00  -- Step 4: Keep only departments whose average salary >= 6000.
-ORDER BY avg_dept_salary DESC; -- Step 5: Sort the final grouped results.

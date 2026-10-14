@@ -1,5 +1,5 @@
 -- =============================================================================
--- 08 - Subqueries
+-- 09 - Subqueries
 -- =============================================================================
 -- Description:
 -- Demonstrates nested subqueries across WHERE, SELECT, HAVING, and FROM clauses, including scalar, column, derived tables, and EXISTS.

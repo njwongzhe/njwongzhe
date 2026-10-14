@@ -1,5 +1,5 @@
 -- =============================================================================
--- 10 - Outer Joins (LEFT, RIGHT & FULL OUTER JOIN)
+-- 11 - Outer Joins (LEFT, RIGHT & FULL OUTER JOIN)
 -- =============================================================================
 -- Description:
 -- Demonstrates LEFT and RIGHT OUTER JOINs and explains how to simulate FULL OUTER JOIN in MySQL using UNION.
