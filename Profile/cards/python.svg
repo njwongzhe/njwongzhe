@@ -6,9 +6,15 @@
       font-size: 12px;
       font-weight: 600;
     }
+    .icon-fill {
+      fill: #000000;
+    }
     @media (prefers-color-scheme: dark) {
       .text {
         fill: #c9d1d9;
+      }
+      .icon-fill {
+        fill: #ffffff;
       }
     }
   </style>

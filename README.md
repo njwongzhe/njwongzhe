@@ -32,16 +32,16 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
 <h3 align="center">Frameworks</h3>
 
 <p align="center">
+  <img src="Profile/cards/php-slim.svg" width="110" height="82" />
+  <img src="Profile/cards/fastapi.svg" width="110" height="82" />
+  <img src="Profile/cards/flutter.svg" width="110" height="82" />
+  <img src="Profile/cards/tailwindcss.svg" width="110" height="82" />
+</p>
+<p align="center">
   <img src="Profile/cards/nodejs.svg" width="110" height="82" />
   <img src="Profile/cards/vuejs.svg" width="110" height="82" />
   <img src="Profile/cards/react.svg" width="110" height="82" />
   <img src="Profile/cards/nextjs.svg" width="110" height="82" />
-</p>
-<p align="center">
-  <img src="Profile/cards/tailwindcss.svg" width="110" height="82" />
-  <img src="Profile/cards/php-slim.svg" width="110" height="82" />
-  <img src="Profile/cards/fastapi.svg" width="110" height="82" />
-  <img src="Profile/cards/flutter.svg" width="110" height="82" />
 </p>
 
 <h3 align="center">Databases & Cloud</h3>
@@ -61,6 +61,10 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
   <img src="Profile/cards/github.svg" width="110" height="82" />
   <img src="Profile/cards/vscode.svg" width="110" height="82" />
   <img src="Profile/cards/antigravity.svg" width="110" height="82" />
+</p>
+<p align="center">
+  <img src="Profile/cards/figma.svg" width="110" height="82" />
+  <img src="Profile/cards/postman.svg" width="110" height="82" />
 </p>
 
 </div>
