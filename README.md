@@ -40,7 +40,6 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
 <p align="center">
   <img src="Profile/cards/nodejs.svg" width="110" height="82" />
   <img src="Profile/cards/vuejs.svg" width="110" height="82" />
-  <img src="Profile/cards/react.svg" width="110" height="82" />
   <img src="Profile/cards/nextjs.svg" width="110" height="82" />
 </p>
 
@@ -48,7 +47,6 @@ An enthusiastic and detail-oriented individual with a strong passion for compute
 
 <p align="center">
   <img src="Profile/cards/mysql.svg" width="110" height="82" />
-  <img src="Profile/cards/postgresql.svg" width="110" height="82" />
   <img src="Profile/cards/prisma.svg" width="110" height="82" />
   <img src="Profile/cards/firebase.svg" width="110" height="82" />
   <img src="Profile/cards/supabase.svg" width="110" height="82" />

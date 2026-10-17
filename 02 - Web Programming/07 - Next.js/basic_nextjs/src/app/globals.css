@@ -1,0 +1,96 @@
+/* ============================================================ */
+/* Tailwind CSS Integration                                     */
+/* ============================================================ */
+
+@import "tailwindcss";
+
+/* ============================================================ */
+/* Global CSS Stylesheet and Unified Design System              */
+/* ============================================================ */
+
+/* The primary purpose of this stylesheet is to enforce unified UI styles across the entire application. */
+/* If not setup global styles, it will be hard to maintain the UI of the application, and it will be a mess. */
+
+/* Base HTML Document Styles */
+/* Sets the global default background color, text color, and full viewport height for all pages. */
+body {
+  background-color: #f7f9fa;
+  color: #111827;
+  min-height: 100vh;
+}
+
+/* Unified Layout Container */
+/* Centers page content horizontally and restricts maximum width for comfortable reading across large screens. */
+/* Uses padding-left and padding-right so Tailwind utilities like pt-8 and pb-12 can control vertical spacing. */
+.container {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Unified Surface Card Primitive */
+/* Standardizes content panel surfaces with a uniform white background, border, radius, and subtle shadow. */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Unified Button Primitive */
+/* Standardizes button geometry, typography, flex alignment, smooth transitions, and pointer cursor across the app. */
+/* Color themes such as primary, danger, or outline are applied on demand in JSX using Tailwind utility classes. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+}
+
+/* Unified Button Disabled State */
+/* Enforces a standardized disabled appearance with reduced opacity and not-allowed cursor for inactive buttons. */
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Unified Form Input Primitive */
+/* Standardizes padding, borders, typography, and corner radius for all input fields and textareas. */
+.form-input {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background-color: #ffffff;
+  transition: border-color 0.15s ease;
+}
+
+/* Unified Form Input Focus State */
+/* Removes default browser outlines and applies a consistent primary brand border color on active focus. */
+.form-input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* Unified Status Banner Primitive */
+/* Standardizes container geometry, padding, and border radius for contextual feedback alerts. */
+/* Severity color schemes are configured dynamically through Tailwind utility classes on the element. */
+.status-banner {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}

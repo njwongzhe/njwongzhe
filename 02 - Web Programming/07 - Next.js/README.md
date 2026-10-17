@@ -44,37 +44,11 @@ npm install
 npm run dev   
    | Same as Node.js. Start the project in development mode.
    | Your current directory must be the project folder.
-```
 
-<br />
+npm run build 
+   | Build and compile the Next.js application for production deployment.
+   | Your current directory must be the project folder.
 
-## 3.0 - Next.js Project Structure
-
-<p align="center" width="100%">
-   <img height="33%" src="Content_Nextjs_Project.png"><br>
-   Next.js Project Structure after run "npx create-next-app@latest".<br>
-   TypeScript, Tailwind CSS, ESLint, React Compiler, App Router and "src" directory are all enabled in this example.
-</p>
-
-<br />
-
-| File / Directory | Description |
-| :--- | :--- |
-| **`.gitignore`** | Specifies which files Git should ignore. |
-| **`eslint.config.js`** | Configuration file for ESLint, a tool for identifying and fixing problems in your JavaScript code. Can be "biome.json" if you're using Biome instead of ESLint. |
-| **`next-env.d.ts`** | TypeScript declaration file that provides type definitions for Next.js. It helps TypeScript understand the types of Next.js-specific features and APIs. |
-| **`next.config.js`** | Configuration file for Next.js, where you can customize various aspects of your Next.js application. |
-| **`package-lock.json`** | Automatically generated file that describes the exact dependency tree of your project. It ensures that the same versions of dependencies are installed across different environments. |
-| **`package.json`** | Contains metadata about your project, including dependencies, scripts, and other configurations. | Project Metadata File |
-| **`postcss.config.js`** | Configuration file for PostCSS. It is used when you have Tailwind CSS or other PostCSS plugins in your project. |
-| **`README.md`** | A markdown file that provides an overview of your project, instructions for setup, usage, and other relevant information. |
-| **`tsconfig.json`** | Configuration file for TypeScript, where you can specify compiler options and other settings for your TypeScript project. |
-| **`next\`** | Directory for Next.js-specific files and configurations. It may contain files like "app" (for App Router) or "pages" (for Pages Router), depending on your routing choice. |
-| **`node_modules\`** | Directory where all the installed dependencies of your project are stored. This directory is automatically generated when you run "npm install". | 
-| **`public`** | Directory for static assets (e.g., images, fonts). Files in this directory can be accessed directly via the URL. | 
-| **`src`** | Directory for your source code. It typically contains your application logic, components, and styles. Can not exist if you choose not to use a "src" directory. |
-| └ **`app\`** | Directory for App Router (if you chose App Router). It contains your application code organized by route. | Application Code Directory |
-| --└ **`globals.css`** | Global CSS file for your application. It is used to define global styles that apply to the entire app. (File name can be changed.) |
-| --└ **`layout.tsx`** | The root layout file for your application. It defines the common structure and layout for all pages in your app. (File name cannot be changed.) |
-| --└ **`page.tsx`** | The main page file for your application. It serves as the entry point for your app and typically contains the main content and components. (File name cannot be changed.) |
-| └ **`pages\`** | Directory for Pages Router (if you chose Pages Router). It contains your application code organized by page. |
+npm run start 
+   | Start the Next.js production server after building.
+   | Your current directory must be the project folder.
