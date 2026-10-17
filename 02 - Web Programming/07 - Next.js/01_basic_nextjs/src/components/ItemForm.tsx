@@ -109,7 +109,7 @@ export default function ItemForm({ onAddItem, disabled, isApiDetected }: ItemFor
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder={apiDetected ? "e.g. Mechanical Keyboard" : "MockAPI endpoint not detected (data input disabled)"}
+          placeholder={apiDetected ? "e.g. Mechanical Keyboard" : "MockAPI Endpoint Not Detected (Data Input Disabled)"}
           className="form-input"
           disabled={disabled || submitting || !apiDetected}
           required
@@ -127,7 +127,7 @@ export default function ItemForm({ onAddItem, disabled, isApiDetected }: ItemFor
           type="text"
           value={info}
           onChange={(e) => setInfo(e.target.value)}
-          placeholder={apiDetected ? "e.g. Tactile switches with RGB backlight" : "MockAPI endpoint not detected (data input disabled)"}
+          placeholder={apiDetected ? "e.g. Tactile switches with RGB backlight" : "MockAPI Endpoint Not Detected (Data Input Disabled)"}
           className="form-input"
           disabled={disabled || submitting || !apiDetected}
         />
