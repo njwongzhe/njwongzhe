@@ -27,9 +27,11 @@ interface ItemFormProps {
   onAddItem: (item: { name: string; info: string }) => Promise<void>;
   // Disables input fields and the submit button when the parent is in a loading state.
   disabled: boolean;
+  // Indicates whether the MockAPI endpoint is actively detected in the environment.
+  isApiDetected?: boolean;
 }
 
-export default function ItemForm({ onAddItem, disabled }: ItemFormProps) {
+export default function ItemForm({ onAddItem, disabled, isApiDetected }: ItemFormProps) {
   /* ============================================================ */
   /* Component State Declarations (useState Hook)                 */
   /* ============================================================ */
@@ -41,6 +43,9 @@ export default function ItemForm({ onAddItem, disabled }: ItemFormProps) {
   // Indicates whether a form submission request is currently awaiting backend completion.
   const [submitting, setSubmitting] = useState<boolean>(false);
 
+  // Checks whether the MockAPI endpoint is configured in the environment.
+  const apiDetected = isApiDetected ?? Boolean(process.env.NEXT_PUBLIC_MOCK_API_URL?.trim());
+
   /* ============================================================ */
   /* Form Submission Handler                                      */
   /* ============================================================ */
@@ -51,6 +56,10 @@ export default function ItemForm({ onAddItem, disabled }: ItemFormProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     // Prevent default form submission reload.
     e.preventDefault();
+
+    // Guard against submission when MockAPI endpoint is not detected.
+    if (!apiDetected)
+      return;
 
     // Input validation.
     if (!name.trim())
@@ -81,6 +90,14 @@ export default function ItemForm({ onAddItem, disabled }: ItemFormProps) {
     <form className="card mb-8" onSubmit={handleSubmit}>
       <h2 className="text-xl font-semibold mb-4 text-gray-900">Create New Item</h2>
 
+      {/* Warning notice when MockAPI endpoint is not detected. */}
+      {!apiDetected && (
+        <div className="mb-4 p-3 rounded-lg bg-amber-50 border border-amber-200 text-amber-800 text-sm">
+          MockAPI endpoint is not detected.
+          Please configure <code className="font-mono text-xs bg-amber-100 px-1 py-0.5 rounded">NEXT_PUBLIC_MOCK_API_URL</code> in <code className="font-mono text-xs bg-amber-100 px-1 py-0.5 rounded">.env</code> to enable data input.
+        </div>
+      )}
+
       {/* Controlled input group for the item name. */}
       <div className="mb-4">
         <label htmlFor="itemName" className="block text-sm font-semibold mb-1 text-gray-900">
@@ -92,9 +109,9 @@ export default function ItemForm({ onAddItem, disabled }: ItemFormProps) {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="e.g. Mechanical Keyboard"
+          placeholder={apiDetected ? "e.g. Mechanical Keyboard" : "MockAPI endpoint not detected (data input disabled)"}
           className="form-input"
-          disabled={disabled || submitting}
+          disabled={disabled || submitting || !apiDetected}
           required
         />
       </div>
@@ -110,20 +127,20 @@ export default function ItemForm({ onAddItem, disabled }: ItemFormProps) {
           type="text"
           value={info}
           onChange={(e) => setInfo(e.target.value)}
-          placeholder="e.g. Tactile switches with RGB backlight"
+          placeholder={apiDetected ? "e.g. Tactile switches with RGB backlight" : "MockAPI endpoint not detected (data input disabled)"}
           className="form-input"
-          disabled={disabled || submitting}
+          disabled={disabled || submitting || !apiDetected}
         />
       </div>
 
       {/* Submit button with primary brand colors. */}
-      {/* The button will be disabled if loading is true, submitting is true, or name is empty. */}
+      {/* The button will be disabled if loading is true, submitting is true, name is empty, or API is not detected. */}
       <button
         type="submit"
-        className="button bg-blue-600 hover:bg-blue-700 text-white"
-        disabled={disabled || submitting || !name.trim()}
+        className="button bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled={disabled || submitting || !name.trim() || !apiDetected}
       >
-        {submitting ? "Adding..." : "+ Add Item"}
+        {!apiDetected ? "API Not Detected (Input Disabled)" : (submitting ? "Adding..." : "+ Add Item")}
       </button>
     </form>
   );

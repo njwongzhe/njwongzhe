@@ -7,7 +7,7 @@
 // Next.js Route Handlers automatically respond with HTTP 405 Method Not Allowed for unhandled methods.
 
 import { NextResponse } from "next/server";
-import { fetchItemById, updateItem, deleteItem } from "@/lib/mockapi";
+import { fetchItemById, updateItem, deleteItem, isMockApiConfigured } from "@/lib/mockapi";
 
 /* ============================================================ */
 /* Dynamic Route Parameters Interface                          */
@@ -32,7 +32,7 @@ export async function GET(request: Request, { params }: RouteParams) {
 
     // Calling lib.
     // fetchItemById came from "lib/mockapi.ts" and it retrieves a single record by ID.
-    // It queries MockAPI cloud with dynamic ID or searches the in-memory cache.
+    // It queries MockAPI cloud service using the provided dynamic ID.
     const item = await fetchItemById(id);
 
     // If item not found, return HTTP 404.
@@ -41,10 +41,11 @@ export async function GET(request: Request, { params }: RouteParams) {
 
     // Return matched item with HTTP 200 OK.
     return NextResponse.json(item, { status: 200 });
-  } catch {
+  } catch (error) {
     // Error handling.
+    const message = error instanceof Error ? error.message : "Failed to fetch item by ID.";
     return NextResponse.json(
-      { error: "Failed to fetch item by ID." },
+      { error: message },
       { status: 500 }
     );
   }
@@ -58,6 +59,14 @@ export async function GET(request: Request, { params }: RouteParams) {
 // Parses updated name and info fields and persists changes to the database.
 export async function PUT(request: Request, { params }: RouteParams) {
   try {
+    // MockAPI endpoint detection check.
+    // Rejects request with HTTP 503 Service Unavailable if MockAPI endpoint is not detected.
+    if (!isMockApiConfigured())
+      return NextResponse.json(
+        { error: "MockAPI endpoint is not detected. Data modification is disabled." },
+        { status: 503 }
+      );
+
     // Extract dynamic ID parameter and parse JSON body.
     const { id } = await params;
     const body = await request.json();
@@ -70,7 +79,7 @@ export async function PUT(request: Request, { params }: RouteParams) {
 
     // Calling lib.
     // updateItem came from "lib/mockapi.ts" and it handles updating an existing record.
-    // It sends an HTTP PUT request to MockAPI cloud or updates the item in memory cache.
+    // It sends an HTTP PUT request to MockAPI cloud service.
     const updated = await updateItem(id, payload);
 
     // If item does not exist, return HTTP 404.
@@ -79,10 +88,11 @@ export async function PUT(request: Request, { params }: RouteParams) {
 
     // Return updated record with HTTP 200 OK.
     return NextResponse.json(updated, { status: 200 });
-  } catch {
+  } catch (error) {
     // Error handling.
+    const message = error instanceof Error ? error.message : "Failed to update item.";
     return NextResponse.json(
-      { error: "Failed to update item." },
+      { error: message },
       { status: 500 }
     );
   }
@@ -96,12 +106,20 @@ export async function PUT(request: Request, { params }: RouteParams) {
 // Removes the record from data layer and returns confirmation feedback.
 export async function DELETE(request: Request, { params }: RouteParams) {
   try {
+    // MockAPI endpoint detection check.
+    // Rejects request with HTTP 503 Service Unavailable if MockAPI endpoint is not detected.
+    if (!isMockApiConfigured())
+      return NextResponse.json(
+        { error: "MockAPI endpoint is not detected. Data deletion is disabled." },
+        { status: 503 }
+      );
+
     // Extract dynamic ID parameter.
     const { id } = await params;
 
     // Calling lib.
     // deleteItem came from "lib/mockapi.ts" and it handles record removal.
-    // It sends an HTTP DELETE request to MockAPI cloud or filters out the item from memory cache.
+    // It sends an HTTP DELETE request to MockAPI cloud service.
     const success = await deleteItem(id);
 
     // If item could not be found, return HTTP 404.
@@ -110,10 +128,11 @@ export async function DELETE(request: Request, { params }: RouteParams) {
 
     // Return success confirmation with HTTP 200 OK.
     return NextResponse.json({ message: "Item deleted successfully." }, { status: 200 });
-  } catch {
+  } catch (error) {
     // Error handling.
+    const message = error instanceof Error ? error.message : "Failed to delete item.";
     return NextResponse.json(
-      { error: "Failed to delete item." },
+      { error: message },
       { status: 500 }
     );
   }

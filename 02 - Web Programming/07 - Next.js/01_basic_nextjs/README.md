@@ -72,7 +72,7 @@ Open the following URLs in your browser:
     ├── constants/
     │   └── index.ts                 # Shared TypeScript interfaces & API endpoint paths.
     └── lib/
-        └── mockapi.ts               # Data persistence layer (MockAPI cloud + in-memory fallback).
+        └── mockapi.ts               # Data persistence layer communicating with MockAPI cloud service.
 ```
 
 <br />
@@ -397,6 +397,10 @@ export async function GET() {
 // Handles HTTP POST requests to create a new item.
 export async function POST(request: Request) {
   try {
+    // MockAPI endpoint detection check.
+    if (!isMockApiConfigured())
+      return NextResponse.json({ error: "MockAPI endpoint is not detected." }, { status: 503 });
+
     // Parse JSON request body.
     const body = await request.json();
 
@@ -440,6 +444,10 @@ export async function GET(request: Request, { params }: RouteParams) {
 
 // Handles HTTP PUT requests to update an existing item by ID.
 export async function PUT(request: Request, { params }: RouteParams) {
+  // MockAPI endpoint detection check.
+  if (!isMockApiConfigured())
+    return NextResponse.json({ error: "MockAPI endpoint is not detected." }, { status: 503 });
+
   // Extract dynamic ID parameter and parse body.
   const { id } = await params;
   const body = await request.json();
@@ -453,6 +461,10 @@ export async function PUT(request: Request, { params }: RouteParams) {
 
 // Handles HTTP DELETE requests to remove an item by ID.
 export async function DELETE(request: Request, { params }: RouteParams) {
+  // MockAPI endpoint detection check.
+  if (!isMockApiConfigured())
+    return NextResponse.json({ error: "MockAPI endpoint is not detected." }, { status: 503 });
+
   // Extract dynamic ID parameter.
   const { id } = await params;
   const success = await deleteItem(id);
@@ -855,3 +867,28 @@ export default function ItemManager() {
   );
 }
 ```
+
+<br />
+
+### 4.6 - MockAPI Cloud Detection & Data Persistence Guard
+
+In production architectures, data mutations should never silently fall back to volatile server memory. When the external persistence layer is unavailable, the application enforces strict operational restrictions:
+
+#### 1. Why Data Input Is Restricted Without MockAPI
+
+- **Volatile Server RAM**: Storing mutations inside an in-memory array (`let memoryCache: Item[] = []`) only preserves data in Node.js runtime process heap memory.
+- **Data Loss on Restart**: Any server restart, code recompile, or serverless container recycle immediately destroys all in-memory records.
+- **Fail-Fast Integrity**: Blocking mutations when `NEXT_PUBLIC_MOCK_API_URL` is missing ensures users never enter data that cannot be permanently persisted.
+
+#### 2. Multi-Tier Guard Implementation
+
+1. **Frontend Input Guard (`components/ItemForm.tsx`)**:
+   - Inspects `process.env.NEXT_PUBLIC_MOCK_API_URL`.
+   - When the endpoint is not detected, input fields are disabled with clear instructional placeholder text.
+   - The submission button is disabled and displays an `"API Not Detected (Input Disabled)"` label.
+   - An inline warning banner advises the user to configure `.env`.
+
+2. **Backend Route Handler Guard (`app/api/items/route.ts`)**:
+   - Inspects `isMockApiConfigured()`.
+   - Rejects unauthorized `POST`, `PUT`, and `DELETE` attempts immediately with HTTP `503 Service Unavailable`.
+   - Returns `{ error: "MockAPI endpoint is not detected. Data creation is disabled." }`.

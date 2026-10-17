@@ -36,14 +36,24 @@ export default function HomePage() {
   // Calling: Developers call setState(newValue) directly to replace the current state value.
   // Calling: Alternatively, call setState(prev => ...) with an updater function when new state depends on previous state. (Lambda Function)
 
+  // Detects whether the MockAPI endpoint is configured in the environment.
+  const isApiDetected = Boolean(process.env.NEXT_PUBLIC_MOCK_API_URL?.trim());
+
   // Holds the collection of fetched items and updates the visible cards list upon setter invocation.
   const [items, setItems] = useState<Item[]>([]);
   // Tracks pending data requests to display loading spinners and prevent premature user interactions.
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(isApiDetected);
   // Records the specific item ID undergoing deletion to disable its delete button during transit.
   const [deletingId, setDeletingId] = useState<string | null>(null);
   // Stores contextual feedback messages to display success or error notification banners.
-  const [status, setStatus] = useState<{ type: "success" | "error" | "info"; message: string } | null>(null);
+  const [status, setStatus] = useState<{ type: "success" | "error" | "info" | "warning"; message: string } | null>(
+    !isApiDetected
+      ? {
+          type: "warning",
+          message: "MockAPI endpoint is not detected. Data input is disabled until NEXT_PUBLIC_MOCK_API_URL is configured in .env."
+        }
+      : null
+  );
 
   /* ============================================================ */
   /* Initial Data Fetching Lifecycle (useEffect Hook)             */
@@ -60,6 +70,10 @@ export default function HomePage() {
   // }, [])
   
   useEffect(() => {
+    // If MockAPI is not detected, skip remote fetching.
+    if (!isApiDetected)
+      return;
+
     // Async function.
     async function loadItems() {
       try {
@@ -74,7 +88,7 @@ export default function HomePage() {
 
         // Error handling.
         if (!res.ok)
-          throw new Error("Failed to fetch items");
+          throw new Error("Failed to fetch items from backend API.");
 
         // Data received.
         const data: Item[] = await res.json();
@@ -95,7 +109,7 @@ export default function HomePage() {
 
     // Async function calling.
     loadItems();
-  }, []);
+  }, [isApiDetected]);
 
   /* ============================================================ */
   /* Item Creation and Deletion Handlers                          */
@@ -105,6 +119,15 @@ export default function HomePage() {
   // Prepends the newly created record to state and shows a success banner.
 
   const handleAddItem = async (newItemData: { name: string; info: string }) => {
+    // Guard against submission when MockAPI endpoint is not detected.
+    if (!isApiDetected) {
+      setStatus({
+        type: "warning",
+        message: "MockAPI endpoint is not detected. Data input is disabled."
+      });
+      return;
+    }
+
     try {
       const res = await fetch(API_ENDPOINTS.ITEMS, {
         method: "POST",
@@ -112,8 +135,10 @@ export default function HomePage() {
         body: JSON.stringify(newItemData)
       });
 
-      if (!res.ok)
-        throw new Error("Failed to create item");
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => null);
+        throw new Error(errorData?.error || "Failed to create item.");
+      }
 
       const created: Item = await res.json();
       setItems((prev) => [created, ...prev]);
@@ -121,10 +146,11 @@ export default function HomePage() {
         type: "success",
         message: `Successfully created "${created.name}".`
       });
-    } catch {
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Failed to add item. Please try again.";
       setStatus({
         type: "error",
-        message: "Failed to add item. Please try again."
+        message
       });
     }
   };
@@ -175,8 +201,12 @@ export default function HomePage() {
       {status && <StatusMessage type={status.type} message={status.message} />} 
 
       {/* Call ItemForm Component */}
-      {/* The form will be disabled if loading is true. */}
-      <ItemForm onAddItem={handleAddItem} disabled={loading} />
+      {/* The form will be disabled if loading is true or if MockAPI endpoint is not detected. */}
+      <ItemForm
+        onAddItem={handleAddItem}
+        disabled={loading || !isApiDetected}
+        isApiDetected={isApiDetected}
+      />
 
       {/* Section displaying the collection of items and current count. */}
       <section>

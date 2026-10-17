@@ -8,19 +8,19 @@
 // Individual item operations (GET, PUT, DELETE) are handled in app/api/items/[id]/route.ts.
 
 import { NextResponse } from "next/server";
-import { fetchItems, addItem } from "@/lib/mockapi";
+import { fetchItems, addItem, isMockApiConfigured } from "@/lib/mockapi";
 
 /* ============================================================ */
 /* GET Request Handler                                          */
 /* ============================================================ */
 
 // Handles incoming HTTP GET requests targeting "/api/items".
-// Retrieves all item records from MockAPI cloud or in-memory fallback cache.
+// Retrieves all item records from MockAPI cloud service.
 export async function GET() {
   try {
     // Calling lib.
     // fetchItems came from "lib/mockapi.ts" and it handles data fetching.
-    // It queries external MockAPI cloud service or falls back to in-memory cache.
+    // It queries external MockAPI cloud service and returns an empty list if unconfigured.
     const items = await fetchItems();
 
     // Return JSON response with HTTP 200 OK.
@@ -42,6 +42,14 @@ export async function GET() {
 // Validates request payload and persists a new item into the database.
 export async function POST(request: Request) {
   try {
+    // MockAPI endpoint detection check.
+    // Rejects request with HTTP 503 Service Unavailable if MockAPI endpoint is not detected.
+    if (!isMockApiConfigured())
+      return NextResponse.json(
+        { error: "MockAPI endpoint is not detected. Data creation is disabled." },
+        { status: 503 }
+      );
+
     // Parse JSON request body.
     const body = await request.json();
 
@@ -61,15 +69,16 @@ export async function POST(request: Request) {
 
     // Calling lib.
     // addItem came from "lib/mockapi.ts" and it handles record creation.
-    // It sends an HTTP POST request to MockAPI cloud or pushes the item into memory cache.
+    // It sends an HTTP POST request to MockAPI cloud service.
     const createdItem = await addItem(payload);
 
     // Return created record with HTTP 201 Created.
     return NextResponse.json(createdItem, { status: 201 });
-  } catch {
+  } catch (error) {
     // Error handling.
+    const message = error instanceof Error ? error.message : "Failed to process create item request.";
     return NextResponse.json(
-      { error: "Failed to process create item request." },
+      { error: message },
       { status: 500 }
     );
   }

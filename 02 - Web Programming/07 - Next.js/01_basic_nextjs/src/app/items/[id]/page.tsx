@@ -50,6 +50,9 @@ function ItemDetailContent() {
   /* Component State Declarations (useState Hook)                 */
   /* ============================================================ */
 
+  // Detects whether the MockAPI endpoint is configured in the environment.
+  const isApiDetected = Boolean(process.env.NEXT_PUBLIC_MOCK_API_URL?.trim());
+
   // Holds the complete item record retrieved from the backend API.
   const [item, setItem] = useState<Item | null>(null);
   // Controlled input state for editing the item name.
@@ -57,11 +60,18 @@ function ItemDetailContent() {
   // Controlled input state for editing the item description.
   const [info, setInfo] = useState<string>("");
   // Indicates whether the initial item details are actively being loaded.
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(isApiDetected);
   // Indicates whether an update or delete network request is currently executing.
   const [saving, setSaving] = useState<boolean>(false);
   // Stores user alert feedback for display in the notification banner.
-  const [status, setStatus] = useState<{ type: "success" | "error" | "info"; message: string } | null>(null);
+  const [status, setStatus] = useState<{ type: "success" | "error" | "info" | "warning"; message: string } | null>(
+    !isApiDetected
+      ? {
+          type: "warning",
+          message: "MockAPI endpoint is not detected. Data modification is disabled."
+        }
+      : null
+  );
 
   /* ============================================================ */
   /* Data Fetching Lifecycle (useEffect Hook)                     */
@@ -69,8 +79,8 @@ function ItemDetailContent() {
 
   // Fetches item details from backend whenever the dynamic route parameter [id] changes.
   useEffect(() => {
-    // Guard against undefined ID parameter.
-    if (!id)
+    // Guard against undefined ID parameter or unconfigured MockAPI endpoint.
+    if (!id || !isApiDetected)
       return;
 
     // Async function.
@@ -108,7 +118,7 @@ function ItemDetailContent() {
 
     // Async function calling.
     loadItemDetail();
-  }, [id]);
+  }, [id, isApiDetected]);
 
   /* ============================================================ */
   /* Item Update and Deletion Handlers                            */
@@ -118,6 +128,15 @@ function ItemDetailContent() {
   const handleUpdate = async (e: React.FormEvent) => {
     // Prevent default form submission reload.
     e.preventDefault();
+
+    // Guard against update when MockAPI endpoint is not detected.
+    if (!isApiDetected) {
+      setStatus({
+        type: "warning",
+        message: "MockAPI endpoint is not detected. Cannot save changes."
+      });
+      return;
+    }
 
     // Input validation.
     if (!name.trim())
@@ -135,8 +154,10 @@ function ItemDetailContent() {
       });
 
       // Error handling.
-      if (!res.ok)
-        throw new Error("Failed to update item");
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => null);
+        throw new Error(errorData?.error || "Failed to update item.");
+      }
 
       // Data received.
       const updatedData: Item = await res.json();
@@ -147,11 +168,12 @@ function ItemDetailContent() {
         type: "success",
         message: "Item updated successfully."
       });
-    } catch {
+    } catch (error) {
       // useState setter.
+      const message = error instanceof Error ? error.message : "Error updating item.";
       setStatus({
         type: "error",
-        message: "Error updating item."
+        message
       });
     } finally {
       // useState setter.
@@ -161,6 +183,15 @@ function ItemDetailContent() {
 
   // Displays a browser confirmation and sends an HTTP DELETE request to remove the item.
   const handleDelete = async () => {
+    // Guard against deletion when MockAPI endpoint is not detected.
+    if (!isApiDetected) {
+      setStatus({
+        type: "warning",
+        message: "MockAPI endpoint is not detected. Cannot delete item."
+      });
+      return;
+    }
+
     // Confirmation dialog before deletion.
     if (!confirm("Are you sure you want to delete this item?"))
       return;
@@ -175,16 +206,19 @@ function ItemDetailContent() {
       });
 
       // Error handling.
-      if (!res.ok)
-        throw new Error("Failed to delete item");
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => null);
+        throw new Error(errorData?.error || "Failed to delete item.");
+      }
 
       // Redirect back to homepage after deletion.
       router.push("/");
-    } catch {
+    } catch (error) {
       // useState setter.
+      const message = error instanceof Error ? error.message : "Error deleting item.";
       setStatus({
         type: "error",
-        message: "Error deleting item."
+        message
       });
       setSaving(false);
     }
@@ -236,7 +270,7 @@ function ItemDetailContent() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="form-input"
-                disabled={saving}
+                disabled={saving || !isApiDetected}
                 required
               />
             </div>
@@ -250,7 +284,7 @@ function ItemDetailContent() {
                 onChange={(e) => setInfo(e.target.value)}
                 className="form-input"
                 rows={4}
-                disabled={saving}
+                disabled={saving || !isApiDetected}
               />
             </div>
 
@@ -258,16 +292,16 @@ function ItemDetailContent() {
             <div className="flex gap-3">
               <button
                 type="submit"
-                className="button bg-blue-600 hover:bg-blue-700 text-white"
-                disabled={saving || !name.trim()}
+                className="button bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={saving || !name.trim() || !isApiDetected}
               >
-                {saving ? "Saving..." : "Save Changes"}
+                {!isApiDetected ? "API Not Detected" : (saving ? "Saving..." : "Save Changes")}
               </button>
               <button
                 type="button"
                 onClick={handleDelete}
-                className="button bg-red-600 hover:bg-red-700 text-white"
-                disabled={saving}
+                className="button bg-red-600 hover:bg-red-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={saving || !isApiDetected}
               >
                 Delete Item
               </button>
