@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>01 - HTML Attributes</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Direct Control Of Standard HTML Attributes                   -->
+    <!-- ============================================================ -->
+
+    <!-- 1. Standard Attribute Replacement (th:href, th:value, th:style) -->
+    <!-- Usage: Prefix almost any HTML attribute with "th:" while keeping the static attribute for offline browser preview. -->
+    <!-- Effect: Thymeleaf overwrites href, value, and style with the evaluated expression at runtime. -->
+    <p><a href="/fallback" th:href="${targetUrl}">Link</a></p>
+    <p><input type="text" value="Static Text" th:value="${inputValue}" readonly/></p>
+    <p style="color: gray;" th:style="${textColor}">Styled Text</p>
+
+    <!-- 2. Boolean HTML Attributes (th:disabled, th:checked, th:readonly, th:selected) -->
+    <!-- Effect: When true, renders disabled="disabled" / checked="checked"; when false, omits the attribute completely. -->
+    <!-- Note: Never write disabled="false" in HTML because browsers treat any presence of "disabled" as disabled. -->
+    <p><button type="button" th:disabled="${isDisabled}">Disabled Button</button></p>
+    <p><button type="button" th:disabled="${!isDisabled}">Enabled Button</button></p>
+    <p><input type="checkbox" th:checked="${isChecked}"/></p>
+</body>
+
+</html>

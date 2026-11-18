@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02 - POST Routing</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Basic POST Request Routing                                   -->
+    <!-- ============================================================ -->
+
+    <!-- Setting action="/routing/post" and method="post" submits form inputs to @PostMapping("/routing/post"). -->
+    <!-- The input "name" attribute must match the @RequestParam name on the backend controller method. -->
+    <form action="/routing/post" method="post">
+        <input type="text" name="userName" placeholder="Enter name"/>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Before submitting, ${result} is null so the paragraph renders empty; after POST, it displays the backend response. -->
+    <p th:text="${result}">Result</p>
+</body>
+
+</html>

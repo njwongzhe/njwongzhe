@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>01 - Variable Expressions</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Variable Expressions (${...})                                -->
+    <!-- ============================================================ -->
+
+    <!-- 1. Direct Model Attribute Access -->
+    <!-- Usage: ${attributeName} reads an attribute added via model.addAttribute("title", ...). -->
+    <p th:text="${title}">Title</p>
+
+    <!-- 2. Property & Collection Index Navigation -->
+    <!-- Usage: Access bean getters (${items[0].name}) or list elements by index. -->
+    <p th:text="${items[0].name}">First Item</p>
+
+    <!-- 3. Built-In Utility Objects (#lists, #strings) -->
+    <!-- Usage: Prefix utility object names with "#" to call helper methods on the server. -->
+    <p th:text="${#lists.size(items)}">0</p>
+    <p th:text="${#strings.toUpperCase(title)}">TITLE</p>
+
+    <!-- 4. Literal Substitution (|...|) -->
+    <!-- Usage: Wrap text and ${...} inside pipes |...| instead of concatenating with "+". -->
+    <p th:text="|Total items in list: ${#lists.size(items)}|">Total items</p>
+</body>
+
+</html>

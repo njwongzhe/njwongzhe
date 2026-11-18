@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>05 - Fragment Expressions</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Fragment Expressions (~{...})                                -->
+    <!-- ============================================================ -->
+
+    <!-- 1. External File Named Fragment With Parameters -->
+    <!-- Usage: ~{templatePath :: fragmentName(args)} locates a th:fragment inside templates/fragments/sample.html. -->
+    <div th:replace="~{fragments/sample :: greetingBox('Included via ~{...}')}"></div>
+
+    <!-- 2. Whole Template Inclusion -->
+    <!-- Usage: Omit ":: fragmentName" to include the entire body of the target template file. -->
+    <!--
+    <div th:insert="~{fragments/sample}"></div>
+    -->
+
+    <!-- 3. Empty Fragment Expression (~{}) -->
+    <!-- Effect: Represents an empty markup fragment that renders nothing (useful as a conditional fallback). -->
+    <div th:replace="~{}"></div>
+</body>
+
+</html>

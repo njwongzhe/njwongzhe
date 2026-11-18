@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02 - Text Attributes</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Content Replacement (th:text & th:utext)                     -->
+    <!-- ============================================================ -->
+
+    <!-- 1. Escaped Text (th:text) -->
+    <!-- Effect: Replaces inner tag content and escapes "<", ">", "&" so raw HTML tags display as plain text. -->
+    <p th:text="${safeText}">Placeholder</p>
+
+    <!-- 2. Unescaped HTML (th:utext) -->
+    <!-- Effect: Inserts raw HTML without escaping so tags like <strong> are parsed by the browser. -->
+    <!-- Warning: Never pass untrusted user input into th:utext to avoid XSS vulnerabilities. -->
+    <p th:utext="${rawHtml}">Placeholder</p>
+
+    <!-- 3. Null Value Behavior -->
+    <!-- Effect: If the expression evaluates to null, Thymeleaf renders an empty tag body rather than throwing an error. -->
+    <p th:text="${nonExistentAttr}">Static placeholder removed when null</p>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>08 - Fragment Attributes</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Fragment Attributes (th:fragment, th:insert, th:replace, th:remove) -->
+    <!-- ============================================================ -->
+
+    <!-- 1. Fragment Definition (th:fragment) -->
+    <!-- Usage: th:fragment="name(param)" marks a reusable block; "this :: name" references a fragment in the same file. -->
+    <div th:fragment="localBanner(label)">
+        <p th:text="${label}">Banner</p>
+    </div>
+
+    <!-- 2. th:insert vs. th:replace (DOM Difference) -->
+    <!-- Effect (th:insert): Keeps the host <div> and inserts the fragment inside -> <div><div><p>th:insert</p></div></div>. -->
+    <div th:insert="~{this :: localBanner('th:insert')}"></div>
+
+    <!-- Effect (th:replace): Deletes the host <div> and swaps it with the fragment -> <div><p>th:replace</p></div>. -->
+    <div th:replace="~{this :: localBanner('th:replace')}"></div>
+
+    <!-- 3. Prototype Cleanup (th:remove) -->
+    <!-- th:remove="all": Removes both the host tag and all its children at runtime. -->
+    <div th:remove="all">
+        <p>Removed completely at runtime</p>
+    </div>
+
+    <!-- th:remove="tag": Removes the host <div> wrapper but keeps its inner <p> children. -->
+    <div th:remove="tag">
+        <p>Host div removed, child paragraph kept</p>
+    </div>
+
+    <!-- th:remove="body": Keeps the empty host <div> tag but removes all its children. -->
+    <div th:remove="body">
+        <p>Inner body removed, empty div kept</p>
+    </div>
+
+    <!-- th:remove="all-but-first": Keeps the first child element and removes all remaining sibling prototypes. -->
+    <ul th:remove="all-but-first">
+        <li>Kept first item</li>
+        <li>Static prototype item 2 (removed)</li>
+        <li>Static prototype item 3 (removed)</li>
+    </ul>
+</body>
+
+</html>

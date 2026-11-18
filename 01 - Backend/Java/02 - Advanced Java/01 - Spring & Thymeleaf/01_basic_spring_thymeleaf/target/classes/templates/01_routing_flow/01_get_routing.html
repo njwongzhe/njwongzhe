@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>01 - GET Routing</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Basic GET Request Routing                                    -->
+    <!-- ============================================================ -->
+
+    <!-- Clicking a standard HTML href sends an HTTP GET request to @GetMapping("/routing/get"). -->
+    <!-- Query parameters after "?" (e.g. ?userName=Alice) are bound by @RequestParam on the backend. -->
+    <a href="/routing/get">GET /routing/get</a><br>
+    <a href="/routing/get?userName=Alice">GET /routing/get?userName=Alice</a>
+
+    <!-- Thymeleaf reads attributes stored via model.addAttribute("key", value) and replaces the placeholder text. -->
+    <p th:text="${message}">Message</p>
+    <p th:text="${itemCount}">0</p>
+</body>
+
+</html>

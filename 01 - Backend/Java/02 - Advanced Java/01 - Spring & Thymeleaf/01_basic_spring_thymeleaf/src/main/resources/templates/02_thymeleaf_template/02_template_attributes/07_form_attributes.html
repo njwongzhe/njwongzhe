@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>07 - Form Attributes</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Form Binding & Validation (th:object, th:field, th:errors)   -->
+    <!-- ============================================================ -->
+
+    <p th:if="${savedName}" th:text="${'Saved: ' + savedName}"></p>
+
+    <!-- 1. Form Command Binding (th:object) -->
+    <!-- Usage: Bind <form> to the Model attribute passed from GET/POST controller ("item"). -->
+    <!-- Rule: Child th:field and th:errors expressions must use *{...} selection syntax relative to th:object. -->
+    <form th:action="@{/attributes/form}" th:object="${item}" method="post">
+
+        <!-- 2. Input Binding (th:field) -->
+        <!-- Effect: th:field="*{name}" automatically generates id="name", name="name", and value="...", preserving user input on error. -->
+        <input type="text" th:field="*{name}" placeholder="Name"/>
+
+        <!-- 3. Field Validation Errors (#fields.hasErrors & th:errors) -->
+        <!-- Effect: Renders the Jakarta Bean Validation message (e.g. @NotBlank) only if "name" failed validation. -->
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+
+        <!-- 4. Checkbox Binding -->
+        <!-- Effect: For boolean fields, th:field="*{active}" sets checked="checked" and emits a hidden "_active" field for unchecked submissions. -->
+        <input type="text" th:field="*{category}" placeholder="Category"/>
+        <input type="checkbox" th:field="*{active}"/>
+
+        <!-- 5. Global Form Errors (Non-Field Errors) -->
+        <!-- Usage: Captures errors attached via BindingResult.reject("code", "message") in the controller. -->
+        <p th:if="${#fields.hasGlobalErrors()}" th:errors="*{global}"></p>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

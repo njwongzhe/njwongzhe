@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Parent Artifact Configuration -->
+	<!-- Spring Boot starter parent provides dependency management and default plugin configurations. -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.1.2</version>
+		<relativePath/>
+	</parent>
+
+	<!-- Core Project Coordinates -->
+	<!-- The groupId defines the organizational namespace for this project. -->
+	<groupId>my.utm</groupId>
+	<!-- The artifactId defines the unique module identifier and build artifact name. -->
+	<artifactId>01_basic_spring_thymeleaf</artifactId>
+	<!-- The version defines the release iteration of this artifact. -->
+	<version>1.0.0</version>
+	<!-- The packaging defines the final archive format as an executable JAR bundle. -->
+	<packaging>jar</packaging>
+
+	<name>01_basic_spring_thymeleaf</name>
+	<description>Educational Spring Web MVC and Thymeleaf campus booking reference project</description>
+
+	<!-- Build Properties -->
+	<!-- Control the Java compiler version and source file encoding. -->
+	<properties>
+		<java.version>21</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<!-- Project Dependencies -->
+	<!-- Direct dependencies are declared here while Maven resolves transitive dependencies automatically. -->
+	<dependencies>
+		<!-- Spring Web MVC And Embedded Tomcat -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc</artifactId>
+		</dependency>
+
+		<!-- Thymeleaf Server-Side Template Engine -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<!-- Jakarta Bean Validation For Form Inputs -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+		<!-- Spring Boot DevTools For Automatic Restart And Live Reload -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Spring Boot Starter Test For Automated Testing -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- Build Plugins -->
+	<build>
+		<plugins>
+			<!-- Package the application into a standalone executable JAR archive. -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

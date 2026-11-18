@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<body>
+    <!-- Reusable Fragment Definition -->
+    <div th:fragment="greetingBox(title)" style="border: 1px solid #94a3b8; padding: 10px; margin: 10px 0;">
+        <h3 th:text="${title}">Fragment Title</h3>
+        <p>This block is defined in fragments/sample.html using th:fragment.</p>
+    </div>
+</body>
+
+</html>
+

@@ -1,0 +1,9 @@
+my\utm\springthymeleaf\controller\C00_HomeController.class
+my\utm\springthymeleaf\controller\C03_AttributeDemoController.class
+my\utm\springthymeleaf\model\DemoItem.class
+my\utm\springthymeleaf\service\DemoItemService.class
+my\utm\springthymeleaf\controller\C01_RoutingDemoController.class
+my\utm\springthymeleaf\controller\C02_ExpressionDemoController.class
+my\utm\springthymeleaf\SpringThymeleafApplication.class
+my\utm\springthymeleaf\repository\DemoItemRepository.class
+my\utm\springthymeleaf\repository\InMemoryDemoItemRepository.class

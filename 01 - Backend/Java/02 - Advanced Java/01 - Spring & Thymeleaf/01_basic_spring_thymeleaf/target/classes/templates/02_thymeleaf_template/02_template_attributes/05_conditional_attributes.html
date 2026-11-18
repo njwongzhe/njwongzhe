@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>05 - Conditional Attributes</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Conditional Rendering (th:if, th:unless, th:switch, th:case) -->
+    <!-- ============================================================ -->
+
+    <!-- 1. Truthiness Rules In th:if And th:unless -->
+    <!-- Rule: Thymeleaf treats true, non-zero numbers, non-empty strings, and non-null objects as truthy. -->
+    <!-- Rule: false, null, 0, "false", "off", and "no" evaluate to falsy. -->
+    <!-- Effect: When th:if is false, the element and all its children are removed from the output DOM. -->
+    <p th:if="${isVisible}">Rendered via th:if (true)</p>
+    <p th:if="${!isVisible}">Omitted via th:if (false)</p>
+
+    <!-- 2. Inverse Condition (th:unless) -->
+    <!-- Usage: Equivalent to th:if="${!(condition)}"; renders only when the expression is false. -->
+    <p th:unless="${!isVisible}">Rendered via th:unless (condition is false)</p>
+
+    <!-- 3. Multi-Branch Switch (th:switch & th:case) -->
+    <!-- Effect: Evaluates th:switch once, renders the first matching th:case, and skips all remaining branches. -->
+    <!-- Usage: th:case="*" acts as the default branch when no other case matches. -->
+    <div th:switch="${role}">
+        <p th:case="'ADMIN'">Admin</p>
+        <p th:case="'USER'">User</p>
+        <p th:case="*">Guest (Default)</p>
+    </div>
+</body>
+
+</html>

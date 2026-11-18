@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>04 - Message Expressions</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Message Expressions (#{...})                                 -->
+    <!-- ============================================================ -->
+
+    <!-- 1. Basic Message Key Lookup -->
+    <!-- Usage: #{key} reads the matching property from src/main/resources/messages.properties. -->
+    <p th:text="#{msg.welcome}">Welcome</p>
+    <p th:text="#{msg.description}">Description</p>
+
+    <!-- 2. Parameterized Message With Placeholders ({0}, {1}) -->
+    <!-- Usage: Pass comma-separated arguments inside (...) to fill {0}, {1} in messages.properties. -->
+    <!-- Effect: msg.greeting=Hello, {0}! Welcome to {1}. renders "Hello, Alice! Welcome to Spring." -->
+    <p th:text="#{msg.greeting('Alice', 'Spring')}">Greeting</p>
+</body>
+
+</html>

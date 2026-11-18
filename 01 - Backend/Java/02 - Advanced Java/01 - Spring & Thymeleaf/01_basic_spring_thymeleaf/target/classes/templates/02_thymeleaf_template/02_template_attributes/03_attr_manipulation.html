@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>03 - Attribute Manipulation</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Attribute Manipulation (th:attr, th:attrprepend, th:attrappend) -->
+    <!-- ============================================================ -->
+
+    <!-- 1. Generic Assignment (th:attr) -->
+    <!-- Usage: Comma-separated assignments for attributes without a dedicated th:* shortcut (e.g. data-* attributes). -->
+    <!-- Effect: Sets both title="..." and data-demo="active" on the <p> tag. -->
+    <p th:attr="title=${tooltipText}, data-demo='active'">Hover for title</p>
+
+    <!-- 2. Prepending To Existing Attributes (th:attrprepend) -->
+    <!-- Effect: Inserts "${extraClass} " before "base" -> class="highlight base". -->
+    <p class="base" th:attrprepend="class=${extraClass + ' '}">Prepended class</p>
+
+    <!-- 3. Appending To Existing Attributes (th:attrappend) -->
+    <!-- Effect: Inserts " ${extraClass}" after "base" -> class="base highlight". -->
+    <p class="base" th:attrappend="class=${' ' + extraClass}">Appended class</p>
+
+    <!-- 4. Dedicated Class/Style Append Shorthands -->
+    <!-- Usage: th:classappend automatically adds a separating space so you do not need ' ' + extraClass. -->
+    <p class="base" th:classappend="${extraClass}">Shorthand th:classappend</p>
+</body>
+
+</html>

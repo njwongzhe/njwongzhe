@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>03 - Link URL Expressions</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Link URL Expressions (@{...})                                -->
+    <!-- ============================================================ -->
+
+    <!-- 1. Static Context-Relative URL -->
+    <!-- Effect: Automatically prepends the application context path (e.g. /routing/get). -->
+    <p><a th:href="@{/routing/get}">Static Link</a></p>
+
+    <!-- 2. Query Parameters -->
+    <!-- Usage: Key-value pairs inside (...) become ?key=value&... query parameters. -->
+    <!-- Effect: Renders href="/routing/get?userName=Alice". -->
+    <p><a th:href="@{/routing/get(userName='Alice')}">Query Parameters</a></p>
+
+    <!-- 3. Path Variables -->
+    <!-- Usage: Placeholders in {braces} are substituted by matching names inside (...). -->
+    <!-- Effect: Renders href="/expressions/url/1" instead of appending ?id=1. -->
+    <p><a th:href="@{/expressions/url/{id}(id=${sampleId})}">Path Variable</a></p>
+
+    <!-- 4. Combined Path Variable & Query Parameter -->
+    <!-- Effect: Renders href="/expressions/url/1?mode=quick". -->
+    <p><a th:href="@{/expressions/url/{id}(id=${sampleId}, mode='quick')}">Path + Query</a></p>
+
+    <!-- 5. Absolute / External URL -->
+    <!-- Effect: URLs starting with http:// or https:// are left untouched without adding context path. -->
+    <p><a th:href="@{https://www.thymeleaf.org}">External Link</a></p>
+
+    <p th:if="${activeMode}" th:text="|Matched Path ID: ${sampleId}, Mode: ${activeMode}|"></p>
+</body>
+
+</html>

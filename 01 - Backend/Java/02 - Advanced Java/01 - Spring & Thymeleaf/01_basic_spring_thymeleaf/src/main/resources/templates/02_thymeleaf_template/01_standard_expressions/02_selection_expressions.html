@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02 - Selection Expressions</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Selection Expressions (*{...}) & th:object Scope             -->
+    <!-- ============================================================ -->
+
+    <!-- 1. Valid: Same Tag (Self) -->
+    <!-- Effect: th:object executes first, so *{name} on the same tag resolves to ${item.name}. -->
+    <p th:object="${item}" th:text="*{name}">Valid on the same tag</p>
+
+    <!-- 2. Valid: Nested & Nearest Enclosing Scope -->
+    <!-- Effect: Children inherit the nearest enclosing th:object; inner th:object overrides the outer one. -->
+    <div th:object="${item}">
+        <p th:text="*{id}">Points to item.id</p>
+        <p th:text="*{name}">Points to item.name</p>
+
+        <!-- Inner th:object narrows the scope to item.category (note: Spring requires ${...} in th:object, not *{...}). -->
+        <div th:object="${item.category}">
+            <p th:text="*{toLowerCase()}">Points to the nearest object (item.category)</p>
+        </div>
+
+        <!-- Outside the inner div, *{...} reverts back to the outer th:object (${item}). -->
+        <p th:text="*{active}">Points back to item.active</p>
+    </div>
+
+    <!-- 3. Invalid: Sibling / Outside Scope (Commented Out) -->
+    <!-- Effect: *{name} outside the enclosing tag has no active th:object and throws an evaluation error. -->
+    <!--
+    <div th:object="${item}"></div>
+    <p th:text="*{name}">Invalid outside the enclosing tag</p>
+    -->
+</body>
+
+</html>

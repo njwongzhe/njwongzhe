@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>06 - Iteration Attribute</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Collection Iteration (th:each)                               -->
+    <!-- ============================================================ -->
+
+    <!-- 1. Iteration Variable & Status Object (stat) -->
+    <!-- Usage: Place th:each on the tag you want repeated (e.g. <li> or <tr>), not on the parent <ul> or <table>. -->
+    <!-- Effect: Repeats the <li> once per element in ${items}; "item" and "stat" exist only inside the repeated tag. -->
+    <!-- Status properties: stat.index (0-based), stat.count (1-based), stat.size, stat.first, stat.last, stat.even, stat.odd. -->
+    <ul>
+        <li th:each="item, stat : ${items}"
+            th:text="|#${stat.count}/${stat.size} (first=${stat.first}, last=${stat.last}): ${item.name}|">
+            Item
+        </li>
+    </ul>
+
+    <!-- 2. Empty Collection Behavior -->
+    <!-- Effect: If the collection is empty or null, zero <li> elements are rendered; pair with th:if="${#lists.isEmpty(items)}" for fallback text. -->
+    <p th:if="${#lists.isEmpty(items)}">No items found.</p>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>04 - Local Variables</title>
+</head>
+
+<body>
+    <p><a href="/"><button type="button">&larr; Back</button></a></p>
+
+    <!-- ============================================================ -->
+    <!-- Scoped Local Variables (th:with)                             -->
+    <!-- ============================================================ -->
+
+    <!-- 1. Valid: Same Tag (Self) -->
+    <!-- Effect: th:with executes before th:text on the same tag, so ${name} resolves to ${sampleItem.name}. -->
+    <p th:with="name=${sampleItem.name}" th:text="${name}">Same tag</p>
+
+    <!-- 2. Valid: Nested & Shadowing Scope -->
+    <!-- Effect: Variables are visible to all child tags; an inner th:with with the same name shadows the outer value. -->
+    <div th:with="label=${sampleItem.name}, itemCat=${sampleItem.category}">
+        <p th:text="${label}">Outer label</p>
+        <p th:text="${itemCat}">Outer category</p>
+
+        <div th:with="label='Inner Shadowed Value'">
+            <p th:text="${label}">Inner label</p>
+        </div>
+
+        <!-- Outside the inner div, ${label} returns to the outer value. -->
+        <p th:text="${label}">Back to outer label</p>
+    </div>
+
+    <!-- 3. Invalid: Sibling / Outside Scope -->
+    <!-- Effect: Outside the enclosing tag, ${itemCat} is out of scope and evaluates to null (empty output). -->
+    <div th:with="tempVar='Only inside div'"></div>
+    <p th:text="${tempVar}">Renders empty outside the div</p>
+</body>
+
+</html>

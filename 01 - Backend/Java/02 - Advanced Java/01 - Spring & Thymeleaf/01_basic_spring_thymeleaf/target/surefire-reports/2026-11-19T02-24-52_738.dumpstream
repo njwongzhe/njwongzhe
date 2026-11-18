@@ -1,0 +1,5 @@
+# Created at 2026-11-19T02:24:53.023
+Boot Manifest-JAR contains absolute paths in classpath 'E:\Github\njwongzhe\01 - Backend\Java\02 - Advanced Java\01 - Spring & Thymeleaf\01_basic_spring_thymeleaf\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
