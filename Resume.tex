@@ -1,0 +1,345 @@
+% ==============================================================================
+% Modern Single-Page Asymmetric Two-Column Resume (Overleaf / pdfLaTeX)
+% ==============================================================================
+% Upload your profile photo named "photo.jpg" in the Overleaf left file panel.
+% Set the Overleaf compiler to pdfLaTeX (default).
+
+\documentclass[10pt,a4paper]{article}
+
+% ==============================================================================
+% Overleaf Standard Packages
+% ==============================================================================
+
+\usepackage[T1]{fontenc}
+\usepackage[default]{lato}
+\usepackage[left=0.70cm, right=0.85cm, top=0.85cm, bottom=0.80cm]{geometry}
+\usepackage{paracol}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage[hidelinks]{hyperref}
+
+% ==============================================================================
+% Color Palette (Theme #B2D59B + Botanical Dark Green + Award Highlights)
+% ==============================================================================
+
+\definecolor{theme}{HTML}{B2D59B}
+\definecolor{deepgreen}{HTML}{1F4224}
+\definecolor{sectionrule}{HTML}{7AA566}
+\definecolor{subgreen}{HTML}{4A6B4E}
+\definecolor{ink}{HTML}{18181B}
+\definecolor{charcoal}{HTML}{2D3748}
+\definecolor{muted}{HTML}{64748B}
+\definecolor{sidebarbg}{HTML}{F5F9F2}
+\definecolor{tagbg}{HTML}{EBF4E5}
+\definecolor{divider}{HTML}{DCE7D6}
+
+% Special highlight colors for competition award badges.
+\definecolor{goldbg}{HTML}{FEF3C7}
+\definecolor{goldborder}{HTML}{D97706}
+\definecolor{goldtext}{HTML}{92400E}
+\definecolor{honorbg}{HTML}{E0F2FE}
+\definecolor{honorborder}{HTML}{0284C7}
+\definecolor{honortext}{HTML}{075985}
+
+% ==============================================================================
+% Global Layout & Typography
+% ==============================================================================
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.08}
+\color{charcoal}
+
+% Configure paracol asymmetric ratio (32% left sidebar, 68% right main column).
+\columnratio{0.32}
+\setlength{\columnsep}{1.10cm}
+
+% Style section headings cleanly across both columns with slightly deeper green text and underline.
+\titleformat{\section}
+    {\fontsize{10.4}{12.2}\selectfont\bfseries\color{deepgreen}}
+    {}
+    {0pt}
+    {}
+    [\vspace{2.2pt}{\color{sectionrule}\titlerule[1.4pt]}]
+\titlespacing*{\section}{0pt}{10pt}{5.5pt}
+
+% Configure consistent bullet lists for project and competition entries.
+\newlist{cvbullets}{itemize}{1}
+\setlist[cvbullets]{
+    leftmargin=1.15em,
+    itemsep=1.2pt,
+    topsep=2pt,
+    parsep=0pt,
+    partopsep=0pt,
+    label=\textcolor{deepgreen}{\textbullet}
+}
+
+% ==============================================================================
+% Reusable Resume Macros
+% ==============================================================================
+
+% Render a single aligned contact row in the left sidebar.
+\newcommand{\contactrow}[2]{%
+    \noindent\makebox[1.35em][c]{\textcolor{deepgreen}{\footnotesize #1}}\hspace{3.5pt}{\footnotesize\textcolor{charcoal}{#2}}\par\vspace{4.5pt}%
+}
+
+% Render a compact rounded Tech Stack pill tag with uniform baseline height.
+\newcommand{\skilltag}[1]{%
+    \tikz[baseline=(tag.base)]{%
+        \node[
+            inner xsep=4.2pt,
+            inner ysep=1.7pt,
+            text height=1.35ex,
+            text depth=0.3ex,
+            rounded corners=2.5pt,
+            fill=tagbg,
+            draw=theme,
+            line width=0.55pt,
+            font=\scriptsize\color{deepgreen}
+        ] (tag) {#1};%
+    }\hspace{2pt}\allowbreak%
+}
+
+% Render a warm gold highlight badge for top award honors.
+\newcommand{\goldpill}[1]{%
+    \tikz[baseline=(aw.base)]{%
+        \node[
+            inner xsep=4.2pt,
+            inner ysep=1.4pt,
+            text height=1.3ex,
+            text depth=0.25ex,
+            rounded corners=2.5pt,
+            fill=goldbg,
+            draw=goldborder,
+            line width=0.55pt,
+            font=\scriptsize\bfseries\color{goldtext}
+        ] (aw) {\faTrophy\hspace{2.5pt}#1};%
+    }%
+}
+
+% Render a crisp sapphire highlight badge for finalist honors.
+\newcommand{\honorpill}[1]{%
+    \tikz[baseline=(aw.base)]{%
+        \node[
+            inner xsep=4.2pt,
+            inner ysep=1.4pt,
+            text height=1.3ex,
+            text depth=0.25ex,
+            rounded corners=2.5pt,
+            fill=honorbg,
+            draw=honorborder,
+            line width=0.55pt,
+            font=\scriptsize\bfseries\color{honortext}
+        ] (aw) {\faMedal\hspace{2.5pt}#1};%
+    }%
+}
+
+% Render a subtle visual divider between individual projects or education degrees.
+\newcommand{\entrysep}{%
+    \par\vspace{5pt}%
+    {\color{divider}\hrule height 0.45pt}%
+    \vspace{5pt}%
+}
+
+% Render a unified project or competition header row with a left accent marker.
+% Arguments: {Title}{Event (optional)}{Award Badge (optional)}{GitHub URL}{Date or Institution}
+\newcommand{\projecthead}[5]{%
+    \noindent
+    \textcolor{theme}{\rule[-1.4pt]{2.8pt}{9.5pt}}\hspace{5pt}%
+    {\fontsize{9.8}{11.8}\selectfont\bfseries\textcolor{ink}{#1}}%
+    \if\relax\detokenize{#2}\relax\else%
+        \hspace{4.5pt}\textcolor{divider}{\textbar}\hspace{4.5pt}{\fontsize{9.0}{11.2}\selectfont\bfseries\textcolor{deepgreen}{#2}}%
+    \fi%
+    \if\relax\detokenize{#3}\relax\else%
+        \hspace{5.5pt}#3%
+    \fi%
+    \hfill
+    {\footnotesize\textcolor{muted}{%
+        \if\relax\detokenize{#4}\relax\else%
+            \href{#4}{\textcolor{muted}{\faGithub}}\hspace{4.5pt}\textcolor{divider}{\textbar}\hspace{4.5pt}%
+        \fi%
+        #5%
+    }}\par
+}
+
+% Render the technology stack subtitle beneath a project header.
+\newcommand{\techstack}[1]{%
+    \vspace{1.2pt}%
+    \noindent\hspace{7.8pt}{\fontsize{7.6}{9.6}\selectfont\textcolor{subgreen}{#1}}\par
+}
+
+% Render a standard body bullet item.
+\newcommand{\cvitem}[1]{\item {\fontsize{7.95}{10.1}\selectfont\textcolor{charcoal}{#1}}}
+
+% Format lead-in labels consistently across hackathon and academic project bullets.
+\newcommand{\breakthrough}{\textbf{\textcolor{ink}{Breakthrough:}}~}
+\newcommand{\architecture}{\textbf{\textcolor{ink}{Architecture:}}~}
+
+% ==============================================================================
+% Document Body
+% ==============================================================================
+
+\begin{document}
+
+% Full-Height Left Sidebar Background & Top Theme Accent Bar
+\begin{tikzpicture}[remember picture, overlay]
+    \fill[sidebarbg] (current page.north west) rectangle ([xshift=7.22cm]current page.south west);
+    \draw[theme, line width=0.8pt] ([xshift=7.22cm]current page.north west) -- ([xshift=7.22cm]current page.south west);
+    \fill[theme] (current page.north west) rectangle ([yshift=-0.18cm]current page.north east);
+\end{tikzpicture}
+
+\begin{paracol}{2}
+
+% ==============================================================================
+% LEFT COLUMN (32% WIDTH)
+% ==============================================================================
+
+% 1. Rounded Portrait Avatar
+% Upload a portrait image named "photo.jpg" in the Overleaf left panel.
+{\centering
+\vspace*{6pt}
+\begin{tikzpicture}
+    \IfFileExists{photo.jpg}{%
+        \begin{scope}
+            \clip[rounded corners=8pt] (-1.3cm,-1.6cm) rectangle (1.3cm,1.6cm);
+            % Use height=3.3cm instead of width=2.7cm if your photo.jpg is square or landscape.
+            \node[inner sep=0pt] at (0,0) {\includegraphics[width=2.7cm]{photo.jpg}};
+        \end{scope}
+    }{%
+        \fill[tagbg, rounded corners=8pt] (-1.3cm,-1.6cm) rectangle (1.3cm,1.6cm);
+        \node[align=center, font=\scriptsize\color{muted}] at (0,0) {Upload\\\texttt{photo.jpg}};
+    }
+    \draw[theme, line width=1.6pt, rounded corners=8pt] (-1.3cm,-1.6cm) rectangle (1.3cm,1.6cm);
+\end{tikzpicture}
+\par}
+
+\vspace{12pt}
+
+% 2. Personal Profile & Contact Links
+{\centering
+    {\fontsize{17}{20}\selectfont\bfseries\textcolor{ink}{NG JAA WEI}}\\[4pt]
+    {\footnotesize\bfseries\textcolor{deepgreen}{Software Engineering Undergraduate}}\\[1.5pt]
+    {\scriptsize\textcolor{muted}{Full-Stack \& AI Application Developer}}\par
+}
+
+\vspace{14pt}
+
+\contactrow{\faMapMarker*}{Johor, Malaysia}
+\contactrow{\faPhone*}{\href{tel:+601159902542}{011-59902542}}
+\contactrow{\faEnvelope}{\href{mailto:ngjaawei@gmail.com}{ngjaawei@gmail.com}}
+\contactrow{\faGithub}{\href{https://github.com/njwongzhe}{github.com/njwongzhe}}
+
+% 3. Profile Summary
+\vspace{6pt}
+\section*{PROFILE}
+
+\noindent{\fontsize{7.6}{10.2}\selectfont\textcolor{charcoal}{UTM Software Engineering student (CGPA 4.00) building resilient full-stack, mobile, and AI systems. Multi-hackathon finalist focused on rapid prototyping and fault-tolerant architectures.}}\par
+
+% 4. Education
+\vspace{8pt}
+\section*{EDUCATION}
+
+\noindent\textcolor{theme}{\rule[-1pt]{2.4pt}{8.5pt}}\hspace{4.5pt}{\footnotesize\bfseries\textcolor{ink}{Bachelor in Software Engineering}}\\[2pt]
+{\footnotesize\textcolor{deepgreen}{Universiti Teknologi Malaysia (UTM)}}\\[2pt]
+{\scriptsize\textcolor{muted}{2024 -- 2028 (Expected)}} \hfill {\scriptsize\bfseries\textcolor{deepgreen}{CGPA 4.00 / 4.00}}
+
+\entrysep
+
+\noindent\textcolor{theme}{\rule[-1pt]{2.4pt}{8.5pt}}\hspace{4.5pt}{\footnotesize\bfseries\textcolor{ink}{Foundation in Physical Science}}\\[2pt]
+{\footnotesize\textcolor{deepgreen}{Universiti Teknologi Malaysia (UTM)}}\\[2pt]
+{\scriptsize\textcolor{muted}{2023 -- 2024}} \hfill {\scriptsize\bfseries\textcolor{deepgreen}{CGPA 3.96 / 4.00}}
+
+% 5. Tech Stack (Rounded Pills)
+\vspace{8pt}
+\section*{TECH STACK}
+
+{\scriptsize\bfseries\textcolor{ink}{Languages}}\\[4pt]
+{\raggedright\setlength{\baselineskip}{15.2pt}%
+    \skilltag{C++}\skilltag{Java}\skilltag{PHP}\skilltag{Python}\skilltag{Dart}\skilltag{JavaScript}\skilltag{TypeScript}\skilltag{HTML5}\skilltag{CSS3}%
+\par}
+
+\vspace{9pt}
+
+{\scriptsize\bfseries\textcolor{ink}{Frameworks \& Libraries}}\\[4pt]
+{\raggedright\setlength{\baselineskip}{15.2pt}%
+    \skilltag{Next.js}\skilltag{Vue.js}\skilltag{Flutter}\skilltag{Tailwind CSS}\skilltag{Node.js}\skilltag{FastAPI}\skilltag{PHP-Slim}%
+\par}
+
+\vspace{9pt}
+
+{\scriptsize\bfseries\textcolor{ink}{Tools \& Cloud}}\\[4pt]
+{\raggedright\setlength{\baselineskip}{15.2pt}%
+    \skilltag{MySQL}\skilltag{Prisma}\skilltag{Firebase}\skilltag{Supabase}\skilltag{Git}\skilltag{GitHub}\skilltag{VS Code}\skilltag{Antigravity}\skilltag{Figma}\skilltag{Postman}%
+\par}
+
+% ==============================================================================
+% RIGHT COLUMN (68% WIDTH)
+% ==============================================================================
+\switchcolumn
+
+% 6. Competitions & Hackathons
+\vspace*{-8pt}
+\section*{COMPETITIONS \& HACKATHONS}
+
+\projecthead{SkillVerse AI}{SDC Hackathon 2026}{}{https://github.com/njwongzhe/SkillVerse-AI}{2026}
+\techstack{Next.js \textbullet\ FastAPI \textbullet\ PyTorch \textbullet\ Supabase \textbullet\ Ollama (Qwen 2.5) \textbullet\ Gemini API}
+\begin{cvbullets}
+    \cvitem{Built a trilingual (\texttt{next-intl}) AI workforce reskilling platform featuring an autonomous floating agent with a client-side tool router, zero-retention PII-scrubbed resume intake, live ArXiv/RemoteOK trend velocity, dynamic 3-phase roadmaps, gamified XP quizzes, and Canvas heatmaps with PDF export.}
+    \cvitem{\breakthrough Engineered deterministic ESCO dual-track vector matching (Prisma + \texttt{pgvector}) with real-time frontier skill expansion, powered by a 3-tier compute failover (Local Qwen 2.5 via Ollama, RunPod GPU \texttt{bge-m3} cutting latency from 0.4s to 0.05s, Render) and a 26-key Gemini waterfall pool.}
+\end{cvbullets}
+
+\entrysep
+
+\projecthead{TwinSync}{Digitex 2026}{\goldpill{Finalist -- Gold Award}}{https://github.com/njwongzhe/TwinSync}{2026}
+\techstack{Next.js \textbullet\ Three.js \textbullet\ React Three Fiber \textbullet\ Gemini API}
+\begin{cvbullets}
+    \cvitem{Developed a browser-based 3D digital twin for smart-room monitoring featuring a first-person 3D sandbox, 1\ensuremath{\times}1m grid snapping with surface mount constraints, LocalStorage JSON persistence, device controls, and an 8-phase real-time/predictive telemetry alert engine.}
+    \cvitem{\breakthrough Built a server-side AI Asset Architect (Gemini 2.5 Flash) generating custom 3D primitive meshes from text prompts, backed by automated mesh quality scoring, archetype fallback templates, and 20-key failover.}
+\end{cvbullets}
+
+\entrysep
+
+\projecthead{BorNEO AI}{Borneo HackWknd 2026}{\honorpill{Top 20 Finalist}}{https://github.com/njwongzhe/Disaster-Resilience-AI}{2026}
+\techstack{Next.js \textbullet\ Prisma \textbullet\ Supabase \textbullet\ Google Maps API \textbullet\ Gemini API}
+\begin{cvbullets}
+    \cvitem{Created a role-based Malaysia disaster preparedness platform (Supabase Auth magic links + PostgreSQL) separating resident workflows (GPS SOS, QR rescue cards with email-gated emergency contacts, AI survival quizzes \& checklists) from admin triage and alert operations.}
+    \cvitem{\breakthrough Orchestrated an end-to-end AI emergency triage loop combining Google Maps reverse geocoding, Gemini severity reasoning, multilingual alert drafting, and scheduled Cron WeatherAPI ingestion.}
+\end{cvbullets}
+
+\entrysep
+
+\projecthead{PocketNote}{KitaHack 2026}{}{https://github.com/GGY260604/PocketNote}{2026}
+\techstack{Flutter \textbullet\ Hive \textbullet\ Firebase \textbullet\ ML Kit \textbullet\ Gemini API}
+\begin{cvbullets}
+    \cvitem{Built an offline-first cross-platform personal finance recorder (Provider state management) with delta-based multi-account transfers, monthly category budgets, and conversational chat + receipt OCR scanning into user-verified transaction drafts.}
+    \cvitem{\breakthrough Designed a layered offline-first sync architecture (Hive + \texttt{SyncGate} + soft-delete conflict resolution across Cloud Firestore) paired with an OCR-to-Gemini pipeline and offline fallback parser isolating AI from direct database writes.}
+\end{cvbullets}
+
+% 7. Academic Projects
+\vspace{5pt}
+\section*{ACADEMIC PROJECTS}
+
+\projecthead{Quarters Management \& Billing System (QMBS)}{}{}{https://github.com/njwongzhe/Quarters-Management-Billing-System}{UTM}
+\techstack{Next.js \textbullet\ FastAPI \textbullet\ Prisma \textbullet\ Supabase \textbullet\ Gemini API}
+\begin{cvbullets}
+    \cvitem{Developed a 19-table government quarters allocation and double-entry financial billing platform (PostgreSQL + Supabase Auth) featuring live collection dashboards, arrears tracking, payment adjustments, and comprehensive administrative audit trails.}
+    \cvitem{\architecture Built a dual-mode (Strict/Gemini) XLSX/PDF staging verification microservice preventing database pollution, paired with PostgreSQL \texttt{pg\_cron} jobs and real-time triggers for automated monthly billing and age-based eligibility updates.}
+\end{cvbullets}
+
+\entrysep
+
+\projecthead{Online Restaurant Ordering System (Lanita)}{}{}{https://github.com/njwongzhe/Online-Restaurant-Ordering-System}{UTM}
+\techstack{Vue.js \textbullet\ Capacitor \textbullet\ PHP-Slim \textbullet\ MySQL}
+\begin{cvbullets}
+    \cvitem{Engineered a cross-platform web and Android ordering platform (Vite + Capacitor) supporting dine-in, takeaway, and delivery workflows, customizable menu addons, active shopping carts, and real-time admin order tracking.}
+    \cvitem{\architecture Implemented a decoupled Slim 4 PSR-7 REST API (JWT auth, 15-table MySQL schema) with a transaction-safe historical snapshot order state machine freezing unit prices and addons within a single checkout transaction.}
+\end{cvbullets}
+
+\end{paracol}
+
+\end{document}
